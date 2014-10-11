@@ -12,7 +12,8 @@ return array(
 	//开启路由
 	'URL_ROUTER_ON'   => true,
 	'URL_ROUTE_RULES'=>array(
-		'a/:Id'=>'Index/Activation',
+		'a/:Id/:type'=>'Index/Activation',
+		'c/:Id/:type'=>'Index/Activation',
 	),
 	//数据库配置信息
 	'DB_TYPE'   => 'mysql', // 数据库类型

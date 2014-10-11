@@ -25,13 +25,23 @@ class IndexController extends Controller {
 	*/
 	public function Activation(){
 		$id = I('param.Id','');
+		$type = I('param.type','');
 		$data['activation']=1;
-		$User = M('ApplicantUser');
-		if($User->where("id=$id")->save($data)){
-			echo "成功";
-		}else{
-			echo "失败";
+		if($type==1){
+			$User = M('ApplicantUser');
+		}elseif($type==2){
+			$User = M('CompanyInformation');
 		}
+		if($type==1 || $type==2){
+			if($User->where("id=$id")->save($data)){
+				echo "成功";
+			}else{
+				echo "失败";
+			}
+		}else{
+			echo '参数不正确';
+		}
+		
 	}
 	/*
 	*
@@ -39,11 +49,17 @@ class IndexController extends Controller {
 	*
 	*/
 	public function Login(){
-		$User = M('ApplicantUser');
-		$condition['username']=I('param.username1','');
+		$type = I('param.type','');
+		$condition['username']=I('param.username','');
 		$condition['password']=md5(I('param.password',''));
 		$condition['activation']=1;
 		$condition['_logic']='and';
+
+		if($type==1){
+			$User = M('ApplicantUser');
+		}elseif($type==2){
+			$User = M('CompanyInformation');
+		}
 		if($result = $User->where($condition)->select()){
 			session('username',$condition['username']);
 			session('password',$condition['password']);
