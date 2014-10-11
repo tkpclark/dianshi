@@ -11,7 +11,8 @@
 
 <link rel="stylesheet" type="text/css" href="/dianshi/Public/Css/core.css" />
 <link rel="stylesheet" type="text/css" href="/dianshi/Public/Css/style.css" />
-<link href="/dianshi/Public/images/favicon.ico" type="image/ico" rel="shortcut icon"/>
+
+<link href="/favicon.ico" type="image/ico" rel="shortcut icon"/>
 <!--[if lt IE 7]>
 <script>var file_root = '/';</script>
 <script type="text/javascript" src="/js/unitpngfix.js"></script>
@@ -19,19 +20,7 @@
     	//数组最后一个为样式中默认的　#indexpage
     	var homeimgbg=['/img/hbg2.jpg','/img/hbg3.jpg','/img/hbg1.jpg'];
     </script>-->
-<script>
-$(function(){
-$('.login').click(function() {
-	var path = "/dianshi/index.php/Home/Index/Login";  
-	$('#jobform').attr("action", path).submit(); 
-})
 
-$('.registration').click(function() {
-	var path = "/dianshi/index.php/Home/ApplicantUse/Registration";   
-	$('#jobform').attr("action", path).submit(); 
-})
-});
-</script>
 </head>
 <body id="index">
 <div class="wrap">
@@ -86,20 +75,21 @@ $('.registration').click(function() {
         <!--快速登录--> 
         <!-- 我要找工作表单-->
         <div class="plogin" style="display:block;">
-          <form id="jobform" autocomplete="off" name="jobBform" action="111" method="post"   target="_self" style="margin:0px;">
+          <form id="jobform" autocomplete="off" name="loginform" action="job.php" method="post"   target="_self" style="margin:0px;">
             <div class="login_form">
               <div class="uinArea" id="uinArea" >
-                <label class="input_tips" id="uin_tips"  for="u">普通用户账户|邮箱</label>
+                <label class="input_tips" id="uin_tips"  for="u" ></label>
                 <div class="inputOuter">
-                  <input type="text" class="inputstyle"  id="" name="username" value=""   tabindex="1"  />
+                  <input type="text" class="inputstyle"  id="u" name="u" value="普通用户账户|邮箱"   tabindex="1"  onKeyDown="textdown(event)" onKeyUp="textup()" onfocus="if(value=='普通用户账户|邮箱'){value=''} this.style.color='#545454';" onblur="if (value ==''){value='普通用户账户|邮箱'}this.style.color='#a0a0a0';"/>
                   <span class="uin_icon"></span> <a class="uin_del" id="uin_del" href="javascript:void(0);"></a> </div>
                 <ul class="email_list" id="email_list" >
                 </ul>
               </div>
               <div class="pwdArea" id="pwdArea" >
-                <label class="input_tips" id="pwd_tips"  for="p">密码</label>
+         
+                <label class="input_tips" id="pwd_tips"  for="p" ></label>
                 <div class="inputOuter">
-                  <input type="password"  class="inputstyle password" id="p" name="password" value="" maxlength="16" tabindex="2"  />
+                  <input type="password"  class="inputstyle" id="p" name="p" value="" maxlength="16" tabindex="2"  placeholder="密码"/>
                   <span class="p_icon"></span> </div>
                 <div class="lock_tips" id="caps_lock_tips"> <span class="lock_tips_row"></span> <span >大写锁定已打开</span> </div>
               </div>
@@ -114,10 +104,10 @@ $('.registration').click(function() {
               </div>
               <div class="submit"> <a class="login_button" hideFocus=true href="javascript:void(0);">
                 <li style="margin-bottom:5px;">
-                  <input type="button" tabindex="6"   value="登 录"  class="btn login" id="login_button" />
+                  <input type="submit" tabindex="6"   value="登 录"  class="btn" id="login_button" disabled="true" />
                 </li>
                 <li>
-                  <input type="button" tabindex="6"   value="注册"  class="btn registration" id="login_button" />
+                  <input type="submit" tabindex="6"   value="注册"  class="btn" id="regist_button" disabled="true" />
                 </li>
                 </a> </div>
             </div>
@@ -125,20 +115,20 @@ $('.registration').click(function() {
         </div>
          <!-- 企业表单--> 
         <div class="plogin" style="display:none;">
-          <form id="" autocomplete="off" name="comBform" action="" method="post"   target="_self" style="margin:0px;">
+          <form id="jobform" autocomplete="off" name="loginform" action="job.php" method="post"   target="_self" style="margin:0px;">
             <div class="login_form">
               <div class="uinArea" id="uinArea" >
-                <label class="input_tips" id="uin_tips"  for="u">企业用户账户|邮箱</label>
+                <label class="input_tips" id="uin_tips"  for="u"></label>
                 <div class="inputOuter">
-                  <input type="text" class="inputstyle"  id="username" name="u" value=""   tabindex="1"  />
+                  <input type="text" class="inputstyle"  id="u" name="u" value="企业用户账户|邮箱"   tabindex="1"  onKeyDown="textdown(event)" onKeyUp="textup()" onfocus="if(value=='企业用户账户|邮箱'){value=''} this.style.color='#545454';" onblur="if (value ==''){value='企业用户账户|邮箱'}this.style.color='#a0a0a0';"/>
                   <span class="uin_icon"></span> <a class="uin_del" id="uin_del" href="javascript:void(0);"></a> </div>
                 <ul class="email_list" id="email_list" >
                 </ul>
               </div>
               <div class="pwdArea" id="pwdArea" >
-                <label class="input_tips" id="pwd_tips"  for="p">密码</label>
+                <label class="input_tips" id="pwd_tips"  for="p"></label>
                 <div class="inputOuter">
-                  <input type="password"  class="inputstyle password" id="p" name="password" value="" maxlength="16" tabindex="2"  />
+                  <input type="text"  class="inputstyle password" id="p" name="p" value="密码" maxlength="16" tabindex="2"  onKeyDown="textdown(event)" onKeyUp="textup()" onfocus="if(value=='密码'){value=''} this.style.color='#545454';" onblur="if (value ==''){value='密码'}this.style.color='#a0a0a0';"/>
                   <span class="p_icon"></span> </div>
                 <div class="lock_tips" id="caps_lock_tips"> <span class="lock_tips_row"></span> <span >大写锁定已打开</span> </div>
               </div>
@@ -153,10 +143,10 @@ $('.registration').click(function() {
               </div>
               <div class="submit"> <a class="login_button" hideFocus=true href="javascript:void(0);">
                 <li style="margin-bottom:5px;">
-                  <input type="submit" tabindex="6"   value="登 录"  class="btn" id="login_button" />
+                  <input type="submit" tabindex="6"   value="登 录"  class="btn" id="login_button" disabled="true" />
                 </li>
                 <li>
-                  <input type="submit" tabindex="6"   value="注册"  class="btn" id="login_button" />
+                  <input type="submit" tabindex="6"   value="注册"  class="btn" id="regist_button" disabled="true" />
                 </li>
                 </a> </div>
             </div>
