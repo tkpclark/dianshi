@@ -20,7 +20,26 @@
     	//数组最后一个为样式中默认的　#indexpage
     	var homeimgbg=['/img/hbg2.jpg','/img/hbg3.jpg','/img/hbg1.jpg'];
     </script>-->
-
+<script>
+$(function(){
+$('#login_job_button').click(function() {
+	var path = "__ROOT__/index.php/Home/Index/Login";  
+	$('#jobform').attr("action", path).submit(); 
+})
+$('#login_com_button').click(function() {
+	var path = "__ROOT__/index.php/Home/Index/Login";  
+	$('#jobform').attr("action", path).submit(); 
+})
+$('#regist_job_button').click(function() {
+	var path = "__ROOT__/index.php/Home/ApplicantUser/Registration";   
+	$('#jobform').attr("action", path).submit(); 
+})
+$('#regist_com_button').click(function() {
+	var path = "__ROOT__/index.php/Home/CompanyInformation/Registration";   
+	$('#jobform').attr("action", path).submit(); 
+})
+});
+</script>
 </head>
 <body id="index">
 <div class="wrap">
@@ -104,10 +123,10 @@
               </div>
               <div class="submit"> <a class="login_button" hideFocus=true href="javascript:void(0);">
                 <li style="margin-bottom:5px;">
-                  <input type="submit" tabindex="6"   value="登 录"  class="btn" id="login_button" disabled="true" />
+                  <input type="button" tabindex="6"   value="登 录"  class="btn" id="login_job_button" />
                 </li>
                 <li>
-                  <input type="submit" tabindex="6"   value="注册"  class="btn" id="regist_button" disabled="true" />
+                  <input type="button" tabindex="6"   value="注册"  class="btn" id="regist_job_button" />
                 </li>
                 </a> </div>
             </div>
@@ -143,10 +162,10 @@
               </div>
               <div class="submit"> <a class="login_button" hideFocus=true href="javascript:void(0);">
                 <li style="margin-bottom:5px;">
-                  <input type="submit" tabindex="6"   value="登 录"  class="btn" id="login_button" disabled="true" />
+                  <input type="button" tabindex="6"   value="登 录"  class="btn" id="login_com_button" />
                 </li>
                 <li>
-                  <input type="submit" tabindex="6"   value="注册"  class="btn" id="regist_button" disabled="true" />
+                  <input type="button" tabindex="6"   value="注册"  class="btn" id="regist_com_button" />
                 </li>
                 </a> </div>
             </div>

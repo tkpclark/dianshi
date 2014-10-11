@@ -1,8 +1,8 @@
 <?php
 namespace Home\Controller;
 use Think\Controller;
-use Home\Model\ApplicantUserModel;
-class ApplicantUseController extends Controller {
+use Home\Model\CompanyInformationModel;
+class CompanyInformationController extends Controller {
     public function Index(){
 
 		$this->assign('user','zhangsan');
