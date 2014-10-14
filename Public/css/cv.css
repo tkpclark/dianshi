@@ -502,10 +502,7 @@ _margin-top:9px;
 	line-height:20px;
 	height:20px;
 	}
-.btn_resume{
-	background:url(http://img01.51jobcdn.com/im/2009/cv/cresume/nav_left_bg.gif) no-repeat;
-	background-position:2px 50%;
-	}
+
 .text_blue_bg{
 	clear:both;
 	background:url(http://img01.51jobcdn.com/im/2009/cv/cresume/text_bbg.gif) no-repeat;
@@ -1346,7 +1343,8 @@ padding:3px;
 
 .icon_need
 {
-margin-top:4px;
+margin-top:12px;
+margin-left:12px;
 float:left;
 }
 .icon_width
@@ -1649,14 +1647,14 @@ a.grey5:hover {
 
 .rew_conr_mdf li {
 	background: none repeat scroll 0 0 #f9d259;
-    border: 1px solid #ccc;
+	text-align:center;
     border-radius: 5px;
     color: #000;
     cursor: pointer;
     font-size: 14px;
     font-weight: bold;
-    height: 23px;
-    line-height: 23px;
+    height: 30px;
+    line-height: 30px;
   	 margin:5px 5px 5px 10px;
  	width:85%;
 }
