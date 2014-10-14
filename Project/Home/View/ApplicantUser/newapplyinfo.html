@@ -8,13 +8,21 @@
 <js href='__PUBLIC__/Js/fn.js' />
 <js href='__PUBLIC__/Js/all.js' />
 <js href='__PUBLIC__/Js/index.js' />-->
+<link href="http://localhost/dscj/Public/css/core.css" rel="stylesheet" type="text/css" />
+<link href="http://localhost/dscj/Public/css/style.css" rel="stylesheet" type="text/css" />
+<link href="http://localhost/dscj/Public/css/cv.css" rel="stylesheet" type="text/css" />
+
 <script language="javascript" src="http://localhost/dscj/Public/js/jquery-1.8.2.js"></script>
 <script language="javascript" src="http://localhost/dscj/Public/js/jquery.drag.js"></script>
 <script language="javascript" src="http://localhost/dscj/Public/js/fn.js"></script>
 <script language="javascript" src="http://localhost/dscj/Public/js/all.js"></script>
-<link href="http://localhost/dscj/Public/css/core.css" rel="stylesheet" type="text/css" />
-<link href="http://localhost/dscj/Public/css/style.css" rel="stylesheet" type="text/css" />
-<link href="http://localhost/dscj/Public/css/cv.css" rel="stylesheet" type="text/css" />
+<!--<script language="javascript" src="http://localhost/dscj/Public/js/Base.ZzLayer.js"></script>
+<script language="javascript" src="http://localhost/dscj/Public/js/Base.ZzLayer.js"></script>
+<script language="javascript" src="http://localhost/dscj/Public/js/Base.ZzLayer.ExtZzLayer.js"></script>
+<script language="javascript" src="http://localhost/dscj/Public/js/Base.ZzLayer.ExtZzLayer.JobLayer.js?20120510"></script>
+<script language="javascript" src="http://localhost/dscj/Public/js/Base.ZzLayer.ExtZzLayer.JobLayer.JobareaLayer.js?20141010"></script>
+<script language="javascript" src="http://localhost/dscj/Public/js/Base.ZzLayer.ExtZzLayer.JobLayer.CertListLayer.js?20130521"></script>-->
+
 
 <!--<css href="__PUBLIC__/Css/core.css" />
 <css href="__PUBLIC__/Css/style.css" />
@@ -61,7 +69,7 @@
 				   jg:jg_value
 				   },
 			   success : function(msg) {
-				   alert("数据传上来了！");
+				   alert("基本信息数据传上来了！");
 						/*var json = eval(msg);
 						//alert(json);
 						if (json[0] == "success") {
@@ -71,6 +79,44 @@
 							document.location.reload();
 						}else{
 							alert("页面信息异常！");}*/
+					}
+	 
+	 })
+ }
+ 
+ function submitPurposeInfo(){
+	 var selecte_value="";
+	 $(".span_selected").each(
+	 function() {
+		 selecte_value += $(this).text()+"|--|";
+		 });
+		 
+     var svv = selecte_value;
+	 var jt_value = $("#JobTerm").val();
+	 var a1_value = $("#Area1").val();
+ 	 var a2_value = $("#Area2").val();
+	 var a3_value = $("#Area3").val();
+	 var wp_value = $("#WantPay").val();
+	 var je_value = $("#JobEnvir").val();
+	 var jd_value = $("#JobDirec").val();
+	 
+       $.ajax({
+	 
+	           type:"post",
+			   url:"apply.php",
+			   data:{ 
+			       jt:jt_value,
+			       a1:a1_value,
+				   a2:a2_value,
+				   a3:a3_value,
+				   wp:wp_value,
+				   je:je_value,
+				   jd:jd_value,
+				   sv:selecte_value
+				   },
+			   success : function(msg) {
+				   alert("意向数据传上来了！");
+						
 					}
 	 
 	 })
@@ -137,12 +183,11 @@
         <input type="hidden" value="0" name="MP_VERIFYSTATUS">
         <input type="hidden" value="" name="TOPDEGREE_VERIFYSTATUS">
         <table border="0" cellspacing="0" cellpadding="0" class="weight780_mdf">
-          >
-          <tr>
+            <tr>
             <td  rowspan="3" width="120px" height="160px"><img src="" width="120px" height="160px">
               <input type="file" value="" class="imgfile" name="imgfile"  id="imgfile" style="width:120px" />
               
-              </td>
+              <!--<input class="btn_pic" type="button" name="imgfile" id="imgfile" value="上传图片">--></td>
             <td class="col_name"><span class="text_red">*</span>&nbsp;姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</td>
             <td ><label>
               <div style="float:left;">
@@ -156,22 +201,20 @@
               女 </td>
           </tr>
           <tr>
-            <td align="left" class="col_name"><!--<span class="weight150"><span class="text_red">*</span>&nbsp;</span>-->常用邮箱 </td>
+            <td align="left" class="col_name">常用邮箱 </td>
             <td colspan="3"><input name="email" type="text" class="weight150" id="email" value="email" />
               
               </td>
           </tr>
           <tr>
-            <td align="left" class="col_name"><span class="text_red">*</span>手机号码</td>
+            <td align="left" class="col_name"><!--<span class="text_red">*</span>-->手机号码</td>
             <td colspan="3" valign="middle"><div style="float:left;"> 
-                <!--<select id="MPNation" name="MPNation" onchange="checkinputstr('phone','er_phone');" >
-                  <option value="086" selected="selected">大陆</option>
-                  <option value="000" >其他</option>
-                </select>-->
-                <input id="Mobile" name="Mobile" onBlur="checkinputstr('phone','er_phone')" maxlength="20"  value="手机号" type="text" style="width:98px;" placeholder="手机号"  />
+                
+                
+                <input id="Mobile" name="Mobile" onBlur="checkinputstr('phone','er_phone')" maxlength="20"  value="" type="text" placeholder="手机号"  />
               </div>
               
-            </td>
+             </td>
           </tr>
           <tr>
             <td class="col_name">&nbsp;地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址</td>
@@ -188,8 +231,17 @@
             <td colspan="2" valign="middle"><input type="text" onBlur="checkinputstr('Name','er_name')"  id="Job" value="" maxlength="100" name="Address"/></td>
           </tr>
           <tr>
-            <td class="col_name">&nbsp;工作时间</td>
-            <td colspan="2" valign="middle"><input type="text" onBlur="checkinputstr('Name','er_name')"  id="Worktime" value="" maxlength="100" name="Address"/></td>
+            <td class="col_name">&nbsp;工作年限</td>
+            <td colspan="2" valign="middle"><select  name="Worktime" id="Worktime" onBlur="checkinputstr('Name','er_name')" >
+                  <OPTION VALUE=0 selected>请选择</OPTION>
+                  <OPTION VALUE=1 >1年以下</OPTION>
+                  <OPTION VALUE=2>1～3年</OPTION>
+                  <OPTION VALUE=3>3～5年</OPTION>
+                  <OPTION VALUE=4>5～8年</OPTION>
+                  <OPTION VALUE=5 >10～15年</OPTION>
+                  <OPTION VALUE=6 >15～20年</OPTION>
+                  <OPTION VALUE=7 >20年以上</OPTION>
+             </select></td>
             <td class="col_name">&nbsp;职级</td>
             <td colspan="2" valign="middle"><input type="text" onBlur="checkinputstr('Name','er_name')"  id="JobGrade" value="" maxlength="100" name="Address"/></td>
           </tr>
@@ -197,10 +249,179 @@
             <td colspan="5" align="left" style="text-align:right;"><input class="btn_pic" type="button" name="imgfile" id="imgfile" onclick="submitBaseInfo();" style="cursor:pointer" value="保存" /></td>
           </tr>
         </table>
-      
+       
         <input type="hidden" id="CheckGoogle" name="CheckGoogle" value=""/>
       </div>
       <!--base end--> 
+      <!--OTHER start-->
+      <table border="0" cellspacing="0" cellpadding="0" class="paragraph_title paragraph_title_mdf">
+        <tr>
+          <td><span class="Bpispan_l" ></span>求职意向<a name="OTHER"/><span class="Bpispan_r" ></span></td>
+          
+        </tr>
+      </table>
+      <div id="Other_info" style="display:"> 
+        <script language="javascript">
+
+	function JobareaInit() {
+		if ( window.JobLayer ) {
+			//clearInterval( intVal );
+
+            if ('c' == cfg.lang) {
+                cfg.langs.gzdd = '工作地点';
+            }
+            else {
+                cfg.langs.gzdd = 'Location';
+            }
+			
+			var param = {
+				cfg : cfg ,
+				openNodes : document.Other.btnjobarea ,
+				_valueNodes : document.Other.jobarea  ,
+				_textNodes : document.Other.btnjobarea  ,
+				isMulty : true ,
+				isHasNolimit : false,
+				noShowSpArea : true
+			};
+			var jl = new JobareaLayer( param );
+			document.Other.btnjobarea.click();
+		}
+	}
+
+
+</script>
+
+<script>
+$(document).ready(function(){
+$("#JobDirec").change(function(){
+  if($(this).val() == 1){
+  $("#finServ").show().siblings("div").hide();
+  }
+  if($(this).val() == 2){
+  $("#oneInvest").show().siblings("div").hide();
+  }
+  if($(this).val() == 3){
+  $("#twoInvest").show().siblings("div").hide();
+  }
+  if($(this).val() == 4){
+  $("#sales").show().siblings("div").hide();
+  }
+});
+
+
+$("span.btn_pic").find('a').toggle(
+function () { 
+$(this).addClass("span_selected"); }, 
+function () { 
+$(this).removeClass("span_selected"); });
+}); 
+
+
+</script>
+        
+          <table border="0" cellspacing="0" cellpadding="0" class="weight780_mdf weight670" style="float:left;">
+            <tr>
+              <td  colspan="2" class="col_name">目前求职状态</td>
+              <td colspan="5"><select  name="JobTerm" id="JobTerm">
+                  <OPTION VALUE=1 Selected>目前正在找工作</OPTION>
+                  <OPTION VALUE=2>半年内无换工作的计划</OPTION>
+                  <OPTION VALUE=3>1年内无换工作的计划</OPTION>
+                  <OPTION VALUE=4>观望有好的机会再考虑</OPTION>
+                  <OPTION VALUE=5 >我暂时不想找工作</OPTION>
+             </select></td>
+             </tr>
+             <tr>
+              <td  colspan="2" align="left" class="col_name">工作地偏好</td>
+              
+              <td><input type="text" id="Area1" value="" maxlength="20" name="Area"/></td>
+              <td><input type="text" id="Area2" value="" maxlength="20" name="Area"/></td>
+              <td><input type="text" id="Area3" value="" maxlength="20" name="Area"/></td>
+              <td colspan="2"><input name="btnjobarea" type="button"  class="choose" id="btnjobarea" value="选择/修改"  onfocus="blur()" onclick="JobareaInit();$('#Other').find('#btnjobarea').removeAttr('onclick');"  />
+                <input name="jobarea" type="hidden" id="jobarea" value=""></td>
+            </tr>
+            <tr>
+              <td colspan="4" style="border:0;"></td>
+            </tr>
+            <tr>
+              <td colspan="2" class="col_name">期望年薪</td>
+               <td colspan="5"><select  name="WantPay" id="WantPay">
+                  <OPTION VALUE=1 Selected>5万以下</OPTION>
+                  <OPTION VALUE=2>5～6万</OPTION>
+                  <OPTION VALUE=3>5～8万</OPTION>
+                  <OPTION VALUE=4>8～10万</OPTION>
+                  <OPTION VALUE=5 >10～15万</OPTION>
+                  <OPTION VALUE=6 >15～20万</OPTION>
+				  <OPTION VALUE=7 >20～30万</OPTION>
+                  <OPTION VALUE=8 >30～50万</OPTION>
+
+             </select></td>
+            </tr>
+            <tr>
+              <td  colspan="2" class="col_name">工作环境</td>
+              <td colspan="5"><input type="text" id="JobEnvir" value="" maxlength="60" name="JobEnvir" placeholder="您所期望的工作环境"/></td>
+             </tr>
+             <tr>
+              <td  colspan="2" class="col_name">求职方向</td>
+              <td colspan="5"><select  name="JobDirec" id="JobDirec">
+                  <OPTION VALUE=1 Selected>公司金融服务</OPTION>
+                  <OPTION VALUE=2>一级市场投资分析</OPTION>
+                  <OPTION VALUE=3>二级市场研究、交易、投资</OPTION>
+                  <OPTION VALUE=4>券商销售</OPTION>
+                   </select>
+             </td>
+             </tr>
+             <tr>
+             <td colspan="7" class="">
+             <div id="finServ" style="display:block" >
+            <span class="btn_pic"><a>股权</a></span>
+             <span class="btn_pic"><a>债券</a></span>
+             <span class="btn_pic"><a>并购</a></span>
+             <span class="btn_pic"><a>ECM</a></span>
+             <span class="btn_pic"><a>DCM</a></span>
+             </div>
+             
+             <div  id="oneInvest" style="display:none" >
+            <span class="btn_pic"><a>PE</a></span>
+             <span class="btn_pic"><a>VC</a></span>
+             <span class="btn_pic"><a>信托</a></span>
+             <span class="btn_pic"><a>其他投资机构</a></span>
+             </div>
+             
+             <div  id="twoInvest" style="display:none" >
+            <span class="btn_pic"><a>卖方研究</a></span>
+             <span class="btn_pic"><a>公募基金</a></span>
+             <span class="btn_pic"><a>私募基金</a></span>
+             <span class="btn_pic"><a>信托</a></span>
+             <span class="btn_pic"><a>资管</a></span>
+             <span class="btn_pic"><a>券商自营</a></span>
+             <span class="btn_pic"><a>银行金融市场</a></span>
+             <span class="btn_pic"><a>其他投资机构</a></span>
+             </div>
+             
+             <div id="sales" style="display:none" >
+            <span class="btn_pic"><a>股票</a></span>
+             <span class="btn_pic"><a>债券</a></span>
+             <span class="btn_pic"><a>外汇</a></span>
+             <span class="btn_pic"><a>商品</a></span>
+             <span class="btn_pic"><a>量化</a></span>
+             </div>
+             </td>
+             </tr>
+             <tr><!--保存按钮-->
+            <td colspan="7" align="left" style="text-align:right;"><input class="btn_pic" type="button" name="imgfile" id="imgfile" onclick="submitPurposeInfo();" style="cursor:pointer" value="保存" /></td>
+          </tr>
+          </table>
+          
+          <input name="ErrorSave" type="hidden" id="ErrorSave" value="0" class="ErrorSave" />
+          <input name="NextAction" type="hidden" id="NextAction" value="update" />
+          <span class="dotline height5">
+          <input type="hidden" name="isEnglish" value="0" id="isEnglish" />
+          </span> <span class="dotline height5">
+          <input type="hidden" name="ReSumeID" value="" id="ReSumeID" class="ReSumeID" />
+          </span>
+        <!--</form>-->
+      </div>
+      <!--OTHER end--> 
       
       <!--EDU start-->
       <table border="0" cellspacing="0" cellpadding="0" class="paragraph_title paragraph_title_mdf">
@@ -896,125 +1117,6 @@ if(window.FunctypeLayer)
         </tr>
       </table>
       <!--Work end--> 
-      <!--OTHER start-->
-      <table border="0" cellspacing="0" cellpadding="0" class="paragraph_title paragraph_title_mdf">
-        <tr>
-          <td>求职意向<a name="OTHER"/></td>
-          <td align="right"><img src="http://img01.51jobcdn.com/im/2009/cv/cresume/btn_shrink.gif" align="absmiddle" hspace="10" onClick="showinfo('Other');" style="cursor:pointer; display:none" id="Other_hidden"/><img src="http://img01.51jobcdn.com/im/2009/cv/cresume/btn_spread.gif" name="Other_show" align="absmiddle" hspace="10" id="Other_show" style="cursor:pointer; display:" onClick="showinfo('Other');"/></td>
-        </tr>
-      </table>
-      <div id="Other_info" style="display:none"> 
-        <script language="javascript">
-<!--
-	function JobareaInit() {
-		if ( window.JobLayer ) {
-			//clearInterval( intVal );
-
-            if ('c' == cfg.lang) {
-                cfg.langs.gzdd = '工作地点';
-            }
-            else {
-                cfg.langs.gzdd = 'Location';
-            }
-			
-			var param = {
-				cfg : cfg ,
-				openNodes : document.Other.btnjobarea ,
-				_valueNodes : document.Other.jobarea  ,
-				_textNodes : document.Other.btnjobarea  ,
-				isMulty : true ,
-				isHasNolimit : false,
-				noShowSpArea : true
-			};
-			var jl = new JobareaLayer( param );
-			document.Other.btnjobarea.click();
-		}
-	}
-
-//-->
-</script>
-        <form name="Other" method="post" id="Other" action="/cv/in/Resume/OtherSelfAction.php">
-          <table border="0" cellspacing="0" cellpadding="0" class="weight780_mdf weight670" style="float:left;">
-            <tr>
-              <td class="col_name">工作类型</td>
-              <td><select style="width:125px;" name="JobTerm" id="JobTerm">
-                  <OPTION VALUE=0 Selected>全职</OPTION>
-                  <OPTION VALUE=1>兼职</OPTION>
-                  <OPTION VALUE=2>实习</OPTION>
-                  <OPTION VALUE=3>全/兼职</OPTION>
-                </select></td>
-              <td align="left" class="col_name">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;点</td>
-              <td><input name="btnjobarea" type="button"  class="choose" id="btnjobarea" value="选择/修改"  onfocus="blur()" onclick="JobareaInit();$('#Other').find('#btnjobarea').removeAttr('onclick');"  />
-                <input name="jobarea" type="hidden" id="jobarea" value=""></td>
-            </tr>
-            <tr>
-              <td colspan="4" style="border:0;"></td>
-            </tr>
-            <tr>
-              <td class="col_name">行&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;业</td>
-              <td><input name="btnindustrytype" type="button"  class="choose" id="btnindustrytype" value="选择/修改" onfocus="blur()" onclick="searchInit(this,document.Other.industrytype,this,it,'行业',3,true);$('#Other').find('#btnindustrytype').removeAttr('onclick');"  />
-                <input name="industrytype" type="hidden" id="industrytype" value="" /></td>
-              <td align="left" class="col_name">职&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;能</td>
-              <td><input name="btnfuntype" type="button"  class="choose" id="btnfuntype" value="选择/修改" onfocus="blur()" onclick="searchInit(this,document.Other.funtype,this,ft,'职能',3,true,2);$('#Other').find('#btnfuntype').removeAttr('onclick');"  />
-                <input name="funtype" type="hidden" id="funtype" value="Array" /></td>
-            </tr>
-            <tr>
-              <td align="right" style="border:0;"></td>
-              <td style="border:0;"></td>
-              <td align="right" style="border:0;"></td>
-              <td style="border:0;"><span class="err_red" id="errorMsg_0" style="display:none"><img src="http://img01.51jobcdn.com/im/2009/my/folder/icon_error.gif" width="16" height="15" align="absmiddle" />&nbsp;&nbsp;请正确选择到岗时间</span></td>
-            </tr>
-            <tr>
-              <td class="col_name">期望薪水</td>
-              <td><select name="Salary" style="width:125px;" id="Salary">
-                  <OPTION VALUE=00>面议</OPTION>
-                  <OPTION VALUE=01>1500以下</OPTION>
-                  <OPTION VALUE=02>1500-1999</OPTION>
-                  <OPTION VALUE=03>2000-2999</OPTION>
-                  <OPTION VALUE=04>3000-4499</OPTION>
-                  <OPTION VALUE=05>4500-5999</OPTION>
-                  <OPTION VALUE=06>6000-7999</OPTION>
-                  <OPTION VALUE=07>8000-9999</OPTION>
-                  <OPTION VALUE=08>10000-14999</OPTION>
-                  <OPTION VALUE=09>15000-19999</OPTION>
-                  <OPTION VALUE=10>20000-29999</OPTION>
-                  <OPTION VALUE=11>30000-49999</OPTION>
-                  <OPTION VALUE=12>50000及以上</OPTION>
-                </select>
-                /月&nbsp;&nbsp;<a href="#" class="orange1" target="_blank"><a href="http://my.51job.com/my/Salary_report.php" class="orange1"  target="_blank">薪酬查询</a></a></td>
-              <td align="left" class="col_name"><span class="text_red"></span>到岗时间 </td>
-              <td><select name="EntryTime" style="width:125px;" id="EntryTime">
-                  <OPTION VALUE=1>即时</OPTION>
-                  <OPTION VALUE=2>一周以内</OPTION>
-                  <OPTION VALUE=3>一个月内</OPTION>
-                  <OPTION VALUE=4>1-3个月</OPTION>
-                  <OPTION VALUE=5>三个月后</OPTION>
-                  <OPTION VALUE=6 Selected>待定</OPTION>
-                </select></td>
-            </tr>
-            <tr>
-              <td align="left" valign="top" style="border:0;"></td>
-              <td colspan="3" style="border:0;"><span class="err_red" id="errorMsg_1" style="display:none"><img src="http://img01.51jobcdn.com/im/2009/my/folder/icon_error.gif" width="16" height="15" align="absmiddle" />&nbsp;&nbsp;自我评价最多500个中文字(或者1000个字符)!</span></td>
-            </tr>
-            <tr>
-              <td class="col_name">自我评价</td>
-              <td colspan="3"><textarea name="Introduction" rows="6" class="weight480" id="Introduction" onblur="Checklength(this.value,'Other','errorMsg_1',1000)"></textarea>
-                <br />
-                <span class="text_gray line-height20">限500个中文字，输入您对自己的简短评价。请简明扼要的说明您最大的优势是什么，避免使<br />
-                用一些空洞老套的话。范例一：<a onclick="javascript:showMsg('cv071')" style="cursor:pointer;"><img border="0" src="http://img01.51jobcdn.com/im/2009/cv/icon_qu.gif" align="absmiddle"></a>&nbsp;&nbsp;范例二：<a style="cursor:pointer;" onclick="javascript:showMsg('cv072')"><img border="0" src="http://img01.51jobcdn.com/im/2009/cv/icon_qu.gif" align="absmiddle"></a></span></td>
-            </tr>
-          </table>
-          <div> <img src="http://img01.51jobcdn.com/im/2009/cv/cresume/btn_save1.gif" onclick="Other_save()" onfocus="blur()" style="cursor:pointer" /> </div>
-          <input name="ErrorSave" type="hidden" id="ErrorSave" value="0" class="ErrorSave" />
-          <input name="NextAction" type="hidden" id="NextAction" value="update" />
-          <span class="dotline height5">
-          <input type="hidden" name="isEnglish" value="0" id="isEnglish" />
-          </span> <span class="dotline height5">
-          <input type="hidden" name="ReSumeID" value="" id="ReSumeID" class="ReSumeID" />
-          </span>
-        </form>
-      </div>
-      <!--OTHER end--> 
       
       <!--LAN start-->
       <table cellspacing="0" cellpadding="0" border="0" class="paragraph_title paragraph_title_mdf">
@@ -1193,19 +1295,19 @@ if(window.FunctypeLayer)
     <ul class="rew_conr rew_conr_mdf" id="contentHighSetLeft">
       <li class="big_btn_resume btn_resume_mdf" style="width:auto;margin-left:0">
         <div class="icon_width icon_width_mdf" style="margin-right:10px;"> <span class="text_red">&nbsp;&nbsp;></span> <a href="#BPI">我的求职信息</a> </div>
-        </li>
+        <!--<img src="http://img01.51jobcdn.com/im/2009/cv/cresume/icon_need.gif" class="icon_need" align="absmiddle" id="Base_Complete" style="display:none;"/> <img src="http://img01.51jobcdn.com/im/2009/cv/cresume/icon_incomplete.gif" class="icon_need" align="absmiddle" id="Base_Incomplete" style="display:block;" />--> </li>
       <li class="btn_resume btn_resume_mdf">
         <div class="icon_width icon_width_mdf"> <span class="text_red">&nbsp;&nbsp;*</span> <a href="#BPI">个人基本信息</a> </div>
         <img src="http://img01.51jobcdn.com/im/2009/cv/cresume/icon_need.gif" class="icon_need" align="absmiddle" id="Base_Complete" style="display:none;"/> <img src="http://img01.51jobcdn.com/im/2009/cv/cresume/icon_incomplete.gif" class="icon_need" align="absmiddle" id="Base_Incomplete" style="display:block;" /> </li>
+      <li class="btn_resume btn_resume_mdf">
+        <div class="icon_width icon_width_mdf">&nbsp;&nbsp;&nbsp;&nbsp; <a href="#OTHER">求职意向</a> </div>
+        <img src="http://img01.51jobcdn.com/im/2009/cv/cresume/icon_need.gif" class="icon_need" align="absmiddle" id="Other_Complete" style="display:none;"/> <img src="http://img01.51jobcdn.com/im/2009/cv/cresume/icon_incomplete.gif" class="icon_need" align="absmiddle" id="Other_Incomplete" style="display:block;" /> </li>
       <li class="btn_resume btn_resume_mdf">
         <div class="icon_width icon_width_mdf"> <span class="text_red">&nbsp;&nbsp;*</span> <a href="#EDU">教育经历</a> </div>
         <img src="http://img01.51jobcdn.com/im/2009/cv/cresume/icon_need.gif" class="icon_need" align="absmiddle" id="Edu_Complete" style="display:none;"/> <img src="http://img01.51jobcdn.com/im/2009/cv/cresume/icon_incomplete.gif" class="icon_need" align="absmiddle" id="Edu_Incomplete" style="display:block;" /> </li>
       <li class="btn_resume btn_resume_mdf">
         <div class="icon_width icon_width_mdf"> <span class="text_red" id="Work_Must">&nbsp;&nbsp;*</span> <a href="#WORK">工作经验</a> </div>
         <img src="http://img01.51jobcdn.com/im/2009/cv/cresume/icon_need.gif" class="icon_need" align="absmiddle" id="Work_Complete" style="display:none;"/> <img src="http://img01.51jobcdn.com/im/2009/cv/cresume/icon_incomplete.gif" class="icon_need" align="absmiddle" id="Work_Incomplete" style="display:block;" /> </li>
-      <li class="btn_resume btn_resume_mdf">
-        <div class="icon_width icon_width_mdf">&nbsp;&nbsp;&nbsp;&nbsp; <a href="#OTHER">求职意向</a> </div>
-        <img src="http://img01.51jobcdn.com/im/2009/cv/cresume/icon_need.gif" class="icon_need" align="absmiddle" id="Other_Complete" style="display:none;"/> <img src="http://img01.51jobcdn.com/im/2009/cv/cresume/icon_incomplete.gif" class="icon_need" align="absmiddle" id="Other_Incomplete" style="display:block;" /> </li>
       <li class="btn_resume btn_resume_mdf">
         <div class="icon_width icon_width_mdf">&nbsp;&nbsp;&nbsp;&nbsp; <a href="#LAN">语言能力</a> </div>
         <img src="http://img01.51jobcdn.com/im/2009/cv/cresume/icon_need.gif" class="icon_need" align="absmiddle" id="Lan_Complete" style="display:none;"/> <img src="http://img01.51jobcdn.com/im/2009/cv/cresume/icon_incomplete.gif" class="icon_need" align="absmiddle" id="Lan_Incomplete" style="display:block;" /> </li>
@@ -1233,6 +1335,7 @@ if(window.FunctypeLayer)
     </div>
   </div>
   
+
   <!--foot-->
   
   <div class="footer_wrap">

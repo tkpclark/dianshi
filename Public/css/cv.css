@@ -238,6 +238,20 @@ a:hover .blue3{
 
       opacity: 0; 
 }
+
+.span_selected{
+	display:inline-block;
+	width:74px;
+	height:28px;
+	line-height:24px;
+	border:1px solid #c9c9c9;
+	background:#428bb0;
+	text-align:center;
+	color:#fff;
+	margin-right:14px;
+	font-family:"微软雅黑"
+	
+	}
 /*============外发简历===============*/
 .sendresume_con{
 	clear:both;
@@ -1544,12 +1558,12 @@ a.grey5:hover {
   font-weight:bold;
 }
 
-#BPI_info table {
+#BPI_info table , #Other_info table{
   margin:0 0 10px 10px;
   border-bottom:1px solid #E9EDF1;
 }
 
-#Edu_edit table, #Work_edit table, #Other_info table, #Tra_edit table, #Lan_edit table, #Language_info table, #IT_edit table, #Prj_edit table, #Cert_edit table, #Attach_edit table, #Api_edit table, #Misc_edit table, #Mast_edit table, #Spi2p_edit table, #Awd_edit table, #Exp_edit table, #Exp1_edit table, #oip_edit table {
+#Edu_edit table, #Work_edit table, #Tra_edit table, #Lan_edit table, #Language_info table, #IT_edit table, #Prj_edit table, #Cert_edit table, #Attach_edit table, #Api_edit table, #Misc_edit table, #Mast_edit table, #Spi2p_edit table, #Awd_edit table, #Exp_edit table, #Exp1_edit table, #oip_edit table {
   margin:0 20px 10px 10px;
   _margin:0 17px 10px 5px;
   border-bottom:1px solid #E9EDF1;
@@ -1694,10 +1708,10 @@ a.grey5:hover {
   _margin: 0 10px;
 }
 
-.weight670 {
+/*.weight670 {
   width:670px;
 }
-
+*/
 .line02_mdf {
   clear:both;
   margin:5px 5px 15px 10px
