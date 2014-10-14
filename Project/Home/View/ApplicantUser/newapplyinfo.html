@@ -1,0 +1,1247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>求职者申请 | 点石成金</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--<js href='__PUBLIC__/Js/jquery-1.26.js' />
+<js href='__PUBLIC__/Js/jquery.drag.js' />
+<js href='__PUBLIC__/Js/fn.js' />
+<js href='__PUBLIC__/Js/all.js' />
+<js href='__PUBLIC__/Js/index.js' />-->
+<script language="javascript" src="http://localhost/dscj/Public/js/jquery-1.8.2.js"></script>
+<script language="javascript" src="http://localhost/dscj/Public/js/jquery.drag.js"></script>
+<script language="javascript" src="http://localhost/dscj/Public/js/fn.js"></script>
+<script language="javascript" src="http://localhost/dscj/Public/js/all.js"></script>
+<link href="http://localhost/dscj/Public/css/core.css" rel="stylesheet" type="text/css" />
+<link href="http://localhost/dscj/Public/css/style.css" rel="stylesheet" type="text/css" />
+<link href="http://localhost/dscj/Public/css/cv.css" rel="stylesheet" type="text/css" />
+
+<!--<css href="__PUBLIC__/Css/core.css" />
+<css href="__PUBLIC__/Css/style.css" />
+-->
+<!--[if lt IE 7]>
+<script>var file_root = '/';</script>
+<script type="text/javascript" src="/js/unitpngfix.js"></script>
+<![endif]--><!--<script>
+    	//数组最后一个为样式中默认的　#indexpage
+    	var homeimgbg=['/img/hbg2.jpg','/img/hbg3.jpg','/img/hbg1.jpg'];
+    </script>-->
+<script type="text/javascript" language="javascript">
+ function submitBaseInfo(){
+	 var name_value = $("#Name").val();
+	 var gender_value = $('input[name="Gender"]:checked').val();
+ 	 var email_value = $("#email").val();
+	 var mobile_value = $("#Mobile").val();
+	 var address_value =$("#Address").val();
+	 var company_value = $("#Company").val();
+	 var depart_value =$("#Depart").val();
+	 var job_value =$("#Job").val();
+	 var wt_value =$("#Worktime").val();
+	 var jg_value =$("#JobGrade").val();
+
+
+
+    // var params = "&name="+Myname+"&gender="+gender_value;
+
+ 
+       $.ajax({
+	 
+	           type:"post",
+			   url:"index.php",
+			   data:{ 
+			       name:name_value,
+			       gender:gender_value,
+				   email:email_value,
+				   mobile:mobile_value,
+				   address:address_value,
+				   company:company_value,
+				   depart:depart_value,
+				   job:job_value,
+				   wt:wt_value,
+				   jg:jg_value
+				   },
+			   success : function(msg) {
+				   alert("数据传上来了！");
+						/*var json = eval(msg);
+						//alert(json);
+						if (json[0] == "success") {
+							alert(hidden_message + "页面生成成功！");
+						} else if (json[0] == "fail_0") {
+							alert(hidden_message + "页面生成出现异常！");
+							document.location.reload();
+						}else{
+							alert("页面信息异常！");}*/
+					}
+	 
+	 })
+ }
+</script>
+</head>
+<body id="index">
+<div class="wrap">
+  <div class="header_wrap">
+    <div class="head">
+      <div class="logo_area">
+        <h1 class="logo"><a href="#" class="txt">金点</a></h1>
+      </div>
+      <div class="menu_area">
+        <ul class="menu_list">
+          <li class=" "><!--添加类名 current 显示隐藏子菜单--> 
+            <a href="#" class="menu_item">点石成金</a>
+            <div class="sub_menu">
+              <ul class="sub_menu_list">
+                <li><a href="#">点石成金</a></li>
+              </ul>
+            </div>
+          </li>
+          <li> <a href="#" class="menu_item">点石成金</a>
+            <div class="sub_menu">
+              <ul class="sub_menu_list">
+                <li><a href="#">点石成金</a></li>
+                <li><a href="#">点石成金</a></li>
+              </ul>
+            </div>
+          </li>
+          <li> <a href="#" class="menu_item">点石成金</a>
+            <div class="sub_menu">
+              <ul class="sub_menu_list">
+                <li><a href="#">点石成金</a></li>
+                <li><a href="#">点石成金</a></li>
+              </ul>
+            </div>
+          </li>
+          <li> <a href="#" class="menu_item">点石成金</a>
+            <div class="sub_menu">
+              <ul class="sub_menu_list">
+                <li><a href="#">Next Idea</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- list列表-->
+  <div class="rew_down rew_down_mdf">
+    <ul class="rew_conl rew_conl_mdf" id="contentHighSet">
+      <!--base start-->
+      <table border="0" cellspacing="0" cellpadding="0" class="paragraph_title paragraph_title_mdf">
+        <tr>
+          <td><span class="Bpispan_l" ></span>个人基本信息<a name="BPI"></a><span class="Bpispan_r"></span></td>
+          <td align="right"><img src="http://img01.51jobcdn.com/im/2009/cv/cresume/btn_shrink.gif" align="absmiddle" hspace="10" onClick="showinfo('BPI');" style="cursor:pointer; display:none;" id="BPI_hidden"/><img src="http://img01.51jobcdn.com/im/2009/cv/cresume/btn_spread.gif" align="absmiddle" hspace="10" onClick="showinfo('BPI');" style="cursor:pointer; display:none" id="BPI_show"/></td>
+        </tr>
+      </table>
+      <div id="BPI_info"> 
+        <!--<form name="BPI_form" method="post" id="BPI_form" action="http://my.51job.com/cv/in/Resume/BPIAction.php">-->
+        <input type="hidden" value="0" name="IDCARD_VERIFYSTATUS">
+        <input type="hidden" value="0" name="MP_VERIFYSTATUS">
+        <input type="hidden" value="" name="TOPDEGREE_VERIFYSTATUS">
+        <table border="0" cellspacing="0" cellpadding="0" class="weight780_mdf">
+          >
+          <tr>
+            <td  rowspan="3" width="120px" height="160px"><img src="" width="120px" height="160px">
+              <input type="file" value="" class="imgfile" name="imgfile"  id="imgfile" style="width:120px" />
+              
+              </td>
+            <td class="col_name"><span class="text_red">*</span>&nbsp;姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</td>
+            <td ><label>
+              <div style="float:left;">
+                <input type="text" onBlur="checkinputstr('Name','er_name')"  id="Name" value="" maxlength="20" name="Name"/>
+              </div>
+              </label></td>
+            <td align="left" class="col_name"><span class="text_red">*</span>&nbsp;性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别 </td>
+            <td class=""><input type="radio" value="0" checked name="Gender"/>
+              男
+              <input type="radio" value="1"  name="Gender"/>
+              女 </td>
+          </tr>
+          <tr>
+            <td align="left" class="col_name"><!--<span class="weight150"><span class="text_red">*</span>&nbsp;</span>-->常用邮箱 </td>
+            <td colspan="3"><input name="email" type="text" class="weight150" id="email" value="email" />
+              
+              </td>
+          </tr>
+          <tr>
+            <td align="left" class="col_name"><span class="text_red">*</span>手机号码</td>
+            <td colspan="3" valign="middle"><div style="float:left;"> 
+                <!--<select id="MPNation" name="MPNation" onchange="checkinputstr('phone','er_phone');" >
+                  <option value="086" selected="selected">大陆</option>
+                  <option value="000" >其他</option>
+                </select>-->
+                <input id="Mobile" name="Mobile" onBlur="checkinputstr('phone','er_phone')" maxlength="20"  value="手机号" type="text" style="width:98px;" placeholder="手机号"  />
+              </div>
+              
+            </td>
+          </tr>
+          <tr>
+            <td class="col_name">&nbsp;地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址</td>
+            <td colspan="3" valign="middle"><input type="text" onBlur="checkinputstr('Name','er_name')"  id="Address" value="" maxlength="100" name="Address"/></td>
+          </tr>
+          <tr>
+            <td class="col_name">&nbsp;目前工作单位</td>
+            <td colspan="3" valign="middle"><input type="text" onBlur="checkinputstr('Name','er_name')"  id="Company" value="" maxlength="100" name="Address"/></td>
+          </tr>
+          <tr>
+            <td class="col_name">&nbsp;部门</td>
+            <td colspan="2" valign="middle"><input type="text" onBlur="checkinputstr('Name','er_name')"  id="Depart" value="" maxlength="100" name="Address"/></td>
+            <td class="col_name">&nbsp;职位</td>
+            <td colspan="2" valign="middle"><input type="text" onBlur="checkinputstr('Name','er_name')"  id="Job" value="" maxlength="100" name="Address"/></td>
+          </tr>
+          <tr>
+            <td class="col_name">&nbsp;工作时间</td>
+            <td colspan="2" valign="middle"><input type="text" onBlur="checkinputstr('Name','er_name')"  id="Worktime" value="" maxlength="100" name="Address"/></td>
+            <td class="col_name">&nbsp;职级</td>
+            <td colspan="2" valign="middle"><input type="text" onBlur="checkinputstr('Name','er_name')"  id="JobGrade" value="" maxlength="100" name="Address"/></td>
+          </tr>
+          <tr><!--保存按钮-->
+            <td colspan="5" align="left" style="text-align:right;"><input class="btn_pic" type="button" name="imgfile" id="imgfile" onclick="submitBaseInfo();" style="cursor:pointer" value="保存" /></td>
+          </tr>
+        </table>
+      
+        <input type="hidden" id="CheckGoogle" name="CheckGoogle" value=""/>
+      </div>
+      <!--base end--> 
+      
+      <!--EDU start-->
+      <table border="0" cellspacing="0" cellpadding="0" class="paragraph_title paragraph_title_mdf">
+        <tr>
+          <td>教育经历<a name="EDU"></a></td>
+          <td align="right"><img src="http://img01.51jobcdn.com/im/2009/cv/cresume/btn_shrink.gif" align="absmiddle" hspace="10" onClick="showinfo('Edu');" style="cursor:pointer; display:" id="Edu_hidden"/><img src="http://img01.51jobcdn.com/im/2009/cv/cresume/btn_spread.gif" align="absmiddle" hspace="10" onClick="showinfo('Edu');" style="cursor:pointer; display:none" id="Edu_show"/></td>
+        </tr>
+      </table>
+      <div id="Edu_info">
+        <div id="Edu_edit">
+          <div id="Edu_add_1">
+            <form name="Edu_form_add_1" method="POST" id="Edu_form_add_1" action="http://my.51job.com/cv/in/Resume/EduAction.php">
+              <input type="hidden" value="" name="EXTRA_VERIFYSTATUS">
+              <input type="hidden" value="" name="TOP_VERIFYSTATUS">
+              <input type="hidden" value="" name="ISTOPDEGREE">
+              <input type="hidden" value="" name="ISEXTRADEGREE">
+              <table border="0" cellspacing="0" cellpadding="0" style="border:0;margin:0 20px 5px 10px">
+                <tr>
+                  <td align="right" class="col_name" style="background:none;margin-bottom:0;border:0;"></td>
+                  <td style="border:0"><span class="err_red" id="errorMsg_0" style="display:none"><img src="http://img01.51jobcdn.com/im/2009/my/folder/icon_error.gif" width="16" height="15" align="absmiddle" />&nbsp;&nbsp;请选择时间!</span><span class="err_red" id="errorMsg_1" style="display:none"><img src="http://img01.51jobcdn.com/im/2009/my/folder/icon_error.gif" width="16" height="15" align="absmiddle" />&nbsp;&nbsp;结束时间不能小于起始时间!</span></td>
+                  <td colspan="2" align="left" style="border:0"></td>
+                </tr>
+              </table>
+              <table border="0" cellspacing="0" cellpadding="0" class="weight780_mdf weight670" style="float:left;">
+                <tr>
+                  <td align="left" class="col_name"><span class="text_red">* </span>时&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;间 </td>
+                  <td><select class="weightyear" id="FromYear" name="FromYear">
+                      <option value="0" selected="selected">年</option>
+                      <OPTION VALUE=2014>2014</OPTION>
+                      <OPTION VALUE=2013>2013</OPTION>
+                      <OPTION VALUE=2012>2012</OPTION>
+                      <OPTION VALUE=2011>2011</OPTION>
+                      <OPTION VALUE=2010>2010</OPTION>
+                      <OPTION VALUE=2009>2009</OPTION>
+                      <OPTION VALUE=2008>2008</OPTION>
+                      <OPTION VALUE=2007>2007</OPTION>
+                      <OPTION VALUE=2006>2006</OPTION>
+                      <OPTION VALUE=2005>2005</OPTION>
+                      <OPTION VALUE=2004>2004</OPTION>
+                      <OPTION VALUE=2003>2003</OPTION>
+                      <OPTION VALUE=2002>2002</OPTION>
+                      <OPTION VALUE=2001>2001</OPTION>
+                      <OPTION VALUE=2000>2000</OPTION>
+                      <OPTION VALUE=1999>1999</OPTION>
+                      <OPTION VALUE=1998>1998</OPTION>
+                      <OPTION VALUE=1997>1997</OPTION>
+                      <OPTION VALUE=1996>1996</OPTION>
+                      <OPTION VALUE=1995>1995</OPTION>
+                      <OPTION VALUE=1994>1994</OPTION>
+                      <OPTION VALUE=1993>1993</OPTION>
+                      <OPTION VALUE=1992>1992</OPTION>
+                      <OPTION VALUE=1991>1991</OPTION>
+                      <OPTION VALUE=1990>1990</OPTION>
+                      <OPTION VALUE=1989>1989</OPTION>
+                      <OPTION VALUE=1988>1988</OPTION>
+                      <OPTION VALUE=1987>1987</OPTION>
+                      <OPTION VALUE=1986>1986</OPTION>
+                      <OPTION VALUE=1985>1985</OPTION>
+                      <OPTION VALUE=1984>1984</OPTION>
+                      <OPTION VALUE=1983>1983</OPTION>
+                      <OPTION VALUE=1982>1982</OPTION>
+                      <OPTION VALUE=1981>1981</OPTION>
+                      <OPTION VALUE=1980>1980</OPTION>
+                      <OPTION VALUE=1979>1979</OPTION>
+                      <OPTION VALUE=1978>1978</OPTION>
+                      <OPTION VALUE=1977>1977</OPTION>
+                      <OPTION VALUE=1976>1976</OPTION>
+                      <OPTION VALUE=1975>1975</OPTION>
+                      <OPTION VALUE=1974>1974</OPTION>
+                      <OPTION VALUE=1973>1973</OPTION>
+                      <OPTION VALUE=1972>1972</OPTION>
+                      <OPTION VALUE=1971>1971</OPTION>
+                      <OPTION VALUE=1970>1970</OPTION>
+                      <OPTION VALUE=1969>1969</OPTION>
+                      <OPTION VALUE=1968>1968</OPTION>
+                      <OPTION VALUE=1967>1967</OPTION>
+                      <OPTION VALUE=1966>1966</OPTION>
+                      <OPTION VALUE=1965>1965</OPTION>
+                      <OPTION VALUE=1964>1964</OPTION>
+                      <OPTION VALUE=1963>1963</OPTION>
+                      <OPTION VALUE=1962>1962</OPTION>
+                      <OPTION VALUE=1961>1961</OPTION>
+                      <OPTION VALUE=1960>1960</OPTION>
+                      <OPTION VALUE=1959>1959</OPTION>
+                      <OPTION VALUE=1958>1958</OPTION>
+                      <OPTION VALUE=1957>1957</OPTION>
+                      <OPTION VALUE=1956>1956</OPTION>
+                      <OPTION VALUE=1955>1955</OPTION>
+                      <OPTION VALUE=1954>1954</OPTION>
+                      <OPTION VALUE=1953>1953</OPTION>
+                      <OPTION VALUE=1952>1952</OPTION>
+                      <OPTION VALUE=1951>1951</OPTION>
+                      <OPTION VALUE=1950>1950</OPTION>
+                      <OPTION VALUE=1949>1949</OPTION>
+                      <OPTION VALUE=1948>1948</OPTION>
+                      <OPTION VALUE=1947>1947</OPTION>
+                      <OPTION VALUE=1946>1946</OPTION>
+                      <OPTION VALUE=1945>1945</OPTION>
+                      <OPTION VALUE=1944>1944</OPTION>
+                    </select>
+                    <select class="weightmonth" id="FromMonth" name="FromMonth">
+                      <option value="0" selected="selected">月</option>
+                      <OPTION VALUE=1>1</OPTION>
+                      <OPTION VALUE=2>2</OPTION>
+                      <OPTION VALUE=3>3</OPTION>
+                      <OPTION VALUE=4>4</OPTION>
+                      <OPTION VALUE=5>5</OPTION>
+                      <OPTION VALUE=6>6</OPTION>
+                      <OPTION VALUE=7>7</OPTION>
+                      <OPTION VALUE=8>8</OPTION>
+                      <OPTION VALUE=9>9</OPTION>
+                      <OPTION VALUE=10>10</OPTION>
+                      <OPTION VALUE=11>11</OPTION>
+                      <OPTION VALUE=12>12</OPTION>
+                    </select>
+                    到
+                    <select class="weightyear" id="ToYear" name="ToYear">
+                      <option value="0" selected="selected">年</option>
+                      <OPTION VALUE=2019>2019</OPTION>
+                      <OPTION VALUE=2018>2018</OPTION>
+                      <OPTION VALUE=2017>2017</OPTION>
+                      <OPTION VALUE=2016>2016</OPTION>
+                      <OPTION VALUE=2015>2015</OPTION>
+                      <OPTION VALUE=2014>2014</OPTION>
+                      <OPTION VALUE=2013>2013</OPTION>
+                      <OPTION VALUE=2012>2012</OPTION>
+                      <OPTION VALUE=2011>2011</OPTION>
+                      <OPTION VALUE=2010>2010</OPTION>
+                      <OPTION VALUE=2009>2009</OPTION>
+                      <OPTION VALUE=2008>2008</OPTION>
+                      <OPTION VALUE=2007>2007</OPTION>
+                      <OPTION VALUE=2006>2006</OPTION>
+                      <OPTION VALUE=2005>2005</OPTION>
+                      <OPTION VALUE=2004>2004</OPTION>
+                      <OPTION VALUE=2003>2003</OPTION>
+                      <OPTION VALUE=2002>2002</OPTION>
+                      <OPTION VALUE=2001>2001</OPTION>
+                      <OPTION VALUE=2000>2000</OPTION>
+                      <OPTION VALUE=1999>1999</OPTION>
+                      <OPTION VALUE=1998>1998</OPTION>
+                      <OPTION VALUE=1997>1997</OPTION>
+                      <OPTION VALUE=1996>1996</OPTION>
+                      <OPTION VALUE=1995>1995</OPTION>
+                      <OPTION VALUE=1994>1994</OPTION>
+                      <OPTION VALUE=1993>1993</OPTION>
+                      <OPTION VALUE=1992>1992</OPTION>
+                      <OPTION VALUE=1991>1991</OPTION>
+                      <OPTION VALUE=1990>1990</OPTION>
+                      <OPTION VALUE=1989>1989</OPTION>
+                      <OPTION VALUE=1988>1988</OPTION>
+                      <OPTION VALUE=1987>1987</OPTION>
+                      <OPTION VALUE=1986>1986</OPTION>
+                      <OPTION VALUE=1985>1985</OPTION>
+                      <OPTION VALUE=1984>1984</OPTION>
+                      <OPTION VALUE=1983>1983</OPTION>
+                      <OPTION VALUE=1982>1982</OPTION>
+                      <OPTION VALUE=1981>1981</OPTION>
+                      <OPTION VALUE=1980>1980</OPTION>
+                      <OPTION VALUE=1979>1979</OPTION>
+                      <OPTION VALUE=1978>1978</OPTION>
+                      <OPTION VALUE=1977>1977</OPTION>
+                      <OPTION VALUE=1976>1976</OPTION>
+                      <OPTION VALUE=1975>1975</OPTION>
+                      <OPTION VALUE=1974>1974</OPTION>
+                      <OPTION VALUE=1973>1973</OPTION>
+                      <OPTION VALUE=1972>1972</OPTION>
+                      <OPTION VALUE=1971>1971</OPTION>
+                      <OPTION VALUE=1970>1970</OPTION>
+                      <OPTION VALUE=1969>1969</OPTION>
+                      <OPTION VALUE=1968>1968</OPTION>
+                      <OPTION VALUE=1967>1967</OPTION>
+                      <OPTION VALUE=1966>1966</OPTION>
+                      <OPTION VALUE=1965>1965</OPTION>
+                      <OPTION VALUE=1964>1964</OPTION>
+                      <OPTION VALUE=1963>1963</OPTION>
+                      <OPTION VALUE=1962>1962</OPTION>
+                      <OPTION VALUE=1961>1961</OPTION>
+                      <OPTION VALUE=1960>1960</OPTION>
+                      <OPTION VALUE=1959>1959</OPTION>
+                      <OPTION VALUE=1958>1958</OPTION>
+                      <OPTION VALUE=1957>1957</OPTION>
+                      <OPTION VALUE=1956>1956</OPTION>
+                      <OPTION VALUE=1955>1955</OPTION>
+                      <OPTION VALUE=1954>1954</OPTION>
+                      <OPTION VALUE=1953>1953</OPTION>
+                      <OPTION VALUE=1952>1952</OPTION>
+                      <OPTION VALUE=1951>1951</OPTION>
+                      <OPTION VALUE=1950>1950</OPTION>
+                      <OPTION VALUE=1949>1949</OPTION>
+                      <OPTION VALUE=1948>1948</OPTION>
+                      <OPTION VALUE=1947>1947</OPTION>
+                      <OPTION VALUE=1946>1946</OPTION>
+                      <OPTION VALUE=1945>1945</OPTION>
+                      <OPTION VALUE=1944>1944</OPTION>
+                    </select>
+                    <select class="weightmonth" id="ToMonth" name="ToMonth">
+                      <option value="0" selected="selected">月</option>
+                      <OPTION VALUE=1>1</OPTION>
+                      <OPTION VALUE=2>2</OPTION>
+                      <OPTION VALUE=3>3</OPTION>
+                      <OPTION VALUE=4>4</OPTION>
+                      <OPTION VALUE=5>5</OPTION>
+                      <OPTION VALUE=6>6</OPTION>
+                      <OPTION VALUE=7>7</OPTION>
+                      <OPTION VALUE=8>8</OPTION>
+                      <OPTION VALUE=9>9</OPTION>
+                      <OPTION VALUE=10>10</OPTION>
+                      <OPTION VALUE=11>11</OPTION>
+                      <OPTION VALUE=12>12</OPTION>
+                    </select>
+                    (后两项不填表示至今) </td>
+                  <td class="del_all weight60"><img src="http://img01.51jobcdn.com/im/2009/cv/icon_del.gif" hspace="3" align="absmiddle" /><a class="blue3" onclick="deleteinfo('Edu','add','1')" style="cursor:pointer">删除</a></td>
+                </tr>
+                <tr>
+                  <td align="right" class="noborder"></td>
+                  <td class="noborder"><span class="err_red" id="errorMsg_2" style="display:none"><img src="http://img01.51jobcdn.com/im/2009/my/folder/icon_error.gif" width="16" height="15" align="absmiddle" />&nbsp;&nbsp;请输入学校名称（限50个汉字）</span></td>
+                  <td colspan="2" class="noborder"></td>
+                </tr>
+                <tr>
+                  <td class="col_name"><span class="text_red">*</span> 学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;校 </td>
+                  <td id="school_td_add_1"><p style="float:left">
+                      <input type="text" style="width:353px;" id="SchoolName" value="" maxlength="100" onfocus="initAutoCom(0,'C',document.Edu_form_add_1['SchoolName'],document.getElementById('school_td_add_1'),'http://my.51job.com', 'contentHighSet');$('#Edu_form_add_1').find('#SchoolName').removeAttr('onfocus');" onblur="Checkinput(this.value,'Edu_form_add_1','errorMsg_2','',100)" name="SchoolName"/>
+                    </p></td>
+                  <td colspan="2">&nbsp;</td>
+                </tr>
+                <tr>
+                  <td align="right" class="noborder"></td>
+                  <td class="noborder"><span class="err_red" id="errorMsg_3" style="display:none"><img src="http://img01.51jobcdn.com/im/2009/my/folder/icon_error.gif" width="16" height="15" align="absmiddle" />&nbsp;&nbsp;请选择或者手动填写专业名称（限50个汉字）</span></td>
+                  <td colspan="2" class="noborder"></td>
+                </tr>
+                <tr>
+                  <td class="col_name"><span class="text_red">* </span>专&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;业 </td>
+                  <td><input name="btnSubMajor" type="button"  class="choose" id="btnSubMajor" value="选择/修改" style="cursor:pointer"  onfocus="blur()"  />
+                    <input name="SubMajor" type="hidden" id="SubMajor" value="">
+                    &nbsp;&nbsp;
+                    <input type="text" class="weight220 text_gray" id="MoreMajor" value="若无合适选项请在此处填写" maxlength="100" onfocus="clearinput('Edu_form_add_1','MoreMajor','text_gray')" name="MoreMajor"/></td>
+                  <td colspan="2">&nbsp;</td>
+                </tr>
+                <tr>
+                  <td align="right" class="noborder"></td>
+                  <td class="noborder"><span class="err_red" id="errorMsg_4" style="display:none"><img src="http://img01.51jobcdn.com/im/2009/my/folder/icon_error.gif" width="16" height="15" align="absmiddle" />&nbsp;&nbsp;请选择学历！</span></td>
+                  <td colspan="2" class="noborder"></td>
+                </tr>
+                <tr>
+                  <td class="col_name"><span class="text_red">* </span>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历 </td>
+                  <td><select id="Degree" onblur="Checkinput(this.value,'Edu_form_add_1','errorMsg_4','')" name="Degree">
+                      <option value=""> 请选择 </option>
+                      <OPTION VALUE=1>初中</OPTION>
+                      <OPTION VALUE=2>高中</OPTION>
+                      <OPTION VALUE=3>中技</OPTION>
+                      <OPTION VALUE=4>中专</OPTION>
+                      <OPTION VALUE=5>大专</OPTION>
+                      <OPTION VALUE=6>本科</OPTION>
+                      <OPTION VALUE='-1'>MBA</OPTION>
+                      <OPTION VALUE=7>硕士</OPTION>
+                      <OPTION VALUE=8>博士</OPTION>
+                      <OPTION VALUE=9>其他</OPTION>
+                    </select></td>
+                  <td colspan="2">&nbsp;</td>
+                </tr>
+                <tr>
+                  <td align="right" class="noborder"></td>
+                  <td colspan="3" class="noborder"><span class="err_red" id="errorMsg_5" style="display:none"><img src="http://img01.51jobcdn.com/im/2009/my/folder/icon_error.gif" width="16" height="15" align="absmiddle" />&nbsp;&nbsp;输入错误。请控制在2000个汉字以内。</span></td>
+                </tr>
+                <tr>
+                  <td class="col_name"> 专业描述 </td>
+                  <td colspan="3"><textarea rows="6" class="weight450 " id="EduDetail" onchange="str_limit('Edu_form_add_1',this.value,'strlen',0);" onkeyup="str_limit('Edu_form_add_1',this.value,'strlen',0);" name="EduDetail"></textarea>
+                    <br />
+                    <span class="text_gray">填写您所学专业包括什么课程，您的毕业设计等等<br />
+                    限2000个中文字，已输入<font color="#FF0000" id="strlen">0</font>个字</span></td>
+                </tr>
+                <tr>
+                  <td colspan="4" style="border:0;"></td>
+                </tr>
+                <tr>
+                  <td class="col_name">海外学习经历</td>
+                  <td><input type="radio" value="1"  name="Isoverseas"/>
+                    是
+                    <input name="Isoverseas" type="radio" value="0" checked name="Isoverseas"/>
+                    否 </td>
+                  <td colspan="2"><input name="show_num" type="hidden" id="show_num" value="1" />
+                    <input type="hidden" name="NextAction" value="new" id="NextAction" />
+                    <input type="hidden" name="isEnglish" value="0" id="isEnglish" />
+                    <input type="hidden" name="EduID" value="" id="EduID" />
+                    <input type="hidden" name="ReSumeID" value="" id="ReSumeID" class="ReSumeID" />
+                    <input name="ErrorSave" type="hidden" id="ErrorSave" value="0" class="ErrorSave" /></td>
+                </tr>
+              </table>
+              <p> <img src="http://img01.51jobcdn.com/im/2009/cv/cresume/btn_save1.gif" onclick="Edu_save('Edu_form_add_1');" style="cursor:pointer" /> </p>
+              <table border="0" cellPadding="0" cellSpacing="0" class="linedot noborder weight700">
+                <tr>
+                  <td class="noborder"></td>
+                </tr>
+              </table>
+            </form>
+            <script language="javascript">
+if(window.MajorLayer)
+{
+	window.MajorLayer.pushOpenNodes(document.Edu_form_add_1.btnSubMajor);
+	$('#Edu_form_add_1').find('#btnSubMajor').removeAttr('onclick');
+}
+
+	function searchInitMajor_add_1() {
+		if ( window.Search ) {
+			clearInterval( intValMajor_add_1 );
+			window.zzSearch2 = new Search( { 
+				searchForm : document.Edu_form_add_1 
+			} );
+			zzSearch2.initNewMajorLayer();
+		}
+	}
+	var intValMajor_add_1 = window.setInterval( searchInitMajor_add_1 , 50 );
+</script> 
+          </div>
+        </div>
+        <table border="0" cellspacing="0" cellpadding="0" class="rew_con_paragraph">
+          <tr>
+            <td><img src="http://img01.51jobcdn.com/im/2009/cv/cresume/btn_addcontinue.gif" hspace="5" vspace="10" onclick="addinfo('Edu');" style="cursor:pointer" id="Edu_add" /></td>
+          </tr>
+        </table>
+      </div>
+      
+      <!--EDU end--> 
+      
+      <!--Work start-->
+      <table border="0" cellspacing="0" cellpadding="0" class="paragraph_title paragraph_title_mdf">
+        <tr>
+          <td>工作经验<a name="WORK" id="WORK"/></td>
+          <td align="right"><img src="http://img01.51jobcdn.com/im/2009/cv/cresume/btn_shrink.gif" align="absmiddle" hspace="10" onClick="showinfo('Work');" style="cursor:pointer; display:" id="Work_hidden"/><img src="http://img01.51jobcdn.com/im/2009/cv/cresume/btn_spread.gif" align="absmiddle" hspace="10" onClick="showinfo('Work');" style="cursor:pointer; display:none" id="Work_show"/></td>
+        </tr>
+      </table>
+      <table border="0" cellspacing="0" cellpadding="0" class="rew_con_paragraph" id="Work_info">
+          <tr>
+        
+          <td>
+        
+        <div id="Work_edit">
+          <div id="Work_add_1">
+            <form name="Work_form_add_1" method="post" id="Work_form_add_1" action="/cv/in/Resume/WorkAction.php">
+              <table border="0" cellspacing="0" cellpadding="0" style="border:0;margin:0 20px 5px 10px">
+                <tr>
+                  <td align="right" class="col_name" style="background:none;margin-bottom:0;border:0;"></td>
+                  <td style="border:0" colspan="5"><span class="err_red" id="errorMsg_0" style="display:none"><img src="http://img01.51jobcdn.com/im/2009/my/folder/icon_error.gif" width="16" height="15" align="absmiddle" />&nbsp;&nbsp;请选择时间!</span><span class="err_red" id="errorMsg_1" style="display:none"><img src="http://img01.51jobcdn.com/im/2009/my/folder/icon_error.gif" width="16" height="15" align="absmiddle" />&nbsp;&nbsp;结束时间不能小于起始时间!</span></td>
+                </tr>
+              </table>
+              <table border="0" cellspacing="0" cellpadding="0" class="weight780_mdf weight670" style="float:left;">
+                <tr>
+                  <td class="col_name"><span class="text_red">* </span>时&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;间</td>
+                  <td colspan="3"><select name="FromYear" class="weightyear" id="FromYear">
+                      <option value="0">年</option>
+                      <OPTION VALUE=2014>2014</OPTION>
+                      <OPTION VALUE=2013>2013</OPTION>
+                      <OPTION VALUE=2012>2012</OPTION>
+                      <OPTION VALUE=2011>2011</OPTION>
+                      <OPTION VALUE=2010>2010</OPTION>
+                      <OPTION VALUE=2009>2009</OPTION>
+                      <OPTION VALUE=2008>2008</OPTION>
+                      <OPTION VALUE=2007>2007</OPTION>
+                      <OPTION VALUE=2006>2006</OPTION>
+                      <OPTION VALUE=2005>2005</OPTION>
+                      <OPTION VALUE=2004>2004</OPTION>
+                      <OPTION VALUE=2003>2003</OPTION>
+                      <OPTION VALUE=2002>2002</OPTION>
+                      <OPTION VALUE=2001>2001</OPTION>
+                      <OPTION VALUE=2000>2000</OPTION>
+                      <OPTION VALUE=1999>1999</OPTION>
+                      <OPTION VALUE=1998>1998</OPTION>
+                      <OPTION VALUE=1997>1997</OPTION>
+                      <OPTION VALUE=1996>1996</OPTION>
+                      <OPTION VALUE=1995>1995</OPTION>
+                      <OPTION VALUE=1994>1994</OPTION>
+                      <OPTION VALUE=1993>1993</OPTION>
+                      <OPTION VALUE=1992>1992</OPTION>
+                      <OPTION VALUE=1991>1991</OPTION>
+                      <OPTION VALUE=1990>1990</OPTION>
+                      <OPTION VALUE=1989>1989</OPTION>
+                      <OPTION VALUE=1988>1988</OPTION>
+                      <OPTION VALUE=1987>1987</OPTION>
+                      <OPTION VALUE=1986>1986</OPTION>
+                      <OPTION VALUE=1985>1985</OPTION>
+                      <OPTION VALUE=1984>1984</OPTION>
+                      <OPTION VALUE=1983>1983</OPTION>
+                      <OPTION VALUE=1982>1982</OPTION>
+                      <OPTION VALUE=1981>1981</OPTION>
+                      <OPTION VALUE=1980>1980</OPTION>
+                      <OPTION VALUE=1979>1979</OPTION>
+                      <OPTION VALUE=1978>1978</OPTION>
+                      <OPTION VALUE=1977>1977</OPTION>
+                      <OPTION VALUE=1976>1976</OPTION>
+                      <OPTION VALUE=1975>1975</OPTION>
+                      <OPTION VALUE=1974>1974</OPTION>
+                      <OPTION VALUE=1973>1973</OPTION>
+                      <OPTION VALUE=1972>1972</OPTION>
+                      <OPTION VALUE=1971>1971</OPTION>
+                      <OPTION VALUE=1970>1970</OPTION>
+                      <OPTION VALUE=1969>1969</OPTION>
+                      <OPTION VALUE=1968>1968</OPTION>
+                      <OPTION VALUE=1967>1967</OPTION>
+                      <OPTION VALUE=1966>1966</OPTION>
+                      <OPTION VALUE=1965>1965</OPTION>
+                      <OPTION VALUE=1964>1964</OPTION>
+                      <OPTION VALUE=1963>1963</OPTION>
+                      <OPTION VALUE=1962>1962</OPTION>
+                      <OPTION VALUE=1961>1961</OPTION>
+                      <OPTION VALUE=1960>1960</OPTION>
+                      <OPTION VALUE=1959>1959</OPTION>
+                      <OPTION VALUE=1958>1958</OPTION>
+                      <OPTION VALUE=1957>1957</OPTION>
+                      <OPTION VALUE=1956>1956</OPTION>
+                      <OPTION VALUE=1955>1955</OPTION>
+                      <OPTION VALUE=1954>1954</OPTION>
+                      <OPTION VALUE=1953>1953</OPTION>
+                      <OPTION VALUE=1952>1952</OPTION>
+                      <OPTION VALUE=1951>1951</OPTION>
+                      <OPTION VALUE=1950>1950</OPTION>
+                      <OPTION VALUE=1949>1949</OPTION>
+                      <OPTION VALUE=1948>1948</OPTION>
+                      <OPTION VALUE=1947>1947</OPTION>
+                      <OPTION VALUE=1946>1946</OPTION>
+                      <OPTION VALUE=1945>1945</OPTION>
+                      <OPTION VALUE=1944>1944</OPTION>
+                    </select>
+                    <select name="FromMonth" class="weightmonth" id="FromMonth">
+                      <option value="0">月</option>
+                      <OPTION VALUE=1>1</OPTION>
+                      <OPTION VALUE=2>2</OPTION>
+                      <OPTION VALUE=3>3</OPTION>
+                      <OPTION VALUE=4>4</OPTION>
+                      <OPTION VALUE=5>5</OPTION>
+                      <OPTION VALUE=6>6</OPTION>
+                      <OPTION VALUE=7>7</OPTION>
+                      <OPTION VALUE=8>8</OPTION>
+                      <OPTION VALUE=9>9</OPTION>
+                      <OPTION VALUE=10>10</OPTION>
+                      <OPTION VALUE=11>11</OPTION>
+                      <OPTION VALUE=12>12</OPTION>
+                    </select>
+                    到
+                    <select name="ToYear" class="weightyear" id="ToYear">
+                      <option value="0">年</option>
+                      <OPTION VALUE=2014>2014</OPTION>
+                      <OPTION VALUE=2013>2013</OPTION>
+                      <OPTION VALUE=2012>2012</OPTION>
+                      <OPTION VALUE=2011>2011</OPTION>
+                      <OPTION VALUE=2010>2010</OPTION>
+                      <OPTION VALUE=2009>2009</OPTION>
+                      <OPTION VALUE=2008>2008</OPTION>
+                      <OPTION VALUE=2007>2007</OPTION>
+                      <OPTION VALUE=2006>2006</OPTION>
+                      <OPTION VALUE=2005>2005</OPTION>
+                      <OPTION VALUE=2004>2004</OPTION>
+                      <OPTION VALUE=2003>2003</OPTION>
+                      <OPTION VALUE=2002>2002</OPTION>
+                      <OPTION VALUE=2001>2001</OPTION>
+                      <OPTION VALUE=2000>2000</OPTION>
+                      <OPTION VALUE=1999>1999</OPTION>
+                      <OPTION VALUE=1998>1998</OPTION>
+                      <OPTION VALUE=1997>1997</OPTION>
+                      <OPTION VALUE=1996>1996</OPTION>
+                      <OPTION VALUE=1995>1995</OPTION>
+                      <OPTION VALUE=1994>1994</OPTION>
+                      <OPTION VALUE=1993>1993</OPTION>
+                      <OPTION VALUE=1992>1992</OPTION>
+                      <OPTION VALUE=1991>1991</OPTION>
+                      <OPTION VALUE=1990>1990</OPTION>
+                      <OPTION VALUE=1989>1989</OPTION>
+                      <OPTION VALUE=1988>1988</OPTION>
+                      <OPTION VALUE=1987>1987</OPTION>
+                      <OPTION VALUE=1986>1986</OPTION>
+                      <OPTION VALUE=1985>1985</OPTION>
+                      <OPTION VALUE=1984>1984</OPTION>
+                      <OPTION VALUE=1983>1983</OPTION>
+                      <OPTION VALUE=1982>1982</OPTION>
+                      <OPTION VALUE=1981>1981</OPTION>
+                      <OPTION VALUE=1980>1980</OPTION>
+                      <OPTION VALUE=1979>1979</OPTION>
+                      <OPTION VALUE=1978>1978</OPTION>
+                      <OPTION VALUE=1977>1977</OPTION>
+                      <OPTION VALUE=1976>1976</OPTION>
+                      <OPTION VALUE=1975>1975</OPTION>
+                      <OPTION VALUE=1974>1974</OPTION>
+                      <OPTION VALUE=1973>1973</OPTION>
+                      <OPTION VALUE=1972>1972</OPTION>
+                      <OPTION VALUE=1971>1971</OPTION>
+                      <OPTION VALUE=1970>1970</OPTION>
+                      <OPTION VALUE=1969>1969</OPTION>
+                      <OPTION VALUE=1968>1968</OPTION>
+                      <OPTION VALUE=1967>1967</OPTION>
+                      <OPTION VALUE=1966>1966</OPTION>
+                      <OPTION VALUE=1965>1965</OPTION>
+                      <OPTION VALUE=1964>1964</OPTION>
+                      <OPTION VALUE=1963>1963</OPTION>
+                      <OPTION VALUE=1962>1962</OPTION>
+                      <OPTION VALUE=1961>1961</OPTION>
+                      <OPTION VALUE=1960>1960</OPTION>
+                      <OPTION VALUE=1959>1959</OPTION>
+                      <OPTION VALUE=1958>1958</OPTION>
+                      <OPTION VALUE=1957>1957</OPTION>
+                      <OPTION VALUE=1956>1956</OPTION>
+                      <OPTION VALUE=1955>1955</OPTION>
+                      <OPTION VALUE=1954>1954</OPTION>
+                      <OPTION VALUE=1953>1953</OPTION>
+                      <OPTION VALUE=1952>1952</OPTION>
+                      <OPTION VALUE=1951>1951</OPTION>
+                      <OPTION VALUE=1950>1950</OPTION>
+                      <OPTION VALUE=1949>1949</OPTION>
+                      <OPTION VALUE=1948>1948</OPTION>
+                      <OPTION VALUE=1947>1947</OPTION>
+                      <OPTION VALUE=1946>1946</OPTION>
+                      <OPTION VALUE=1945>1945</OPTION>
+                      <OPTION VALUE=1944>1944</OPTION>
+                    </select>
+                    <select name="ToMonth" class="weightmonth" id="ToMonth">
+                      <option value="0">月</option>
+                      <OPTION VALUE=1>1</OPTION>
+                      <OPTION VALUE=2>2</OPTION>
+                      <OPTION VALUE=3>3</OPTION>
+                      <OPTION VALUE=4>4</OPTION>
+                      <OPTION VALUE=5>5</OPTION>
+                      <OPTION VALUE=6>6</OPTION>
+                      <OPTION VALUE=7>7</OPTION>
+                      <OPTION VALUE=8>8</OPTION>
+                      <OPTION VALUE=9>9</OPTION>
+                      <OPTION VALUE=10>10</OPTION>
+                      <OPTION VALUE=11>11</OPTION>
+                      <OPTION VALUE=12>12</OPTION>
+                    </select>
+                    (后两项不填表示至今)<span style="margin-left:160px;"> <img src="http://img01.51jobcdn.com/im/2009/cv/icon_del.gif" hspace="3" align="absmiddle" /><a class="blue3" onclick="deleteinfo('Work','add','1')">删除</a></span></td>
+                </tr>
+                <tr>
+                  <td align="right" style="border:0"></td>
+                    <td colspan="2" style="border:0" colspan="2">
+                  <span class="err_red" id="errorMsg_2" style="display:none"><img src="http://img01.51jobcdn.com/im/2009/my/folder/icon_error.gif" width="16" height="15" align="absmiddle" />&nbsp;&nbsp;请输入公司名称（限50个汉字）</span>
+                  </td>
+                
+                  </tr>
+                
+                <tr>
+                  <td class="col_name"><span class="text_red">*</span> 公&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;司</td>
+                  <td colspan="3"><input name="Company" type="text" style="width:154px" id="Company" value="" maxlength="100" onblur="Checkinput(this.value,'Work_add_1','errorMsg_2','',100)" /></td>
+                </tr>
+                <tr>
+                  <td align="right" style="border:0"></td>
+                  <td style="border:0" colspan="2"><span class="err_red" id="errorMsg_3" style="display:none"><img src="http://img01.51jobcdn.com/im/2009/my/folder/icon_error.gif" width="16" height="15" align="absmiddle" />&nbsp;&nbsp;请选择行业</span></td>
+                </tr>
+                <tr>
+                  <td class="col_name"><span class="text_red">*</span> 行&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;业 </td>
+                  <td colspan="3"><input name="btnIndustry" type="button"  class="choose" id="btnIndustry" value="选择/修改" onclick="searchInit(this,document.Work_form_add_1.Industry,this,it,'行业',3,false,0,'Industrytype');$('#Work_form_add_1').find('#btnIndustry').removeAttr('onclick');"  onfocus="blur()" />
+                    <input name="Industry" type="hidden" id="Industry" value=""></td>
+                </tr>
+                <tr>
+                  <td colspan="3" align="right" style="border:0"></td>
+                  <td style="border:0"><span class="err_red" id="errorMsg_4" style="display:none"><img src="http://img01.51jobcdn.com/im/2009/my/folder/icon_error.gif" width="16" height="15" align="absmiddle" />&nbsp;&nbsp;请选择公司性质</span></td>
+                </tr>
+                <tr>
+                  <td class="col_name">公司规模</td>
+                  <td><select name="companysize" class="weight160" id="companysize">
+                      <option value="0">---请选择---</option>
+                      <OPTION VALUE=1>少于50人</OPTION>
+                      <OPTION VALUE=2>50-150人</OPTION>
+                      <OPTION VALUE=3>150-500人</OPTION>
+                      <OPTION VALUE=4>500-1000人</OPTION>
+                      <OPTION VALUE=5>1000-5000人</OPTION>
+                      <OPTION VALUE=6>5000-10000人</OPTION>
+                      <OPTION VALUE=7>10000人以上</OPTION>
+                    </select></td>
+                  <td class="col_name"><span class="text_red">*</span> 公司性质 </td>
+                  <td><select style="width:125px;" name="CompanyType" id="CompanyType" onblur="Checkinput(this.value,'Work_add_1','errorMsg_4')">
+                      <option value="">---请选择---</option>
+                      <OPTION VALUE=01>外资（欧美）</OPTION>
+                      <OPTION VALUE=02>外资（非欧美）</OPTION>
+                      <OPTION VALUE=03>合资</OPTION>
+                      <OPTION VALUE=05>国企</OPTION>
+                      <OPTION VALUE=06>民营公司</OPTION>
+                      <OPTION VALUE=13>国内上市公司</OPTION>
+                      <OPTION VALUE=07>外企代表处</OPTION>
+                      <OPTION VALUE=09>政府机关</OPTION>
+                      <OPTION VALUE=10>事业单位</OPTION>
+                      <OPTION VALUE=11>非营利机构</OPTION>
+                      <OPTION VALUE=08>其它性质</OPTION>
+                    </select></td>
+                </tr>
+                <tr>
+                  <td align="right" style="border:0"></td>
+                  <td colspan="2" style="border:0"><span class="err_red" id="errorMsg_5" style="display:none"><img src="http://img01.51jobcdn.com/im/2009/my/folder/icon_error.gif" width="16" height="15" align="absmiddle" />&nbsp;&nbsp;请输入部门（限25个汉字）</span></td>
+                  <td style="border:0"><span class="err_red" id="errorMsg_6" style="display:none"><img src="http://img01.51jobcdn.com/im/2009/my/folder/icon_error.gif" width="16" height="15" align="absmiddle" />&nbsp;&nbsp;请选择职位名称</span><span class="err_red" id="errorMsg_9" style="display:none"><img src="http://img01.51jobcdn.com/im/2009/my/folder/icon_error.gif" width="16" height="15" align="absmiddle" />&nbsp;&nbsp;请先选择职位分类</span><span class="err_red" id="errorMsg_10" style="display:none"><img src="http://img01.51jobcdn.com/im/2009/my/folder/icon_error.gif" width="16" height="15" align="absmiddle" />&nbsp;&nbsp;请选择职位分类小类，或者手动输入职位名称</span><span class="err_red" id="errorMsg_13" style="display:none"><img src="http://img01.51jobcdn.com/im/2009/my/folder/icon_error.gif" width="16" height="15" align="absmiddle" />&nbsp;&nbsp;输入错误。请填写职位名称，并控制在25个汉字以内。</span></td>
+                </tr>
+                <tr>
+                  <td class="col_name"><span class="text_red">*</span> 部&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;门</td>
+                  <td><input name="Division" type="text" style="width:154px" id="Division" value="" maxlength="50" onblur="Checkinput(this.value,'Work_add_1','errorMsg_5','',50)" /></td>
+                  <td class="col_name"><span class="text_red">*</span> 职&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;位 </td>
+                  <td><input name="btnSubFunction" type="button"  class="choose" id="btnSubFunction" value="选择/修改" onclick="searchInit(this,document.Work_form_add_1.SubFunction,this,ft,'职位',3,false,2,'Functype');$('#Work_form_add_1').find('#btnSubFunction').removeAttr('onclick');"  onfocus="blur()" />
+                    <input name="SubFunction" type="hidden" id="SubFunction" value="">
+                    <input name="Position" style="margin-right:5px;width:160px;" type="text" class="weight150 text_gray" id="Position" value="若无合适选项请在此处填写" maxlength="50" onfocus="clearinput('Work_form_add_1','Position','text_gray')" />
+                    </span></td>
+                </tr>
+                <tr>
+                  <td align="right" valign="top" style="border:0"></td>
+                  <td colspan="3" style="border:0"><span class="err_red" id="errorMsg_8" style="display:none"><img src="http://img01.51jobcdn.com/im/2009/my/folder/icon_error.gif" width="16" height="15" align="absmiddle" />&nbsp;&nbsp;请输入工作描述</span><span class="err_red" id="errorMsg_11" style="display:none"><img src="http://img01.51jobcdn.com/im/2009/my/folder/icon_error.gif" width="16" height="15" align="absmiddle" />&nbsp;&nbsp;输入错误。请输入工作描述，并控制在2000个汉字以内</span></td>
+                </tr>
+                <tr>
+                  <td class="col_name"><span class="text_red">*</span> 工作描述</td>
+                  <td colspan="3"><textarea name="Responsiblity" rows="6" class="weight480" id="Responsiblity" onchange="str_limit('Work_form_add_1',this.value,'strlen',0);" onkeyup="str_limit('Work_form_add_1',this.value,'strlen',0);"></textarea>
+                    <br />
+                    <span class="text_gray">请详细描述您的职责范围、工作任务以及取得的成绩等<br />
+                    限2000个中文字，已输入<font color="#FF0000" id="strlen">0</font>个字</span></td>
+                </tr>
+              </table>
+              <p> <img src="http://img01.51jobcdn.com/im/2009/cv/cresume/btn_save1.gif" onclick="Work_save('Work_form_add_1');" style="cursor:pointer" /> </p>
+              <table border="0" cellspacing="0" cellpadding="0" class="weight670" style="border:0;">
+                <tr>
+                  <td align="left" valign="top" style="padding-left:20px;border:0;"><span class="orareg"><a class="orange1" onclick="More_show('Work_form_add_1','Work_more')" style="cursor:pointer">高级人才附加信息</a><font id="up" style="display:none">↑</font> <font id="down" style="display:">↓</font></span></td>
+                </tr>
+              </table>
+              <table border="0" cellspacing="0" cellpadding="0" class="weight780_mdf weight670" style="border:0;margin:0 20px 5px 10px">
+                <tr>
+                  <td align="right" class="col_name" style="background:none;margin-bottom:0;border:0;"></td>
+                  <td style="border:0;"><span class="err_red" id="errorMsg_7" style="display:none;margin-left:150px;"><img src="http://img01.51jobcdn.com/im/2009/my/folder/icon_error.gif" width="16" height="15" align="absmiddle" />&nbsp;&nbsp;下属人数请输入数字。</span></td>
+                  <td style="border:0"><span class="err_red" id="errorMsg_14" style="display:none"><img src="http://img01.51jobcdn.com/im/2009/my/folder/icon_error.gif" width="16" height="15" align="absmiddle" />&nbsp;&nbsp;</span></td>
+                </tr>
+              </table>
+              <table border="0" cellspacing="0" cellpadding="0" class="weight780_mdf weight670" id="Work_more" style="display:none;float:left;table-layout:fixed">
+                <tr>
+                  <td align="left" class="col_name "> 汇报对象 </td>
+                  <td><input name="ReportLine" type="text" class="weight100" id="ReportLine" value="" maxlength="50" /></td>
+                  <td class="col_name "><span style="background:#F3F7F9;font-weight:bold;">下属人数</span></td>
+                  <td><input name="Subordinate" type="text" class="weight100" id="Subordinate" value="" maxlength="5" /></td>
+                  <td class="col_name "><span style="background:#F3F7F9;font-weight:bold;">证明人</span></td>
+                  <td><input name="Reference" type="text" class="weight100" id="Reference" value="" maxlength="50" /></td>
+                </tr>
+                <tr>
+                  <td align="right" class="noborder"></td>
+                  <td colspan="5" class="noborder"><span class="err_red" id="errorMsg_15" style="display:none"><img src="http://img01.51jobcdn.com/im/2009/my/folder/icon_error.gif" width="16" height="15" align="absmiddle" />&nbsp;&nbsp;输入错误。请控制在100个汉字以内。</span></td>
+                </tr>
+                <tr>
+                  <td class="col_name ">离职原因</td>
+                  <td colspan="5"><input name="LeaveReason" type="text" style="width:546px;" id="LeaveReason" value="" maxlength="200" /></td>
+                </tr>
+                <tr>
+                  <td align="right" valign="top" class="noborder"></td>
+                  <td colspan="5" class="noborder"><span class="err_red" id="errorMsg_12" style="display:none"><img src="http://img01.51jobcdn.com/im/2009/my/folder/icon_error.gif" width="16" height="15" align="absmiddle" />&nbsp;&nbsp;输入错误。请输入业绩，并控制在500个汉字以内。</span></td>
+                </tr>
+                <tr>
+                  <td class="col_name ">主要业绩</td>
+                  <td colspan="5"><textarea name="Achievement" rows="4" class="weight480" id="Achievement" onchange="str_limit('Work_form_add_1',this.value,'strlen1',0);" onkeyup="str_limit('Work_form_add_1',this.value,'strlen1',0);"></textarea>
+                    <br />
+                    <span class="text_gray">限500个中文字，描述您取得的业绩的具体内容，以充分证明高级人才的能力和价值。范例：<a style="cursor:pointer;" onclick="javascript:showMsg('cv074')"><img border="0" src="http://img01.51jobcdn.com/im/2009/cv/icon_qu.gif" align="absmiddle"></a><br />
+                    限500个中文字，已输入<font color="#FF0000" id="strlen1">0</font>个字</span></td>
+                </tr>
+                <tr>
+                  <td colspan="6" style="border:0;"></td>
+                </tr>
+                <tr>
+                  <td class="col_name ">海外工作经历</td>
+                  <td colspan="5"><input type="radio" name="Isoverseas" value="1"  />
+                    是
+                    <input name="Isoverseas" type="radio" value="0" checked />
+                    否
+                    <input name="show_num" type="hidden" id="show_num" value="1" />
+                    <input type="hidden" name="NextAction" value="new" id="NextAction" />
+                    <input type="hidden" name="isEnglish" value="0" id="isEnglish" />
+                    <input type="hidden" name="WorkID" value="" id="WorkID" />
+                    <input type="hidden" name="ReSumeID" value="" id="ReSumeID" class="ReSumeID" />
+                    <input name="ErrorSave" type="hidden" id="ErrorSave" value="0" class="ErrorSave" /></td>
+                </tr>
+              </table>
+              <table border="0" cellPadding="0" cellSpacing="0" class="linedot noborder weight700">
+                <tr>
+                  <td class="noborder"></td>
+                </tr>
+              </table>
+            </form>
+            <script language="javascript">
+if(window.IndustrytypeLayer)
+{
+	window.IndustrytypeLayer.pushOpenNodes(document.Work_form_add_1.btnIndustry);
+	$("#Work_form_add_1").find("#btnIndustry").removeAttr('onclick');
+}
+if(window.FunctypeLayer)
+{
+	window.FunctypeLayer.pushOpenNodes(document.Work_form_add_1.btnSubFunction);
+	$("#Work_form_add_1").find("#btnSubFunction").removeAttr('onclick');
+}
+</script> 
+          </div>
+        </div>
+          </td>
+        
+          </tr>
+        
+        <tr>
+          <td><img src="http://img01.51jobcdn.com/im/2009/cv/cresume/btn_addcontinue.gif" hspace="5" vspace="10" onclick="addinfo('Work');" style="cursor:pointer" id="Work_add" /></td>
+        </tr>
+      </table>
+      <!--Work end--> 
+      <!--OTHER start-->
+      <table border="0" cellspacing="0" cellpadding="0" class="paragraph_title paragraph_title_mdf">
+        <tr>
+          <td>求职意向<a name="OTHER"/></td>
+          <td align="right"><img src="http://img01.51jobcdn.com/im/2009/cv/cresume/btn_shrink.gif" align="absmiddle" hspace="10" onClick="showinfo('Other');" style="cursor:pointer; display:none" id="Other_hidden"/><img src="http://img01.51jobcdn.com/im/2009/cv/cresume/btn_spread.gif" name="Other_show" align="absmiddle" hspace="10" id="Other_show" style="cursor:pointer; display:" onClick="showinfo('Other');"/></td>
+        </tr>
+      </table>
+      <div id="Other_info" style="display:none"> 
+        <script language="javascript">
+<!--
+	function JobareaInit() {
+		if ( window.JobLayer ) {
+			//clearInterval( intVal );
+
+            if ('c' == cfg.lang) {
+                cfg.langs.gzdd = '工作地点';
+            }
+            else {
+                cfg.langs.gzdd = 'Location';
+            }
+			
+			var param = {
+				cfg : cfg ,
+				openNodes : document.Other.btnjobarea ,
+				_valueNodes : document.Other.jobarea  ,
+				_textNodes : document.Other.btnjobarea  ,
+				isMulty : true ,
+				isHasNolimit : false,
+				noShowSpArea : true
+			};
+			var jl = new JobareaLayer( param );
+			document.Other.btnjobarea.click();
+		}
+	}
+
+//-->
+</script>
+        <form name="Other" method="post" id="Other" action="/cv/in/Resume/OtherSelfAction.php">
+          <table border="0" cellspacing="0" cellpadding="0" class="weight780_mdf weight670" style="float:left;">
+            <tr>
+              <td class="col_name">工作类型</td>
+              <td><select style="width:125px;" name="JobTerm" id="JobTerm">
+                  <OPTION VALUE=0 Selected>全职</OPTION>
+                  <OPTION VALUE=1>兼职</OPTION>
+                  <OPTION VALUE=2>实习</OPTION>
+                  <OPTION VALUE=3>全/兼职</OPTION>
+                </select></td>
+              <td align="left" class="col_name">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;点</td>
+              <td><input name="btnjobarea" type="button"  class="choose" id="btnjobarea" value="选择/修改"  onfocus="blur()" onclick="JobareaInit();$('#Other').find('#btnjobarea').removeAttr('onclick');"  />
+                <input name="jobarea" type="hidden" id="jobarea" value=""></td>
+            </tr>
+            <tr>
+              <td colspan="4" style="border:0;"></td>
+            </tr>
+            <tr>
+              <td class="col_name">行&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;业</td>
+              <td><input name="btnindustrytype" type="button"  class="choose" id="btnindustrytype" value="选择/修改" onfocus="blur()" onclick="searchInit(this,document.Other.industrytype,this,it,'行业',3,true);$('#Other').find('#btnindustrytype').removeAttr('onclick');"  />
+                <input name="industrytype" type="hidden" id="industrytype" value="" /></td>
+              <td align="left" class="col_name">职&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;能</td>
+              <td><input name="btnfuntype" type="button"  class="choose" id="btnfuntype" value="选择/修改" onfocus="blur()" onclick="searchInit(this,document.Other.funtype,this,ft,'职能',3,true,2);$('#Other').find('#btnfuntype').removeAttr('onclick');"  />
+                <input name="funtype" type="hidden" id="funtype" value="Array" /></td>
+            </tr>
+            <tr>
+              <td align="right" style="border:0;"></td>
+              <td style="border:0;"></td>
+              <td align="right" style="border:0;"></td>
+              <td style="border:0;"><span class="err_red" id="errorMsg_0" style="display:none"><img src="http://img01.51jobcdn.com/im/2009/my/folder/icon_error.gif" width="16" height="15" align="absmiddle" />&nbsp;&nbsp;请正确选择到岗时间</span></td>
+            </tr>
+            <tr>
+              <td class="col_name">期望薪水</td>
+              <td><select name="Salary" style="width:125px;" id="Salary">
+                  <OPTION VALUE=00>面议</OPTION>
+                  <OPTION VALUE=01>1500以下</OPTION>
+                  <OPTION VALUE=02>1500-1999</OPTION>
+                  <OPTION VALUE=03>2000-2999</OPTION>
+                  <OPTION VALUE=04>3000-4499</OPTION>
+                  <OPTION VALUE=05>4500-5999</OPTION>
+                  <OPTION VALUE=06>6000-7999</OPTION>
+                  <OPTION VALUE=07>8000-9999</OPTION>
+                  <OPTION VALUE=08>10000-14999</OPTION>
+                  <OPTION VALUE=09>15000-19999</OPTION>
+                  <OPTION VALUE=10>20000-29999</OPTION>
+                  <OPTION VALUE=11>30000-49999</OPTION>
+                  <OPTION VALUE=12>50000及以上</OPTION>
+                </select>
+                /月&nbsp;&nbsp;<a href="#" class="orange1" target="_blank"><a href="http://my.51job.com/my/Salary_report.php" class="orange1"  target="_blank">薪酬查询</a></a></td>
+              <td align="left" class="col_name"><span class="text_red"></span>到岗时间 </td>
+              <td><select name="EntryTime" style="width:125px;" id="EntryTime">
+                  <OPTION VALUE=1>即时</OPTION>
+                  <OPTION VALUE=2>一周以内</OPTION>
+                  <OPTION VALUE=3>一个月内</OPTION>
+                  <OPTION VALUE=4>1-3个月</OPTION>
+                  <OPTION VALUE=5>三个月后</OPTION>
+                  <OPTION VALUE=6 Selected>待定</OPTION>
+                </select></td>
+            </tr>
+            <tr>
+              <td align="left" valign="top" style="border:0;"></td>
+              <td colspan="3" style="border:0;"><span class="err_red" id="errorMsg_1" style="display:none"><img src="http://img01.51jobcdn.com/im/2009/my/folder/icon_error.gif" width="16" height="15" align="absmiddle" />&nbsp;&nbsp;自我评价最多500个中文字(或者1000个字符)!</span></td>
+            </tr>
+            <tr>
+              <td class="col_name">自我评价</td>
+              <td colspan="3"><textarea name="Introduction" rows="6" class="weight480" id="Introduction" onblur="Checklength(this.value,'Other','errorMsg_1',1000)"></textarea>
+                <br />
+                <span class="text_gray line-height20">限500个中文字，输入您对自己的简短评价。请简明扼要的说明您最大的优势是什么，避免使<br />
+                用一些空洞老套的话。范例一：<a onclick="javascript:showMsg('cv071')" style="cursor:pointer;"><img border="0" src="http://img01.51jobcdn.com/im/2009/cv/icon_qu.gif" align="absmiddle"></a>&nbsp;&nbsp;范例二：<a style="cursor:pointer;" onclick="javascript:showMsg('cv072')"><img border="0" src="http://img01.51jobcdn.com/im/2009/cv/icon_qu.gif" align="absmiddle"></a></span></td>
+            </tr>
+          </table>
+          <div> <img src="http://img01.51jobcdn.com/im/2009/cv/cresume/btn_save1.gif" onclick="Other_save()" onfocus="blur()" style="cursor:pointer" /> </div>
+          <input name="ErrorSave" type="hidden" id="ErrorSave" value="0" class="ErrorSave" />
+          <input name="NextAction" type="hidden" id="NextAction" value="update" />
+          <span class="dotline height5">
+          <input type="hidden" name="isEnglish" value="0" id="isEnglish" />
+          </span> <span class="dotline height5">
+          <input type="hidden" name="ReSumeID" value="" id="ReSumeID" class="ReSumeID" />
+          </span>
+        </form>
+      </div>
+      <!--OTHER end--> 
+      
+      <!--LAN start-->
+      <table cellspacing="0" cellpadding="0" border="0" class="paragraph_title paragraph_title_mdf">
+        <tr>
+          <td>语言能力<a name="LAN"/></td>
+          <td align="right"><img align="absmiddle" hspace="10" src="http://img01.51jobcdn.com/im/2009/cv/cresume/btn_shrink.gif" onClick="showinfo('LAN');" style="cursor:pointer; display:none" id="LAN_hidden"/><img src="http://img01.51jobcdn.com/im/2009/cv/cresume/btn_spread.gif" align="absmiddle" hspace="10" onClick="showinfo('LAN');" style="cursor:pointer; display:" id="LAN_show"/></td>
+        </tr>
+      </table>
+      <div id="LAN_info" style="display:none">
+        <div id="Lan_edit">
+          <div id="Lan_add_1">
+            <form name="Lan_form_add_1" action="http://my.51job.com/cv/in/Resume/LanAction.php" method="post" id="Lan_form_add_1">
+              <table border="0" cellspacing="0" cellpadding="0" style="border:0;margin:0 20px 5px 10px">
+                <tr>
+                  <td align="right" class="col_name" style="background:none;margin-bottom:0;border:0;"></td>
+                  <td style="border:0" colspan="5" align="left"><span class="err_red" id="errorMsg_0" style="display:none"><img src="http://img01.51jobcdn.com/im/2009/my/folder/icon_error.gif" width="16" height="15" align="absmiddle" />&nbsp;&nbsp;请选择语言类别</span></td>
+                </tr>
+              </table>
+              <table class="weight780_mdf weight670" style="float:left;" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td class="col_name"><span class="text_red">*</span> 语言类别 </td>
+                  <td class="lan_2"><select name="Language1" class="weight70" id="Language1" style="width:140px">
+                      <option value=""> 请选择 </option>
+                      <OPTION VALUE=01>英语</OPTION>
+                      <OPTION VALUE=02>日语</OPTION>
+                      <OPTION VALUE=05>俄语</OPTION>
+                      <OPTION VALUE=08>阿拉伯语</OPTION>
+                      <OPTION VALUE=03>法语</OPTION>
+                      <OPTION VALUE=04>德语</OPTION>
+                      <OPTION VALUE=06>西班牙语</OPTION>
+                      <OPTION VALUE=11>葡萄牙语</OPTION>
+                      <OPTION VALUE=12>意大利语</OPTION>
+                      <OPTION VALUE=07>韩语/朝鲜语</OPTION>
+                      <OPTION VALUE=10>普通话</OPTION>
+                      <OPTION VALUE=13>粤语</OPTION>
+                      <OPTION VALUE=14>闽南语</OPTION>
+                      <OPTION VALUE=15>上海话</OPTION>
+                      <OPTION VALUE=09>其它</OPTION>
+                    </select></td>
+                  <td class="col_name"><span class="text_red">* </span>掌握程度 </td>
+                  <td><select name="Master" class="weight70" id="Master" style="width:140px;">
+                      <OPTION VALUE=0 Selected>不限</OPTION>
+                      <OPTION VALUE=1>一般</OPTION>
+                      <OPTION VALUE=2>良好</OPTION>
+                      <OPTION VALUE=3>熟练</OPTION>
+                      <OPTION VALUE=4>精通</OPTION>
+                    </select></td>
+                  <td class="del_all weight60"><img src="http://img01.51jobcdn.com/im/2009/cv/icon_del.gif" hspace="3" align="absmiddle" /><a class="blue3" onfocus="blur()" onclick="deleteinfo('Lan','add','1')">删除</a></td>
+                </tr>
+                <tr>
+                  <td colspan="6" style="border:0;"></td>
+                </tr>
+                <tr>
+                  <td class="col_name"><span class="text_red">*</span> 读写能力 </td>
+                  <td><select name="rwability" class="weight70" id="rwability" style="width:140px">
+                      <OPTION VALUE=0 Selected>不限</OPTION>
+                      <OPTION VALUE=1>一般</OPTION>
+                      <OPTION VALUE=2>良好</OPTION>
+                      <OPTION VALUE=3>熟练</OPTION>
+                      <OPTION VALUE=4>精通</OPTION>
+                    </select></td>
+                  <td class="col_name"><span class="text_red">*</span> 听说能力 </td>
+                  <td><select name="lsability" class="weight70" id="lsability" style="width:140px;">
+                      <OPTION VALUE=0 Selected>不限</OPTION>
+                      <OPTION VALUE=1>一般</OPTION>
+                      <OPTION VALUE=2>良好</OPTION>
+                      <OPTION VALUE=3>熟练</OPTION>
+                      <OPTION VALUE=4>精通</OPTION>
+                    </select></td>
+                  <td colspan="2"><input name="ReSumeID" type="hidden" id="ReSumeID" value="" class="ReSumeID" />
+                    <input name="LangID" type="hidden" id="LangID" value="1" />
+                    <input name="NextAction" type="hidden" id="NextAction" value="new" />
+                    <input name="show_num" type="hidden" id="show_num" value="1" />
+                    <input name="ErrorSave" type="hidden" id="ErrorSave" value="0" class="ErrorSave" />
+                    <input type="hidden" name="isEnglish" value="0" id="isEnglish" /></td>
+                </tr>
+              </table>
+              <p> <img src="http://img01.51jobcdn.com/im/2009/cv/cresume/btn_save1.gif" onfocus="blur()" onclick="Lan_save('Lan_form_add_1');" style="cursor:pointer" /> </p>
+              <table border="0" cellPadding="0" cellSpacing="0" class="linedot noborder weight700">
+                <tr>
+                  <td class="noborder"></td>
+                </tr>
+              </table>
+            </form>
+          </div>
+        </div>
+        <table border="0" cellpadding="0" cellspacing="0" class="weight780">
+          <tr>
+            <td colspan="9" align="left"><img src="http://img01.51jobcdn.com/im/2009/cv/cresume/btn_addcontinue.gif" hspace="5" vspace="10" onclick="addinfo('Lan');" style="cursor:pointer" id="Lan_add" /></td>
+          </tr>
+          <tr>
+            <td colspan="9"><table border="0" cellPadding="0" cellSpacing="0" width="750" style="word-break:break-all">
+                <tr>
+                  <td class="dotline height5"></td>
+                  <td width="11%"></td>
+                </tr>
+              </table></td>
+          </tr>
+        </table>
+        <div id="Language_info">
+          <form name="Language_form" id="Language_form" action="/cv/in/Resume/LanguageAction.php">
+            <table border="0" cellspacing="0" cellpadding="0" style="border:0;margin:0 20px 5px 10px">
+              <tr>
+                <td align="right" class="col_name" style="background:none;margin-bottom:0;border:0;"></td>
+                <td class="weight180" style="border:0"><span class="err_red" id="errorMsg_0" style="display:none"><img src="http://img01.51jobcdn.com/im/2009/my/folder/icon_error.gif" width="16" height="15" align="absmiddle" />&nbsp;&nbsp;请选择英语等级</span></td>
+                <td align="right" class="weight70" style="border:0;"></td>
+              </tr>
+            </table>
+            <table border="0" cellpadding="0" cellspacing="0" class="weight780_mdf weight670" style="float:left;">
+              <tr>
+                <td colspan="6" style="width:100%;padding:0px;" border="0"><table cellpadding="0" cellspacing="0" style="margin:0px;border:0px;">
+                    <tr>
+                      <td class="col_name" align="left" style="border:0px"><span class="text_red">*</span> 英语等级 </td>
+                      <td class="weight180" style="border:0px"><select name="enlevel" id="enlevel" class="weight170">
+                          <option value="00">---请选择---</option>
+                          <OPTION VALUE=0>未参加</OPTION>
+                          <OPTION VALUE=1>未通过</OPTION>
+                          <OPTION VALUE=2>英语四级</OPTION>
+                          <OPTION VALUE=3>英语六级</OPTION>
+                          <OPTION VALUE=4>专业四级</OPTION>
+                          <OPTION VALUE=5>专业八级</OPTION>
+                        </select></td>
+                      <td class="col_name" style="border:0px" > 日语等级 </td>
+                      <td style="border:0px"><select name="jplevel" class="weight170" id="jplevel">
+                          <option value="">---请选择---</option>
+                          <OPTION VALUE=0>无</OPTION>
+                          <OPTION VALUE=1>一级</OPTION>
+                          <OPTION VALUE=2>二级</OPTION>
+                          <OPTION VALUE=3>三级</OPTION>
+                          <OPTION VALUE=4>四级</OPTION>
+                        </select></td>
+                    </tr>
+                  </table></td>
+              </tr>
+              <tr>
+                <td style="border:0;text-align:center;" colspan="2"><span class="err_red" id="errorMsg_1" style="display:none;"><img src="http://img01.51jobcdn.com/im/2009/my/folder/icon_error.gif" width="16" height="15" align="absmiddle" />&nbsp;&nbsp;请正确输入分数!</span></td>
+                <td style="border:0;text-align:center;" colspan="2"><span class="err_red" id="errorMsg_2" style="display:none"><img src="http://img01.51jobcdn.com/im/2009/my/folder/icon_error.gif" width="16" height="15" align="absmiddle" />&nbsp;&nbsp;请正确输入分数!</span></td>
+                <td style="border:0;text-align:center;" colspan="2"><span class="err_red" id="errorMsg_3" style="display:none"><img src="http://img01.51jobcdn.com/im/2009/my/folder/icon_error.gif" width="16" height="15" align="absmiddle" />&nbsp;&nbsp;请正确输入分数!</span></td>
+              </tr>
+              <tr>
+                <td class="col_name weight60" align="left">TOEFL </td>
+                <td align="left" class="weight120"><input name="toefl" type="text" id="toefl" maxlength="3" value="" class="weight100"/></td>
+                <td class="col_name weight60" align="left">GRE </td>
+                <td align="left"><input name="gre" type="text" id="gre" maxlength="4" value="" class="weight100" /></td>
+                <td class="col_name weight60">GMAT</td>
+                <td><input name="gmat" type="text" class="weight100" id="gmat" maxlength="3" value=""/></td>
+              </tr>
+              <tr>
+                <td align="center" colspan="2" style="border:0;"><span class="err_red" id="errorMsg_4" style="display:none"><img src="http://img01.51jobcdn.com/im/2009/my/folder/icon_error.gif" width="16" height="15" align="absmiddle" />&nbsp;&nbsp;请正确输入分数!</span></td>
+                <td align="center" colspan="2" style="border:0;"><span class="err_red" id="errorMsg_5" style="display:none"><img src="http://img01.51jobcdn.com/im/2009/my/folder/icon_error.gif" width="16" height="15" align="absmiddle" />&nbsp;&nbsp;请正确输入分数!</span></td>
+                <td colspan="2"></td>
+              </tr>
+              <tr>
+                <td class="col_name weight60">IELTS</td>
+                <td align="left"><input name="ielts" type="text"  class="weight100" id="ielts" maxlength="4" value=""/></td>
+                <td class="col_name weight60">TOEIC</td>
+                <td align="left"><input name="toeic" type="text"  class="weight100" id="toeic" maxlength="3" value=""/></td>
+                <input type="hidden" name="NextAction" value="new" id="NextAction" />
+                <input type="hidden" name="isEnglish" value="0" id="isEnglish" />
+                <input type="hidden" name="ReSumeID" value="" id="ReSumeID" class="ReSumeID" />
+                <input name="ErrorSave" type="hidden" id="ErrorSave" value="0" class="ErrorSave" />
+              </tr>
+            </table>
+            <p> <img src="http://img01.51jobcdn.com/im/2009/cv/cresume/btn_save1.gif" onclick="Language_save();" onfocus="blur()" style="cursor:pointer" /> </p>
+          </form>
+        </div>
+      </div>
+      <!--LAN end-->
+      
+      <table border="0" cellpadding="0" cellspacing="0" class="weight780">
+        <tr>
+          <td align="center"><img src="http://img01.51jobcdn.com/im/2009/cv/cresume/btn_write_over.gif" hspace="5" vspace="15" align="absmiddle" onclick="All_check()" style="cursor:pointer" />&nbsp;&nbsp;</td>
+        </tr>
+      </table>
+    </ul>
+    <ul class="rew_conr rew_conr_mdf" id="contentHighSetLeft">
+      <li class="big_btn_resume btn_resume_mdf" style="width:auto;margin-left:0">
+        <div class="icon_width icon_width_mdf" style="margin-right:10px;"> <span class="text_red">&nbsp;&nbsp;></span> <a href="#BPI">我的求职信息</a> </div>
+        </li>
+      <li class="btn_resume btn_resume_mdf">
+        <div class="icon_width icon_width_mdf"> <span class="text_red">&nbsp;&nbsp;*</span> <a href="#BPI">个人基本信息</a> </div>
+        <img src="http://img01.51jobcdn.com/im/2009/cv/cresume/icon_need.gif" class="icon_need" align="absmiddle" id="Base_Complete" style="display:none;"/> <img src="http://img01.51jobcdn.com/im/2009/cv/cresume/icon_incomplete.gif" class="icon_need" align="absmiddle" id="Base_Incomplete" style="display:block;" /> </li>
+      <li class="btn_resume btn_resume_mdf">
+        <div class="icon_width icon_width_mdf"> <span class="text_red">&nbsp;&nbsp;*</span> <a href="#EDU">教育经历</a> </div>
+        <img src="http://img01.51jobcdn.com/im/2009/cv/cresume/icon_need.gif" class="icon_need" align="absmiddle" id="Edu_Complete" style="display:none;"/> <img src="http://img01.51jobcdn.com/im/2009/cv/cresume/icon_incomplete.gif" class="icon_need" align="absmiddle" id="Edu_Incomplete" style="display:block;" /> </li>
+      <li class="btn_resume btn_resume_mdf">
+        <div class="icon_width icon_width_mdf"> <span class="text_red" id="Work_Must">&nbsp;&nbsp;*</span> <a href="#WORK">工作经验</a> </div>
+        <img src="http://img01.51jobcdn.com/im/2009/cv/cresume/icon_need.gif" class="icon_need" align="absmiddle" id="Work_Complete" style="display:none;"/> <img src="http://img01.51jobcdn.com/im/2009/cv/cresume/icon_incomplete.gif" class="icon_need" align="absmiddle" id="Work_Incomplete" style="display:block;" /> </li>
+      <li class="btn_resume btn_resume_mdf">
+        <div class="icon_width icon_width_mdf">&nbsp;&nbsp;&nbsp;&nbsp; <a href="#OTHER">求职意向</a> </div>
+        <img src="http://img01.51jobcdn.com/im/2009/cv/cresume/icon_need.gif" class="icon_need" align="absmiddle" id="Other_Complete" style="display:none;"/> <img src="http://img01.51jobcdn.com/im/2009/cv/cresume/icon_incomplete.gif" class="icon_need" align="absmiddle" id="Other_Incomplete" style="display:block;" /> </li>
+      <li class="btn_resume btn_resume_mdf">
+        <div class="icon_width icon_width_mdf">&nbsp;&nbsp;&nbsp;&nbsp; <a href="#LAN">语言能力</a> </div>
+        <img src="http://img01.51jobcdn.com/im/2009/cv/cresume/icon_need.gif" class="icon_need" align="absmiddle" id="Lan_Complete" style="display:none;"/> <img src="http://img01.51jobcdn.com/im/2009/cv/cresume/icon_incomplete.gif" class="icon_need" align="absmiddle" id="Lan_Incomplete" style="display:block;" /> </li>
+    </ul>
+    <div style="line-height:2px;height:2px;clear:both;background:#FFFFFF;">&nbsp;</div>
+  </div>
+  <!--foot-->
+  <div class="footer">
+    <div class="block">
+      <div class="Lcontent">
+        <dl>
+          <dt>
+            <h3>合作伙伴</h3>
+          </dt>
+          <dd>
+            <p style="display:none;"><a href="http://www.weather.com.cn/wzfw/gywm/">合作伙伴</a><a href="http://www.weather.com.cn/wzfw/lxwm/">合作伙伴</a><a href="http://www.weather.com.cn/wzfw/sybz/">帮助</a><a href="http://www.weather.com.cn/wzfw/ryzp/">合作伙伴</a></p>
+          </dd>
+        </dl>
+        <div class="clear"></div>
+      </div>
+      <div class="serviceinfo">
+        <p><span><a href="#">清波科技有限公司</a></span></p>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+  
+  <!--foot-->
+  
+  <div class="footer_wrap">
+    <div class="links"> <a target="blank" href="#">关于金点</a> <span>|</span> <a target="blank" href="#">服务条款</a> <span>|</span> <a target="blank" href="#">广告服务</a> <span>|</span> <a target="blank" href="#">联系方式</a> <span>|</span> <a target="blank" href="#">加入我们</a> </div>
+    <div class="copyright">Copyright &copy; 1998 - 2014 #. All Rights Reserved.</div>
+  </div>
+  <script type="text/javascript">
+	    if(typeof(pgvMain)=='function')
+	        pgvMain();
+    </script></div>
+</body>
+</html>

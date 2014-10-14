@@ -3,14 +3,14 @@
 <head>
 <title>首页 | 点石成金</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<script type="text/javascript" src="/dianshi/Public/Js/jquery-1.26.js"></script>
-<script type="text/javascript" src="/dianshi/Public/Js/jquery.drag.js"></script>
-<script type="text/javascript" src="/dianshi/Public/Js/fn.js"></script>
-<script type="text/javascript" src="/dianshi/Public/Js/all.js"></script>
-<script type="text/javascript" src="/dianshi/Public/Js/index.js"></script>
+<script type="text/javascript" src="/dscj/Public/Js/jquery-1.26.js"></script>
+<script type="text/javascript" src="/dscj/Public/Js/jquery.drag.js"></script>
+<script type="text/javascript" src="/dscj/Public/Js/fn.js"></script>
+<script type="text/javascript" src="/dscj/Public/Js/all.js"></script>
+<script type="text/javascript" src="/dscj/Public/Js/index.js"></script>
 
-<link rel="stylesheet" type="text/css" href="/dianshi/Public/Css/core.css" />
-<link rel="stylesheet" type="text/css" href="/dianshi/Public/Css/style.css" />
+<link rel="stylesheet" type="text/css" href="/dscj/Public/Css/core.css" />
+<link rel="stylesheet" type="text/css" href="/dscj/Public/Css/style.css" />
 
 <link href="/favicon.ico" type="image/ico" rel="shortcut icon"/>
 <!--[if lt IE 7]>
@@ -20,7 +20,26 @@
     	//数组最后一个为样式中默认的　#indexpage
     	var homeimgbg=['/img/hbg2.jpg','/img/hbg3.jpg','/img/hbg1.jpg'];
     </script>-->
-
+<script>
+$(function(){
+$('#login_job_button').click(function() {
+	var path = "/dscj/index.php/Home/Index/Login";  
+	$('#jobform').attr("action", path).submit(); 
+})
+$('#login_com_button').click(function() {
+	var path = "/dscj/index.php/Home/Index/Login";  
+	$('#comform').attr("action", path).submit(); 
+})
+$('#regist_job_button').click(function() {
+	var path = "/dscj/index.php/Home/ApplicantUser/Registration";   
+	$('#jobform').attr("action", path).submit(); 
+})
+$('#regist_com_button').click(function() {
+	var path = "/dscj/index.php/Home/CompanyInformation/Registration";   
+	$('#comform').attr("action", path).submit(); 
+})
+});
+</script>
 </head>
 <body id="index">
 <div class="wrap">
@@ -68,7 +87,7 @@
     </div>
   </div>
   <div class="banner_wrap">
-    <div class="banner_bg"> <a href="#" style=" background:#fff url(/dianshi/Public/images/data/banner_1.jpg) no-repeat center 0; display:block;" class="img"></a> <a href="#" style=" background:#fff url(/dianshi/Public/images/data/banner_2.jpg) no-repeat center 0;" class="img"></a> <a href="#" style=" background:#fff url(/dianshi/Public/images/data/banner_1.jpg) no-repeat center 0;" class="img"></a> <a href="#" style=" background:#fff url(/dianshi/Public/images/data/banner_2.jpg) no-repeat center 0;" class="img"></a> </div>
+    <div class="banner_bg"> <a href="#" style=" background:#fff url(/dscj/Public/images/data/banner_1.jpg) no-repeat center 0; display:block;" class="img"></a> <a href="#" style=" background:#fff url(/dscj/Public/images/data/banner_2.jpg) no-repeat center 0;" class="img"></a> <a href="#" style=" background:#fff url(/dscj/Public/images/data/banner_1.jpg) no-repeat center 0;" class="img"></a> <a href="#" style=" background:#fff url(/dscj/Public/images/data/banner_2.jpg) no-repeat center 0;" class="img"></a> </div>
     <div class="jobForm" style="position: absolute; top: 50px; z-index: 1000; left: 600px; color: rgb(255, 255, 255);">
       <div class="other_login" id="other_login">
         <div class="loginTitle" id="loginTitle" > <a class="move"><span class="jobB" >我要找工作</span></a><span>|</span> <a><span  class="comB">我是企业</span></a> </div>
@@ -76,11 +95,12 @@
         <!-- 我要找工作表单-->
         <div class="plogin" style="display:block;">
           <form id="jobform" autocomplete="off" name="loginform" action="job.php" method="post"   target="_self" style="margin:0px;">
+			<input type='hidden' name='type' value='1'>
             <div class="login_form">
               <div class="uinArea" id="uinArea" >
                 <label class="input_tips" id="uin_tips"  for="u" ></label>
                 <div class="inputOuter">
-                  <input type="text" class="inputstyle"  id="u" name="u" value="普通用户账户|邮箱"   tabindex="1"  onKeyDown="textdown(event)" onKeyUp="textup()" onfocus="if(value=='普通用户账户|邮箱'){value=''} this.style.color='#545454';" onblur="if (value ==''){value='普通用户账户|邮箱'}this.style.color='#a0a0a0';"/>
+                  <input type="text" class="inputstyle"  id="u" name="username" value="普通用户账户|邮箱"   tabindex="1"  onKeyDown="textdown(event)" onKeyUp="textup()" onfocus="if(value=='普通用户账户|邮箱'){value=''} this.style.color='#545454';" onblur="if (value ==''){value='普通用户账户|邮箱'}this.style.color='#a0a0a0';"/>
                   <span class="uin_icon"></span> <a class="uin_del" id="uin_del" href="javascript:void(0);"></a> </div>
                 <ul class="email_list" id="email_list" >
                 </ul>
@@ -89,7 +109,7 @@
          
                 <label class="input_tips" id="pwd_tips"  for="p" ></label>
                 <div class="inputOuter">
-                  <input type="password"  class="inputstyle" id="p" name="p" value="" maxlength="16" tabindex="2"  placeholder="密码"/>
+                  <input type="password"  class="inputstyle" id="p" name="password" value="" maxlength="16" tabindex="2"  placeholder="密码"/>
                   <span class="p_icon"></span> </div>
                 <div class="lock_tips" id="caps_lock_tips"> <span class="lock_tips_row"></span> <span >大写锁定已打开</span> </div>
               </div>
@@ -104,10 +124,10 @@
               </div>
               <div class="submit"> <a class="login_button" hideFocus=true href="javascript:void(0);">
                 <li style="margin-bottom:5px;">
-                  <input type="submit" tabindex="6"   value="登 录"  class="btn" id="login_button" disabled="true" />
+                  <input type="button" tabindex="6"   value="登 录"  class="btn" id="login_job_button" />
                 </li>
                 <li>
-                  <input type="submit" tabindex="6"   value="注册"  class="btn" id="regist_button" disabled="true" />
+                  <input type="button" tabindex="6"   value="注册"  class="btn" id="regist_job_button" />
                 </li>
                 </a> </div>
             </div>
@@ -115,12 +135,13 @@
         </div>
          <!-- 企业表单--> 
         <div class="plogin" style="display:none;">
-          <form id="jobform" autocomplete="off" name="loginform" action="job.php" method="post"   target="_self" style="margin:0px;">
+          <form id="comform" autocomplete="off" name="loginform" action="job.php" method="post"   target="_self" style="margin:0px;">
+			<input type='hidden' name='type' value='2'>
             <div class="login_form">
               <div class="uinArea" id="uinArea" >
                 <label class="input_tips" id="uin_tips"  for="u"></label>
                 <div class="inputOuter">
-                  <input type="text" class="inputstyle"  id="u" name="u" value="企业用户账户|邮箱"   tabindex="1"  onKeyDown="textdown(event)" onKeyUp="textup()" onfocus="if(value=='企业用户账户|邮箱'){value=''} this.style.color='#545454';" onblur="if (value ==''){value='企业用户账户|邮箱'}this.style.color='#a0a0a0';"/>
+                  <input type="text" class="inputstyle"  id="u" name="username" value="企业用户账户|邮箱"   tabindex="1"  onKeyDown="textdown(event)" onKeyUp="textup()" onfocus="if(value=='企业用户账户|邮箱'){value=''} this.style.color='#545454';" onblur="if (value ==''){value='企业用户账户|邮箱'}this.style.color='#a0a0a0';"/>
                   <span class="uin_icon"></span> <a class="uin_del" id="uin_del" href="javascript:void(0);"></a> </div>
                 <ul class="email_list" id="email_list" >
                 </ul>
@@ -128,7 +149,7 @@
               <div class="pwdArea" id="pwdArea" >
                 <label class="input_tips" id="pwd_tips"  for="p"></label>
                 <div class="inputOuter">
-                  <input type="text"  class="inputstyle password" id="p" name="p" value="密码" maxlength="16" tabindex="2"  onKeyDown="textdown(event)" onKeyUp="textup()" onfocus="if(value=='密码'){value=''} this.style.color='#545454';" onblur="if (value ==''){value='密码'}this.style.color='#a0a0a0';"/>
+                  <input type="text"  class="inputstyle password" id="p" name="password" value="" maxlength="16" tabindex="2"  placeholder="密码"/>
                   <span class="p_icon"></span> </div>
                 <div class="lock_tips" id="caps_lock_tips"> <span class="lock_tips_row"></span> <span >大写锁定已打开</span> </div>
               </div>
@@ -143,10 +164,10 @@
               </div>
               <div class="submit"> <a class="login_button" hideFocus=true href="javascript:void(0);">
                 <li style="margin-bottom:5px;">
-                  <input type="submit" tabindex="6"   value="登 录"  class="btn" id="login_button" disabled="true" />
+                  <input type="button" tabindex="6"   value="登 录"  class="btn" id="login_com_button" />
                 </li>
                 <li>
-                  <input type="submit" tabindex="6"   value="注册"  class="btn" id="regist_button" disabled="true" />
+                  <input type="button" tabindex="6"   value="注册"  class="btn" id="regist_com_button" />
                 </li>
                 </a> </div>
             </div>
@@ -160,16 +181,16 @@
   </div>
   <div class="imglist">
     <ul class="left">
-      <li class="left"><img src="/dianshi/Public/images/3.jpg" /></li>
-      <li class="right"><img src="/dianshi/Public/images/3.jpg" /></li>
+      <li class="left"><img src="/dscj/Public/images/3.jpg" /></li>
+      <li class="right"><img src="/dscj/Public/images/3.jpg" /></li>
     </ul>
     <ul class="left">
-      <li class="left"><img src="/dianshi/Public/images/2.jpg" /></li>
-      <li class="right"><img src="/dianshi/Public/images/2.jpg" /></li>
+      <li class="left"><img src="/dscj/Public/images/2.jpg" /></li>
+      <li class="right"><img src="/dscj/Public/images/2.jpg" /></li>
     </ul>
     <ul class="left">
-      <li class="left"><img src="/dianshi/Public/images/1.jpg" /></li>
-      <li class="right"><img src="/dianshi/Public/images/1.jpg" /></li>
+      <li class="left"><img src="/dscj/Public/images/1.jpg" /></li>
+      <li class="right"><img src="/dscj/Public/images/1.jpg" /></li>
     </ul>
   </div>
   
