@@ -5,8 +5,7 @@ use Home\Model\CompanyInformationModel;
 class CompanyInformationController extends Controller {
     public function Index(){
 
-		$this->assign('user','zhangsan');
-		$this->display();
+		echo '企业登陆成功';
     }
 	/*
 	*

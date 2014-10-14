@@ -5,8 +5,7 @@ use Home\Model\ApplicantUserModel;
 class ApplicantUserController extends Controller {
     public function Index(){
 
-		$this->assign('user','zhangsan');
-		$this->display();
+		echo '个人中心登陆成功';
     }
 	/*
 	*
@@ -36,17 +35,32 @@ class ApplicantUserController extends Controller {
 	*添加基本信息
 	*
 	*/
-	public function Applicant_Information(){
-		if(isset($_SESSION['username']) && $_SESSION['username']!=null){
+	public function Information(){
+		//if(isset($_SESSION['username']) && $_SESSION['username']!=null){
 			$User = D('ApplicantUser');
-			$data['username'] = I('param.username','');
-			$data['password'] = I('param.password','','md5');
-			$data['verification_email'] = I('param.username','');
+			$data['name'] = I('param.name','');//姓名
+			$data['sex'] = I('param.sex','');//性别
+			$data['email'] = I('param.email','');//邮箱
+			$data['phone'] = I('param.phone','');//手机
+			$data['address'] = I('param.address','');//地址
+			$data['photo'] = I('param.photo','');//头像
+			$data['work_ unit'] = I('param.work_ unit','');//目前工作单位
+			$data['department'] = I('param.department','');//部门
+			$data['position'] = I('param.position','');//职位
+			$data['work_time'] = I('param.work_time','');//工作时间
+			$data['rank'] = I('param.rank','');//职位级别
+			$datas=$User->create($data);
+			if (!$datas=$User->create($data)){
+				exit($User->getError());
+			}else{ 
+				print_r($User->create($datas));exit;
+				$User->where("id=$_SESSION[id]")->save($datas);
+			}
+			
 
-		}else{
-			echo '请登录';
-		}
-		ECHO 1;
+		//}else{
+		//	echo '请登录';
+		//}
 	}
 	
 }

@@ -63,6 +63,14 @@ class IndexController extends Controller {
 		if($result = $User->where($condition)->select()){
 			session('username',$condition['username']);
 			session('password',$condition['password']);
+			session('id',$result['id']);
+			if($type==1){
+				$this->redirect('ApplicantUser/Index'); 
+			}elseif($type==2){
+				$this->redirect('CompanyInformation/Index'); 
+			}else{
+				echo '参数不正确';
+			}
 		}else{
 			echo '用户不存在或密码不正确';
 		}
