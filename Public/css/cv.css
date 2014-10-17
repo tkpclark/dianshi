@@ -222,7 +222,8 @@ a:hover .blue3{
 	text-align:center;
 	color:#fff;
 	margin-right:14px;
-	font-family:"微软雅黑"}
+	font-family:"微软雅黑"
+	}
 	.upload{ margin-top:15px; margin-left:10px; color:#b6b6b6; position:relative;}
 .upload .btn_pic{ display:inline-block; width:74px; height:28px; line-height:24px; border:1px solid #c9c9c9; background:#428bb0; text-align:center; color:#fff; margin-right:14px; font-family:"微软雅黑";}
 .upload .imgfile {
@@ -251,6 +252,137 @@ a:hover .blue3{
 	margin-right:14px;
 	font-family:"微软雅黑"
 	
+	}
+.del_edu ,.del_exp, .del_work, .del_otherwork, .del_otherability{
+	
+	width:740px;
+	}
+
+.WorkExper, .Exper, .OtherWorkExper, .OtherAbility{
+display:block;margin-top:5px;width:740px; height:115px; clear:both;		
+	
+	}
+.SAward{
+	
+	display:block;margin-top:5px;width:740px; height:35px; clear:both;
+	
+	}
+.btn_pic_add a{
+	display:inline-block;
+	width:74px;
+	height:28px;
+	line-height:28px;
+	
+	background:#428bb0;
+	text-align:center;
+	color:#fff;
+	
+	font-family:"微软雅黑";
+	float:right;
+	
+	overflow:hidden;
+	
+	
+	}
+.btn_pic_add {
+	display:inline-block;
+	width:74px;
+	height:28px;
+	line-height:28px;
+	border:1px solid #c9c9c9;
+	background:#428bb0;
+	text-align:center;
+	color:#fff;
+	margin-right:14px;
+	font-family:"微软雅黑";
+	margin-top:5px;
+	float:right
+		}
+.btn_pic_del a{
+display:inline-block;
+	width:74px;
+	height:28px;
+	line-height:24px;
+	border:1px solid #c9c9c9;
+	background:#428bb0;
+	text-align:center;
+	color:#fff;
+	margin-right:14px;
+	font-family:"微软雅黑";
+	float:right;
+	overflow: hidden;
+	float:right;				
+			}
+.btn_preview_span{
+	
+	background: none repeat scroll 0 0 #f9d259;
+    border-radius: 5px;
+    color: #000;
+    cursor: pointer;
+    font-size: 20px;
+	font-family:"微软雅黑";
+    font-weight: bold;
+    height: 40px;
+    line-height: 40px;
+    margin: 5px;
+    text-align: center;
+    width: 200px;
+	overflow: hidden;
+	display:block;
+	margin:0 auto;
+		
+	}
+.btn_all_del a{
+display:inline-block;
+	width:115px;
+	height:28px;
+	line-height:28px;
+	border:1px solid #c9c9c9;
+	background:#428bb0;
+	text-align:center;
+	color:#fff;
+	margin-right:14px;
+	font-family:"微软雅黑";
+	float:right;
+	overflow: hidden;
+	float:right;	
+	
+	
+}
+.btn_edu_span{
+display:inline-block;
+	width:80px;
+	height:25px;
+	line-height:25px;
+	border:1px solid #c9c9c9;
+	background:#428bb0;
+	text-align:center;
+	margin-right:14px;
+	float:left;
+	display:block;
+	}
+	
+
+	
+.btn_edu_span a{
+	width:80px;
+	height:25px;
+	line-height:25px;
+	text-align:center;
+	align:center;
+	color:#fff;
+	margin-right:14px;
+	font-family:"微软雅黑";	
+display:block;
+	}
+.btn_add_edu{
+	float:right;
+	width:185px; 
+	margin-right:20px;
+	
+	}
+.btn_preview{
+	width:185px;
 	}
 /*============外发简历===============*/
 .sendresume_con{
@@ -1357,8 +1489,8 @@ padding:3px;
 
 .icon_need
 {
-margin-top:12px;
-margin-left:12px;
+margin-top:9px;
+margin-left:6px;
 float:left;
 }
 .icon_width
@@ -1532,7 +1664,7 @@ a.grey5:hover {
 }
 
 .rew_conr li a {
-  text-decoration:underline;
+  text-decoration:none;
   font-weight:bold;
 }
 
@@ -1558,7 +1690,7 @@ a.grey5:hover {
   font-weight:bold;
 }
 
-#BPI_info table , #Other_info table{
+.BPI_info table , .Other_info table,.Edu_edit table, .Work_edit table, .Awd_edit table, .OtherWork_edit table ,.btn_preview table{
   margin:0 0 10px 10px;
   border-bottom:1px solid #E9EDF1;
 }
@@ -1571,17 +1703,17 @@ a.grey5:hover {
 
 }
 
-#BPI_info td, #Edu_edit td, #Work_edit td, #Other_info td, #Tra_edit td, #Lan_edit td, #Language_info td, #IT_edit td, #Prj_edit td, #Cert_edit td, #Attach_edit td, #Api_edit td, #Misc_edit td, #Mast_edit td, #Spi2p_edit td,#Awd_edit td, #Exp_edit td, #Exp1_edit td, #oip_edit td {
+.BPI_info td, .Edu_edit td, .Work_edit td,.Other_info td, .OtherWork_edit td, .btn_preview td, .Language_info td, .IT_edit td, .Prj_edit td, .Cert_edit td, .Attach_edit td, .Api_edit td, .Misc_edit td, .Mast_edit td, .Spi2p_edit td,.Awd_edit td, .Exp_edit td, .Exp1_edit td, .oip_edit td {
   border-top:1px solid #E9EDF1;
   padding-left:10px;
 }
 
-#BPI_info td.height10 {
+.BPI_info td.height10 {
   border:0;
   height:0;
 }
 
-#BPI_info table.noborder, #BPI_info td.noborder, #Edu_edit table.linedot, #Edu_edit td.noborder, #Work_edit table.linedot, #Work_edit td.noborder, #Tra_edit table.linedot, #Tra_edit td.noborder, #Lan_edit table.linedot, #Lan_edit td.noborder, #Prj_edit table.linedot, #Prj_edit td.noborder, #Cert_edit table.linedot, #Cert_edit td.noborder, #Attach_edit table.linedot, #Attach_edit td.noborder, #Misc_edit table.linedot, #Misc_edit td.noborder, #Awd_edit table.linedot, #Awd_edit td.noborder, #Exp_edit table.linedot, #Exp_edit td.noborder, #Exp1_edit table.linedot, #Exp1_edit td.noborder {
+.BPI_info table.noborder, .BPI_info td.noborder, .Edu_edit table.linedot, .Edu_edit td.noborder, .Work_edit table.linedot, .OtherWork_edit table.linedot,.Work_edit td.noborder, .Tra_edit table.linedot, .Tra_edit td.noborder, .Lan_edit table.linedot, .Lan_edit td.noborder, .Prj_edit table.linedot, .Prj_edit td.noborder, .Cert_edit table.linedot, .Cert_edit td.noborder, .Attach_edit table.linedot, .Attach_edit td.noborder, .Misc_edit table.linedot, .Misc_edit td.noborder, .Awd_edit table.linedot, .Awd_edit td.noborder, .Exp_edit table.linedot, .Exp_edit td.noborder, .Exp1_edit table.linedot, .Exp1_edit td.noborder {
   border:0;
 }
 
@@ -1669,8 +1801,8 @@ a.grey5:hover {
     font-weight: bold;
     height: 30px;
     line-height: 30px;
-  	 margin:5px 5px 5px 10px;
- 	width:85%;
+  	 margin:5px 5px 5px 5px;
+ 	width:90%;
 }
 
 *html .rew_conr_mdf li {
@@ -1704,8 +1836,8 @@ a.grey5:hover {
 }
 
 .icon_width_mdf {
-  margin: 0 0 0 20px;
-  _margin: 0 10px;
+  margin: 0 0 0 8px;
+ width:150px;
 }
 
 /*.weight670 {
