@@ -5,7 +5,8 @@ use Home\Model\ApplicantUserModel;
 class ApplicantUserController extends Controller {
     public function Index(){
 
-		echo '个人中心登陆成功';
+		//echo '个人中心登陆成功';
+		$this->display('newapplyinfo');
     }
 	/*
 	*
@@ -36,14 +37,23 @@ class ApplicantUserController extends Controller {
 	*
 	*/
 	public function Information(){
-		//if(isset($_SESSION['username']) && $_SESSION['username']!=null){
+		$upload = new \Think\Upload();  
+		$upload->maxSize   =     3145728 ;// 设置附件上传大小   
+		$upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型    
+		$upload->savePath  =      './'; // 设置附件上传目录    // 上传单个文件 
+		$upload->subName   =      'Photo';   
+		$info   =$upload->uploadOne($_FILES['fileToUpload']);
+		if(!$info) {  
+			 $this->error($upload->getError());     // 上传错误提示错误信息    
+		}else{       
+			$photo = $info['savename'];   // 上传成功 获取上传文件信息 
 			$User = D('ApplicantUser');
 			$data['name'] = I('param.name','');//姓名
 			$data['sex'] = I('param.sex','');//性别
 			$data['email'] = I('param.email','');//邮箱
 			$data['phone'] = I('param.phone','');//手机
 			$data['address'] = I('param.address','');//地址
-			$data['photo'] = I('param.photo','');//头像
+			$data['photo'] = $photo;//头像
 			$data['work_ unit'] = I('param.work_ unit','');//目前工作单位
 			$data['department'] = I('param.department','');//部门
 			$data['position'] = I('param.position','');//职位
@@ -54,10 +64,14 @@ class ApplicantUserController extends Controller {
 				exit($User->getError());
 			}else{ 
 				print_r($User->create($datas));exit;
-				$User->where("id=$_SESSION[id]")->save($datas);
+				if($User->where("id=$_SESSION[id]")->save($datas)){
+					echo '添加成功';
+				}else{
+					echo '添加失败';
+				}
 			}
-			
-
+		}
+		//if(isset($_SESSION['username']) && $_SESSION['username']!=null){
 		//}else{
 		//	echo '请登录';
 		//}
