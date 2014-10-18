@@ -653,6 +653,13 @@ _margin-top:9px;
 	 float:right;
 	 margin-right:40px;
 	}
+#contentHighSet .Cpispan_r{
+	border-bottom:2px solid #999;
+	 width:320px;
+	 height:12px;
+	 float:right;
+	 margin-right:60px;
+	}
 *html .rew_conr li{
 	float:left;
 	margin:3px 5px 3px 5px;
@@ -768,6 +775,12 @@ _margin-top:9px;
 	}
 .weight590{
 	width:590px;
+	}
+.weight600{
+	width:600px;
+	}
+.weight620{
+	width:620px;
 	}
 .weight700{
 	width:700px;
@@ -1178,6 +1191,31 @@ _margin-top:9px;
 	}
 .input450{
 	width:450px;
+	height:25px;
+
+	}
+.input400{
+	width:400px;
+	height:25px;
+
+	}
+.input393{
+	width:393px;
+	height:25px;
+
+	}
+.input550{
+	width:550px;
+	height:25px;
+
+	}
+.input580{
+	width:580px;
+	height:25px;
+
+	}
+.input620{
+	width:620px;
 	height:25px;
 
 	}
@@ -1705,6 +1743,7 @@ a.grey5:hover {
   width:84px;
   background:#F3F7F9;
   font-weight:bold;
+  text-align:center;
 }
 
 .BPI_info table , .Other_info table,.Edu_edit table, .Work_edit table, .Awd_edit table, .OtherWork_edit table ,.btn_preview table{

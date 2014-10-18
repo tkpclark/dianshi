@@ -88,13 +88,13 @@
             <td  rowspan="3" width="120px" height="160px"><img src="" width="120px" height="160px">
               <input type="file" value="" class="imgfile" name="imgfile"  id="imgfile" style="width:120px" />
               </td>
-            <td class="col_name"><span class="text_red">*</span>&nbsp;姓&nbsp;&nbsp;&nbsp;&nbsp;名</td>
+            <td class="col_name"><span class="text_red">*</span>姓&nbsp;&nbsp;&nbsp;&nbsp;名</td>
             <td ><label>
               <div style="float:left;">
                 <input type="text" onBlur="checkinputstr('Name','er_name')"  id="Name" value="" maxlength="20" name="Name"/>
               </div>
               </label></td>
-            <td align="left" class="col_name"><span class="text_red">*</span>&nbsp;性&nbsp;&nbsp;&nbsp;&nbsp;别 </td>
+            <td align="left" class="col_name"><span class="text_red">*</span>性&nbsp;&nbsp;&nbsp;&nbsp;别 </td>
             <td class=""><input type="radio" value="0" checked name="Gender"/>
               男
               <input type="radio" value="1"  name="Gender"/>
@@ -111,21 +111,21 @@
               </div></td>
           </tr>
           <tr>
-            <td class="col_name">&nbsp;地&nbsp;&nbsp;&nbsp;&nbsp;址</td>
-            <td colspan="4" valign="middle"><input type="text" onBlur="checkinputstr('Name','er_name')"  id="Address" value="" maxlength="100" name="Address"/></td>
+            <td class="col_name">地&nbsp;&nbsp;&nbsp;&nbsp;址</td>
+            <td colspan="4" valign="middle"><input type="text" class="input550" onBlur="checkinputstr('Name','er_name')"  id="Address" value="" maxlength="100" name="Address"/></td>
           </tr>
           <tr>
-            <td class="col_name">&nbsp;目前工作单位</td>
-            <td colspan="4" valign="middle"><input type="text" onBlur="checkinputstr('Name','er_name')"  id="Company" value="" maxlength="100" name="Address"/></td>
+            <td class="col_name">目前工作单位</td>
+            <td colspan="4" valign="middle"><input type="text" class="input550" onBlur="checkinputstr('Name','er_name')"  id="Company" value="" maxlength="100" name="Address"/></td>
           </tr>
           <tr>
-            <td class="col_name">&nbsp;部&nbsp;&nbsp;&nbsp;&nbsp;门</td>
+            <td class="col_name">部&nbsp;&nbsp;&nbsp;&nbsp;门</td>
             <td colspan="2" valign="middle"><input type="text" onBlur="checkinputstr('Name','er_name')"  id="Depart" value="" maxlength="100" name="Address"/></td>
-            <td class="col_name">&nbsp;职&nbsp;&nbsp;&nbsp;&nbsp;位</td>
+            <td class="col_name">职&nbsp;&nbsp;&nbsp;&nbsp;位</td>
             <td colspan="2" valign="middle"><input type="text" onBlur="checkinputstr('Name','er_name')"  id="Job" value="" maxlength="100" name="Address"/></td>
           </tr>
           <tr>
-            <td class="col_name">&nbsp;工作年限</td>
+            <td class="col_name">工作年限</td>
             <td colspan="2" valign="middle"><select  name="Worktime" id="Worktime" onBlur="checkinputstr('Name','er_name')" >
                 <OPTION VALUE=0 selected>请选择</OPTION>
                 <OPTION VALUE=1 >1年以下</OPTION>
@@ -136,7 +136,7 @@
                 <OPTION VALUE=6 >15～20年</OPTION>
                 <OPTION VALUE=7 >20年以上</OPTION>
               </select></td>
-            <td class="col_name">&nbsp;职&nbsp;&nbsp;&nbsp;&nbsp;级</td>
+            <td class="col_name">职&nbsp;&nbsp;&nbsp;&nbsp;级</td>
             <td colspan="2" valign="middle"><input type="text" onBlur="checkinputstr('Name','er_name')"  id="JobGrade" value="" maxlength="100" name="Address"/></td>
           </tr>
           <tr><!--保存按钮-->
@@ -170,8 +170,7 @@
             <td><input type="text" id="Area1" value="" maxlength="20" name="Area"/></td>
             <td><input type="text" id="Area2" value="" maxlength="20" name="Area"/></td>
             <td><input type="text" id="Area3" value="" maxlength="20" name="Area"/></td>
-            <td colspan="2"><input name="btnjobarea" type="button"  class="choose" id="btnjobarea" value="选择/修改"  onfocus="blur()" onclick="JobareaInit();$('#Other').find('#btnjobarea').removeAttr('onclick');"  />
-              <input name="jobarea" type="hidden" id="jobarea" value=""></td>
+            
           </tr>
           <tr>
             <td colspan="4" style="border:0;"></td>
@@ -191,7 +190,7 @@
           </tr>
           <tr>
             <td  colspan="2" class="col_name">工作环境</td>
-            <td colspan="5"><input type="text" class="input450" id="JobEnvir" value="" maxlength="60" name="JobEnvir" placeholder="您所期望的工作环境"/></td>
+            <td colspan="5"><input type="text" class="input580" id="JobEnvir" value="" maxlength="60" name="JobEnvir" placeholder="您所期望的工作环境"/></td>
           </tr>
           <tr>
             <td  colspan="2" class="col_name">求职方向</td>
@@ -270,7 +269,7 @@ $(document).ready(function(){
       </table>
             <table border="0" cellspacing="0" cellpadding="0" class="weight780_mdf weight670" style="float:left;">
               <tr>
-                <td class="col_name">&nbsp;学&nbsp;&nbsp;&nbsp;&nbsp;校</td>
+                <td class="col_name">学&nbsp;&nbsp;&nbsp;&nbsp;校</td>
                 <td colspan="2"><input class="School" type="text" id="School" value="" maxlength="60" name="School" placeholder="例如：上海财经大学"/></td>
                 <td class="col_name">院&nbsp;&nbsp;&nbsp;&nbsp;系</td>
                 <td colspan="2"><input type="text" class="College" id="College" value="" maxlength="60" name="College" placeholder="例如：金融学院"/></td>
@@ -282,13 +281,13 @@ $(document).ready(function(){
                 <td colspan="2"><input type="text" class="SDuring" id="SDuring" value="" maxlength="60" name="SDuring" placeholder="例如：2011.09-2013.06"/></td>
               </tr>
               <tr>
-                <td colspan="9" class="col_name">所获学校奖励<span class="btn_pic_add" style="float:right;"><a class="edu_add" >添加</a></span></td>
+                <td colspan="9" class="col_name" style="text-align:left;">所获学校奖励<span class="btn_pic_add" style="float:right;"><a class="edu_add" >添加</a></span></td>
               </tr>
                                                  
               <tr class="saw">
                 <td colspan="9"><div  class="del_edu">
                     <div  class="SAward">
-                      <input type="text"  class="SAwardtext input450" id="SAwardtext" value="" maxlength="60" name="SAwardtext" placeholder="例如：2011-2012全额奖学金"/>
+                      <input type="text"  class="SAwardtext input620" id="SAwardtext" value="" maxlength="60" name="SAwardtext" placeholder="例如：2011-2012全额奖学金"/>
                       <span class="btn_pic_del" style="float:right;"><a class="edu_del" name="edu_del"  >删除</a></span> </div>
                   </div>
                   </td>
@@ -297,12 +296,12 @@ $(document).ready(function(){
               
 
               <tr>
-                <td colspan="9" class="col_name">其他在校经历<span class="btn_pic_add" ><a class="exp_add" >添加</a></span></td>
+                <td colspan="9" class="col_name" style="text-align:left;">其他在校经历<span class="btn_pic_add" ><a class="exp_add" >添加</a></span></td>
               </tr>
               <tr>
                 <td colspan="9"><div class="del_exp">
                     <div class="Exper">
-                      <textarea rows="6" class="weight450 otherAwardExp"  name="EduDetail" placeholder="例如：2011-2012学生会文艺部"></textarea>
+                      <textarea rows="6" class="weight620 otherAwardExp"  name="EduDetail" placeholder="例如：2011-2012学生会文艺部"></textarea>
                       <span class="btn_pic_del" style="float:right;"><a class="exp_del" name="exp_del" >删除</a></span> </div>
                   </div></td>
               </tr>
@@ -364,12 +363,12 @@ $(document).ready(function(){
              
                 
               <tr>
-                <td colspan="9" class="col_name"> 工作内容<span class="btn_pic_add" style="float:right;margin-top:5px;"><a class="Work_add"  >添加</a></span></td>
+                <td colspan="9" class="col_name" style="text-align:left;"> 工作内容<span class="btn_pic_add" style="float:right;margin-top:5px;"><a class="Work_add"  >添加</a></span></td>
               </tr>
               <tr>
                 <td colspan="9"><div class="del_work">
                     <div class="WorkExper">
-                      <textarea rows="3" class="weight450 WorkDetail" id="WorkDetail"  name="WorkDetail" placeholder="例如：负责XX项目..."></textarea>
+                      <textarea rows="3" class="weight620 WorkDetail" id="WorkDetail"  name="WorkDetail" placeholder="例如：负责XX项目..."></textarea>
                       <span class="btn_pic_del" ><a class="work_del" name="work_del" id="work_del" >删除</a></span> </div>
                   </div></td>
               </tr>
@@ -397,22 +396,22 @@ $(document).ready(function(){
                <table border="0" cellspacing="0" cellpadding="0" class="weight780_mdf weight670" style="float:left;">
                
               <tr>
-                <td colspan="9" class="col_name"> 其他经历<span class="btn_pic_add" style="float:right;margin-top:5px;"><a class="OtherWork_add">添加</a></span></td>
+                <td colspan="9" class="col_name" style="text-align:left;"> 其他经历<span class="btn_pic_add" style="float:right;margin-top:5px;"><a class="OtherWork_add">添加</a></span></td>
               </tr>
               <tr>
                 <td colspan="9"><div class="del_otherwork" >
                     <div class="OtherWorkExper">
-                      <textarea rows="3" class="weight450 OtherWorkDetail" id="OtherWorkDetail"  name="OtherWorkDetail" placeholder="例如：某NG3年以上工作经历..."></textarea>
+                      <textarea rows="3" class="weight620 OtherWorkDetail" id="OtherWorkDetail"  name="OtherWorkDetail" placeholder="例如：某NG3年以上工作经历..."></textarea>
                       <span class="btn_pic_del" ><a class="otherwork_del" name="otherwork_del">删除</a></span> </div>
                   </div></td>
               </tr>
               <tr>
-                <td colspan="9" class="col_name"> 其他个人能力<span class="btn_pic_add" style="float:right;margin-top:5px;"><a class="OtherAbi_add"  >添加</a></span></td>
+                <td colspan="9" class="col_name" style="text-align:left;"> 其他个人能力<span class="btn_pic_add" style="float:right;margin-top:5px;"><a class="OtherAbi_add"  >添加</a></span></td>
               </tr>
               <tr>
                 <td colspan="9"><div class="del_otherability" >
                     <div class="OtherAbility">
-                      <textarea rows="3" class="weight450 PersonalAbi" id="PersonalAbi"  name="PersonalAbi" placeholder="例如：精通红酒评鉴..."></textarea>
+                      <textarea rows="3" class="weight620 PersonalAbi" id="PersonalAbi"  name="PersonalAbi" placeholder="例如：精通红酒评鉴..."></textarea>
                       <span class="btn_pic_del" ><a class="otherability_del" name="otherability_del" >删除</a></span> </div>
                   </div></td>
               </tr>

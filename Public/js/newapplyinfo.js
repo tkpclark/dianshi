@@ -228,7 +228,7 @@ $.each($('.OtherWorkDetail'),function(){
  }
  
  $(document).ready(function(){
-$("#JobDirec").change(function(){
+$("#JobDirec,#Field").change(function(){
   if($(this).val() == 1){
   $("#finServ").show().siblings("div").hide();
   }
