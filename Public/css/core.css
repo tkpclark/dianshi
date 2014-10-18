@@ -21,6 +21,8 @@ body{
 }
 .longinput,select{
 	padding-left:3px;
+	height:30px;
+	width:150px;
 }
 input:FOCUS,textarea:FOCUS{
 	outline:none;
@@ -38,6 +40,7 @@ h3{
 }
 input{
 	font-size:14px;
+	height:25px;
 }
 textarea{
 	padding:3px;

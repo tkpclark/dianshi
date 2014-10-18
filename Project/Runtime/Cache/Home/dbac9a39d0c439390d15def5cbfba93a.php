@@ -3,14 +3,14 @@
 <head>
 <title>首页 | 点石成金</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<script type="text/javascript" src="/dscj/Public/Js/jquery-1.26.js"></script>
-<script type="text/javascript" src="/dscj/Public/Js/jquery.drag.js"></script>
-<script type="text/javascript" src="/dscj/Public/Js/fn.js"></script>
-<script type="text/javascript" src="/dscj/Public/Js/all.js"></script>
-<script type="text/javascript" src="/dscj/Public/Js/index.js"></script>
+<script type="text/javascript" src="/dscj/Public/js/jquery-1.26.js"></script>
+<script type="text/javascript" src="/dscj/Public/js/jquery.drag.js"></script>
+<script type="text/javascript" src="/dscj/Public/js/fn.js"></script>
+<script type="text/javascript" src="/dscj/Public/js/all.js"></script>
+<script type="text/javascript" src="/dscj/Public/js/index.js"></script>
 
-<link rel="stylesheet" type="text/css" href="/dscj/Public/Css/core.css" />
-<link rel="stylesheet" type="text/css" href="/dscj/Public/Css/style.css" />
+<link rel="stylesheet" type="text/css" href="/dscj/Public/css/core.css" />
+<link rel="stylesheet" type="text/css" href="/dscj/Public/css/style.css" />
 
 <link href="/favicon.ico" type="image/ico" rel="shortcut icon"/>
 <!--[if lt IE 7]>
