@@ -1490,7 +1490,7 @@ padding:3px;
 .icon_need
 {
 margin-top:9px;
-margin-left:6px;
+margin-left:3px;
 float:left;
 }
 .icon_width
@@ -1802,7 +1802,7 @@ a.grey5:hover {
     height: 30px;
     line-height: 30px;
   	 margin:5px 5px 5px 5px;
- 	width:90%;
+ 	width:92%;
 }
 
 *html .rew_conr_mdf li {
@@ -1868,27 +1868,6 @@ li#histogram table {
 li#histogram table.baro {
   margin-left:0px;
 }
-
-
-
-/*知己知彼优惠券*/
-.luckcode_main{width:441px;height:301px;position:absolute;left:-220px;top:-150px;}
-
-.luckcode_main_1{text-align:right; padding:6px 8px 0 0;position:absolute;top:0px;left:410px;}
-
-.luckcode_main_2{height:60px;font-size:14px;color:red;font-weight:bold;position:absolute;position:absolute;top:100px;left:220px;}
-
-.luckcode_main_3a{font-size:12px;color:#000;line-height:30px;}
-
-.luckcode_main_3{height:50px;font-size:12px;color:#666;position:absolute;position:absolute;top:165px;left:220px;}
-
-.luckcode_main_4{height:50px;position:absolute;position:absolute;top:220px;left:220px;}
-
-/*知己知彼优惠券结束*/
-
-/*readresume begin*/
-
-/*readresume end*/
 
 .fan-icon { position:relative;}
 .icon-fans { display:block;width:30px; height:24px; position:absolute; top:-12px; right:-8px}
