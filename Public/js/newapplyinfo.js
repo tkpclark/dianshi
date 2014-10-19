@@ -12,7 +12,7 @@ function submitBaseInfo(){
 	 var jg_value =$("#JobGrade").val();
 
        $.ajax({
-	 
+	 		   cache:"False",
 	           type:"post",
 			   url:"index.php",
 			   data:{ 
@@ -28,21 +28,18 @@ function submitBaseInfo(){
 				   jg:jg_value
 				   },
 			   success : function(msg) {
-				   alert("基本信息数据传上来了！");
-						/*var json = eval(msg);
-						//alert(json);
-						if (json[0] == "success") {
-							alert(hidden_message + "页面生成成功！");
-						} else if (json[0] == "fail_0") {
-							alert(hidden_message + "页面生成出现异常！");
-							document.location.reload();
-						}else{
-							alert("页面信息异常！");}*/
+				         if (msg == "OK") {
+                        alert("个人基本信息保存成功！");
+                       
+                    }
+                    else if (msg == "Error") {
+                        alert("个人基本信息保存失败，请重新填写！");
+                    }
 					}
 	 
 	 })
  }
- 
+ //保存求职意向
  function submitPurposeInfo(){
 	 var selecte_value="";
 	 $(".span_selected").each(
@@ -58,7 +55,7 @@ function submitBaseInfo(){
 	 var jd_value = $("#JobDirec").val();
 	 
        $.ajax({
-	 
+	 		  cache:"False",
 	           type:"post",
 			   url:"apply.php",
 			   data:{ 
@@ -72,7 +69,13 @@ function submitBaseInfo(){
 				   sv:selecte_value
 				   },
 			   success : function(msg) {
-				   alert("意向数据传上来了！");
+				   if (msg == "OK") {
+                        alert("求职意向保存成功！");
+                       
+                    }
+                    else if (msg == "Error") {
+                        alert("求职意向保存失败，请重新填写！");
+                    }
 						
 					}
 	 
@@ -125,7 +128,7 @@ $.each($('.eduEdit'),function(){
 })
 	 
        $.ajax({
-	 
+	 	 		  cache:"False",
 	           type:"post",
 			   url:"edu.php",
 			   data:{ 
@@ -137,7 +140,13 @@ $.each($('.eduEdit'),function(){
 				   otherExp:arr3,
 				   },
 			   success : function(msg) {
-				   alert("教育数据传上来了！");
+				  if (msg == "OK") {
+                        alert("教育背景保存成功！");
+                       
+                    }
+                    else if (msg == "Error") {
+                        alert("教育信息保存失败，请重新填写！");
+                    }
 						
 					}
 	 
@@ -175,7 +184,7 @@ $.each($('.Work_add_1'),function(){
   
 	 
        $.ajax({
-	 
+ 	 		  cache:"False",
 	           type:"post",
 			   url:"work.php",
 			   data:{ 
@@ -185,7 +194,13 @@ $.each($('.Work_add_1'),function(){
 				   wd:arr4
     			   },
 			   success : function(msg) {
-				   alert("工作数据传上来了！");
+				   if (msg == "OK") {
+                        alert("工作经历保存成功！");
+                       
+                    }
+                    else if (msg == "Error") {
+                        alert("工作经历保存失败，请重新填写！");
+                    }
 						
 					}
 	 
@@ -210,7 +225,7 @@ $.each($('.OtherWorkDetail'),function(){
  })
   
        $.ajax({
-	 
+ 	 		  cache:"False",
 	           type:"post",
 			   url:"otherWorkAbility.php",
 			   data:{ 
@@ -220,7 +235,13 @@ $.each($('.OtherWorkDetail'),function(){
 				   
     			   },
 			   success : function(msg) {
-				   alert("其他数据传上来了！");
+				   if (msg == "OK") {
+                        alert("其他工作经历和个人能力保存成功！");
+                       
+                    }
+                    else if (msg == "Error") {
+                        alert("其他工作经历和个人能力保存失败，请重新填写！");
+                    }
 						
 					}
 	 
