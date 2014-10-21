@@ -3,28 +3,16 @@
 <head>
 <title>企业信息 | 点石成金</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<js href='__PUBLIC__/Js/jquery-1.26.js' />
-<js href='__PUBLIC__/Js/jquery.drag.js' />
-<js href='__PUBLIC__/Js/fn.js' />
-<js href='__PUBLIC__/Js/all.js' />
-<js href='__PUBLIC__/Js/cv_mod.js' />
-<js href='__PUBLIC__/Js/newapplyinfo.js' />
-<js href='__PUBLIC__/Js/companyinfo.js' />
-<!--<js href='__PUBLIC__/Js/index.js' />
-<link href="http://localhost/dscj/Public/css/core.css" rel="stylesheet" type="text/css" />
-<link href="http://localhost/dscj/Public/css/style.css" rel="stylesheet" type="text/css" />
-<link href="http://localhost/dscj/Public/css/cv.css" rel="stylesheet" type="text/css" />
-<script language="javascript" src="http://localhost/dscj/Public/js/jquery-1.8.2.js"></script>
-<script language="javascript" src="http://localhost/dscj/Public/js/jquery.drag.js"></script>
-<script language="javascript" src="http://localhost/dscj/Public/js/fn.js"></script>
-<script language="javascript" src="http://localhost/dscj/Public/js/all.js"></script>
-<script language="javascript" src="http://localhost/dscj/Public/js/cv_mod.js"></script>
-<script language="javascript" src="http://localhost/dscj/Public/js/newapplyinfo.js"></script>
-<script language="javascript" src="http://localhost/dscj/Public/js/companyinfo.js"></script>-->
-
-<css href="__PUBLIC__/Css/core.css" />
-<css href="__PUBLIC__/Css/style.css" />
-<css href="__PUBLIC__/Css/cv.css" />
+<js href='__PUBLIC__/js/jquery-1.26.js' />
+<js href='__PUBLIC__/js/jquery.drag.js' />
+<js href='__PUBLIC__/js/fn.js' />
+<js href='__PUBLIC__/js/all.js' />
+<js href='__PUBLIC__/js/cv_mod.js' />
+<js href='__PUBLIC__/js/newapplyinfo.js' />
+<js href='__PUBLIC__/js/companyinfo.js' />
+<css href="__PUBLIC__/css/core.css" />
+<css href="__PUBLIC__/css/style.css" />
+<css href="__PUBLIC__/css/cv.css" />
 
 <!--[if lt IE 7]>
 <script>var file_root = '/';</script>
@@ -93,34 +81,38 @@
       <div id="BPI_info" class="BPI_info"> 
         <table border="0" cellspacing="0" cellpadding="0" class="weight780_mdf">
           <tr>
-            <td  rowspan="3" width="120px" height="160px"><img src="" width="120px" height="160px">
-              <input type="file" value="" class="imgfile" name="imgfile"  id="imgfile" style="width:120px" />
+            <td  rowspan="3" width="120px" height="160px">
+			<div id="preview">  
+					<img id="imghead" width='120px' height="160px"  src='__ROOT__/Uploads/Photo/<{$result.photo}>'>  
+				</div>
+              <input type="file" value="" class="imgfile" name="fileToUpload"  id="fileToUpload" style="width:120px" onchange="previewImage(this)" />
+
               </td>
             <td align="left" class="col_name">公&nbsp;&nbsp;司&nbsp;&nbsp;名&nbsp;&nbsp;</td>
             <td ><label>
               
-                <input type="text" onBlur="checkinputstr('Name','er_name')" class="CompanyName input400" id="CompanyName" value="" maxlength="20" name="CompanyName" placeholder="公司名"/>
+                <input type="text" onBlur="checkinputstr('Name','er_name')" class="CompanyName input400" id="CompanyName" value="<{$result.name}>" maxlength="20" name="CompanyName" placeholder="公司名"/>
               
               </label></td>
                       </tr>
           <tr>
             <td class="col_name">办公地址 </td>
-            <td><input name="Offic" type="text" class="Offic input400" id="Offic" value="" placeholder="办公地址" /></td>
+            <td><input name="Offic" type="text" class="Offic input400" id="Offic" value="<{$result.address}>" placeholder="办公地址" /></td>
           </tr>
           <tr>
             <td  class="col_name">网&nbsp;&nbsp;&nbsp;&nbsp;址</td>
             <td valign="middle">
-                <input id="URL" name="URL"  class="URL input400"onBlur="checkinputstr('phone','er_phone')" maxlength="20"  value="" type="text" placeholder="例如：dianshichengjin@dscj.com"  />
+                <input id="URL" name="URL"  class="URL input400"onBlur="checkinputstr('phone','er_phone')" maxlength="20"  value="<{$result.website}>" type="text" placeholder="例如：dianshichengjin@dscj.com"  />
               </td>
           </tr>
           
           <tr>
             <td  class="col_name">领&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;域</td>
             <td colspan="2"><select  name="Field" id="Field">
-                <OPTION VALUE=1 Selected>公司金融服务</OPTION>
-                <OPTION VALUE=2>一级市场投资分析</OPTION>
-                <OPTION VALUE=3>二级市场研究、交易、投资</OPTION>
-                <OPTION VALUE=4>券商销售</OPTION>
+                <OPTION VALUE=1 <if condition='$result.field eq 1'> selected</if> >公司金融服务</OPTION>
+                <OPTION VALUE=2 <if condition='$result.field eq 2'> selected</if> >一级市场投资分析</OPTION>
+                <OPTION VALUE=3 <if condition='$result.field eq 3'> selected</if> >二级市场研究、交易、投资</OPTION>
+                <OPTION VALUE=4 <if condition='$result.field eq 4'> selected</if> >券商销售</OPTION>
               </select></td>
           </tr>
           <tr>
@@ -132,19 +124,19 @@
            <tr>
             <td class="col_name">规&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;模</td>
             <td  valign="middle"><select  name="PersonNum" class="PersonNum" id="PersonNum" placeholder="公司人数">
-                <OPTION VALUE=1>30人以下</OPTION>
-                <OPTION VALUE=2>30～100人</OPTION>
-                <OPTION VALUE=3>100～500人</OPTION>
-                <OPTION VALUE=4>500～1000人以上</OPTION>
-                <OPTION VALUE=5 >1000人以上</OPTION>
+                <OPTION VALUE=1  <if condition='$result.scale_people eq 1'> selected</if>  >30人以下</OPTION>
+                <OPTION VALUE=2 <if condition='$result.scale_people eq 2'> selected</if> >30～100人</OPTION>
+                <OPTION VALUE=3 <if condition='$result.scale_people eq 3'> selected</if> >100～500人</OPTION>
+                <OPTION VALUE=4 <if condition='$result.scale_people eq 4'> selected</if> >500～1000人以上</OPTION>
+                <OPTION VALUE=5 <if condition='$result.scale_people eq 5'> selected</if> >1000人以上</OPTION>
                 </select></td>
             <td valign="middle"><select  name="Asset" id="Asset" placeholder="公司资产">
-                <OPTION VALUE=1>100万以下</OPTION>
-                <OPTION VALUE=2>100万～1000万</OPTION>
-                <OPTION VALUE=3>1000万～1亿</OPTION>
-                <OPTION VALUE=4>1亿～100亿</OPTION>
-                <OPTION VALUE=5 >1000亿～1000亿</OPTION>
-                <OPTION VALUE=6 >1000亿以上</OPTION>
+                <OPTION VALUE=1 <if condition='$result.scale_bankroll eq 1'> selected</if> >100万以下</OPTION>
+                <OPTION VALUE=2 <if condition='$result.scale_bankroll eq 2'> selected</if> >100万～1000万</OPTION>
+                <OPTION VALUE=3 <if condition='$result.scale_bankroll eq 3'> selected</if> >1000万～1亿</OPTION>
+                <OPTION VALUE=4 <if condition='$result.scale_bankroll eq 4'> selected</if> >1亿～100亿</OPTION>
+                <OPTION VALUE=5 <if condition='$result.scale_bankroll eq 5'> selected</if> >1000亿～1000亿</OPTION>
+                <OPTION VALUE=6 <if condition='$result.scale_bankroll eq 6'> selected</if> >1000亿以上</OPTION>
                 </select></td>
             
           </tr>
@@ -154,7 +146,7 @@
               <tr>
                 <td colspan="3"><div class="del_exp">
                     <div class="Exper">
-                      <textarea rows="6" class="weight700 CompanyIntro"  name="CompanyIntro"  id="CompanyIntro" placeholder="例如：清波资产是一家宏观对冲基金，强调大类资产配置和周期轮动..."></textarea>
+                      <textarea rows="6" class="weight700 CompanyIntro"  name="CompanyIntro"  id="CompanyIntro" placeholder="例如：清波资产是一家宏观对冲基金，强调大类资产配置和周期轮动..."><{$result.introduction}></textarea>
                       </div>
                   </div></td>
               </tr>
@@ -164,7 +156,7 @@
               <tr>
                 <td colspan="3"><div class="del_exp">
                     <div class="Exper">
-                      <textarea rows="6" class="weight700 CompanyAdvan"  name="CompanyAdvan" id="CompanyAdvan" placeholder="例如：：工作环境优越，待遇极为优厚，管理扁平透明..."></textarea>
+                      <textarea rows="6" class="weight700 CompanyAdvan"  name="CompanyAdvan" id="CompanyAdvan" placeholder="例如：：工作环境优越，待遇极为优厚，管理扁平透明..."><{$result.advantage}></textarea>
                       </div>
                   </div></td>
               </tr>
@@ -175,7 +167,7 @@
               <tr>
                 <td colspan="3"><div class="del_exp">
                     <div class="Exper">
-                      <textarea rows="6" class="weight700 CompanyEval"  name="CompanyEval" id="CompanyEval" placeholder="例如：投资理念领先，视野广，业绩--有疑问的看他们的净值吧..."></textarea>
+                      <textarea rows="6" class="weight700 CompanyEval"  name="CompanyEval" id="CompanyEval" placeholder="例如：投资理念领先，视野广，业绩--有疑问的看他们的净值吧..."><{$result.evaluation}></textarea>
                       </div>
                   </div></td>
               </tr>
@@ -273,14 +265,14 @@
     
      <li class="big_btn_resume btn_resume_mdf" style="width:auto;margin-left:0">
         <div class="icon_width icon_width_mdf" style="margin-right:10px;"> <span class="text_red">&nbsp;&nbsp;></span> <a href="#CPI">&nbsp;&nbsp;公司信息</a> </div>
-        <img src="/dscj/Public/images/icon_need.gif" class="icon_need" align="absmiddle" id="Other_Complete" style="display:none;margin-left:-2px;"/> <img src="/dscj/Public/images/icon_incomplete.gif" class="icon_need" align="absmiddle" id="Other_Incomplete" style="display:block; margin-left:-2px;" /> 
+        <img src="__PUBLIC__/images/icon_need.gif" class="icon_need" align="absmiddle" id="Other_Complete" style="display:none;margin-left:-2px;"/> <img src="__PUBLIC__/images/icon_incomplete.gif" class="icon_need" align="absmiddle" id="Other_Incomplete" style="display:block; margin-left:-2px;" /> 
         </li>
       <li class="btn_resume btn_resume_mdf">
         <div class="icon_width icon_width_mdf">&nbsp;&nbsp;&nbsp;&nbsp; <a href="#SRI">开始招聘</a> </div>
-        <img src="/dscj/Public/images/icon_need.gif" class="icon_need" align="absmiddle" id="Other_Complete" style="display:none;"/> <img src="/dscj/Public/images/icon_incomplete.gif" class="icon_need" align="absmiddle" id="Other_Incomplete" style="display:block;" /> </li>
+        <img src="__PUBLIC__/images/icon_need.gif" class="icon_need" align="absmiddle" id="Other_Complete" style="display:none;"/> <img src="__PUBLIC__/images/icon_incomplete.gif" class="icon_need" align="absmiddle" id="Other_Incomplete" style="display:block;" /> </li>
       <li class="btn_resume btn_resume_mdf">
         <div class="icon_width icon_width_mdf"> &nbsp;&nbsp;&nbsp;&nbsp; <a href="/dscj/Project/Home/View/CompanyInformation/worklist.html">职位列表</a> </div>
-        <img src="/dscj/Public/images/icon_need.gif" class="icon_need" align="absmiddle" id="Edu_Complete" style="display:none;"/> <img src="/dscj/Public/images/icon_incomplete.gif" class="icon_need" align="absmiddle" id="Edu_Incomplete" style="display:block;" /> </li>
+        <img src="__PUBLIC__/images/icon_need.gif" class="icon_need" align="absmiddle" id="Edu_Complete" style="display:none;"/> <img src="__PUBLIC__/images/icon_incomplete.gif" class="icon_need" align="absmiddle" id="Edu_Incomplete" style="display:block;" /> </li>
       </ul>
     <div style="line-height:2px;height:2px;clear:both;background:#FFFFFF;">&nbsp;</div>
   </div>

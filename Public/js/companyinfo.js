@@ -1,6 +1,63 @@
 // JavaScript Document
-//dongxueying companyinfo js
-function submitCompanyInfo(){
+
+
+//保存公司信息
+function submitCompanyInfo() {
+
+	 var selecte_feild_value="";
+	 $(".span_selected").each(
+	 function() {
+		 selecte_feild_value += $(this).text()+"|--|";
+		 });
+	 var photo = $("#fileToUpload").prev().find("img").attr('src');
+	 var CompanyName_value = $("#CompanyName").val();
+	 var Offic_value = $("#Offic").val();
+ 	 var URL_value = $("#URL").val();
+	 var Field_value = $("#Field").val();
+	 var PersonNum_value = $("#PersonNum").val();
+	 var Asset_value = $("#Asset").val();
+	 var CompanyIntro_value = $("#CompanyIntro").val();
+	 var CompanyAdvan_value = $("#CompanyAdvan").val();
+	 var CompanyEval_value = $("#CompanyEval").val();
+
+
+	var fd = new FormData();
+	fd.append("photo", photo);
+	fd.append("CompanyName", CompanyName_value);
+	fd.append("Offic", Offic_value);
+	fd.append("URL", URL_value);
+	fd.append("Feild", Field_value);
+	fd.append("PersonNum", PersonNum_value);
+	fd.append("Asset", Asset_value);
+	fd.append("CompanyIntro", CompanyIntro_value);
+	fd.append("CompanyAdvan", CompanyAdvan_value);
+	fd.append("CompanyEval", CompanyEval_value);
+	fd.append("fileToUpload", document.getElementById('fileToUpload').files[0]);
+
+	var xhr = new XMLHttpRequest();
+	xhr.addEventListener("load", uploadComplete, false);
+	xhr.addEventListener("error", uploadFailed, false);
+	xhr.addEventListener("abort", uploadCanceled, false);
+	xhr.open("POST", "Information/");
+	xhr.send(fd);
+}
+function uploadComplete(evt) {
+/* 接受返回值 */
+	if(evt.target.responseText=='OK'){
+		alert("企业信息保存成功！");
+	}else{
+		alert(evt.target.responseText);
+	}
+}
+
+function uploadFailed(evt) {
+	alert("There was an error attempting to upload the file.");
+}
+
+function uploadCanceled(evt) {
+	alert("The upload has been canceled by the user or the browser dropped the connection.");
+}
+/*function submitCompanyInfo(){
 	var selecte_feild_value="";
 	 $(".span_selected").each(
 	 function() {
@@ -43,7 +100,7 @@ function submitCompanyInfo(){
 					}
 	 
 	 })
- }
+ }*/
  
 function submitAllCompanyInfo(){
 	
@@ -64,7 +121,7 @@ function submitAllCompanyInfo(){
        $.ajax({
 	 		  cache:"False",
 	           type:"post",
-			   url:"StartRecruit.php",
+			   url:"DistributionJob/",
 			   data:{ 
 			       Department:Department_value,
 			       Job:Job_value,
@@ -76,7 +133,7 @@ function submitAllCompanyInfo(){
 				   Contacts:Contacts_value,
 				   ContactWay:ContactWay_value,
 				   RecNum:RecNum_value,
-				   ReceiveNum:JobRequire_value,
+				   ReceiveNum:ReceiveNum_value,
 				   },
 			   success : function(msg) {
 				   if (msg == "OK") {
