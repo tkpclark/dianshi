@@ -4,8 +4,40 @@ use Think\Controller;
 use Home\Model\ApplicantUserModel;
 class ApplicantUserController extends Controller {
     public function Index(){
+		$User = M('ApplicantUser');
+		$map['id']=array('eq',$_SESSION['id']);
+		$result = $User->where($map)->select();
+		$res=$result[0];
+		$area = explode('|--|',$res['job_area']);
 
-		//echo '个人中心登陆成功';
+		//教育背景
+		$User = M('ApplicantEducation');
+		$where['user_id']=array('eq',$_SESSION['id']);
+		$Education = $User->where($where)->select();
+		for($i=0;$i<count($Education);$i++){
+			$Education[$i]['school_awards']=explode('|--|',$Education[$i]['school_awards']);
+			$Education[$i]['school_experiences']=explode('|--|',$Education[$i]['school_experiences']);
+		}
+		//工作经历
+		$User = M('ApplicantWorkExperience');
+		$where['user_id']=array('eq',$_SESSION['id']);
+		$Work = $User->where($where)->select();
+		for($i=0;$i<count($Work);$i++){
+			$Work[$i]['working_content']=explode('|--|',$Work[$i]['working_content']);
+		}
+		//其他经历能力
+		$User = M('ApplicantOtherExperiences');
+		$where['user_id']=array('eq',$_SESSION['id']);
+		$Other = $User->where($where)->select();
+		for($i=0;$i<count($Other);$i++){
+			$Other[$i]['experiences']=explode('|--|',$Other[$i]['experiences']);
+			$Other[$i]['ability']=explode('|--|',$Other[$i]['ability']);
+		}
+		$this->assign('Other',$Other[0]);
+		$this->assign('Work',$Work);
+		$this->assign('Education',$Education);
+		$this->assign('area',$area);
+		$this->assign('result',$res);
 		$this->display('newapplyinfo');
     }
 	/*
@@ -43,38 +75,177 @@ class ApplicantUserController extends Controller {
 		$upload->savePath  =      './'; // 设置附件上传目录    // 上传单个文件 
 		$upload->subName   =      'Photo';   
 		$info   =$upload->uploadOne($_FILES['fileToUpload']);
-		if(!$info) {  
+		$photo = I('param.photo','');
+		if(!$info && empty($photo)) {  
 			 $this->error($upload->getError());     // 上传错误提示错误信息    
 		}else{       
 			$photo = $info['savename'];   // 上传成功 获取上传文件信息 
 			$User = D('ApplicantUser');
 			$data['name'] = I('param.name','');//姓名
-			$data['sex'] = I('param.sex','');//性别
+			$data['sex'] = I('param.gender','');//性别
 			$data['email'] = I('param.email','');//邮箱
-			$data['phone'] = I('param.phone','');//手机
+			$data['phone'] = I('param.mobile','');//手机
 			$data['address'] = I('param.address','');//地址
-			$data['photo'] = $photo;//头像
-			$data['work_ unit'] = I('param.work_ unit','');//目前工作单位
-			$data['department'] = I('param.department','');//部门
-			$data['position'] = I('param.position','');//职位
-			$data['work_time'] = I('param.work_time','');//工作时间
-			$data['rank'] = I('param.rank','');//职位级别
-			$datas=$User->create($data);
+			if(!empty($photo)){
+				$data['photo'] = $photo;//头像
+			}
+			
+			$data['work_unit'] = I('param.company','');//目前工作单位
+			$data['department'] = I('param.depart','');//部门
+			$data['position'] = I('param.job','');//职位
+			$data['work_time'] = I('param.wt','');//工作时间
+			$data['rank'] = I('param.jg','');//职位级别
 			if (!$datas=$User->create($data)){
 				exit($User->getError());
 			}else{ 
-				print_r($User->create($datas));exit;
 				if($User->where("id=$_SESSION[id]")->save($datas)){
-					echo '添加成功';
+					echo 'OK';
 				}else{
 					echo '添加失败';
 				}
 			}
-		}
-		//if(isset($_SESSION['username']) && $_SESSION['username']!=null){
-		//}else{
-		//	echo '请登录';
-		//}
+		}exit;
 	}
+
+	/*
+	*
+	*求职意向
+	*
+	*/
+	public function JobIntension(){
+		$User = D('ApplicantUser');
+		$data['job_status'] = I('param.jt','');//目前求职状态
+		$data['expected_salary'] = I('param.wp','');//期望年薪
+		$data['work_environment'] = I('param.je','');//工作环境
+		$data['job_intension'] = I('param.jd','');//求职方向
+		$a1 = I('param.a1','');//工作地偏好
+		$a2 = I('param.a2','');//工作地偏好
+		$a3 = I('param.a3','');//工作地偏好
+		$data['job_area'] =$a1.'|--|'.$a2.'|--|'.$a3;
+		if (!$datas=$User->create($data)){
+			exit($User->getError());
+		}else{ 
+			if($User->where("id=$_SESSION[id]")->save($datas)){
+				exit('OK');
+			}else{ 
+				exit('求职意向保存失败，请重新填写！');
+			}
+		}
+	
+	}
+	
+	/*
+	*
+	*教育背景
+	*
+	*/
+	public function EducationBG(){
+		$User = D('ApplicantEducation');
+		$User->where("user_id=$_SESSION[id]")->delete();
+		$data['school'] = I('param.school','');//学    校
+		$data['departme'] = I('param.college','');//院    系
+		$data['education'] = I('param.academic','');//学    历
+		$data['school_time'] = I('param.sduring','');//在校时间
+		$data['school_awards'] = I('param.Sat','');//所获学校奖励
+		$data['school_experiences'] = I('param.otherExp','');//其他在校经历
+		$num = count($data['school']);
+		if($num<1 || empty($data['school'][0])){
+			exit('OK');
+		}
+		$User->startTrans();
+		for($i=0;$i<$num;$i++){
+			$datas[$i]['user_id']=$_SESSION['id'];
+			$datas[$i]['school']=$data['school'][$i];
+			$datas[$i]['departme']=$data['departme'][$i];
+			$datas[$i]['education']=$data['education'][$i];
+			$datas[$i]['school_time']=$data['school_time'][$i];
+			$datas[$i]['school_awards']=implode('|--|',$data['school_awards'][$i]);
+			$datas[$i]['school_experiences']=implode('|--|',$data['school_experiences'][$i]);
+
+			if (!$User->create($datas[$i])){
+				exit($User->getError());
+			}else{
+				$ids[$i] = $User->add();
+			}	
+		}
+		
+		foreach ($ids as $id){
+			if($id==''){
+				$User->rollback(); 
+				exit('求职意向保存失败，请重新填写！');
+			}
+		}
+		$User->commit(); 
+		exit('OK');
+	}
+	
+	/*
+	*
+	*工作经历
+	*
+	*/
+	public function WorkHistory(){
+		$User = D('ApplicantWorkExperience');
+		$User->where("user_id=$_SESSION[id]")->delete();
+		$data['company_name'] = I('param.cn','');//公司名称
+		$data['department_position'] = I('param.dn','');//部门职位
+		$data['pay'] = I('param.np','');//薪酬
+		$data['work_time'] = I('param.wt','');//工作时间
+		$data['working_content'] = I('param.wd','');//工作内容
+		$num = count($data['company_name']);
+		if($num<1 || empty($data['company_name'][0])){
+			exit('OK');
+		}
+		$User->startTrans();
+		for($i=0;$i<$num;$i++){
+			$datas[$i]['user_id']=$_SESSION['id'];
+			$datas[$i]['company_name']=$data['company_name'][$i];
+			$datas[$i]['department_position']=$data['department_position'][$i];
+			$datas[$i]['pay']=$data['pay'][$i];
+			$datas[$i]['work_time']=$data['work_time'][$i];
+			$datas[$i]['working_content']=implode('|--|',$data['working_content'][$i]);
+			if (!$User->create($datas[$i])){
+				exit($User->getError());
+			}else{
+				$ids[$i] = $User->add();
+			}	
+		}
+		
+		foreach($ids as $id){
+			if($id==''){
+				$User->rollback(); 
+				exit('求职意向保存失败，请重新填写！');
+			}
+		}
+		$User->commit(); 
+		exit('OK');
+	
+	}
+	/*
+	*
+	*其他经历与经验
+	*
+	*/
+	public function Other(){
+		$User = D('ApplicantOtherExperiences');
+		$User->where("user_id=$_SESSION[id]")->delete();
+		$data['user_id']=$_SESSION['id'];
+		$data['experiences'] = I('param.owd','');//其他经历
+		$data['experiences'] = substr($data['experiences'],0,strrpos($data['experiences'],'|--|'));
+		$data['ability'] = I('param.oa','');//其他能力
+		$data['ability'] = substr($data['ability'],0,strrpos($data['ability'],'|--|'));
+		if (!$datas=$User->create($data)){
+			exit($User->getError());
+		}else{ 
+			if($id = $User->add()){
+				echo 'OK';
+			}else{
+				echo '添加失败';
+			}
+		}
+	
+	}
+	
+	
 	
 }

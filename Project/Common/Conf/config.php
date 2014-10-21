@@ -16,8 +16,8 @@ return array(
 		'c/:Id/:type'=>'Index/Activation',
 	),
 	//数据库配置信息
-	'DB_TYPE'   => 'mysql', // 数据库类型
-	'DB_HOST'   => '123.57.34.252',// 服务器地址
+	'DB_TYPE'   => 'mysqli', // 数据库类型
+	'DB_HOST'   => '123.57.15.178',// 服务器地址
 	'DB_NAME'   => 'recruitment',// 数据库名
 	'DB_USER'   => 'app', // 用户名
 	'DB_PWD'    => 'dudu78#90', // 密码
@@ -37,5 +37,9 @@ return array(
 	'MAIL_LOGINNAME'=>'xuguishung_1@163.com', // 邮箱登录帐号
 
 	'MAIL_PASSWORD'=>'xuguishuang', // 邮箱密码
+
+	//修改定界符
+	'TMPL_L_DELIM'=>'<{',
+	'TMPL_R_DELIM'=>'}>',
 
 );

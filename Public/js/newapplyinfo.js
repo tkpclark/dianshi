@@ -1,5 +1,64 @@
 // JavaScript Document
-function submitBaseInfo(){
+//预览图片
+function previewImage(file)  
+{  
+  var MAXWIDTH  = 120;  
+  var MAXHEIGHT = 160;  
+  var div = document.getElementById('preview');  
+  if (file.files && file.files[0])  
+  {  
+    div.innerHTML = '<img id=imghead>';  
+    var img = document.getElementById('imghead');  
+    img.onload = function(){  
+      var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);  
+      img.width = rect.width;  
+      img.height = rect.height;  
+      img.style.marginLeft = rect.left+'px';  
+      img.style.marginTop = rect.top+'px';  
+    }  
+    var reader = new FileReader();  
+    reader.onload = function(evt){img.src = evt.target.result;}  
+    reader.readAsDataURL(file.files[0]);  
+  }  
+  else  
+  {  
+    var sFilter='filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src="';  
+    file.select();  
+    var src = document.selection.createRange().text;  
+    div.innerHTML = '<img id=imghead>';  
+    var img = document.getElementById('imghead');  
+    img.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = src;  
+    var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);  
+    status =('rect:'+rect.top+','+rect.left+','+rect.width+','+rect.height);  
+    div.innerHTML = "<div id=divhead style='width:"+rect.width+"px;height:"+rect.height+"px;margin-top:"+rect.top+"px;margin-left:"+rect.left+"px;"+sFilter+src+"\"'></div>";  
+  }  
+}  
+function clacImgZoomParam( maxWidth, maxHeight, width, height ){  
+    var param = {top:0, left:0, width:width, height:height};  
+    if( width>maxWidth || height>maxHeight )  
+    {  
+        rateWidth = width / maxWidth;  
+        rateHeight = height / maxHeight;  
+          
+        if( rateWidth > rateHeight )  
+        {  
+            param.width =  maxWidth;  
+            param.height = Math.round(height / rateWidth);  
+        }else  
+        {  
+            param.width = Math.round(width / rateHeight);  
+            param.height = maxHeight;  
+        }  
+    }  
+      
+    param.left = Math.round((maxWidth - param.width) / 2);  
+    param.top = Math.round((maxHeight - param.height) / 2);  
+    return param;  
+}
+//保存个人信息
+function submitBaseInfo() {
+
+	 var photo = $("#fileToUpload").prev().find("img").attr('src');
 	 var name_value = $("#Name").val();
 	 var gender_value = $('input[name="Gender"]:checked').val();
  	 var email_value = $("#email").val();
@@ -11,34 +70,44 @@ function submitBaseInfo(){
 	 var wt_value =$("#Worktime").val();
 	 var jg_value =$("#JobGrade").val();
 
-       $.ajax({
-	 		   cache:"False",
-	           type:"post",
-			   url:"index.php",
-			   data:{ 
-			       name:name_value,
-			       gender:gender_value,
-				   email:email_value,
-				   mobile:mobile_value,
-				   address:address_value,
-				   company:company_value,
-				   depart:depart_value,
-				   job:job_value,
-				   wt:wt_value,
-				   jg:jg_value
-				   },
-			   success : function(msg) {
-				         if (msg == "OK") {
-                        alert("个人基本信息保存成功！");
-                       
-                    }
-                    else if (msg == "Error") {
-                        alert("个人基本信息保存失败，请重新填写！");
-                    }
-					}
-	 
-	 })
- }
+	var fd = new FormData();
+	fd.append("photo", photo);
+	fd.append("name", name_value);
+	fd.append("gender", gender_value);
+	fd.append("email", email_value);
+	fd.append("mobile", mobile_value);
+	fd.append("address", address_value);
+	fd.append("company", company_value);
+	fd.append("depart", depart_value);
+	fd.append("job", job_value);
+	fd.append("wt", wt_value);
+	fd.append("jg", jg_value);
+	fd.append("fileToUpload", document.getElementById('fileToUpload').files[0]);
+
+	var xhr = new XMLHttpRequest();
+	xhr.addEventListener("load", uploadComplete, false);
+	xhr.addEventListener("error", uploadFailed, false);
+	xhr.addEventListener("abort", uploadCanceled, false);
+	xhr.open("POST", "Information/");
+	xhr.send(fd);
+}
+function uploadComplete(evt) {
+/* 接受返回值 */
+	if(evt.target.responseText=='OK'){
+		alert("个人基本信息保存成功！");
+	}else{
+		alert(evt.target.responseText);
+	}
+}
+
+function uploadFailed(evt) {
+	alert("There was an error attempting to upload the file.");
+}
+
+function uploadCanceled(evt) {
+	alert("The upload has been canceled by the user or the browser dropped the connection.");
+}
+
  //保存求职意向
  function submitPurposeInfo(){
 	 var selecte_value="";
@@ -57,7 +126,7 @@ function submitBaseInfo(){
        $.ajax({
 	 		  cache:"False",
 	           type:"post",
-			   url:"apply.php",
+			   url:"JobIntension/",
 			   data:{ 
 			       jt:jt_value,
 			       a1:a1_value,
@@ -75,7 +144,9 @@ function submitBaseInfo(){
                     }
                     else if (msg == "Error") {
                         alert("求职意向保存失败，请重新填写！");
-                    }
+                    }else{
+						alert(msg);
+					}
 						
 					}
 	 
@@ -130,7 +201,7 @@ $.each($('.eduEdit'),function(){
        $.ajax({
 	 	 		  cache:"False",
 	           type:"post",
-			   url:"edu.php",
+			   url:"EducationBG/",
 			   data:{ 
 			       school:arr1,
 			       college:arr4,
@@ -146,7 +217,9 @@ $.each($('.eduEdit'),function(){
                     }
                     else if (msg == "Error") {
                         alert("教育信息保存失败，请重新填写！");
-                    }
+                    }else{
+						alert(msg);
+					}
 						
 					}
 	 
@@ -158,17 +231,19 @@ $.each($('.eduEdit'),function(){
   */
  function submitWorkInfo(){
 	 
-	 var arr1= [], arr2= [] ,arr3=[],arr4=[],WorkDetail_value;
+	 var arr1= [], arr2= [] ,arr3=[],arr4=[],arr5=[],WorkDetail_value;
 	
 
  $.each($('.Work_add_1'),function(){
 	var CompanyNOw_value = $(this).find('.CompanyNOw').val();
 	var DepartNow_value = $(this).find('.DepartNow').val();
 	var NowPay_value = $(this).find('.NowPay').val();
+	var WorkTimeNow_value = $(this).find('.WorkTimeNow').val();
 
   arr1.push(CompanyNOw_value);
   arr2.push(DepartNow_value);
   arr3.push(NowPay_value);
+  arr5.push(WorkTimeNow_value);
 	})
 	
 	
@@ -186,12 +261,13 @@ $.each($('.Work_add_1'),function(){
        $.ajax({
  	 		  cache:"False",
 	           type:"post",
-			   url:"work.php",
+			   url:"WorkHistory/",
 			   data:{ 
 			       cn:arr1,
 			       dn:arr2,
 				   np:arr3,
-				   wd:arr4
+				   wd:arr4,
+					wt:arr5
     			   },
 			   success : function(msg) {
 				   if (msg == "OK") {
@@ -200,7 +276,9 @@ $.each($('.Work_add_1'),function(){
                     }
                     else if (msg == "Error") {
                         alert("工作经历保存失败，请重新填写！");
-                    }
+                    }else{
+						alert(msg);
+					}
 						
 					}
 	 
@@ -227,7 +305,7 @@ $.each($('.OtherWorkDetail'),function(){
        $.ajax({
  	 		  cache:"False",
 	           type:"post",
-			   url:"otherWorkAbility.php",
+			   url:"Other/",
 			   data:{ 
 			       owd:OtherWorkDetail,
 				   oa:PersonalAbi
@@ -241,7 +319,9 @@ $.each($('.OtherWorkDetail'),function(){
                     }
                     else if (msg == "Error") {
                         alert("其他工作经历和个人能力保存失败，请重新填写！");
-                    }
+                    }else{
+						alert(msg);
+					}
 						
 					}
 	 

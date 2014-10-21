@@ -15,7 +15,7 @@ class IndexController extends Controller {
 	*/
 	public function SendMail(){
 		$id = I('param.id','');
-		$url = '你好, <b>朋友</b>! <br/>这是一封来自<a href="http://'.$_SERVER['HTTP_HOST'].'/thinkphp/index.php/a/'.$id.'" target="_blank">xxx网</a>的激活邮件！<br/>';
+		$url = '你好, <b>朋友</b>! <br/>这是一封来自<a href="http://'.$_SERVER['HTTP_HOST'].'/dianshi/index.php/a/'.$id.'" target="_blank">xxx网</a>的激活邮件！<br/>';
 		SendMail("$data[username]","邮件标题","$url");
 	}
 	/*
@@ -63,7 +63,7 @@ class IndexController extends Controller {
 		if($result = $User->where($condition)->select()){
 			session('username',$condition['username']);
 			session('password',$condition['password']);
-			session('id',$result['id']);
+			session('id',$result[0]['id']);
 			if($type==1){
 				$this->redirect('ApplicantUser/Index'); 
 			}elseif($type==2){

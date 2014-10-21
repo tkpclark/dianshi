@@ -4,17 +4,17 @@
 <title>求职者申请 | 点石成金</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<css href="__PUBLIC__/Css/core.css" />
-<css href="__PUBLIC__/Css/style.css" />
-<css href="__PUBLIC__/Css/cv.css" />
-<css href="__PUBLIC__/Css/style.css" />
+<css href="__PUBLIC__/css/core.css" />
+<css href="__PUBLIC__/css/style.css" />
+<css href="__PUBLIC__/css/cv.css" />
+<css href="__PUBLIC__/css/style.css" />
 
-<js href='__PUBLIC__/Js/jquery-1.8.js' />
-<js href='__PUBLIC__/Js/jquery.drag.js' />
-<js href='__PUBLIC__/Js/fn.js' />
-<js href='__PUBLIC__/Js/all.js' />
-<js href='__PUBLIC__/Js/cv_mod.js' />
-<js href='__PUBLIC__/Js/newapplyinfo.js' />
+<js href='__PUBLIC__/js/jquery-1.8.2.js' />
+<js href='__PUBLIC__/js/jquery.drag.js' />
+<js href='__PUBLIC__/js/fn.js' />
+<js href='__PUBLIC__/js/all.js' />
+<js href='__PUBLIC__/js/cv_mod.js' />
+<js href='__PUBLIC__/js/newapplyinfo.js' />
 
 
 
@@ -85,59 +85,64 @@
       <div id="BPI_info" class="BPI_info"> 
         <table border="0" cellspacing="0" cellpadding="0" class="weight780_mdf">
           <tr>
-            <td  rowspan="3" width="120px" height="160px"><img src="" width="120px" height="160px">
-              <input type="file" value="" class="imgfile" name="imgfile"  id="imgfile" style="width:120px" />
+            <td  rowspan="3" width="120px" height="160px">
+			  <div id="preview">  
+					<img id="imghead" width='120px' height="160px"  src='__ROOT__/Uploads/Photo/<{$result.photo}>'>  
+				</div>
+              <input type="file" value="" class="imgfile" name="fileToUpload"  id="fileToUpload" style="width:120px" onchange="previewImage(this)" />
               </td>
             <td class="col_name"><span class="text_red">*</span>姓&nbsp;&nbsp;&nbsp;&nbsp;名</td>
             <td ><label>
               <div style="float:left;">
-                <input type="text" onBlur="checkinputstr('Name','er_name')"  id="Name" value="" maxlength="20" name="Name"/>
+                <input type="text" onBlur="checkinputstr('Name','er_name')"  id="Name" value="<{$result.name}>" maxlength="20" name="Name"/>
               </div>
               </label></td>
             <td align="left" class="col_name"><span class="text_red">*</span>性&nbsp;&nbsp;&nbsp;&nbsp;别 </td>
-            <td class=""><input type="radio" value="0" checked name="Gender"/>
+            <td class="">
+			
+			<input type="radio" value="1" <if condition='$result.sex eq 1'> checked</if> name="Gender"/>
               男
-              <input type="radio" value="1"  name="Gender"/>
+              <input type="radio" value="2" <if condition='$result.sex eq 2'> checked</if> name="Gender"/>
               女 </td>
           </tr>
           <tr>
             <td align="left" class="col_name">常用邮箱 </td>
-            <td colspan="3"><input name="email" type="text" class="weight150" id="email" value="email" placeholder="email" /></td>
+            <td colspan="3"><input name="email" type="text" class="weight150" id="email" value="<{$result.email}>" placeholder="email" /></td>
           </tr>
           <tr>
             <td align="left" class="col_name"><!--<span class="text_red">*</span>-->手机号码</td>
             <td colspan="3" valign="middle"><div style="float:left;">
-                <input id="Mobile" name="Mobile" onBlur="checkinputstr('phone','er_phone')" maxlength="20"  value="" type="text" placeholder="手机号"  />
+                <input id="Mobile" name="Mobile" onBlur="checkinputstr('phone','er_phone')" maxlength="20"  value="<{$result.phone}>" type="text" placeholder="手机号"  />
               </div></td>
           </tr>
           <tr>
             <td class="col_name">地&nbsp;&nbsp;&nbsp;&nbsp;址</td>
-            <td colspan="4" valign="middle"><input type="text" class="input550" onBlur="checkinputstr('Name','er_name')"  id="Address" value="" maxlength="100" name="Address"/></td>
+            <td colspan="4" valign="middle"><input type="text" class="input550" onBlur="checkinputstr('Name','er_name')"  id="Address" value="<{$result.address}>" maxlength="100" name="Address"/></td>
           </tr>
           <tr>
             <td class="col_name">目前工作单位</td>
-            <td colspan="4" valign="middle"><input type="text" class="input550" onBlur="checkinputstr('Name','er_name')"  id="Company" value="" maxlength="100" name="Address"/></td>
+            <td colspan="4" valign="middle"><input type="text" class="input550" onBlur="checkinputstr('Name','er_name')"  id="Company" value="<{$result.work_unit}>" maxlength="100" name="Address"/></td>
           </tr>
           <tr>
             <td class="col_name">部&nbsp;&nbsp;&nbsp;&nbsp;门</td>
-            <td colspan="2" valign="middle"><input type="text" onBlur="checkinputstr('Name','er_name')"  id="Depart" value="" maxlength="100" name="Address"/></td>
+            <td colspan="2" valign="middle"><input type="text" onBlur="checkinputstr('Name','er_name')"  id="Depart" value="<{$result.department}>" maxlength="100" name="Address"/></td>
             <td class="col_name">职&nbsp;&nbsp;&nbsp;&nbsp;位</td>
-            <td colspan="2" valign="middle"><input type="text" onBlur="checkinputstr('Name','er_name')"  id="Job" value="" maxlength="100" name="Address"/></td>
+            <td colspan="2" valign="middle"><input type="text" onBlur="checkinputstr('Name','er_name')"  id="Job" value="<{$result.position}>" maxlength="100" name="Address"/></td>
           </tr>
           <tr>
             <td class="col_name">工作年限</td>
             <td colspan="2" valign="middle"><select  name="Worktime" id="Worktime" onBlur="checkinputstr('Name','er_name')" >
-                <OPTION VALUE=0 selected>请选择</OPTION>
-                <OPTION VALUE=1 >1年以下</OPTION>
-                <OPTION VALUE=2>1～3年</OPTION>
-                <OPTION VALUE=3>3～5年</OPTION>
-                <OPTION VALUE=4>5～8年</OPTION>
-                <OPTION VALUE=5 >10～15年</OPTION>
-                <OPTION VALUE=6 >15～20年</OPTION>
-                <OPTION VALUE=7 >20年以上</OPTION>
+                <OPTION VALUE=0 <if condition='$result.work_time eq 0'> selected</if> >请选择</OPTION>
+                <OPTION VALUE=1 <if condition='$result.work_time eq 1'> selected</if> >1年以下</OPTION>
+                <OPTION VALUE=2 <if condition='$result.work_time eq 2'> selected</if> >1～3年</OPTION>
+                <OPTION VALUE=3 <if condition='$result.work_time eq 3'> selected</if> >3～5年</OPTION>
+                <OPTION VALUE=4 <if condition='$result.work_time eq 4'> selected</if> >5～8年</OPTION>
+                <OPTION VALUE=5 <if condition='$result.work_time eq 5'> selected</if> >10～15年</OPTION>
+                <OPTION VALUE=6 <if condition='$result.work_time eq 6'> selected</if> >15～20年</OPTION>
+                <OPTION VALUE=7 <if condition='$result.work_time eq 7'> selected</if> >20年以上</OPTION>
               </select></td>
             <td class="col_name">职&nbsp;&nbsp;&nbsp;&nbsp;级</td>
-            <td colspan="2" valign="middle"><input type="text" onBlur="checkinputstr('Name','er_name')"  id="JobGrade" value="" maxlength="100" name="Address"/></td>
+            <td colspan="2" valign="middle"><input type="text" onBlur="checkinputstr('Name','er_name')"  id="JobGrade" value="<{$result.rank}>" maxlength="100" name="Address"/></td>
           </tr>
           <tr><!--保存按钮-->
             <td colspan="5" align="left" style="text-align:right;"><input class="btn_pic" type="button" name="imgfile" id="imgfile" onclick="submitBaseInfo();" style="cursor:pointer" value="保存" /></td>
@@ -158,18 +163,18 @@
           <tr>
             <td  colspan="2" class="col_name">目前求职状态</td>
             <td colspan="5"><select  name="JobTerm" id="JobTerm">
-                <OPTION VALUE=1 Selected>目前正在找工作</OPTION>
-                <OPTION VALUE=2>半年内无换工作的计划</OPTION>
-                <OPTION VALUE=3>1年内无换工作的计划</OPTION>
-                <OPTION VALUE=4>观望有好的机会再考虑</OPTION>
-                <OPTION VALUE=5 >我暂时不想找工作</OPTION>
+                <OPTION VALUE=1 <if condition='$result.job_status eq 1'> selected</if> >目前正在找工作</OPTION>
+                <OPTION VALUE=2 <if condition='$result.job_status eq 2'> selected</if> >半年内无换工作的计划</OPTION>
+                <OPTION VALUE=3 <if condition='$result.job_status eq 3'> selected</if> >1年内无换工作的计划</OPTION>
+                <OPTION VALUE=4 <if condition='$result.job_status eq 4'> selected</if> >观望有好的机会再考虑</OPTION>
+                <OPTION VALUE=5 <if condition='$result.job_status eq 5'> selected</if> >我暂时不想找工作</OPTION>
               </select></td>
           </tr>
           <tr>
             <td  colspan="2" align="left" class="col_name">工作地偏好</td>
-            <td><input type="text" id="Area1" value="" maxlength="20" name="Area"/></td>
-            <td><input type="text" id="Area2" value="" maxlength="20" name="Area"/></td>
-            <td><input type="text" id="Area3" value="" maxlength="20" name="Area"/></td>
+            <td><input type="text" id="Area1" value="<{$area[0]}>" maxlength="20" name="Area"/></td>
+            <td><input type="text" id="Area2" value="<{$area[1]}>" maxlength="20" name="Area"/></td>
+            <td><input type="text" id="Area3" value="<{$area[2]}>" maxlength="20" name="Area"/></td>
             
           </tr>
           <tr>
@@ -178,27 +183,27 @@
           <tr>
             <td colspan="2" class="col_name">期望年薪</td>
             <td colspan="5"><select  name="WantPay" id="WantPay">
-                <OPTION VALUE=1 Selected>5万以下</OPTION>
-                <OPTION VALUE=2>5～6万</OPTION>
-                <OPTION VALUE=3>5～8万</OPTION>
-                <OPTION VALUE=4>8～10万</OPTION>
-                <OPTION VALUE=5 >10～15万</OPTION>
-                <OPTION VALUE=6 >15～20万</OPTION>
-                <OPTION VALUE=7 >20～30万</OPTION>
-                <OPTION VALUE=8 >30～50万</OPTION>
+                <OPTION VALUE=1 <if condition='$result.expected_salary eq 1'> selected</if> >5万以下</OPTION>
+                <OPTION VALUE=2 <if condition='$result.expected_salary eq 2'> selected</if> >5～6万</OPTION>
+                <OPTION VALUE=3 <if condition='$result.expected_salary eq 3'> selected</if> >5～8万</OPTION>
+                <OPTION VALUE=4 <if condition='$result.expected_salary eq 4'> selected</if> >8～10万</OPTION>
+                <OPTION VALUE=5 <if condition='$result.expected_salary eq 5'> selected</if> >10～15万</OPTION>
+                <OPTION VALUE=6 <if condition='$result.expected_salary eq 6'> selected</if> >15～20万</OPTION>
+                <OPTION VALUE=7 <if condition='$result.expected_salary eq 7'> selected</if> >20～30万</OPTION>
+                <OPTION VALUE=8 <if condition='$result.expected_salary eq 8'> selected</if> >30～50万</OPTION>
               </select></td>
           </tr>
           <tr>
             <td  colspan="2" class="col_name">工作环境</td>
-            <td colspan="5"><input type="text" class="input580" id="JobEnvir" value="" maxlength="60" name="JobEnvir" placeholder="您所期望的工作环境"/></td>
+            <td colspan="5"><input type="text" class="input580" id="JobEnvir" value="<{$result.work_environment}>" maxlength="60" name="JobEnvir" placeholder="您所期望的工作环境"/></td>
           </tr>
           <tr>
             <td  colspan="2" class="col_name">求职方向</td>
             <td colspan="5"><select  name="JobDirec" id="JobDirec">
-                <OPTION VALUE=1 Selected>公司金融服务</OPTION>
-                <OPTION VALUE=2>一级市场投资分析</OPTION>
-                <OPTION VALUE=3>二级市场研究、交易、投资</OPTION>
-                <OPTION VALUE=4>券商销售</OPTION>
+                <OPTION VALUE=1 <if condition='$result.job_intension eq 1'> selected</if> >公司金融服务</OPTION>
+                <OPTION VALUE=2 <if condition='$result.job_intension eq 2'> selected</if> >一级市场投资分析</OPTION>
+                <OPTION VALUE=3 <if condition='$result.job_intension eq 3'> selected</if> >二级市场研究、交易、投资</OPTION>
+                <OPTION VALUE=4 <if condition='$result.job_intension eq 4'> selected</if> >券商销售</OPTION>
               </select></td>
           </tr>
           <tr>
@@ -260,62 +265,134 @@ $(document).ready(function(){
 </script>
       <div id="Edu_info">
         <div id="Edu_edit" class="Edu_edit">
-          <div class="eduEdit" >
-                     
-            <table border="0" cellspacing="0" cellpadding="0" class="weight780_mdf weight670" style="float:left;">
-        <tr>
-          <td><span class="btn_all_del"  ><a name="del_this_edu" >删除这条教育背景</a></span></td>
-        </tr>
-      </table>
-            <table border="0" cellspacing="0" cellpadding="0" class="weight780_mdf weight670" style="float:left;">
-              <tr>
-                <td class="col_name">学&nbsp;&nbsp;&nbsp;&nbsp;校</td>
-                <td colspan="2"><input class="School" type="text" id="School" value="" maxlength="60" name="School" placeholder="例如：上海财经大学"/></td>
-                <td class="col_name">院&nbsp;&nbsp;&nbsp;&nbsp;系</td>
-                <td colspan="2"><input type="text" class="College" id="College" value="" maxlength="60" name="College" placeholder="例如：金融学院"/></td>
-              </tr>
-              <tr>
-                <td class="col_name">学&nbsp;&nbsp;&nbsp;&nbsp;历</td>
-                <td colspan="2"><input type="text"  class="Academic" id="Academic" value="" maxlength="60" name="Academic" placeholder="例如：金融硕士"/></td>
-                <td class="col_name">在校时间</td>
-                <td colspan="2"><input type="text" class="SDuring" id="SDuring" value="" maxlength="60" name="SDuring" placeholder="例如：2011.09-2013.06"/></td>
-              </tr>
-              <tr>
-                <td colspan="9" class="col_name" style="text-align:left;">所获学校奖励<span class="btn_pic_add" style="float:right;"><a class="edu_add" >添加</a></span></td>
-              </tr>
-                                                 
-              <tr class="saw">
-                <td colspan="9"><div  class="del_edu">
-                    <div  class="SAward">
-                      <input type="text"  class="SAwardtext input620" id="SAwardtext" value="" maxlength="60" name="SAwardtext" placeholder="例如：2011-2012全额奖学金"/>
-                      <span class="btn_pic_del" style="float:right;"><a class="edu_del" name="edu_del"  >删除</a></span> </div>
-                  </div>
-                  </td>
-              </tr>
-              
-              
+			<empty name="Education">
+			 <div class="eduEdit" >
+						 
+				<table border="0" cellspacing="0" cellpadding="0" class="weight780_mdf weight670" style="float:left;">
+					<tr>
+					  <td><span class="btn_all_del"  ><a name="del_this_edu" >删除这条教育背景</a></span></td>
+					</tr>
+				  </table>
+				<table border="0" cellspacing="0" cellpadding="0" class="weight780_mdf weight670" style="float:left;">
+				  <tr>
+					<td class="col_name">学&nbsp;&nbsp;&nbsp;&nbsp;校</td>
+					<td colspan="2"><input class="School" type="text" id="School" value="" maxlength="60" name="School" placeholder="例如：上海财经大学"/></td>
+					<td class="col_name">院&nbsp;&nbsp;&nbsp;&nbsp;系</td>
+					<td colspan="2"><input type="text" class="College" id="College" value="" maxlength="60" name="College" placeholder="例如：金融学院"/></td>
+				  </tr>
+				  <tr>
+					<td class="col_name">学&nbsp;&nbsp;&nbsp;&nbsp;历</td>
+					<td colspan="2"><input type="text"  class="Academic" id="Academic" value="" maxlength="60" name="Academic" placeholder="例如：金融硕士"/></td>
+					<td class="col_name">在校时间</td>
+					<td colspan="2"><input type="text" class="SDuring" id="SDuring" value="" maxlength="60" name="SDuring" placeholder="例如：2011.09-2013.06"/></td>
+				  </tr>
+				  <tr>
+					<td colspan="9" class="col_name" style="text-align:left;">所获学校奖励<span class="btn_pic_add" style="float:right;"><a class="edu_add" >添加</a></span></td>
+				  </tr>
+													 
+				  <tr class="saw">
+					<td colspan="9">
+						<div  class="del_edu">
+							<div  class="SAward">
+							  <input type="text"  class="SAwardtext input620" id="SAwardtext" value="" maxlength="60" name="SAwardtext" placeholder="例如：2011-2012全额奖学金"/>
+							  <span class="btn_pic_del" style="float:right;"><a class="edu_del" name="edu_del"  >删除</a></span> 
+							  </div>
+						 </div>
+					  </td>
+				  </tr>
+				  
+				  
 
-              <tr>
-                <td colspan="9" class="col_name" style="text-align:left;">其他在校经历<span class="btn_pic_add" ><a class="exp_add" >添加</a></span></td>
-              </tr>
-              <tr>
-                <td colspan="9"><div class="del_exp">
-                    <div class="Exper">
-                      <textarea rows="6" class="weight620 otherAwardExp"  name="EduDetail" placeholder="例如：2011-2012学生会文艺部"></textarea>
-                      <span class="btn_pic_del" style="float:right;"><a class="exp_del" name="exp_del" >删除</a></span> </div>
-                  </div></td>
-              </tr>
-              
-              <!--<tr>保存按钮
-              
-                <td colspan="9">
-                  
-                </td>
-              </tr>-->
-            </table>
-                       
-          </div>
+				  <tr>
+					<td colspan="9" class="col_name" style="text-align:left;">其他在校经历<span class="btn_pic_add" ><a class="exp_add" >添加</a></span></td>
+				  </tr>
+				  <tr>
+					<td colspan="9"><div class="del_exp">
+						<div class="Exper">
+						  <textarea rows="6" class="weight620 otherAwardExp"  name="EduDetail" placeholder="例如：2011-2012学生会文艺部"></textarea>
+						  <span class="btn_pic_del" style="float:right;"><a class="exp_del" name="exp_del" >删除</a></span> </div>
+
+					  </div></td>
+				  </tr>
+				  
+				  <!--<tr>保存按钮
+				  
+					<td colspan="9">
+					  
+					</td>
+				  </tr>-->
+				</table>
+						   
+			  </div>
+			
+			<else /> 
+			<volist name='Education' id='data'>
+			  <div class="eduEdit" >
+						 
+				<table border="0" cellspacing="0" cellpadding="0" class="weight780_mdf weight670" style="float:left;">
+					<tr>
+					  <td><span class="btn_all_del"  ><a name="del_this_edu" >删除这条教育背景</a></span></td>
+					</tr>
+				  </table>
+				<table border="0" cellspacing="0" cellpadding="0" class="weight780_mdf weight670" style="float:left;">
+				  <tr>
+					<td class="col_name">学&nbsp;&nbsp;&nbsp;&nbsp;校</td>
+					<td colspan="2"><input class="School" type="text" id="School" value="<{$data.school}>" maxlength="60" name="School" placeholder="例如：上海财经大学"/></td>
+					<td class="col_name">院&nbsp;&nbsp;&nbsp;&nbsp;系</td>
+					<td colspan="2"><input type="text" class="College" id="College" value="<{$data.departme}>" maxlength="60" name="College" placeholder="例如：金融学院"/></td>
+				  </tr>
+				  <tr>
+					<td class="col_name">学&nbsp;&nbsp;&nbsp;&nbsp;历</td>
+					<td colspan="2"><input type="text"  class="Academic" id="Academic" value="<{$data.education}>" maxlength="60" name="Academic" placeholder="例如：金融硕士"/></td>
+					<td class="col_name">在校时间</td>
+					<td colspan="2"><input type="text" class="SDuring" id="SDuring" value="<{$data.school_time}>" maxlength="60" name="SDuring" placeholder="例如：2011.09-2013.06"/></td>
+				  </tr>
+				  <tr>
+					<td colspan="9" class="col_name" style="text-align:left;">所获学校奖励<span class="btn_pic_add" style="float:right;"><a class="edu_add" >添加</a></span></td>
+				  </tr>
+													 
+				  <tr class="saw">
+					<td colspan="9">
+						<div  class="del_edu">
+							<volist name='data.school_awards' id='awards'>
+							<div  class="SAward">
+							  <input type="text"  class="SAwardtext input620" id="SAwardtext" value="<{$awards}>" maxlength="60" name="SAwardtext" placeholder="例如：2011-2012全额奖学金"/>
+							  <span class="btn_pic_del" style="float:right;"><a class="edu_del" name="edu_del"  >删除</a></span> 
+							  </div>
+							 </volist>
+						 </div>
+					  </td>
+				  </tr>
+				  
+				  
+
+				  <tr>
+					<td colspan="9" class="col_name" style="text-align:left;">其他在校经历<span class="btn_pic_add" ><a class="exp_add" >添加</a></span></td>
+				  </tr>
+				  <tr>
+					<td colspan="9"><div class="del_exp">
+						<volist name='data.school_experiences' id='experiences'>
+						<div class="Exper">
+						  <textarea rows="6" class="weight620 otherAwardExp"  name="EduDetail" placeholder="例如：2011-2012学生会文艺部"><{$experiences}></textarea>
+						  <span class="btn_pic_del" style="float:right;"><a class="exp_del" name="exp_del" >删除</a></span> </div>
+						</volist>
+
+					  </div></td>
+				  </tr>
+				  
+				  <!--<tr>保存按钮
+				  
+					<td colspan="9">
+					  
+					</td>
+				  </tr>-->
+				</table>
+						   
+			  </div>
+			</volist>
+			</empty>
         </div>
+		
         <div class="btn_add_edu" style=""><span class="btn_edu_span"><a class="moreedu_add" >增加教育背景</a></span><input class="btn_pic" type="button"  name="save" id="saveedu" onclick="submitEduInfo();"  value="保存" />
              </div> 
       </div>
@@ -330,14 +407,15 @@ $(document).ready(function(){
         </tr>
       </table>
 
-       
         <div  class="Work_edit">
+
+		  <empty name="Work">
           <div  class="Work_add_1">
            <table border="0" cellspacing="0" cellpadding="0" class="weight780_mdf weight670" style="float:left;">
-        <tr>
-          <td><span class="btn_all_del"  ><a name="btn_this_work" >删除这条工作经历</a></span></td>
-        </tr>
-         </table>
+			<tr>
+			  <td><span class="btn_all_del"  ><a name="btn_this_work" >删除这条工作经历</a></span></td>
+			</tr>
+			 </table>
                <table border="0" cellspacing="0" cellpadding="0" class="weight780_mdf weight670" style="float:left;">
                 <tr>
                 <td class="col_name">公&nbsp;&nbsp;&nbsp;&nbsp;司</td>
@@ -373,8 +451,60 @@ $(document).ready(function(){
                   </div></td>
               </tr>
           
-</table>
+			</table>
           </div>
+		  <else /> 
+		  <volist name='Work' id='W'>
+			<div  class="Work_add_1">
+           <table border="0" cellspacing="0" cellpadding="0" class="weight780_mdf weight670" style="float:left;">
+			<tr>
+			  <td><span class="btn_all_del"  ><a name="btn_this_work" >删除这条工作经历</a></span></td>
+			</tr>
+			 </table>
+               <table border="0" cellspacing="0" cellpadding="0" class="weight780_mdf weight670" style="float:left;">
+                <tr>
+                <td class="col_name">公&nbsp;&nbsp;&nbsp;&nbsp;司</td>
+                <td colspan="2"><input type="text"  class="CompanyNOw" id="CompanyNOw" value="<{$W.company_name}>" maxlength="60" name="CompanyNOw" placeholder="例如：CICC"/></td>
+                <td class="col_name">部门职位</td>
+                <td colspan="2"><input type="text" class="DepartNow" id="DepartNow" value="<{$W.department_position}>" maxlength="60" name="DepartNow" placeholder="例如：投资银行部经理"/></td>
+              </tr>
+              <tr>
+                <td class="col_name">薪&nbsp;&nbsp;&nbsp;&nbsp;酬</td>
+                <td colspan="2"><select  name="NowPay" class="NowPay" id="NowPay">
+                <OPTION VALUE=1  <if condition='$W.pay eq 1'> selected</if> >5万以下</OPTION>
+                <OPTION VALUE=2 <if condition='$W.pay eq 2'> selected</if> >5～6万</OPTION>
+                <OPTION VALUE=3 <if condition='$W.pay eq 3'> selected</if> >5～8万</OPTION>
+                <OPTION VALUE=4 <if condition='$W.pay eq 4'> selected</if> >8～10万</OPTION>
+                <OPTION VALUE=5  <if condition='$W.pay eq 5'> selected</if> >10～15万</OPTION>
+                <OPTION VALUE=6  <if condition='$W.pay eq 6'> selected</if> >15～20万</OPTION>
+                <OPTION VALUE=7  <if condition='$W.pay eq 7'> selected</if> >20～30万</OPTION>
+                <OPTION VALUE=8  <if condition='$W.pay eq 8'> selected</if> >30～50万</OPTION>
+              </select></td>
+                <td class="col_name">工作时间</td>
+                <td colspan="2"><input type="text" class="WorkTimeNow" id="WorkTimeNow" value="<{$W.work_time}>" maxlength="60" name="WorkTimeNow" placeholder="例如：2013.01-至今"/></td>
+              </tr> 
+             
+                
+              <tr>
+                <td colspan="9" class="col_name" style="text-align:left;"> 工作内容<span class="btn_pic_add" style="float:right;margin-top:5px;"><a class="Work_add"  >添加</a></span></td>
+              </tr>
+              <tr>
+                <td colspan="9"><div class="del_work">
+					<volist name='W.working_content' id='content'>
+                    <div class="WorkExper">
+                      <textarea rows="3" class="weight620 WorkDetail" id="WorkDetail"  name="WorkDetail" placeholder="例如：负责XX项目..."><{$content}></textarea>
+                      <span class="btn_pic_del" ><a class="work_del" name="work_del" id="work_del" >删除</a></span> </div>
+					</volist>
+                  </div></td>
+              </tr>
+          
+			</table>
+          </div>
+
+		  </volist>
+		  </empty>
+
+
       </div>
           <div class="btn_add_edu" ><span class="btn_edu_span"><a class="morework_add" >增加工作经历</a></span><input class="btn_pic" type="button"  name="save" id="saveedu" onclick="submitWorkInfo();"  value="保存" />
              </div> 
@@ -400,9 +530,19 @@ $(document).ready(function(){
               </tr>
               <tr>
                 <td colspan="9"><div class="del_otherwork" >
+
+					<empty name="Other.experiences">
                     <div class="OtherWorkExper">
                       <textarea rows="3" class="weight620 OtherWorkDetail" id="OtherWorkDetail"  name="OtherWorkDetail" placeholder="例如：某NG3年以上工作经历..."></textarea>
                       <span class="btn_pic_del" ><a class="otherwork_del" name="otherwork_del">删除</a></span> </div>
+					<else /> 
+					<volist name='Other.experiences' id='o'>
+						<div class="OtherWorkExper">
+                      <textarea rows="3" class="weight620 OtherWorkDetail" id="OtherWorkDetail"  name="OtherWorkDetail" placeholder="例如：某NG3年以上工作经历..."><{$o}></textarea>
+                      <span class="btn_pic_del" ><a class="otherwork_del" name="otherwork_del">删除</a></span> </div>
+					</volist>
+					</empty>
+
                   </div></td>
               </tr>
               <tr>
@@ -410,9 +550,18 @@ $(document).ready(function(){
               </tr>
               <tr>
                 <td colspan="9"><div class="del_otherability" >
+					<empty name="Other.ability">
                     <div class="OtherAbility">
                       <textarea rows="3" class="weight620 PersonalAbi" id="PersonalAbi"  name="PersonalAbi" placeholder="例如：精通红酒评鉴..."></textarea>
                       <span class="btn_pic_del" ><a class="otherability_del" name="otherability_del" >删除</a></span> </div>
+					<else /> 
+					<volist name='Other.ability' id='a'>
+						<div class="OtherAbility">
+                      <textarea rows="3" class="weight620 PersonalAbi" id="PersonalAbi"  name="PersonalAbi" placeholder="例如：精通红酒评鉴..."><{$a}></textarea>
+                      <span class="btn_pic_del" ><a class="otherability_del" name="otherability_del" >删除</a></span> </div>
+					</volist>
+					</empty>
+
                   </div></td>
               </tr>
            <tr><!--保存按钮-->
@@ -441,22 +590,22 @@ $(document).ready(function(){
         <!--<img src="http://img01.51jobcdn.com/im/2009/cv/cresume/icon_need.gif" class="icon_need" align="absmiddle" id="Base_Complete" style="display:none;"/> <img src="http://img01.51jobcdn.com/im/2009/cv/cresume/icon_incomplete.gif" class="icon_need" align="absmiddle" id="Base_Incomplete" style="display:block;" />--> </li>
       <li class="btn_resume btn_resume_mdf">
         <div class="icon_width icon_width_mdf"> <span class="text_red">&nbsp;&nbsp;*</span> <a href="#BPI">个人基本信息</a> </div>
-        <img src="/dscj/Public/images/icon_need.gif" class="icon_need" align="absmiddle" id="Base_Complete" style="display:none;"/> <img src="/dscj/Public/images/icon_incomplete.gif" class="icon_need" align="absmiddle" id="Base_Incomplete" style="display:block;" /> </li>
+        <img src="__PUBLIC__/images/icon_need.gif" class="icon_need" align="absmiddle" id="Base_Complete" style="display:none;"/> <img src="__PUBLIC__/images/icon_incomplete.gif" class="icon_need" align="absmiddle" id="Base_Incomplete" style="display:block;" /> </li>
       <li class="btn_resume btn_resume_mdf">
         <div class="icon_width icon_width_mdf">&nbsp;&nbsp;&nbsp;&nbsp; <a href="#OTHER">求职意向</a> </div>
-        <img src="/dscj/Public/images/icon_need.gif" class="icon_need" align="absmiddle" id="Other_Complete" style="display:none;"/> <img src="/dscj/Public/images/icon_incomplete.gif" class="icon_need" align="absmiddle" id="Other_Incomplete" style="display:block;" /> </li>
+        <img src="__PUBLIC__/images/icon_need.gif" class="icon_need" align="absmiddle" id="Other_Complete" style="display:none;"/> <img src="__PUBLIC__/images/icon_incomplete.gif" class="icon_need" align="absmiddle" id="Other_Incomplete" style="display:block;" /> </li>
       <li class="btn_resume btn_resume_mdf">
         <div class="icon_width icon_width_mdf"> &nbsp;&nbsp;&nbsp;&nbsp; <a href="#EDU">教育背景</a> </div>
-        <img src="/dscj/Public/images/icon_need.gif" class="icon_need" align="absmiddle" id="Edu_Complete" style="display:none;"/> <img src="/dscj/Public/images/icon_incomplete.gif" class="icon_need" align="absmiddle" id="Edu_Incomplete" style="display:block;" /> </li>
+        <img src="__PUBLIC__/images/icon_need.gif" class="icon_need" align="absmiddle" id="Edu_Complete" style="display:none;"/> <img src="__PUBLIC__/images/icon_incomplete.gif" class="icon_need" align="absmiddle" id="Edu_Incomplete" style="display:block;" /> </li>
       <li class="btn_resume btn_resume_mdf">
         <div class="icon_width icon_width_mdf"> &nbsp;&nbsp;&nbsp;&nbsp; <a href="#WORK">工作实习经历</a> </div>
-        <img src="/dscj/Public/images/icon_need.gif" class="icon_need" align="absmiddle" id="Work_Complete" style="display:none;"/> <img src="/dscj/Public/images/icon_incomplete.gif" class="icon_need" align="absmiddle" id="Work_Incomplete" style="display:block;" /> </li>
+        <img src="__PUBLIC__/images/icon_need.gif" class="icon_need" align="absmiddle" id="Work_Complete" style="display:none;"/> <img src="__PUBLIC__/images/icon_incomplete.gif" class="icon_need" align="absmiddle" id="Work_Incomplete" style="display:block;" /> </li>
       <li class="btn_resume btn_resume_mdf">
         <div class="icon_width icon_width_mdf">&nbsp;&nbsp;&nbsp;&nbsp; <a href="#OTHERWORK">其他经历和个人能力</a> </div>
-        <img src="/dscj/Public/images/icon_need.gif" class="icon_need" align="absmiddle" id="Lan_Complete" style="display:none;"/> <img src="/dscj/Public/images/icon_incomplete.gif" class="icon_need" align="absmiddle" id="Lan_Incomplete" style="display:block;" /> </li>
+        <img src="__PUBLIC__/images/icon_need.gif" class="icon_need" align="absmiddle" id="Lan_Complete" style="display:none;"/> <img src="__PUBLIC__/images/icon_incomplete.gif" class="icon_need" align="absmiddle" id="Lan_Incomplete" style="display:block;" /> </li>
         <li class="btn_resume btn_resume_mdf" >
         <div class="icon_width icon_width_mdf">&nbsp;&nbsp;&nbsp;&nbsp; <a href="#">查看面试邀请</a> </div>
-        <img src="/dscj/Public/images/icon_need.gif" class="icon_need" align="absmiddle" id="Lan_Complete" style="display:none;"/> <img src="/dscj/Public/images/icon_incomplete.gif" class="icon_need" align="absmiddle" id="Lan_Incomplete" style="display:block;" /> </li>
+        <img src="__PUBLIC__/images/icon_need.gif" class="icon_need" align="absmiddle" id="Lan_Complete" style="display:none;"/> <img src="__PUBLIC__/images/icon_incomplete.gif" class="icon_need" align="absmiddle" id="Lan_Incomplete" style="display:block;" /> </li>
     </ul>
     <div style="line-height:2px;height:2px;clear:both;background:#FFFFFF;">&nbsp;</div>
   </div>
