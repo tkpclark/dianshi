@@ -1,0 +1,231 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	background-color: #CCCCCC;
+}
+
+.wrap_cv {
+	background:#e1e1e1;
+}
+.cv_table{
+width:900px; 
+margin:auto	
+	
+	}
+.bggray {
+	BACKGROUND-COLOR: #e7e7e7
+}
+.top {
+	BACKGROUND-COLOR: #EEEEEE
+}
+TD {
+	FONT-SIZE: 12px;
+	font-family: "Arial", "Helvetica", "sans-serif","宋体";
+}
+.tmenu {
+	COLOR: #FFFFFF; TEXT-DECORATION: none
+}
+A.tmenu:hover {
+	COLOR: #FFCC00
+}
+.tmenu2 {
+	COLOR: #ff6600; TEXT-DECORATION: none
+}
+A.tmenu2:hover {
+	COLOR: #336600
+}
+.link {
+	COLOR: #004F92; TEXT-DECORATION: underline
+}
+A.link:hover {
+	COLOR: #004F92
+}
+.hover {
+	BORDER-RIGHT: #ffffff 1px solid; BORDER-TOP: #ffffff 1px solid; BORDER-LEFT: #ffffff 1px solid; BORDER-BOTTOM: #ffffff 1px; BACKGROUND-COLOR: #00699c
+}
+.bar {
+	background-color:#f9d259;
+}
+.secmenu {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+.secmenuhov {
+	FONT-WEIGHT: bold; COLOR: #0033FF; TEXT-DECORATION: none
+}
+A.secmenu:hover {
+	COLOR: #247900
+}
+.thirmenu {
+	BORDER-RIGHT: #000000 1px solid; BORDER-TOP: #000000 1px solid; BORDER-LEFT: #000000 1px solid; BORDER-BOTTOM: #000000 1px solid; BACKGROUND-COLOR: #F1F1F1
+}
+.thirmenuhov {
+	BORDER-RIGHT: #000000 1px solid; BORDER-TOP: #000000 1px solid; FONT-WEIGHT: bold; BORDER-LEFT: #000000 1px solid; COLOR: #feeea2; BORDER-BOTTOM: #000000 1px; BACKGROUND-COLOR: #F1F1F1
+}
+SELECT {
+	BORDER-RIGHT: #ffffff 1px solid; BORDER-TOP: #666666 1px solid; FONT-SIZE: 12px; BORDER-LEFT: #666666 1px solid; BORDER-BOTTOM: #ffffff 1px solid; BACKGROUND-COLOR: #F1F1F1
+}
+INPUT {
+	BORDER-RIGHT: #ffffff 1px solid; BORDER-TOP: #666666 1px solid; FONT-SIZE: 12px; BORDER-LEFT: #666666 1px solid; BORDER-BOTTOM: #ffffff 1px solid; BACKGROUND-COLOR: #F1F1F1
+}
+INPUT.ENDDATE {
+	BORDER-RIGHT: #ffffff 1px solid; BORDER-TOP: #666666 1px solid; FONT-SIZE: 12px; BORDER-LEFT: #666666 1px solid; BORDER-BOTTOM: #ffffff 1px solid; BACKGROUND-COLOR: #F1F1F1; COLOR: #EEEEEE
+}
+INPUT.CHECK {
+	BORDER-RIGHT: #e2e2e2 0px solid; BORDER-TOP: #e2e2e2 0px solid; FONT-SIZE: 12px; BACKGROUND: none transparent scroll repeat 0% 0%; BORDER-LEFT: #e2e2e2 0px solid; BORDER-BOTTOM: #e2e2e2 0px solid; HEIGHT: 18px; TEXT-DECORATION: none
+}
+TEXTAREA {
+	BORDER-RIGHT: #ffffff 1px solid; BORDER-TOP: #666666 1px solid; FONT-SIZE: 12px; BORDER-LEFT: #666666 1px solid; BORDER-BOTTOM: #ffffff 1px solid; BACKGROUND-COLOR: #F1F1F1
+}
+.button {
+	BORDER-RIGHT: #000000 1px solid; BORDER-TOP: #9BD583 1px solid; BORDER-LEFT: #9BD583 1px solid; COLOR: #000000; BORDER-BOTTOM: #000000 1px solid; BACKGROUND-COLOR: #9BD583
+}
+.left {
+	border-right: 2px solid #f9d259;
+	BACKGROUND-COLOR: #f1f1f1;
+}
+.leftcolor {
+	BACKGROUND-COLOR: #97CF80;
+	PADDING-LEFT:12px;
+}
+.menucolor {
+	BACKGROUND-COLOR: #FFFFFF;
+}
+.logofont {
+	FONT-WEIGHT: bold; FONT-SIZE: 22px; COLOR: #ffffff; FONT-STYLE: italic; FONT-FAMILY: "Tahoma", "Arial"
+}
+.pane2hov {
+	COLOR: #000000; BACKGROUND-COLOR: #feeea2
+}
+.listtab {
+	BACKGROUND-COLOR: #ffffff
+}
+.listsorttitle {
+	FONT-WEIGHT: bold; COLOR: #ffffff; BACKGROUND-COLOR: #00699c; TEXT-DECORATION: underline
+}
+.listtitle {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; FONT-WEIGHT: bold; BORDER-LEFT: 0px; COLOR: #ffffff; BORDER-BOTTOM: 0px; BACKGROUND-COLOR: #00699c; TEXT-DECORATION: none
+}
+.listtitlehov {
+	FONT-WEIGHT: bold; COLOR: #000000; TEXT-DECORATION: underline
+}
+A.listtitle:hover {
+	COLOR: #feeea2
+}
+.wit {
+	BORDER-RIGHT: medium none; BORDER-TOP: medium none; FONT-SIZE: 12px; BORDER-LEFT: medium none; BORDER-BOTTOM: medium none; BACKGROUND-COLOR: #fffffe
+}
+TR.H {
+	BACKGROUND-COLOR: #e7e7e7
+}
+.chkH {
+	BORDER-RIGHT: medium none; BORDER-TOP: medium none; FONT-SIZE: 12px; BORDER-LEFT: medium none; BORDER-BOTTOM: medium none; BACKGROUND-COLOR: #e7e7e7
+}
+.fourmenu {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A.fourmenu:hover {
+	COLOR: #01457c
+}
+.font {
+	FONT-WEIGHT: normal; FONT-SIZE: 8px; VERTICAL-ALIGN: 120%; COLOR: #ffffff; FONT-STYLE: italic; FONT-FAMILY: "Tahoma", "Arial"
+}
+.pagenum {
+	TEXT-DECORATION: none
+}
+A.pagenum:hover {
+	COLOR: #feeea2
+}
+A.page:link {
+	TEXT-DECORATION: none
+}
+A.page:hover {
+	
+}
+A.page:visited {
+	TEXT-DECORATION: none
+}
+A.page:active {
+	TEXT-DECORATION: underline
+}
+.leftlink {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A.leftlink:hover {
+	FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+.alart {
+	COLOR: #ff0000
+}
+.note {
+	COLOR: #999999
+}
+.defbutton {
+	BORDER-RIGHT: medium none; BORDER-TOP: medium none; BORDER-LEFT: medium none; BORDER-BOTTOM: medium none; BACKGROUND-COLOR: #ffffff
+}
+.default {
+	FONT-WEIGHT: bold; FONT-SIZE: 14px; COLOR: #ff6600; FONT-FAMILY: "Arial", "tahoma", "sans-serif"
+}
+.tab {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 0px; PADDING-BOTTOM: 5px; PADDING-TOP: 5px
+}
+.tab_a {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 0px; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; background-color: #F4FBF2
+}
+.fontitle{
+	FONT-WEIGHT: bold; COLOR: #247900
+}
+.fcol{	
+	FONT-WEIGHT: bold; COLOR: #000000
+	}
+.bord {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 0px; WIDTH: 80px; PADDING-TOP: 3px; HEIGHT: 18px; BACKGROUND-COLOR: #ffffff
+}
+
+.chosd {  background-color: #336BA0; }
+.chosdfont { 
+color: #000; 
+font-size:20px;
+font-family:微软雅黑;
+font-weight:bold; 
+height:40px;
+
+}
+
+.pane	{font-family:"宋体", "MS SONG", "SimSun", "tahoma", "sans-serif"; font-size:12px;background: #CFEBC7;border-bottom: none;border-right: none;border-left: none;border-top:none}
+.wit {font-family:宋体,MS SONG,SimSun,tahoma,sans-serif; font-size:12px;background-color:#FFFFFE;border-bottom: none;border-right: none;border-left: none;border-top:none}
+.FormLeft{
+	background-color:#F2F2F2;
+}
+.FormRight{
+	background-color:#FFFFFF;
+}
+.border{
+	background-color:#D9DDE1;
+}
+.toolbutton {
+	background-color: #D4EDFF;
+	border: 1px solid #5A89AA;
+	color: #154979;
+	height: 18px;
+	width: 70px;
+	padding-top: 1px;
+	margin-top: 1px;
+
+}
+.toolTD{
+	border: 1px solid #5A89AA;
+}
+.main_table{
+margin: 10px;
+width:750px	
+	
+	}
+.left_list{
+    height: 400px;
+	padding:30px;
+  	
+	}
+.menulist_2 li{
+	margin-bottom:5px;
+	}
