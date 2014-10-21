@@ -85,11 +85,42 @@ class CompanyInformationController extends Controller {
 	}
 	/*
 	*
-	*添加基本信息
+	*职位列表
+	*
+	*/
+	public function JobList(){
+		$User = M('CompanyPosition');
+		$map['company_id']=array('eq',$_SESSION['id']);
+		$result = $User->where($map)->select();
+
+		$this->assign('result',$result);
+		$this->display('job_list');
+	}
+	/*
+	*
+	*展示/编辑职位
 	*
 	*/
 	public function DistributionJob(){
+		$data['id'] = I('param.id','');//职位id
+		$res='';
+		if(!empty($data['id'])){
+			$User = M('CompanyPosition');
+			$map['id']=array('eq',$data['id']);
+			$result = $User->where($map)->select();
+			$res=$result[0];
+		}
+		$this->assign('result',$res);
+		$this->display('companyinfo_startRec');
+	}
+	/*
+	*
+	*添加职位
+	*
+	*/
+	public function DistributionJobPro(){
 		$User = D('CompanyPosition');
+		$id = I('param.ID','');$id=1;
 		$data['company_id'] = $_SESSION['id'];
 		$data['department'] = I('param.Department','');//部门
 		$data['position'] = I('param.Job','');//职位名
@@ -105,7 +136,13 @@ class CompanyInformationController extends Controller {
 		if (!$datas=$User->create($data)){
 			exit($User->getError());
 		}else{ 
-			if($id = $User->add()){
+			if(!empty($id)){
+				$res = $User->where("id=$id")->save($datas);
+			}else{
+				$res = $User->add();
+			}
+			
+			if($res){
 				exit('OK');
 			}else{
 				exit('Error');
