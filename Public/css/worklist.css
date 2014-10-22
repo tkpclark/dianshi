@@ -1,0 +1,36 @@
+@charset "utf-8";
+/* CSS Document */
+
+.icon_width_mdf_list, .inner_list, .icon_width_mdf_detail{
+	
+	background: none repeat scroll 0 0 #e1e1e1;
+    float: none;
+    height: 30px;
+    line-height: 30px;
+    margin: 4px auto;
+    text-align: center;
+    width: 209px;
+	
+	}
+.icon_width_mdf_list:hover,.inner_list:hover ,icon_width_mdf_detail:hover,.inner_list_read,.inner_list_send{
+	
+	background: none repeat scroll 0 0 #f9d259;
+    float: none;
+    height: 30px;
+    line-height: 30px;
+    margin: 4px auto;
+    text-align: center;
+    width: 209px;
+	cursor:pointer;
+	
+	}
+.pre_btn_selected{
+background: none repeat scroll 0 0 #f9d259;
+    float: none;
+    height: 30px;
+    line-height: 30px;
+    margin: 4px auto;
+    text-align: center;
+    width: 209px;	
+	
+	}
