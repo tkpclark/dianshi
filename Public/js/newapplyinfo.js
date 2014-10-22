@@ -345,7 +345,7 @@ $("#JobDirec,#Field").change(function(){
 });
 
 
-$("span.btn_pic").find('a').toggle(
+$("span.btn_pic").toggle(
 function () { 
 $(this).addClass("span_selected"); }, 
 function () { 
