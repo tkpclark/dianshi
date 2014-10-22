@@ -245,6 +245,49 @@ class ApplicantUserController extends Controller {
 		}
 	
 	}
+	/*
+	*
+	*其他经历与经验
+	*
+	*/
+	public function Preview(){
+		$User = M('ApplicantUser');
+		$map['id']=array('eq',$_SESSION['id']);
+		$result = $User->where($map)->select();
+		$res=$result[0];
+		$area = explode('|--|',$res['job_area']);
+
+		//教育背景
+		$User = M('ApplicantEducation');
+		$where['user_id']=array('eq',$_SESSION['id']);
+		$Education = $User->where($where)->select();
+		for($i=0;$i<count($Education);$i++){
+			$Education[$i]['school_awards']=explode('|--|',$Education[$i]['school_awards']);
+			$Education[$i]['school_experiences']=explode('|--|',$Education[$i]['school_experiences']);
+		}
+		//工作经历
+		$User = M('ApplicantWorkExperience');
+		$where['user_id']=array('eq',$_SESSION['id']);
+		$Work = $User->where($where)->select();
+		for($i=0;$i<count($Work);$i++){
+			$Work[$i]['working_content']=explode('|--|',$Work[$i]['working_content']);
+		}
+		//其他经历能力
+		$User = M('ApplicantOtherExperiences');
+		$where['user_id']=array('eq',$_SESSION['id']);
+		$Other = $User->where($where)->select();
+		for($i=0;$i<count($Other);$i++){
+			$Other[$i]['experiences']=explode('|--|',$Other[$i]['experiences']);
+			$Other[$i]['ability']=explode('|--|',$Other[$i]['ability']);
+		}
+		$this->assign('Other',$Other[0]);
+		$this->assign('Work',$Work);
+		$this->assign('Education',$Education);
+		$this->assign('area',$area);
+		$this->assign('result',$res);
+		$this->display('preview_cv');
+	}
+	
 	
 	
 	

@@ -115,13 +115,14 @@ function submitAllCompanyInfo(){
 	var ContactWay_value = $("#ContactWay").val();
 	var RecNum_value = $("#RecNum").val();
 	var ReceiveNum_value = $("#ReceiveNum").val();
+	var ID_value = $("#ID").val();
 
 	
 	 
        $.ajax({
 	 		  cache:"False",
 	           type:"post",
-			   url:"DistributionJob/",
+			   url:"DistributionJobPro/",
 			   data:{ 
 			       Department:Department_value,
 			       Job:Job_value,
@@ -134,6 +135,7 @@ function submitAllCompanyInfo(){
 				   ContactWay:ContactWay_value,
 				   RecNum:RecNum_value,
 				   ReceiveNum:ReceiveNum_value,
+					ID:ID_value,
 				   },
 			   success : function(msg) {
 				   if (msg == "OK") {
