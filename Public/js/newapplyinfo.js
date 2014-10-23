@@ -109,7 +109,7 @@ function uploadCanceled(evt) {
 }
 
  //保存求职意向
- function submitPurposeInfo(){
+ /*function submitPurposeInfo(){
 	 var selecte_value="";
 	 $(".span_selected").each(
 	 function() {
@@ -151,8 +151,117 @@ function uploadCanceled(evt) {
 					}
 	 
 	 })
+ }*/
+ function submitPurposeInfo(){
+	 
+	 //提交投资
+	 var touzi_value= "";
+	touzi_value= $('.touzi_span_selected').text();
+	 var touzi_more_value="";
+	 if(touzi_value != ""){
+		$(".touzi_more_span_selected").each(
+	 function() {
+		 touzi_more_value += "|++|"+$(this).text();
+		 }); 
+	 }
+	var touzi_value_all = touzi_value + touzi_more_value;
+	
+	//提交一级
+	 var yiji_value= "";
+	 yiji_value= $('.yiji_span_selected').text();
+	 var yiji_more_value="";
+	 if(yiji_value != ""){
+		$(".yiji_more_span_selected").each(
+	 function() {
+		 yiji_more_value += "|++|"+$(this).text();
+		 }); 
+	 }
+	var yiji_value_all = yiji_value + yiji_more_value;
+	
+	
+	//提交二级按机构
+	 var erji_jg_value= "";
+	 erji_jg_value= $('.erji_span_selected').text();
+	 var erji_jg_more_value="";
+	 if(erji_jg_value != ""){
+		$(".erji_jg_span_selected").each(
+	 function() {
+		 erji_jg_more_value += "|++|"+$(this).text();
+		 }); 
+	 }
+	var erji_jg_value_all = erji_jg_value + erji_jg_more_value;
+	
+	//提交二级按资产
+	 var erji_zc_value= "";
+	 erji_zc_value= $('.erji_span_selected').text();
+	 var erji_zc_more_value="";
+	 if(erji_zc_value != ""){
+		$(".erji_zc_span_selected").each(
+	 function() {
+		 erji_zc_more_value += "|++|"+$(this).text();
+		 }); 
+	 }
+	var erji_zc_value_all = erji_zc_value + erji_zc_more_value;
+	
+	//提交券商
+	var quanshang_value= "";
+	quanshang_value= $('.quanshang_span_selected').text();
+	 var quanshang_more_value="";
+	 if(quanshang_value != ""){
+		$(".quanshang_more_span_selected").each(
+	 function() {
+		 quanshang_more_value += "|++|"+$(this).text();
+		 }); 
+	 }
+	var quanshang_value_all = quanshang_value + quanshang_more_value;
+	
+		 
+	 var jt_value = $("#JobTerm").val();
+	 var a1_value = $("#Area1").val();
+ 	 var a2_value = $("#Area2").val();
+	 var a3_value = $("#Area3").val();
+	 var wp_value = $("#WantPay").val();
+	 var je_value = $("#JobEnvir").val();
+	 //求职意向分组递交,分别是：投资，一级，二级按机构，二级按资产，券商，每一项是一级标题在第一个，二级标题随后
+	 var yx_touzi = touzi_value_all;
+	 var yx_yiji = yiji_value_all;
+	 var yx_erji_jg = erji_jg_value_all;
+	 var yx_erji_zc = erji_zc_value_all;
+	 var yx_quanshang = quanshang_value_all;
+	 
+       $.ajax({
+	 		  cache:"False",
+	           type:"post",
+			   url:"JobIntension/",
+			   data:{ 
+			       jt:jt_value,
+			       a1:a1_value,
+				   a2:a2_value,
+				   a3:a3_value,
+				   wp:wp_value,
+				   je:je_value,
+				   touzi:yx_touzi,
+				   yiji:yx_yiji,
+				   erji_jg:yx_erji_jg,
+				   erji_zc:yx_erji_zc,
+				   quanshang:yx_quanshang,
+				   
+				   },
+			   success : function(msg) {
+				   if (msg == "OK") {
+                        alert("求职意向保存成功！");
+                       
+                    }
+                    else if (msg == "Error") {
+                        alert("求职意向保存失败，请重新填写！");
+                    }else{
+						alert(msg);
+					}
+						
+					}
+	 
+	 })
  }
- 
   /*
   提交教育信息
   */
@@ -350,6 +459,72 @@ function () {
 $(this).addClass("span_selected"); }, 
 function () { 
 $(this).removeClass("span_selected"); });
+
+//投资分类
+$("span.touzi_btn_pic").toggle(
+function () { 
+$(this).addClass("touzi_more_span_selected"); }, 
+function () { 
+$(this).removeClass("touzi_more_span_selected"); });
+//一级分类
+$("span.yiji_btn_pic").toggle(
+function () { 
+$(this).addClass("yiji_more_span_selected"); }, 
+function () { 
+$(this).removeClass("yiji_more_span_selected"); });
+//二级
+//机构
+$("span.erji_jg_btn_pic").toggle(
+function () { 
+$(this).addClass("erji_jg_span_selected"); }, 
+function () { 
+$(this).removeClass("erji_jg_span_selected"); });
+//二级资产
+$("span.erji_zc_btn_pic").toggle(
+function () { 
+$(this).addClass("erji_zc_span_selected"); }, 
+function () { 
+$(this).removeClass("erji_zc_span_selected"); });
+//券商
+$("span.quanshang_btn_pic").toggle(
+function () { 
+$(this).addClass("quanshang_more_span_selected"); }, 
+function () { 
+$(this).removeClass("quanshang_more_span_selected"); });
+
+
+$("span.touzi_span").toggle(
+function () { 
+$(this).addClass("touzi_span_selected");
+$('.touzi_div').show(); }, 
+function () { 
+$(this).removeClass("touzi_span_selected");
+ $('.touzi_div').hide();});
+ 
+ $("span.yiji_span").toggle(
+function () { 
+$(this).addClass("yiji_span_selected");
+$('.yiji_div').show(); }, 
+function () { 
+$(this).removeClass("yiji_span_selected");
+ $('.yiji_div').hide();});
+ 
+ $("span.erji_span").toggle(
+function () { 
+$(this).addClass("erji_span_selected");
+$('.erji_div').show(); }, 
+function () { 
+$(this).removeClass("erji_span_selected");
+ $('.erji_div').hide();});
+ 
+ $("span.quanshang_span").toggle(
+function () { 
+$(this).addClass("quanshang_span_selected");
+$('.quanshang_div').show(); }, 
+function () { 
+$(this).removeClass("quanshang_span_selected");
+ $('.quanshang_div').hide();});
+
 }); 
 
 

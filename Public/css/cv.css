@@ -239,7 +239,7 @@ a:hover .blue3{
 	
 
 	}
-.btn_dir_span{
+.btn_dir_span, .btn_erji_span{
     display:block;
 	float:left;
 	width:120px;
@@ -253,6 +253,20 @@ a:hover .blue3{
 	font-family:"微软雅黑";
 	cursor:pointer;
 	
+	}
+.touzi_span_selected,.yiji_span_selected,.erji_span_selected,.quanshang_span_selected{
+    display:block;
+	float:left;
+	width:120px;
+	height:40px;
+	line-height:40px;
+	border:1px solid #c9c9c9;
+	background:#f9d259;
+	text-align:center;
+	color:#fff;
+	margin:10px;
+	font-family:"微软雅黑";
+	cursor:pointer;
 	
 	}
 	.upload{ margin-top:15px; margin-left:10px; color:#b6b6b6; position:relative;}
@@ -271,19 +285,22 @@ a:hover .blue3{
       opacity: 0; 
 }
 
-.span_selected{
+.span_selected,.touzi_more_span_selected , .yiji_more_span_selected , .erji_jg_span_selected, .erji_zc_span_selected, .quanshang_more_span_selected{
 	display:inline-block;
 	width:100px;
 	height:28px;
 	line-height:24px;
 	border:1px solid #c9c9c9;
-	background:#428bb0;
+	background:#666;
 	text-align:center;
 	color:#fff;
 	margin-right:14px;
 	font-family:"微软雅黑"
 	
 	}
+.span_title{
+	
+	width:740px;}
 .del_edu ,.del_exp, .del_work, .del_otherwork, .del_otherability{
 	
 	width:740px;

@@ -7,7 +7,6 @@
 <css href="__PUBLIC__/css/core.css" />
 <css href="__PUBLIC__/css/style.css" />
 <css href="__PUBLIC__/css/cv.css" />
-<css href="__PUBLIC__/css/style.css" />
 
 <js href='__PUBLIC__/js/jquery-1.8.2.js' />
 <js href='__PUBLIC__/js/jquery.drag.js' />
@@ -199,18 +198,70 @@
           </tr>
           <tr>
             <td  colspan="2" class="col_name">求职方向</td>
-            <td colspan="5"><select  name="JobDirec" id="JobDirec">
-                <OPTION VALUE=1 <if condition='$result.job_intension eq 1'> selected</if> >公司金融服务</OPTION>
-                <OPTION VALUE=2 <if condition='$result.job_intension eq 2'> selected</if> >一级市场投资分析</OPTION>
-                <OPTION VALUE=3 <if condition='$result.job_intension eq 3'> selected</if> >二级市场研究、交易、投资</OPTION>
-                <OPTION VALUE=4 <if condition='$result.job_intension eq 4'> selected</if> >券商销售</OPTION>
-              </select></td>
+            <td colspan="5"><div id="finServ" style="display:block" >
+                <span class="btn_dir_span touzi_span">投资银行业务</span>
+                <span class="btn_dir_span yiji_span">一级市场投资分析</span>
+                <span class="btn_dir_span erji_span" style="line-height:20px;">二级市场研究、交易、投资</span>
+                <span class="btn_dir_span quanshang_span">券商销售</span>
+              </div></td>
           </tr>
           <tr>
-            <td colspan="7" class=""><div id="finServ" style="display:block" > <span class="btn_pic btn_pic_span"><a>股权</a></span> <span class="btn_pic btn_pic_span"><a>债券</a></span> <span class="btn_pic btn_pic_span"><a>并购</a></span> <span class="btn_pic btn_pic_span"><a>ECM</a></span> <span class="btn_pic btn_pic_span"><a>DCM</a></span> </div>
-              <div  id="oneInvest" style="display:none" > <span class="btn_pic btn_pic_span"><a>PE</a></span> <span class="btn_pic btn_pic_span"><a>VC</a></span> <span class="btn_pic btn_pic_span"><a>信托</a></span> <span class="btn_pic btn_pic_span"><a>其他投资机构</a></span> </div>
-              <div  id="twoInvest" style="display:none" > <span class="btn_pic btn_pic_span"><a>卖方研究</a></span> <span class="btn_pic btn_pic_span"><a>公募基金</a></span> <span class="btn_pic btn_pic_span"><a>私募基金</a></span> <span class="btn_pic btn_pic_span"><a>信托</a></span> <span class="btn_pic btn_pic_span"><a>资管</a></span> <span class="btn_pic btn_pic_span"><a>券商自营</a></span> <span class="btn_pic btn_pic_span"><a>银行金融市场</a></span> <span class="btn_pic btn_pic_span"><a>其他投资机构</a></span> </div>
-              <div id="sales" style="display:none" > <span class="btn_pic btn_pic_span"><a>股票</a></span> <span class="btn_pic btn_pic_span"><a>债券</a></span> <span class="btn_pic btn_pic_span"><a>外汇</a></span> <span class="btn_pic btn_pic_span"><a>商品</a></span> <span class="btn_pic btn_pic_span"><a>量化</a></span> </div></td>
+            <td colspan="7" class="">
+            <div class="span_title touzi_div" style="display:none;"><span class="Tpispan_l" ></span>投资银行业务<span class="Tpispan_r" ></span>
+            <div id="finServ" > 
+            <span class="btn_pic btn_pic_span touzi_btn_pic">股权</span> 
+            <span class="btn_pic btn_pic_span touzi_btn_pic">债券</span> 
+            <span class="btn_pic btn_pic_span touzi_btn_pic">并购</span> 
+            <span class="btn_pic btn_pic_span touzi_btn_pic">ECM</span> 
+            <span class="btn_pic btn_pic_span touzi_btn_pic">DCM</span> 
+            </div></div>
+             
+             <div class="span_title yiji_div" style="display:none;"><span class="Tpispan_l" style="width:222px;"></span>一级市场投资分析<span class="Tpispan_r" style="width:217px;" ></span>
+              <div  id="oneInvest"  >
+               <span class="btn_pic btn_pic_span yiji_btn_pic">PE</span> 
+               <span class="btn_pic btn_pic_span yiji_btn_pic">VC</span> 
+               <span class="btn_pic btn_pic_span yiji_btn_pic">信托</span> 
+               <span class="btn_pic btn_pic_span yiji_btn_pic">其他投资机构</span> 
+               </div></div>
+              
+              <div class="span_title erji_div" style="display:none;"><span class="Tpispan_l" style="width:200px;"></span>二级市场研究、交易、投资<span class="Tpispan_r" style="width:185px;"></span>
+               
+              <table border="0" cellspacing="0" cellpadding="0">
+              <tr>
+              <td><span class="btn_erji_span">按机构:</span></td>
+              <td><div  id="twoInvest" >
+              <span class="btn_pic btn_pic_span erji_jg_btn_pic">卖方研究</span> 
+              <span class="btn_pic btn_pic_span erji_jg_btn_pic">公募基金</span> 
+              <span class="btn_pic btn_pic_span erji_jg_btn_pic">私募基金</span> 
+              <span class="btn_pic btn_pic_span erji_jg_btn_pic">信托</span> 
+              <span class="btn_pic btn_pic_span erji_jg_btn_pic">资管</span> 
+              <span class="btn_pic btn_pic_span erji_jg_btn_pic">券商自营</span> 
+              <span class="btn_pic btn_pic_span erji_jg_btn_pic">银行金融市场</span> 
+              <span class="btn_pic btn_pic_span erji_jg_btn_pic">其他投资机构</span></div>
+              </td>
+              </tr>
+              <tr>
+              <td><span class="btn_erji_span">按资产：</span></td>
+              <td><div>
+              <span class="btn_pic btn_pic_span erji_zc_btn_pic">股票</span> 
+              <span class="btn_pic btn_pic_span erji_zc_btn_pic">债券</span> 
+              <span class="btn_pic btn_pic_span erji_zc_btn_pic">期货</span> 
+              <span class="btn_pic btn_pic_span erji_zc_btn_pic">外汇</span> 
+              <span class="btn_pic btn_pic_span erji_zc_btn_pic">量化</span> 
+              <span class="btn_pic btn_pic_span erji_zc_btn_pic">其他金融资产</span> 
+              </div>
+              <td>
+               </tr>
+               </table>
+               </div>
+              
+              <div class="span_title quanshang_div" style="display:none;"><span class="Tpispan_l" style="width:244px;"></span>券商销售<span class="Tpispan_r" style="width:244px;"></span>
+              <div id="sales"> 
+              <span class="btn_pic btn_pic_span quanshang_btn_pic">股票</span> 
+              <span class="btn_pic btn_pic_span quanshang_btn_pic">债券</span> 
+              </div>
+              </div>
+              </td>
           </tr>
           <tr><!--保存按钮-->
             <td colspan="7"  style="text-align:right;"><input class="btn_pic" type="button" name="imgfile" id="imgfile" onclick="submitPurposeInfo();" style="cursor:pointer" value="保存" /></td>
