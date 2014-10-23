@@ -1,75 +1,15 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<title>职位列表 | 企业信息 | 点石成金</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<css href="__PUBLIC__/Css/core.css" />
-<css href="__PUBLIC__/Css/style.css" />
-<css href="__PUBLIC__/Css/cv.css" />
-<css href="__PUBLIC__/Css/worklist.css" />
-<css href="__PUBLIC__/Css/preview_cv_table.css" />
-<js href='__PUBLIC__/Js/jquery-1.8.2.js' />
-<js href='__PUBLIC__/Js/jquery.drag.js' />
-<js href='__PUBLIC__/Js/fn.js' />
-<js href='__PUBLIC__/Js/all.js' />
-<js href='__PUBLIC__/Js/worklist.js' />
+<include file='Public/header' />
+<css href="__PUBLIC__/css/core.css" />
+<css href="__PUBLIC__/css/style.css" />
+<css href="__PUBLIC__/css/cv.css" />
+<css href="__PUBLIC__/css/worklist.css" />
+<css href="__PUBLIC__/css/preview_cv_table.css" />
+<js href='__PUBLIC__/js/jquery-1.8.2.js' />
+<js href='__PUBLIC__/js/jquery.drag.js' />
+<js href='__PUBLIC__/js/fn.js' />
+<js href='__PUBLIC__/js/all.js' />
+<js href='__PUBLIC__/js/worklist.js' />
 
-
-
-
-<!--[if lt IE 7]>
-<script>var file_root = '/';</script>
-<script type="text/javascript" src="/js/unitpngfix.js"></script>
-<![endif]--><!--<script>
-    	//数组最后一个为样式中默认的　#indexpage
-    	var homeimgbg=['/img/hbg2.jpg','/img/hbg3.jpg','/img/hbg1.jpg'];
-    </script>-->
-
-</head>
-<body id="index">
-<div class="wrap">
-  <div class="header_wrap">
-    <div class="head">
-      <div class="logo_area">
-        <h1 class="logo"><a href="#" class="txt">金点</a></h1>
-      </div>
-      <div class="menu_area">
-        <ul class="menu_list">
-          <li class=" "><!--添加类名 current 显示隐藏子菜单--> 
-            <a href="#" class="menu_item">点石成金</a>
-            <div class="sub_menu">
-              <ul class="sub_menu_list">
-                <li><a href="#">点石成金</a></li>
-              </ul>
-            </div>
-          </li>
-          <li> <a href="#" class="menu_item">点石成金</a>
-            <div class="sub_menu">
-              <ul class="sub_menu_list">
-                <li><a href="#">点石成金</a></li>
-                <li><a href="#">点石成金</a></li>
-              </ul>
-            </div>
-          </li>
-          <li> <a href="#" class="menu_item">点石成金</a>
-            <div class="sub_menu">
-              <ul class="sub_menu_list">
-                <li><a href="#">点石成金</a></li>
-                <li><a href="#">点石成金</a></li>
-              </ul>
-            </div>
-          </li>
-          <li> <a href="#" class="menu_item">点石成金</a>
-            <div class="sub_menu">
-              <ul class="sub_menu_list">
-                <li><a href="#">Next Idea</a></li>
-              </ul>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
   <!-- list列表-->
   <div class="rew_down rew_down_mdf">
     <ul class="rew_conl rew_conl_mdf" id="contentHighSet">
@@ -292,49 +232,9 @@
       <!--OTHER end-->
       
     </ul>
-    <ul class="rew_conr rew_conr_mdf" id="contentHighSetLeft">
-      <li class="big_btn_resume btn_resume_mdf" style="width:auto;margin-left:0">
-        <div class="icon_width icon_width_mdf" style="margin-right:10px;"> <span class="text_red">&nbsp;&nbsp;></span> <a href="/dscj/Project/Home/View/CompanyInformation/companyinfo.html">&nbsp;&nbsp;公司信息</a> </div>
-        <img src="/dscj/Public/images/icon_need.gif" class="icon_need" align="absmiddle" id="Other_Complete" style="display:none;margin-left:-2px;"/> <img src="/dscj/Public/images/icon_incomplete.gif" class="icon_need" align="absmiddle" id="Other_Incomplete" style="display:block; margin-left:-2px;" /> </li>
-      <li class="btn_resume btn_resume_mdf">
-        <div class="icon_width icon_width_mdf">&nbsp;&nbsp;&nbsp;&nbsp; <a href="/dscj/Project/Home/View/CompanyInformation/companyinfo_startRec.html">开始招聘</a> </div>
-        <img src="/dscj/Public/images/icon_need.gif" class="icon_need" align="absmiddle" id="Other_Complete" style="display:none;"/> <img src="/dscj/Public/images/icon_incomplete.gif" class="icon_need" align="absmiddle" id="Other_Incomplete" style="display:block;" /> </li>
-      <li class="btn_resume btn_resume_mdf">
-        <div class="icon_width icon_width_mdf"> &nbsp;&nbsp;&nbsp;&nbsp; <a href="#">职位列表</a> </div>
-        <img src="/dscj/Public/images/icon_need.gif" class="icon_need" align="absmiddle" id="Edu_Complete" style="display:none;"/> <img src="/dscj/Public/images/icon_incomplete.gif" class="icon_need" align="absmiddle" id="Edu_Incomplete" style="display:block;" /> </li>
-    </ul>
+    
+	<include file='Public/com_menu' />
     <div style="line-height:2px;height:2px;clear:both;background:#FFFFFF;">&nbsp;</div>
   </div>
   <!--foot-->
-  <div class="footer">
-    <div class="block">
-      <div class="Lcontent">
-        <dl>
-          <dt>
-            <h3>合作伙伴</h3>
-          </dt>
-          <dd>
-            <p style="display:none;"><a href="http://www.weather.com.cn/wzfw/gywm/">合作伙伴</a><a href="http://www.weather.com.cn/wzfw/lxwm/">合作伙伴</a><a href="http://www.weather.com.cn/wzfw/sybz/">帮助</a><a href="http://www.weather.com.cn/wzfw/ryzp/">合作伙伴</a></p>
-          </dd>
-        </dl>
-        <div class="clear"></div>
-      </div>
-      <div class="serviceinfo">
-        <p><span><a href="#">清波科技有限公司</a></span></p>
-      </div>
-      <div class="clear"></div>
-    </div>
-  </div>
-  
-  <!--foot-->
-  
-  <div class="footer_wrap">
-    <div class="links"> <a target="blank" href="#">关于金点</a> <span>|</span> <a target="blank" href="#">服务条款</a> <span>|</span> <a target="blank" href="#">广告服务</a> <span>|</span> <a target="blank" href="#">联系方式</a> <span>|</span> <a target="blank" href="#">加入我们</a> </div>
-    <div class="copyright">Copyright &copy; 1998 - 2014 #. All Rights Reserved.</div>
-  </div>
-  <script type="text/javascript">
-	    if(typeof(pgvMain)=='function')
-	        pgvMain();
-    </script></div>
-</body>
-</html>
+  <include file='Public/footer' />
