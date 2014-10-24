@@ -28,28 +28,35 @@
               <input type="file" value="" class="imgfile" name="fileToUpload"  id="fileToUpload" style="width:120px" onchange="previewImage(this)" />
               </td>
             <td class="col_name"><span class="text_red">*</span>姓&nbsp;&nbsp;&nbsp;&nbsp;名</td>
-            <td ><label>
+            <td >
+			  <label>
               <div style="float:left;">
                 <input type="text" onBlur="checkinputstr('Name','er_name')"  id="Name" value="<{$result.name}>" maxlength="20" name="Name"/>
               </div>
-              </label></td>
+              </label>
+			</td>
+
             <td align="left" class="col_name"><span class="text_red">*</span>性&nbsp;&nbsp;&nbsp;&nbsp;别 </td>
             <td class="">
 			
 			<input type="radio" value="1" <if condition='$result.sex eq 1'> checked</if> name="Gender"/>
               男
               <input type="radio" value="2" <if condition='$result.sex eq 2'> checked</if> name="Gender"/>
-              女 </td>
+              女 
+			  </td>
           </tr>
           <tr>
             <td align="left" class="col_name">常用邮箱 </td>
-            <td colspan="3"><input name="email" type="text" class="weight150" id="email" value="<{$result.email}>" placeholder="email" /></td>
-          </tr>
-          <tr>
+            <td ><input name="email" type="text" class="weight150" id="email" value="<{$result.email}>" placeholder="email" /></td>
+         
             <td align="left" class="col_name"><!--<span class="text_red">*</span>-->手机号码</td>
             <td colspan="3" valign="middle"><div style="float:left;">
                 <input id="Mobile" name="Mobile" onBlur="checkinputstr('phone','er_phone')" maxlength="20"  value="<{$result.phone}>" type="text" placeholder="手机号"  />
               </div></td>
+          </tr>
+		  <tr>
+            <td align="left" class="col_name">最高学历院校 </td>
+            <td colspan="3"><input name="school" type="text" class="weight150" id="school" value="<{$result.school}>" placeholder="email" /></td>
           </tr>
           <tr>
             <td class="col_name">地&nbsp;&nbsp;&nbsp;&nbsp;址</td>

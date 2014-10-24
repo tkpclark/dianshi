@@ -85,6 +85,7 @@ class ApplicantUserController extends Controller {
 			$data['sex'] = I('param.gender','');//性别
 			$data['email'] = I('param.email','');//邮箱
 			$data['phone'] = I('param.mobile','');//手机
+			$data['school'] = I('param.school','');//最高院校
 			$data['address'] = I('param.address','');//地址
 			if(!empty($photo)){
 				$data['photo'] = $photo;//头像
@@ -247,19 +248,23 @@ class ApplicantUserController extends Controller {
 	}
 	/*
 	*
-	*其他经历与经验
+	*预览简历
 	*
 	*/
 	public function Preview(){
 		$User = M('ApplicantUser');
-		$map['id']=array('eq',$_SESSION['id']);
+		$map['id'] = I('param.id','');
+		if($map['id']==''){
+			$map['id']=array('eq',$_SESSION['id']);
+		}
+		
 		$result = $User->where($map)->select();
 		$res=$result[0];
 		$area = explode('|--|',$res['job_area']);
 
 		//教育背景
 		$User = M('ApplicantEducation');
-		$where['user_id']=array('eq',$_SESSION['id']);
+		$where['user_id']=array('eq',$map['id']);
 		$Education = $User->where($where)->select();
 		for($i=0;$i<count($Education);$i++){
 			$Education[$i]['school_awards']=explode('|--|',$Education[$i]['school_awards']);
@@ -267,14 +272,14 @@ class ApplicantUserController extends Controller {
 		}
 		//工作经历
 		$User = M('ApplicantWorkExperience');
-		$where['user_id']=array('eq',$_SESSION['id']);
+		$where['user_id']=array('eq',$map['id']);
 		$Work = $User->where($where)->select();
 		for($i=0;$i<count($Work);$i++){
 			$Work[$i]['working_content']=explode('|--|',$Work[$i]['working_content']);
 		}
 		//其他经历能力
 		$User = M('ApplicantOtherExperiences');
-		$where['user_id']=array('eq',$_SESSION['id']);
+		$where['user_id']=array('eq',$map['id']);
 		$Other = $User->where($where)->select();
 		for($i=0;$i<count($Other);$i++){
 			$Other[$i]['experiences']=explode('|--|',$Other[$i]['experiences']);

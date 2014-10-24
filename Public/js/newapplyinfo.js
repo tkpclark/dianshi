@@ -62,6 +62,7 @@ function submitBaseInfo() {
 	 var name_value = $("#Name").val();
 	 var gender_value = $('input[name="Gender"]:checked').val();
  	 var email_value = $("#email").val();
+	 var school_value = $("#school").val();
 	 var mobile_value = $("#Mobile").val();
 	 var address_value =$("#Address").val();
 	 var company_value = $("#Company").val();
@@ -74,6 +75,7 @@ function submitBaseInfo() {
 	fd.append("photo", photo);
 	fd.append("name", name_value);
 	fd.append("gender", gender_value);
+	fd.append("school", school_value);
 	fd.append("email", email_value);
 	fd.append("mobile", mobile_value);
 	fd.append("address", address_value);
@@ -108,7 +110,50 @@ function uploadCanceled(evt) {
 	alert("The upload has been canceled by the user or the browser dropped the connection.");
 }
 
-
+ //保存求职意向
+ /*function submitPurposeInfo(){
+	 var selecte_value="";
+	 $(".span_selected").each(
+	 function() {
+		 selecte_value += $(this).text()+"|--|";
+		 });
+	 var jt_value = $("#JobTerm").val();
+	 var a1_value = $("#Area1").val();
+ 	 var a2_value = $("#Area2").val();
+	 var a3_value = $("#Area3").val();
+	 var wp_value = $("#WantPay").val();
+	 var je_value = $("#JobEnvir").val();
+	 var jd_value = $("#JobDirec").val();
+	 
+       $.ajax({
+	 		  cache:"False",
+	           type:"post",
+			   url:"JobIntension/",
+			   data:{ 
+			       jt:jt_value,
+			       a1:a1_value,
+				   a2:a2_value,
+				   a3:a3_value,
+				   wp:wp_value,
+				   je:je_value,
+				   jd:jd_value,
+				   sv:selecte_value
+				   },
+			   success : function(msg) {
+				   if (msg == "OK") {
+                        alert("求职意向保存成功！");
+                       
+                    }
+                    else if (msg == "Error") {
+                        alert("求职意向保存失败，请重新填写！");
+                    }else{
+						alert(msg);
+					}
+						
+					}
+	 
+	 })
+ }*/
  function submitPurposeInfo(){
 	 
 	 //提交投资
@@ -483,6 +528,41 @@ $(this).removeClass("quanshang_span_selected");
  $('.quanshang_div').hide();});
 
 }); 
+
+
+
+/*$(document).ready(function(){        
+ //temp = $(".SAward");
+ $("a[name=edu_del]").on('click',function(){
+  $(this).parent().parent().remove();
+    })
+ $(".edu_add").on('click',function(){
+   	var target = $(this);
+	var div = target.parent().parent().parent().next().find('.del_edu');
+	var item = target.parent().parent().parent().parent().parent().find('.SAward').first();
+	item.clone(true).appendTo(div);
+ })
+ 
+ var temp_exp = $(".Exper:first");
+ $("a[name=exp_del]").on('click',function(){
+  $(this).parent().parent().remove();
+    })
+ $(".exp_add").on('click',function(){
+	var target1 = $(this);
+ 	var div1 = target1.parent().parent().parent().next().find('.del_exp');
+	var item = target1.parent().parent().parent().parent().parent().find('.Exper').first();
+    item.clone(true).appendTo(div1);
+ }) 
+ 
+ var temp_addmoreedu = $(".eduEdit:first");
+ $("a[name=del_this_edu]").live('click',function(){
+  $(this).parent().parent().parent().parent().parent().parent().remove();
+    })
+ $(".moreedu_add").on('click',function(){
+	 
+  temp_addmoreedu.clone(true).appendTo($(".Edu_edit"));
+ }) 
+})*/
 
 
 $(document).ready(function(){        

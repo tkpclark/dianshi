@@ -89,11 +89,60 @@ class CompanyInformationController extends Controller {
 	*
 	*/
 	public function JobList(){
-		$User = M('CompanyPosition');
+		$Com = M('CompanyPosition');
 		$map['company_id']=array('eq',$_SESSION['id']);
-		$result = $User->where($map)->select();
+		$pos_res = $Com->where($map)->select();
 
-		$this->assign('result',$result);
+		$posid='';
+		foreach($pos_res as $pos){
+			$posid.=$pos['id'].',';
+		}
+		$posid = substr($posid,0,strrpos($posid,','));
+		$deli = M('delivery');
+		$map1['position_id']=array('in',"$posid");
+		$accept_res = $deli->where($map1)->select();
+		//获取用户
+		$userid='';
+		foreach($accept_res as $accept){
+			$userid.=$accept['user_id'].',';
+		}
+		$userid = substr($userid,0,strrpos($userid,','));
+		$User = M('applicant_user');
+		$map2['id']=array('in',"$userid");
+		$user_res = $User->where($map2)->field('id,name,school,position,work_time,rank')->select();
+
+		for($i=0;$i<count($pos_res);$i++){
+			$pos_res[$i]['accept_num']=0;//接受数量
+			$pos_res[$i]['see_num']=0;//预览数量
+			$pos_res[$i]['invite_num']=0;//邀请数量
+			$pos_res[$i]['confirm_num']=0;//确认面试数量
+			$pos_res[$i]['user']=array();//个人简历
+			foreach($accept_res as $acc){
+				if($pos_res[$i]['id']==$acc['position_id']){
+					$pos_res[$i]['accept_num']+=1;
+					if($acc['read_flag']==1){
+						$pos_res[$i]['see_num']+=1;
+					}
+					if($acc['invite_flag']==1){
+						$pos_res[$i]['invite_num']+=1;
+					}
+					if($acc['accept_flag']==1){
+						$pos_res[$i]['confirm_num']+=1;
+					}
+					//循环出相关个人简历
+					foreach($user_res as $use){
+						if($use['id']==$acc['user_id']){
+							$use['read_flag']=$acc['read_flag'];
+							$use['invite_flag']=$acc['invite_flag'];
+							$use['acc_id']=$acc['id'];
+							array_push($pos_res[$i]['user'],$use);
+						}
+					}
+				}
+			}
+
+		}
+		$this->assign('pos_res',$pos_res);
 		$this->display('job_list');
 	}
 	/*
@@ -147,6 +196,36 @@ class CompanyInformationController extends Controller {
 			}else{
 				exit('Error');
 			}
+		}
+	}
+	/*
+	*
+	*标记已读
+	*
+	*/
+	public function PegRead(){
+		$delivery = M('delivery');
+		$id = I('param.id','');
+		$data['read_flag'] = 1;
+		if($delivery->where("id=$id")->save($data)){
+			exit('OK');
+		}else{
+			exit('Error');
+		}
+	}
+	/*
+	*
+	*发送邀请
+	*
+	*/
+	public function PegSend(){
+		$delivery = M('delivery');
+		$id = I('param.id','');
+		$data['invite_flag'] = 1;
+		if($delivery->where("id=$id")->save($data)){
+			exit('OK');
+		}else{
+			exit('Error');
 		}
 	}
 	

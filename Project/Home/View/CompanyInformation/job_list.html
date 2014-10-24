@@ -9,6 +9,60 @@
 <js href='__PUBLIC__/js/fn.js' />
 <js href='__PUBLIC__/js/all.js' />
 <js href='__PUBLIC__/js/worklist.js' />
+<SCRIPT>
+$(document).ready(function(){
+
+$(".pre_cv_read").click(function(){ 
+//$(".icon_width_mdf_list").addClass("pre_btn_selected");
+	var id_value=$(this).attr('_attr');
+	var evt=$(this);
+	$.ajax({
+		  cache:"False",
+		   type:"post",
+		  url:"__CONTROLLER__/PegRead/",
+		   data:{ 
+			   id:id_value,
+			   },
+		   success : function(msg) {
+			   if (msg == "OK") {
+					$(evt).hide(); 
+					$(evt).next().show();   
+				}else if (msg == "Error") {
+					alert("标记失败！");
+				}
+					
+			}
+
+	})
+
+});
+$(".pre_cv_send").click(function(){ 
+//$(".icon_width_mdf_list").addClass("pre_btn_selected");
+	var id_value=$(this).attr('_attr');
+	var evt=$(this);
+	$.ajax({
+		  cache:"False",
+		   type:"post",
+		  url:"__CONTROLLER__/PegSend/",
+		   data:{ 
+			   id:id_value,
+			   },
+		   success : function(msg) {
+			   if (msg == "OK") {
+					$(evt).hide(); 
+					$(evt).next().show();   
+				}else if (msg == "Error") {
+					alert("标记失败！");
+				}
+					
+			}
+
+	})
+
+});
+
+});
+</SCRIPT>
 
   <!-- list列表-->
   <div class="rew_down rew_down_mdf">
@@ -23,37 +77,46 @@
         
         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="10" ALIGN="CENTER" WIDTH="750" CLASS="left" style="border:0 none;">
           <TR>
-            <TD VALIGN="TOP" BGCOLOR="#FFFFFF"><table class="main_table" width="95%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="E1E1E1">
+            <TD VALIGN="TOP" BGCOLOR="#FFFFFF">
+
+			 <empty name="pos_res">
+				<table width="95%" border="0" cellspacing="0" cellpadding="0">
+                 <tr>
+                  <td>暂未发布职位列表</td>
+                 </tr>
+              </table>
+			 <else /> 
+			 <volist name='pos_res' id='pos'>
+			  <table class="main_table" width="95%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="E1E1E1">
                 <tr bgcolor="#F6F6F6">
-                 <td width="145" height="28" align="right">部门： </td>
-                  <td class="color17" colspan="1">技术部</td>
+                  <td width="145" height="28" align="right">部门： </td>
+                  <td class="color17" colspan="1"><{$pos.department}></td>
                   <td width="145" height="28" align="right">职位： </td>
-                  <td class="color17" colspan="1">软件工程师</td>
-                  
+                  <td class="color17" colspan="1"><{$pos.position}></td>
                 </tr>
                 <tr bgcolor="#F6F6F6">
                   <td width="145" height="28" align="right">工作地点： </td>
-                  <td class="color17" colspan="1">北京</td>
+                  <td class="color17" colspan="1"><{$pos.work_addre}></td>
                   <td width="145" height="28" align="right">工作方向： </td>
-                  <td class="color17" colspan="1">JAVA</td>
+                  <td class="color17" colspan="1"><{$pos.work_direction}></td>
                 </tr>
                 <tr bgcolor="#F6F6F6">
                   <td width="145" height="28" align="right">预计招聘人数： </td>
-                  <td class="color17" colspan="1">5人</td>
+                  <td class="color17" colspan="1"><{$pos.number}>人</td>
                   <td width="145" height="28" align="right">接受简历数量： </td>
-                  <td class="color17" colspan="1">100份</td>
+                  <td class="color17" colspan="1"><{$pos.accept_number}>份</td>
                 </tr>
                 <tr bgcolor="#F6F6F6">
                   <td width="145" height="28" align="right">已接收简历数量： </td>
-                  <td class="color17" colspan="1">80份</td>
+                  <td class="color17" colspan="1"><{$pos.accept_num}>份</td>
                   <td width="145" height="28" align="right">已浏览简历数量：</td>
-                  <td class="color17" colspan="1">60份 </td>
+                  <td class="color17" colspan="1"><{$pos.see_num}>份 </td>
                 </tr>
                 <tr bgcolor="#F6F6F6">
                   <td width="145" height="28" align="right">发送面试邀请人数:</td>
-                  <td class="color17" colspan="1">20人</td>
+                  <td class="color17" colspan="1"><{$pos.invite_num}>人</td>
                   <td width="145" height="28" align="right">确认参加面试人数：</td>
-                  <td class="color17" colspan="1">15人</td>
+                  <td class="color17" colspan="1"><{$pos.confirm_num}>人</td>
                 </tr>
                 <tr><!--保存按钮-->
                   <td colspan="2"  bgcolor="#F6F6F6"><div class="icon_width_mdf_list"> &nbsp;&nbsp;&nbsp;&nbsp; <a class="pre_cv">浏览简历</a> </div></td>
@@ -67,174 +130,87 @@
               </table>
               <div  class="hind_table" style="height:180px;  overflow-y:scroll; display:none;">
                 <table class="main_table " width="95%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="E1E1E1">
-                  <tr bgcolor="#F6F6F6">
+                  <empty name="pos.user">
+					<table width="95%" border="0" cellspacing="0" cellpadding="0">
+					<tr bgcolor="#F6F6F6">
+                    <td width="145" height="10" colspan="5">还没有收到简历</td>
+                  </tr>
+				 <else /> 
+				 <volist name='pos.user' id='user'>
+				  <tr bgcolor="#F6F6F6">
                     <td rowspan="4" align="center"><a href="http://seekersso.chinahr.com/photos/GetImg.aspx?UserId=21401995" target="_blank"><img src="/rec2014/images/cv_img.jpg" alt="" width="90" border="0"></a></td>
                     <td width="145" height="28" align="right">姓名： </td>
-                    <td class="color17" colspan="3">汤普森</td>
+                    <td class="color17" colspan="3"><{$user.name}></td>
                   </tr>
                   <tr bgcolor="#F6F6F6">
                     <td width="145" height="28" align="right">毕业院校： </td>
-                    <td class="color17" colspan="3">上海交通大学</td>
+                    <td class="color17" colspan="3"><{$user.school}></td>
                   </tr>
                   <tr bgcolor="#F6F6F6">
                     <td width="145" height="28" align="right">目前工作： </td>
-                    <td class="color17" colspan="3">CITICS研究部分析师</td>
+                    <td class="color17" colspan="3"><{$user.position}></td>
                   </tr>
                   <tr bgcolor="#F6F6F6">
                     <td width="145" height="28" align="right">工作时间： </td>
-                    <td class="color17" colspan="1" >三年</td>
+                    <td class="color17" colspan="1" >
+					<switch name="user.work_time">
+					  <case value="1">1年以下</case>
+					  <case value="2">1～3年</case>
+					  <case value="3">3～5年</case>
+					  <case value="4">5～8年</case>
+					  <case value="5">10～15年</case>
+					  <case value="6">15～20年</case>
+					  <case value="7">20年以上</case>
+					  <default />
+					  </switch>
+					</td>
                     <td width="145" height="28" align="right">职级： </td>
-                    <td class="color17" colspan="1" >高级经理</td>
+                    <td class="color17" colspan="1" ><{$user.rank}></td>
                   </tr>
                   <tr><!--保存按钮-->
-                    <td colspan="2"  bgcolor="#F6F6F6"><div class="inner_list"> &nbsp;&nbsp;&nbsp;&nbsp; <a href="/rec2014/preview_cv.html" target="_blank" class="pre_cv">浏览简历</a> </div></td>
-                    <td colspan="2"  bgcolor="#F6F6F6"><div class="inner_list pre_cv_read"> &nbsp;&nbsp;&nbsp;&nbsp; <a class="pre_cv">标记为已读</a> </div>
-                      <div style="display:none;" class="inner_list_read"> &nbsp;&nbsp;&nbsp;&nbsp; <a class="pre_cv">已读</a> </div></td>
-                    <td colspan="2" bgcolor="#F6F6F6"><div class="inner_list pre_cv_send"> &nbsp;&nbsp;&nbsp;&nbsp; <a>发送面试邀请</a> </div>
-                      <div style="display:none;" class="inner_list_send"> &nbsp;&nbsp;&nbsp;&nbsp; <a class="pre_cv">已发送</a> </div></td>
+                    <td colspan="2"  bgcolor="#F6F6F6"><div class="inner_list"> &nbsp;&nbsp;&nbsp;&nbsp; <a href="__APP__/ApplicantUser/Preview/id/<{$user.id}>" target="_blank" class="pre_cv">浏览简历</a> </div></td>
+                    <td colspan="2"  bgcolor="#F6F6F6">
+						<if condition="$user.read_flag eq 1">
+							<div class="inner_list pre_cv_read" style="display:none;"> &nbsp;&nbsp;&nbsp;&nbsp; <a class="pre_cv">标记为已读</a> </div>
+							<div class="inner_list_read"> &nbsp;&nbsp;&nbsp;&nbsp; <a class="pre_cv">已读</a> </div>
+						<else />
+							<div class="inner_list pre_cv_read" _attr=<{$user.acc_id}>> &nbsp;&nbsp;&nbsp;&nbsp; <a class="pre_cv">标记为已读</a> </div>
+							<div class="inner_list_read" style="display:none;"> &nbsp;&nbsp;&nbsp;&nbsp; <a class="pre_cv">已读</a> </div>
+						</if>
+						
+					</td>
+                    <td colspan="2" bgcolor="#F6F6F6">
+						<if condition="$user.invite_flag eq 1">
+						<div class="inner_list pre_cv_send" style="display:none;"> &nbsp;&nbsp;&nbsp;&nbsp; <a>发送面试邀请</a> </div>
+						<div  class="inner_list_send"> &nbsp;&nbsp;&nbsp;&nbsp; <a class="pre_cv">已发送</a> </div>
+						<else />
+						<div class="inner_list pre_cv_send" _attr=<{$user.acc_id}>> &nbsp;&nbsp;&nbsp;&nbsp; <a>发送面试邀请</a> </div>
+						<div style="display:none;" class="inner_list_send"> &nbsp;&nbsp;&nbsp;&nbsp; <a class="pre_cv">已发送</a> </div>
+						</if>
+					</td>
                   </tr>
                   <tr bgcolor="#F6F6F6">
                     <td width="145" height="10" colspan="5"></td>
                   </tr>
-                  <tr bgcolor="#F6F6F6">
-                    <td rowspan="4" align="center"><a href="http://seekersso.chinahr.com/photos/GetImg.aspx?UserId=21401995" target="_blank"><img src="/rec2014/images/cv_img.jpg" alt="" width="90" border="0"></a></td>
-                    <td width="145" height="28" align="right">姓名： </td>
-                    <td class="color17" colspan="3">LB</td>
-                  </tr>
-                  <tr bgcolor="#F6F6F6">
-                    <td width="145" height="28" align="right">毕业院校： </td>
-                    <td class="color17" colspan="3">上海交通大学</td>
-                  </tr>
-                  <tr bgcolor="#F6F6F6">
-                    <td width="145" height="28" align="right">目前工作： </td>
-                    <td class="color17" colspan="3">CITICS研究部分析师</td>
-                  </tr>
-                  <tr bgcolor="#F6F6F6">
-                    <td width="145" height="28" align="right">工作时间： </td>
-                    <td class="color17" colspan="1" >三年</td>
-                    <td width="145" height="28" align="right">职级： </td>
-                    <td class="color17" colspan="1" >高级经理</td>
-                  </tr>
-                  <tr><!--保存按钮-->
-                    <td colspan="2"  bgcolor="#F6F6F6"><div class="inner_list"> &nbsp;&nbsp;&nbsp;&nbsp; <a href="/rec2014/preview_cv.html" target="_blank" class="pre_cv">浏览简历</a> </div></td>
-                    <td colspan="2"  bgcolor="#F6F6F6"><div class="inner_list pre_cv_read"> &nbsp;&nbsp;&nbsp;&nbsp; <a class="pre_cv">标记为已读</a> </div>
-                      <div style="display:none;" class="inner_list_read"> &nbsp;&nbsp;&nbsp;&nbsp; <a class="pre_cv">已读</a> </div></td>
-                    <td colspan="2" bgcolor="#F6F6F6"><div class="inner_list pre_cv_send"> &nbsp;&nbsp;&nbsp;&nbsp; <a>发送面试邀请</a> </div>
-                      <div style="display:none;" class="inner_list_send"> &nbsp;&nbsp;&nbsp;&nbsp; <a class="pre_cv">已发送</a> </div></td>
-                  </tr>
-                </table>
-              </div>
-              <table class="main_table" width="95%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="E1E1E1">
-                
-                <tr bgcolor="#F6F6F6">
-                <td width="145" height="28" align="right">部门： </td>
-                  <td class="color17" colspan="1">市场部</td>
-                  <td width="145" height="28" align="right">职位： </td>
-                  <td class="color17" colspan="1">软件工程师</td>
                  
-                </tr>
-                <tr bgcolor="#F6F6F6">
-                <td width="145" height="28" align="right">工作地点： </td>
-                  <td class="color17" colspan="1">北京</td>
-                  <td width="145" height="28" align="right">工作方向： </td>
-                  <td class="color17" colspan="1">JAVA</td>
-                </tr>
-                <tr bgcolor="#F6F6F6">
-                  <td width="145" height="28" align="right">预计招聘人数： </td>
-                  <td class="color17" colspan="1">5人</td>
-                  <td width="145" height="28" align="right">接受简历数量： </td>
-                  <td class="color17" colspan="1">100份</td>
-                </tr>
-                <tr bgcolor="#F6F6F6">
-                  <td width="145" height="28" align="right">已接收简历数量： </td>
-                  <td class="color17" colspan="1">80份</td>
-                  <td width="145" height="28" align="right">已浏览简历数量：</td>
-                  <td class="color17" colspan="1">60份 </td>
-                </tr>
-                <tr bgcolor="#F6F6F6">
-                  <td width="145" height="28" align="right">发送面试邀请人数:</td>
-                  <td class="color17" colspan="1">20人</td>
-                  <td width="145" height="28" align="right">确认参加面试人数：</td>
-                  <td class="color17" colspan="1">15人</td>
-                </tr>
-                <tr><!--保存按钮-->
-                  <td colspan="2"  bgcolor="#F6F6F6"><div class="icon_width_mdf_list"> &nbsp;&nbsp;&nbsp;&nbsp; <a class="pre_cv">浏览简历</a> </div></td>
-                  <td colspan="2" bgcolor="#F6F6F6"><div class="icon_width_mdf_detail"> &nbsp;&nbsp;&nbsp;&nbsp; <a href="/dscj/Project/Home/View/ApplicantUser/worklist.html" target="_blank">查看职位详情</a> </div></td>
-                </tr>
-              </table>
-              <table width="95%" border="0" cellspacing="0" cellpadding="0">
-                <tr>
-                  <td>&nbsp;</td>
-                </tr>
-              </table>
-              <div  class="hind_table" style="height:180px;  overflow-y:scroll; display:none;">
-                <table class="main_table " width="95%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="E1E1E1">
-                  <tr bgcolor="#F6F6F6">
-                    <td rowspan="4" align="center"><a href="http://seekersso.chinahr.com/photos/GetImg.aspx?UserId=21401995" target="_blank"><img src="/rec2014/images/cv_img.jpg" alt="" width="90" border="0"></a></td>
-                    <td width="145" height="28" align="right">姓名： </td>
-                    <td class="color17" colspan="3">汤普森</td>
-                  </tr>
-                  <tr bgcolor="#F6F6F6">
-                    <td width="145" height="28" align="right">毕业院校： </td>
-                    <td class="color17" colspan="3">上海交通大学</td>
-                  </tr>
-                  <tr bgcolor="#F6F6F6">
-                    <td width="145" height="28" align="right">目前工作： </td>
-                    <td class="color17" colspan="3">CITICS研究部分析师</td>
-                  </tr>
-                  <tr bgcolor="#F6F6F6">
-                    <td width="145" height="28" align="right">工作时间： </td>
-                    <td class="color17" colspan="1" >三年</td>
-                    <td width="145" height="28" align="right">职级： </td>
-                    <td class="color17" colspan="1" >高级经理</td>
-                  </tr>
-                  <tr><!--保存按钮-->
-                    <td colspan="2"  bgcolor="#F6F6F6"><div class="inner_list"> &nbsp;&nbsp;&nbsp;&nbsp; <a href="/rec2014/preview_cv.html" target="_blank" class="pre_cv">浏览简历</a> </div></td>
-                    <td colspan="2"  bgcolor="#F6F6F6"><div class="inner_list pre_cv_read"> &nbsp;&nbsp;&nbsp;&nbsp; <a class="pre_cv">标记为已读</a> </div>
-                      <div style="display:none;" class="inner_list_read"> &nbsp;&nbsp;&nbsp;&nbsp; <a class="pre_cv">已读</a> </div></td>
-                    <td colspan="2" bgcolor="#F6F6F6"><div class="inner_list pre_cv_send"> &nbsp;&nbsp;&nbsp;&nbsp; <a>发送面试邀请</a> </div>
-                      <div style="display:none;" class="inner_list_send"> &nbsp;&nbsp;&nbsp;&nbsp; <a class="pre_cv">已发送</a> </div></td>
-                  </tr>
-                  <tr bgcolor="#F6F6F6">
-                    <td width="145" height="10" colspan="5"></td>
-                  </tr>
-                  <tr bgcolor="#F6F6F6">
-                    <td rowspan="4" align="center"><a href="http://seekersso.chinahr.com/photos/GetImg.aspx?UserId=21401995" target="_blank"><img src="/rec2014/images/cv_img.jpg" alt="" width="90" border="0"></a></td>
-                    <td width="145" height="28" align="right">姓名： </td>
-                    <td class="color17" colspan="3">LB</td>
-                  </tr>
-                  <tr bgcolor="#F6F6F6">
-                    <td width="145" height="28" align="right">毕业院校： </td>
-                    <td class="color17" colspan="3">上海交通大学</td>
-                  </tr>
-                  <tr bgcolor="#F6F6F6">
-                    <td width="145" height="28" align="right">目前工作： </td>
-                    <td class="color17" colspan="3">CITICS研究部分析师</td>
-                  </tr>
-                  <tr bgcolor="#F6F6F6">
-                    <td width="145" height="28" align="right">工作时间： </td>
-                    <td class="color17" colspan="1" >三年</td>
-                    <td width="145" height="28" align="right">职级： </td>
-                    <td class="color17" colspan="1" >高级经理</td>
-                  </tr>
-                  <tr><!--保存按钮-->
-                    <td colspan="2"  bgcolor="#F6F6F6"><div class="inner_list"> &nbsp;&nbsp;&nbsp;&nbsp; <a href="/rec2014/preview_cv.html" target="_blank"  class="pre_cv">浏览简历</a> </div></td>
-                    <td colspan="2"  bgcolor="#F6F6F6"><div class="inner_list pre_cv_read"> &nbsp;&nbsp;&nbsp;&nbsp; <a class="pre_cv">标记为已读</a> </div>
-                      <div style="display:none;" class="inner_list_read"> &nbsp;&nbsp;&nbsp;&nbsp; <a class="pre_cv">已读</a> </div></td>
-                    <td colspan="2" bgcolor="#F6F6F6"><div class="inner_list pre_cv_send"> &nbsp;&nbsp;&nbsp;&nbsp; <a>发送面试邀请</a> </div>
-                      <div style="display:none;" class="inner_list_send"> &nbsp;&nbsp;&nbsp;&nbsp; <a class="pre_cv">已发送</a> </div></td>
-                  </tr>
+				</volist>
+				</empty>
                 </table>
               </div>
+			 </volist>
+			 </empty>
+
+
+
+			</TD>
           </TR>
         </TABLE>
       </div>
       <!--OTHER end-->
       
     </ul>
-    
-	<include file='Public/com_menu' />
+    <include file='Public/com_menu' />
     <div style="line-height:2px;height:2px;clear:both;background:#FFFFFF;">&nbsp;</div>
   </div>
   <!--foot-->
-  <include file='Public/footer' />
+ <include file='Public/footer' />
