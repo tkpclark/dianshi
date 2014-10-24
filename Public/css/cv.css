@@ -1907,8 +1907,8 @@ a.grey5:hover {
     font-weight: bold;
     height: 30px;
     line-height: 30px;
-  	 margin:5px 5px 5px 5px;
- 	width:92%;
+  	 margin:7px;
+ 	width:90%;
 }
 
 *html .rew_conr_mdf li {
@@ -1943,7 +1943,7 @@ a.grey5:hover {
 
 .icon_width_mdf {
   margin: 0 0 0 8px;
- width:150px;
+ width:155px;
 }
 
 /*.weight670 {

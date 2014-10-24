@@ -10,6 +10,33 @@
     margin: 4px auto;
     text-align: center;
     width: 209px;
+	cursor:pointer;	
+	}
+.invite_inner_list{
+background: none repeat scroll 0 0 #e1e1e1;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    margin: 4px;
+    text-align: center;
+    width: 180px;	
+	cursor:pointer;	
+	}
+.invite_inner_list:hover, .inner_list_invite, .inner_list_interest{
+background: none repeat scroll 0 0 #f9d259;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    margin: 4px;
+    text-align: center;
+    width: 180px;
+	cursor:pointer;	
+
+	}
+.down_btn, .up_btn{
+	margin: 4px;
+    text-align: center;
+	cursor:pointer;	
 	
 	}
 .icon_width_mdf_list:hover,.inner_list:hover ,icon_width_mdf_detail:hover,.inner_list_read,.inner_list_send{
