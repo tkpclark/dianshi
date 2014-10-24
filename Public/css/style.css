@@ -1749,8 +1749,7 @@ body #header .m {
 .plogin .inputOuter {
 	width:250px;
 	height:42px;
-	background:url(http://imgcache.qq.com/ptlogin/v4/style/20/images/c_icon_2_tiny.png) no-repeat 0 0;
-	_background:url(http://imgcache.qq.com/ptlogin/v4/style/20/images/c_icon_2.png) no-repeat 0 0
+	
 }
 .plogin .inputOuter_hover {
 	width:250px;
@@ -1773,7 +1772,6 @@ body #header .m {
 	padding:9px 0 11px 25px;
 	line-height:18px;
 	border:0;
-	background:0;
 	color:#a0a0a0;
 	font-family:微软雅黑;
 	font-size:14px;
@@ -1797,6 +1795,8 @@ body #header .m {
 	position:relative;
 	z-index:10
 }
+
+/*用户名框*/
 .plogin .uin_icon {
 	position:absolute;
 	left:10px;
@@ -1955,7 +1955,8 @@ body #header .m {
 }
 .other_login {
 	width:290px;
-	background-color: #fff;
+	background-color: rgba(225,225,225,0.9);
+
 	margin-top: 20px;
 }
 .other_login .loginTitle {
@@ -1971,16 +1972,16 @@ body #header .m {
 
 .other_login .loginTitle a.move{
 	background-color:#f9d259;
-	color:#000;
-	height:20px;
-	font-size:14px;
+	color:#666666;
+	height:40px;
+	font-size:20px;
 	font-weight:bold;
 	position:relative;
 	width:290px;
 	text-align: center;
-	line-height:30px;
+	line-height:40px;
 	text-decoration:none;
-    border-radius: 5px;
+    
 }
 span.jobB{
 	margin-left:20px;
