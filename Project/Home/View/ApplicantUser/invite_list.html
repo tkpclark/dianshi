@@ -1,4 +1,20 @@
-<div id="Other_info"  class="Other_info" style="display:">
+<include file='Public/header' />
+
+<css href="__PUBLIC__/css/core.css" />
+<css href="__PUBLIC__/css/style.css" />
+<css href="__PUBLIC__/css/cv.css" />
+<css href="__PUBLIC__/css/worklist.css" />
+<js href='__PUBLIC__/js/jquery-1.26.js' />
+<js href='__PUBLIC__/js/jquery.drag.js' />
+<js href='__PUBLIC__/js/fn.js' />
+<js href='__PUBLIC__/js/all.js' />
+<js href='__PUBLIC__/js/invitelist.js' />
+
+  <!-- list列表-->
+  
+  <div class="rew_down rew_down_mdf">
+    <ul class="rew_conl rew_conl_mdf work_invite" id="contentHighSet">
+      <div id="Other_info"  class="Other_info" style="display:">
         <table border="0" cellspacing="0" cellpadding="0" class="paragraph_title paragraph_title_mdf">
           <tr>
             <td><span class="Bpispan_l" ></span>面试邀请<a name="SRI"/><span class="Bpispan_r" ></span></td>
@@ -51,8 +67,8 @@
               </div></td>
           </tr>
           <tr ><!--下拉-->
-            <td colspan="6" style="text-align:right;"><div class="down_btn spread_detail"> <img src="/dscj/Public/images/down.jpg"/></div>
-              <div style="display:none;" class="up_btn unspread_detail"> <img src="/dscj/Public/images/up.jpg"/></div></td>
+            <td colspan="6" style="text-align:right;"><div class="down_btn spread_detail"> <img src="__PUBLIC__/images/down.jpg"/></div>
+              <div style="display:none;" class="up_btn unspread_detail"> <img src="__PUBLIC__/images/up.jpg"/></div></td>
           </tr>
           <tr ><!--保存按钮-->
             <td colspan="6" class="invite_btn" style=" padding-left:550px;">
@@ -110,8 +126,8 @@
               </div></td>
           </tr>
           <tr ><!--下拉按钮-->
-            <td colspan="6" style="text-align:right;"><div class="down_btn spread_detail"> <img src="/dscj/Public/images/down.jpg"/></div>
-              <div style="display:none;" class="up_btn unspread_detail"> <img src="/dscj/Public/images/up.jpg"/></div></td>
+            <td colspan="6" style="text-align:right;"><div class="down_btn spread_detail"> <img src="__PUBLIC__/images/down.jpg"/></div>
+              <div style="display:none;" class="up_btn unspread_detail"> <img src="__PUBLIC__/images/up.jpg"/></div></td>
           </tr>
           <tr ><!--保存按钮-->
             <td colspan="6" class="invite_btn" style=" padding-left:550px;">
@@ -122,3 +138,9 @@
           </tr>
         </table>
       </div>
+    </ul>
+    <include file='Public/user_menu' />
+    <div style="line-height:2px;height:2px;clear:both;background:#FFFFFF;">&nbsp;</div>
+  </div>
+  <!--foot-->
+  <include file='Public/footer' />

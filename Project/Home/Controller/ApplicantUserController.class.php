@@ -292,6 +292,33 @@ class ApplicantUserController extends Controller {
 		$this->assign('result',$res);
 		$this->display('preview_cv');
 	}
+	/*
+	*
+	*
+	*
+	*/
+	public function Invite(){
+		$Position = M('CompanyPosition');
+		$delivery = M('delivery');
+		$Com = M('companyInformation');
+		$data['user_id'] = $_SESSION['id'];
+		$data['invite_flag'] = 1;
+		if($position = $delivery->where($data)->getField('position_id',true)){
+			
+			$pos_str=implode(',',$position);
+			$map['id']=array('in',$pos_str);
+			if($delis = $Position->where($map)->select()){
+				for($i=0;$i<count($delis);$i++){
+					$arr['id']=$delis[$i]['company_id'];
+					$com_name=$Com->where($arr)->getField('name');
+					$delis[$i]['company_name']=$com_name;
+				}
+			
+			}
+		}
+		$this-assign('delis',$delis);
+		$this->display('invite_list');
+	}
 	
 	
 	
