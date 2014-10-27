@@ -1764,13 +1764,13 @@ body #header .m {
 	_background:url(http://imgcache.qq.com/ptlogin/v4/style/20/images/c_icon_2.png) no-repeat 0 -45px
 }
 .plogin .inputstyle {
-	width:220px;
+	width:240px;
 	position:relative;
 	top:2px;
 	left:2px;
-	height:18px;
+	height:40px;
 	padding:9px 0 11px 25px;
-	line-height:18px;
+	line-height:40px;
 	border:0;
 	color:#a0a0a0;
 	font-family:微软雅黑;
@@ -1972,7 +1972,7 @@ body #header .m {
 
 .other_login .loginTitle a.move{
 	background-color:#f9d259;
-	color:#666666;
+	color:#000;
 	height:40px;
 	font-size:20px;
 	font-weight:bold;
