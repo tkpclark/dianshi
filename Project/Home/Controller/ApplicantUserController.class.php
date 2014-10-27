@@ -316,7 +316,7 @@ class ApplicantUserController extends Controller {
 			
 			}
 		}
-		$this-assign('delis',$delis);
+		$this->assign('delis',$delis);
 		$this->display('invite_list');
 	}
 	
