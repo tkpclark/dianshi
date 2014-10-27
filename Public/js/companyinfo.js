@@ -4,11 +4,79 @@
 //保存公司信息
 function submitCompanyInfo() {
 
-	 var selecte_feild_value="";
+	 //提交投资
+	 var touzi_value= "";
+	touzi_value= $('.touzi_span_selected').text();
+	 var touzi_more_value="";
+	 if(touzi_value != ""){
+		$(".touzi_more_span_selected").each(
+	 function() {
+		 touzi_more_value += "|++|"+$(this).text();
+		 }); 
+	 }
+	var touzi_value_all = touzi_value + touzi_more_value;
+	
+	//提交一级
+	 var yiji_value= "";
+	 yiji_value= $('.yiji_span_selected').text();
+	 var yiji_more_value="";
+	 if(yiji_value != ""){
+		$(".yiji_more_span_selected").each(
+	 function() {
+		 yiji_more_value += "|++|"+$(this).text();
+		 }); 
+	 }
+	var yiji_value_all = yiji_value + yiji_more_value;
+	
+	
+	//提交二级按机构
+	 var erji_jg_value= "";
+	 erji_jg_value= $('.erji_span_selected').text();
+	 var erji_jg_more_value="";
+	 if(erji_jg_value != ""){
+		$(".erji_jg_span_selected").each(
+	 function() {
+		 erji_jg_more_value += "|++|"+$(this).text();
+		 }); 
+	 }
+	var erji_jg_value_all = erji_jg_value + erji_jg_more_value;
+	
+	//提交二级按资产
+	 var erji_zc_value= "";
+	 erji_zc_value= $('.erji_span_selected').text();
+	 var erji_zc_more_value="";
+	 if(erji_zc_value != ""){
+		$(".erji_zc_span_selected").each(
+	 function() {
+		 erji_zc_more_value += "|++|"+$(this).text();
+		 }); 
+	 }
+	var erji_zc_value_all = erji_zc_value + erji_zc_more_value;
+	
+	//提交券商
+	var quanshang_value= "";
+	quanshang_value= $('.quanshang_span_selected').text();
+	 var quanshang_more_value="";
+	 if(quanshang_value != ""){
+		$(".quanshang_more_span_selected").each(
+	 function() {
+		 quanshang_more_value += "|++|"+$(this).text();
+		 }); 
+	 }
+	var quanshang_value_all = quanshang_value + quanshang_more_value;
+	
+	 var yx_touzi = touzi_value_all;
+	 var yx_yiji = yiji_value_all;
+	 var yx_erji_jg = erji_jg_value_all;
+	 var yx_erji_zc = erji_zc_value_all;
+	 var yx_quanshang = quanshang_value_all;
+	
+	
+	/* var selecte_feild_value="";
 	 $(".span_selected").each(
 	 function() {
 		 selecte_feild_value += $(this).text()+"|--|";
-		 });
+		 });*/
 	 var photo = $("#fileToUpload").prev().find("img").attr('src');
 	 var CompanyName_value = $("#CompanyName").val();
 	 var Offic_value = $("#Offic").val();
