@@ -47,30 +47,30 @@
           </tr>
           <tr>
             <td align="left" class="col_name">常用邮箱 </td>
-            <td ><input name="email" type="text" class="weight150" id="email" value="<{$result.email}>" placeholder="email" /></td>
+            <td ><input name="email" type="text" class="weight150" id="email" value="<{$result.email}>" placeholder="例如：dianshichengj@dscj.com" /></td>
          
             <td align="left" class="col_name"><!--<span class="text_red">*</span>-->手机号码</td>
             <td colspan="3" valign="middle"><div style="float:left;">
-                <input id="Mobile" name="Mobile" onBlur="checkinputstr('phone','er_phone')" maxlength="20"  value="<{$result.phone}>" type="text" placeholder="手机号"  />
+                <input id="Mobile" name="Mobile" onBlur="checkinputstr('phone','er_phone')" maxlength="20"  value="<{$result.phone}>" type="text" placeholder="188-8888-8888"  />
               </div></td>
           </tr>
 		  <tr>
             <td align="left" class="col_name">最高学历院校 </td>
-            <td colspan="3"><input name="school" type="text" class="weight150" id="school" value="<{$result.school}>" placeholder="email" /></td>
+            <td colspan="3"><input name="school" type="text" class="weight150" id="school" value="<{$result.school}>" placeholder="例如：上海财经大学" /></td>
           </tr>
           <tr>
             <td class="col_name">地&nbsp;&nbsp;&nbsp;&nbsp;址</td>
-            <td colspan="4" valign="middle"><input type="text" class="input550" onBlur="checkinputstr('Name','er_name')"  id="Address" value="<{$result.address}>" maxlength="100" name="Address"/></td>
+            <td colspan="4" valign="middle"><input type="text" class="input550" onBlur="checkinputstr('Name','er_name')"  id="Address" value="<{$result.address}>" maxlength="100" name="Address" placeholder="例如：北京市朝阳区清平家园"/></td>
           </tr>
           <tr>
             <td class="col_name">目前工作单位</td>
-            <td colspan="4" valign="middle"><input type="text" class="input550" onBlur="checkinputstr('Name','er_name')"  id="Company" value="<{$result.work_unit}>" maxlength="100" name="Address"/></td>
+            <td colspan="4" valign="middle"><input type="text" class="input550" onBlur="checkinputstr('Name','er_name')"  id="Company" value="<{$result.work_unit}>" maxlength="100" name="Address" placeholder="例如：CITICS"/></td>
           </tr>
           <tr>
             <td class="col_name">部&nbsp;&nbsp;&nbsp;&nbsp;门</td>
-            <td colspan="2" valign="middle"><input type="text" onBlur="checkinputstr('Name','er_name')"  id="Depart" value="<{$result.department}>" maxlength="100" name="Address"/></td>
+            <td colspan="2" valign="middle"><input type="text" onBlur="checkinputstr('Name','er_name')"  id="Depart" value="<{$result.department}>" maxlength="100" name="Address" placeholder="例如：研究部"/></td>
             <td class="col_name">职&nbsp;&nbsp;&nbsp;&nbsp;位</td>
-            <td colspan="2" valign="middle"><input type="text" onBlur="checkinputstr('Name','er_name')"  id="Job" value="<{$result.position}>" maxlength="100" name="Address"/></td>
+            <td colspan="2" valign="middle"><input type="text" onBlur="checkinputstr('Name','er_name')"  id="Job" value="<{$result.position}>" maxlength="100" name="Address" placeholder="例如：分析师"/></td>
           </tr>
           <tr>
             <td class="col_name">工作年限</td>
@@ -85,7 +85,7 @@
                 <OPTION VALUE=7 <if condition='$result.work_time eq 7'> selected</if> >20年以上</OPTION>
               </select></td>
             <td class="col_name">职&nbsp;&nbsp;&nbsp;&nbsp;级</td>
-            <td colspan="2" valign="middle"><input type="text" onBlur="checkinputstr('Name','er_name')"  id="JobGrade" value="<{$result.rank}>" maxlength="100" name="Address"/></td>
+            <td colspan="2" valign="middle"><input type="text" onBlur="checkinputstr('Name','er_name')"  id="JobGrade" value="<{$result.rank}>" maxlength="100" name="Address" placeholder="例如：高级经理"/></td>
           </tr>
           <tr><!--保存按钮-->
             <td colspan="5" align="left" style="text-align:right;"><input class="btn_pic" type="button" name="imgfile" id="imgfile" onclick="submitBaseInfo();" style="cursor:pointer" value="保存" /></td>
@@ -115,9 +115,9 @@
           </tr>
           <tr>
             <td  colspan="2" align="left" class="col_name">工作地偏好</td>
-            <td><input type="text" id="Area1" value="<{$area[0]}>" maxlength="20" name="Area"/></td>
-            <td><input type="text" id="Area2" value="<{$area[1]}>" maxlength="20" name="Area"/></td>
-            <td><input type="text" id="Area3" value="<{$area[2]}>" maxlength="20" name="Area"/></td>
+            <td><input type="text" id="Area1" value="<{$area[0]}>" maxlength="20" name="Area" placeholder="例如：北京"/></td>
+            <td><input type="text" id="Area2" value="<{$area[1]}>" maxlength="20" name="Area" placeholder="上海"/></td>
+            <td><input type="text" id="Area3" value="<{$area[2]}>" maxlength="20" name="Area" placeholder="广州"/></td>
             
           </tr>
           <tr>
