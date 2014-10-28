@@ -9,7 +9,7 @@ class ApplicantUserController extends Controller {
 		$result = $User->where($map)->select();
 		$res=$result[0];
 		$area = explode('|--|',$res['job_area']);
-
+		
 		//教育背景
 		$User = M('ApplicantEducation');
 		$where['user_id']=array('eq',$_SESSION['id']);
@@ -118,7 +118,15 @@ class ApplicantUserController extends Controller {
 		$data['job_status'] = I('param.jt','');//目前求职状态
 		$data['expected_salary'] = I('param.wp','');//期望年薪
 		$data['work_environment'] = I('param.je','');//工作环境
-		$data['job_intension'] = I('param.jd','');//求职方向
+
+
+		$touzi = I('param.touzi','');//求职方向 投资银行业务
+		$yiji = I('param.yiji','');//求职方向 一级市场投资分析
+		$erji_jg = I('param.erji_jg','');//求职方向 二级市场研究、交易、投资 按机构
+		$erji_zc = I('param.erji_zc','');//求职方向 二级市场研究、交易、投资 按资产
+		$quanshang = I('param.quanshang','');//券商销售
+		
+		$data['job_intension'] = $touzi.'+||+'.$yiji.'+||+'.$erji_jg.'|++|'.$erji_zc.'+||+'.$quanshang;//求职方向
 		$a1 = I('param.a1','');//工作地偏好
 		$a2 = I('param.a2','');//工作地偏好
 		$a3 = I('param.a3','');//工作地偏好
