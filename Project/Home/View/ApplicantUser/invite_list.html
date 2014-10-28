@@ -82,10 +82,19 @@
           </tr>
           <tr ><!--保存按钮-->
             <td colspan="6" class="invite_btn" style=" padding-left:550px;">
-            <div class="invite_inner_list invite_cv_send">  <a class="pre_cv">是否接受面试邀请</a> </div>
-              <div style="display:none;" class="inner_list_invite"><a class="pre_cv">接受</a> </div>
-              <div style="display:none;" class="invite_inner_list notinterest_cv_send"><a>不接受</a> </div>
-              </td>
+			<if condition="$deli.accept_flag eq 1">
+              <div style="display:none;" class="inner_list_invite" _attr='<{$deli.delivery_id}>'><a class="pre_cv">接受</a> </div>
+              <div style="" class="invite_inner_list notinterest_cv_send" _attr='<{$deli.delivery_id}>'><a>不接受</a> </div>
+			<elseif condition="$deli.accept_flag eq 2"/>
+              <div style="" class="inner_list_invite" _attr='<{$deli.delivery_id}>'><a class="pre_cv">接受</a> </div>
+              <div style="display:none;" class="invite_inner_list notinterest_cv_send" _attr='<{$deli.delivery_id}>'><a>不接受</a> </div>
+			<else />
+				<div class="invite_inner_list invite_cv_send" _attr='<{$deli.delivery_id}>'>  <a class="pre_cv">是否接受面试邀请</a> </div>
+              <div style="display:none;" class="inner_list_invite" _attr='<{$deli.delivery_id}>'><a class="pre_cv">接受</a> </div>
+              <div style="display:none;" class="invite_inner_list notinterest_cv_send" _attr='<{$deli.delivery_id}>'><a>不接受</a> </div>
+			</if>
+            
+            </td>
           </tr>
         </table>
 		</volist>

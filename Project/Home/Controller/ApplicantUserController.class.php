@@ -294,7 +294,7 @@ class ApplicantUserController extends Controller {
 	}
 	/*
 	*
-	*
+	*受邀请列表
 	*
 	*/
 	public function Invite(){
@@ -304,12 +304,12 @@ class ApplicantUserController extends Controller {
 		$data['user_id'] = $_SESSION['id'];
 		$data['invite_flag'] = 1;
 		$type = I('param.type','');//请求类型1全部接收到简历 2未处理简历 3 历史简历
-		if($type=2){
+		if($type==2){
 			$data['accept_flag'] = 0;
-		}elseif($type=3){
-			$data['accept_flag'] != 0;
+		}else if($type==3){
+			$data['accept_flag'] = array('neq',0);
 		}
-		if($position = $delivery->where($data)->field('position_id,accept_flag')->select()){
+		if($position = $delivery->where($data)->field('id,position_id,accept_flag')->select()){
 			foreach($position as $p){
 				$positions[]=$p['position_id'];
 			}
@@ -324,6 +324,7 @@ class ApplicantUserController extends Controller {
 
 					foreach($position as $po){
 						if($po['position_id']==$delis[$i]['id']){
+							$delis[$i]['delivery_id']=$po['id'];
 							$delis[$i]['accept_flag']=$po['accept_flag'];
 						}
 					}
@@ -335,6 +336,22 @@ class ApplicantUserController extends Controller {
 		}
 		$this->assign('delis',$delis);
 		$this->display('invite_list');
+	}
+	/*
+	*
+	*接受/拒绝邀请
+	*
+	*/
+	public function OperateInvite(){
+		$delivery = M('delivery');
+		$id = I('param.id','');
+		$data['accept_flag'] = I('param.accept_flag','');
+		if($delivery->where("id=$id")->save($data)){
+			exit('OK');
+		}else{ 
+			exit('Error');
+		}
+		
 	}
 	
 	

@@ -51,17 +51,60 @@ $(this).next().show().siblings("div").hide();
  }
 );
 //接受改为不接受
-$(".inner_list_invite").click(
-function(){
-$(this).next().show().siblings("div").hide(); 
- }
-);
+$(".inner_list_invite").click(function(){
+	var evt = $(this);
+	var id_value = evt.attr('_attr');
+	$.ajax({
+	 		  cache:"False",
+	           type:"post",
+			   url:"/dianshi/index.php/Home/ApplicantUser/OperateInvite/",
+			   data:{ 
+			       id:id_value,
+					accept_flag:1
+				   },
+			   success : function(msg) {
+				   if (msg == "OK") {
+						evt.next().show().siblings("div").hide(); 
+                       
+                    }
+                    else if (msg == "Error") {
+                        alert("接受失败");
+                    }else{
+						alert(msg);
+					}
+						
+				}
+	 
+	 })
+
+ });
 //不接受改为接受
-$(".notinterest_cv_send").click(
-function(){
-$(this).parent().find('.inner_list_invite').show().siblings("div").hide();
- }
-);
+$(".notinterest_cv_send").click(function(){
+	var evt = $(this);
+	var id_value = evt.attr('_attr');
+	$.ajax({
+	 		  cache:"False",
+	           type:"post",
+			   url:"/dianshi/index.php/Home/ApplicantUser/OperateInvite/",
+			   data:{ 
+			       id:id_value,
+					accept_flag:2
+				   },
+			   success : function(msg) {
+				   if (msg == "OK") {
+                        evt.parent().find('.inner_list_invite').show().siblings("div").hide();
+                       
+                    }
+                    else if (msg == "Error") {
+                        alert("接受失败");
+                    }else{
+						alert(msg);
+					}
+						
+				}
+	 
+	 })
+ });
 
 $.each($("input,textarea"),function(){$("input,textarea").attr("disabled", "disabled")});	
 	
