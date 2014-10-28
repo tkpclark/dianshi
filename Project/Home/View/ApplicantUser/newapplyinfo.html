@@ -141,7 +141,6 @@
             <td colspan="5"><input type="text" class="input580" id="JobEnvir" value="<{$result.work_environment}>" maxlength="60" name="JobEnvir" placeholder="您所期望的工作环境"/></td>
           </tr>
           <tr>
-
             <td  colspan="2" class="col_name">求职方向</td>
             <td colspan="5">
 				<div id="finServ" style="display:block" >
@@ -158,21 +157,21 @@
             <div class="span_title touzi_div" <php>if( strpos($result['job_intension'],'投资银行业务')===false ) echo  'style="display:none"' ;</php>>
 				<span class="Tpispan_l" ></span>投资银行业务<span class="Tpispan_r" ></span>
 				<div id="finServ" > 
-					<span class="btn_pic btn_pic_span touzi_btn_pic <php>if( strpos($result['job_intension'],'股权') && strpos($result['job_intension'],'投资银行业务')) echo  'span_selected touzi_more_span_selected' ;</php>">股权</span> 
-					<span class="btn_pic btn_pic_span touzi_btn_pic <php>if( strpos($result['job_intension'],'债券') && strpos($result['job_intension'],'投资银行业务')) echo  'span_selected touzi_more_span_selected' ;</php>">债券</span> 
-					<span class="btn_pic btn_pic_span touzi_btn_pic <php>if( strpos($result['job_intension'],'并购') && strpos($result['job_intension'],'投资银行业务') ) echo  'span_selected touzi_more_span_selected' ;</php>">并购</span> 
-					<span class="btn_pic btn_pic_span touzi_btn_pic <php>if( strpos($result['job_intension'],'ECM') && strpos($result['job_intension'],'投资银行业务') ) echo  'span_selected touzi_more_span_selected' ;</php>">ECM</span> 
-					<span class="btn_pic btn_pic_span touzi_btn_pic <php>if( strpos($result['job_intension'],'DCM') && strpos($result['job_intension'],'投资银行业务') ) echo  'span_selected touzi_more_span_selected' ;</php>">DCM</span> 
+					<span class="btn_pic btn_pic_span touzi_btn_pic <php>if( strpos($result['job_intension'],'股权')) echo  'span_selected touzi_more_span_selected' ;</php>">股权</span> 
+					<span class="btn_pic btn_pic_span touzi_btn_pic <php>if( strpos($result['job_intension'],'债券')) echo  'span_selected touzi_more_span_selected' ;</php>">债券</span> 
+					<span class="btn_pic btn_pic_span touzi_btn_pic <php>if( strpos($result['job_intension'],'并购') ) echo  'span_selected touzi_more_span_selected' ;</php>">并购</span> 
+					<span class="btn_pic btn_pic_span touzi_btn_pic <php>if( strpos($result['job_intension'],'ECM') ) echo  'span_selected touzi_more_span_selected' ;</php>">ECM</span> 
+					<span class="btn_pic btn_pic_span touzi_btn_pic <php>if( strpos($result['job_intension'],'DCM') ) echo  'span_selected touzi_more_span_selected' ;</php>">DCM</span> 
 				</div>
 			</div>
              
              <div class="span_title yiji_div" <php>if( !strpos($result['job_intension'],'一级市场投资分析') ) echo  'style="display:none"' ;</php>>
 				<span class="Tpispan_l" style="width:222px;"></span>一级市场投资分析<span class="Tpispan_r" style="width:217px;" ></span>
 				<div  id="oneInvest"  >
-					<span class="btn_pic btn_pic_span yiji_btn_pic <php>if( strpos($result['job_intension'],'PE') && strpos($result['job_intension'],'一级市场投资分析') ) echo  'span_selected yiji_more_span_selected' ;</php>">PE</span> 
-					<span class="btn_pic btn_pic_span yiji_btn_pic <php>if( strpos($result['job_intension'],'VC') && strpos($result['job_intension'],'一级市场投资分析') ) echo  'span_selected yiji_more_span_selected' ;</php>">VC</span> 
-					<span class="btn_pic btn_pic_span yiji_btn_pic <php>if( strpos($result['job_intension'],'信托') && strpos($result['job_intension'],'一级市场投资分析') ) echo  'span_selected yiji_more_span_selected' ;</php>">信托</span> 
-					<span class="btn_pic btn_pic_span yiji_btn_pic <php>if( strpos($result['job_intension'],'其他投资机构') && strpos($result['job_intension'],'一级市场投资分析') ) echo  'span_selected yiji_more_span_selected' ;</php>">其他投资机构</span> 
+					<span class="btn_pic btn_pic_span yiji_btn_pic <php>if( strpos($result['job_intension'],'PE') ) echo  'span_selected yiji_more_span_selected' ;</php>">PE</span> 
+					<span class="btn_pic btn_pic_span yiji_btn_pic <php>if( strpos($result['job_intension'],'VC') ) echo  'span_selected yiji_more_span_selected' ;</php>">VC</span> 
+					<span class="btn_pic btn_pic_span yiji_btn_pic <php>if( strpos($result['job_intension'],'信托') ) echo  'span_selected yiji_more_span_selected' ;</php>">信托</span> 
+					<span class="btn_pic btn_pic_span yiji_btn_pic <php>if( strpos($result['job_intension'],'其他投资机构') ) echo  'span_selected yiji_more_span_selected' ;</php>">其他投资机构</span> 
 				</div>
 			 </div>
               
@@ -183,14 +182,14 @@
 						  <td><span class="btn_erji_span">按机构:</span></td>
 						  <td>
 							  <div  id="twoInvest" >
-								  <span class="btn_pic btn_pic_span erji_jg_btn_pic <php>if( strpos($result['job_intension'],'卖方研究') && strpos($result['job_intension'],'二级市场研究、交易、投资') ) echo  'span_selected erji_jg_span_selected' ;</php>">卖方研究</span> 
-								  <span class="btn_pic btn_pic_span erji_jg_btn_pic <php>if( strpos($result['job_intension'],'公募基金') && strpos($result['job_intension'],'二级市场研究、交易、投资') ) echo  'span_selected erji_jg_span_selected' ;</php>">公募基金</span> 
-								  <span class="btn_pic btn_pic_span erji_jg_btn_pic <php>if( strpos($result['job_intension'],'私募基金') && strpos($result['job_intension'],'二级市场研究、交易、投资') ) echo  'span_selected erji_jg_span_selected' ;</php>">私募基金</span> 
-								  <span class="btn_pic btn_pic_span erji_jg_btn_pic <php>if( strpos($result['job_intension'],'信托') && strpos($result['job_intension'],'二级市场研究、交易、投资') ) echo  'span_selected erji_jg_span_selected' ;</php>">信托</span> 
-								  <span class="btn_pic btn_pic_span erji_jg_btn_pic <php>if( strpos($result['job_intension'],'资管') && strpos($result['job_intension'],'二级市场研究、交易、投资') ) echo  'span_selected erji_jg_span_selected' ;</php>">资管</span> 
-								  <span class="btn_pic btn_pic_span erji_jg_btn_pic <php>if( strpos($result['job_intension'],'券商自营') && strpos($result['job_intension'],'二级市场研究、交易、投资') ) echo  'span_selected erji_jg_span_selected' ;</php>">券商自营</span> 
-								  <span class="btn_pic btn_pic_span erji_jg_btn_pic <php>if( strpos($result['job_intension'],'银行金融市场') && strpos($result['job_intension'],'二级市场研究、交易、投资') ) echo  'span_selected erji_jg_span_selected' ;</php>">银行金融市场</span> 
-								  <span class="btn_pic btn_pic_span erji_jg_btn_pic <php>if( strpos($result['job_intension'],'其他投资机构') && strpos($result['job_intension'],'二级市场研究、交易、投资') ) echo  'span_selected erji_jg_span_selected' ;</php>">其他投资机构</span>
+								  <span class="btn_pic btn_pic_span erji_jg_btn_pic <php>if( strpos($result['job_intension'],'卖方研究') ) echo  'span_selected erji_jg_span_selected' ;</php>">卖方研究</span> 
+								  <span class="btn_pic btn_pic_span erji_jg_btn_pic <php>if( strpos($result['job_intension'],'公募基金') ) echo  'span_selected erji_jg_span_selected' ;</php>">公募基金</span> 
+								  <span class="btn_pic btn_pic_span erji_jg_btn_pic <php>if( strpos($result['job_intension'],'私募基金') ) echo  'span_selected erji_jg_span_selected' ;</php>">私募基金</span> 
+								  <span class="btn_pic btn_pic_span erji_jg_btn_pic <php>if( strpos($result['job_intension'],'信托') ) echo  'span_selected erji_jg_span_selected' ;</php>">信托</span> 
+								  <span class="btn_pic btn_pic_span erji_jg_btn_pic <php>if( strpos($result['job_intension'],'资管') ) echo  'span_selected erji_jg_span_selected' ;</php>">资管</span> 
+								  <span class="btn_pic btn_pic_span erji_jg_btn_pic <php>if( strpos($result['job_intension'],'券商自营') ) echo  'span_selected erji_jg_span_selected' ;</php>">券商自营</span> 
+								  <span class="btn_pic btn_pic_span erji_jg_btn_pic <php>if( strpos($result['job_intension'],'银行金融市场') ) echo  'span_selected erji_jg_span_selected' ;</php>">银行金融市场</span> 
+								  <span class="btn_pic btn_pic_span erji_jg_btn_pic <php>if( strpos($result['job_intension'],'其他投资机构') ) echo  'span_selected erji_jg_span_selected' ;</php>">其他投资机构</span>
 							  </div>
 						  </td>
 					  </tr>
@@ -198,12 +197,12 @@
 						  <td><span class="btn_erji_span">按资产：</span></td>
 						  <td>
 							  <div>
-								  <span class="btn_pic btn_pic_span erji_zc_btn_pic <php>if( strpos($result['job_intension'],'股票') && strpos($result['job_intension'],'二级市场研究、交易、投资') ) echo  'span_selected erji_zc_span_selected' ;</php>">股票</span> 
-								  <span class="btn_pic btn_pic_span erji_zc_btn_pic <php>if( strpos($result['job_intension'],'债券') && strpos($result['job_intension'],'二级市场研究、交易、投资') ) echo  'span_selected erji_zc_span_selected' ;</php>">债券</span> 
-								  <span class="btn_pic btn_pic_span erji_zc_btn_pic <php>if( strpos($result['job_intension'],'期货') && strpos($result['job_intension'],'二级市场研究、交易、投资') ) echo  'span_selected erji_zc_span_selected' ;</php>">期货</span> 
-								  <span class="btn_pic btn_pic_span erji_zc_btn_pic <php>if( strpos($result['job_intension'],'外汇') && strpos($result['job_intension'],'二级市场研究、交易、投资') ) echo  'span_selected erji_zc_span_selected' ;</php>">外汇</span> 
-								  <span class="btn_pic btn_pic_span erji_zc_btn_pic <php>if( strpos($result['job_intension'],'量化') && strpos($result['job_intension'],'二级市场研究、交易、投资') ) echo  'span_selected erji_zc_span_selected' ;</php>">量化</span> 
-								  <span class="btn_pic btn_pic_span erji_zc_btn_pic <php>if( strpos($result['job_intension'],'其他金融资产') && strpos($result['job_intension'],'二级市场研究、交易、投资') ) echo  'span_selected erji_zc_span_selected' ;</php>">其他金融资产</span> 
+								  <span class="btn_pic btn_pic_span erji_zc_btn_pic <php>if( strpos($result['job_intension'],'股票') ) echo  'span_selected erji_zc_span_selected' ;</php>">股票</span> 
+								  <span class="btn_pic btn_pic_span erji_zc_btn_pic <php>if( strpos($result['job_intension'],'债券') ) echo  'span_selected erji_zc_span_selected' ;</php>">债券</span> 
+								  <span class="btn_pic btn_pic_span erji_zc_btn_pic <php>if( strpos($result['job_intension'],'期货') ) echo  'span_selected erji_zc_span_selected' ;</php>">期货</span> 
+								  <span class="btn_pic btn_pic_span erji_zc_btn_pic <php>if( strpos($result['job_intension'],'外汇') ) echo  'span_selected erji_zc_span_selected' ;</php>">外汇</span> 
+								  <span class="btn_pic btn_pic_span erji_zc_btn_pic <php>if( strpos($result['job_intension'],'量化') ) echo  'span_selected erji_zc_span_selected' ;</php>">量化</span> 
+								  <span class="btn_pic btn_pic_span erji_zc_btn_pic <php>if( strpos($result['job_intension'],'其他金融资产') ) echo  'span_selected erji_zc_span_selected' ;</php>">其他金融资产</span> 
 							  </div>
 						  <td>
 					   </tr>
@@ -213,8 +212,8 @@
                <div class="span_title quanshang_div" <php>if( !strpos($result['job_intension'],'券商销售') ) echo  'style="display:none"' ;</php>>
 					<span class="Tpispan_l" style="width:244px;"></span>券商销售<span class="Tpispan_r" style="width:244px;"></span>
 					<div id="sales"> 
-					  <span class="btn_pic btn_pic_span quanshang_btn_pic <php>if( strpos($result['job_intension'],'股票') && strpos($result['job_intension'],'券商销售') ) echo  'span_selected quanshang_more_span_selected' ;</php>">股票</span> 
-					  <span class="btn_pic btn_pic_span quanshang_btn_pic <php>if( strpos($result['job_intension'],'债券') && strpos($result['job_intension'],'券商销售') ) echo  'span_selected quanshang_more_span_selected' ;</php>">债券</span> 
+					  <span class="btn_pic btn_pic_span quanshang_btn_pic <php>if( strpos($result['job_intension'],'股票') ) echo  'span_selected quanshang_more_span_selected' ;</php>">股票</span> 
+					  <span class="btn_pic btn_pic_span quanshang_btn_pic <php>if( strpos($result['job_intension'],'债券') ) echo  'span_selected quanshang_more_span_selected' ;</php>">债券</span> 
 					</div>
 			   </div>
 			</td>
