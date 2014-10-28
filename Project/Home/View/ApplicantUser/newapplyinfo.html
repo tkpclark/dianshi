@@ -221,45 +221,7 @@
           <td><span class="Bpispan_l" ></span>教育背景<a name="EDU"></a><span class="Bpispan_r" ></span></td>
         </tr>
       </table>
-<script type="text/javascript" >
 
-$(document).ready(function(){        
- //temp = $(".SAward");
- $(".del_edu").on('click','a[name=edu_del]',function(){
-  $(this).parent().parent().remove();
-    })
- $(".edu_add").on('click',function(){
-   	var target = $(this);
-	var div = target.parent().parent().parent().next().find('.del_edu');
-	//var item = target.parent().parent().parent().parent().parent().find('.SAward').first();
-	var item ="<div class=\"SAward\"><input type=\"text\"  class=\"SAwardtext input620\" id=\"SAwardtext\" value=\"\" maxlength=\"60\" name=\"SAwardtext\" placeholder=\"例如：2011-2012全额奖学金\"/><span class=\"btn_pic_del\" style=\"float:right;\"><a class=\"edu_del\" name=\"edu_del\">删除</a></span></div></div>";
-	//item.clone(true).appendTo(div);
-	$(item).appendTo(div);
- })
- 
- var temp_exp = $(".Exper:first");
- $("a[name=exp_del]").on('click',function(){
-  $(this).parent().parent().remove();
-    })
- $(".exp_add").on('click',function(){
-	var target1 = $(this);
- 	var div1 = target1.parent().parent().parent().next().find('.del_exp');
-	var item = target1.parent().parent().parent().parent().parent().find('.Exper').first();
-    item.clone(true).appendTo(div1);
- }) 
- 
- var temp_addmoreedu = $(".eduEdit:first");
- $("a[name=del_this_edu]").live('click',function(){
-  $(this).parent().parent().parent().parent().parent().parent().remove();
-    })
- $(".moreedu_add").on('click',function(){
-	 
-  temp_addmoreedu.clone(true).appendTo($(".Edu_edit"));
- }) 
-})
-
-
-</script>
       <div id="Edu_info">
         <div id="Edu_edit" class="Edu_edit">
 			<empty name="Education">
