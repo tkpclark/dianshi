@@ -115,6 +115,7 @@ $('#regist_com_button').click(function() {
               <div class="uinArea" id="uinArea" >
                 <label class="input_tips" id="uin_tips"  for="u" ></label>
                 <div class="inputOuter">
+                  <input type="hidden" name="type" value="" /><span style=" display:none;color:#E00;">用户名不能为空</span>
                   <input type="text" class="inputstyle"  id="u" name="username" value="普通用户账户|邮箱"   tabindex="1"  onKeyDown="textdown(event)" onKeyUp="textup()" onfocus="if(value=='普通用户账户|邮箱'){value=''} this.style.color='#545454';" onblur="if (value ==''){value='普通用户账户|邮箱'}this.style.color='#a0a0a0';"/>
                   <span class="uin_icon"></span> <a class="uin_del" id="uin_del" href="javascript:void(0);"></a> </div>
                 <ul class="email_list" id="email_list" >

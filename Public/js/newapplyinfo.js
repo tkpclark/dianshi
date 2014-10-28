@@ -527,83 +527,88 @@ function () {
 $(this).removeClass("quanshang_span_selected");
  $('.quanshang_div').hide();});
 
-}); 
 
-
-
-/*$(document).ready(function(){        
- //temp = $(".SAward");
- $("a[name=edu_del]").on('click',function(){
+//教育信息增删
+//temp = $(".SAward");
+ $("#Edu_info").on('click','a[name=edu_del]',function(){
   $(this).parent().parent().remove();
     })
- $(".edu_add").on('click',function(){
+ $("#Edu_info").on('click','.edu_add',function(){
    	var target = $(this);
 	var div = target.parent().parent().parent().next().find('.del_edu');
-	var item = target.parent().parent().parent().parent().parent().find('.SAward').first();
-	item.clone(true).appendTo(div);
+	//var item = target.parent().parent().parent().parent().parent().find('.SAward').first();
+	var item1 ="<div class=\"SAward\"><input type=\"text\"  class=\"SAwardtext input620\" id=\"SAwardtext\" value=\"\" maxlength=\"60\" name=\"SAwardtext\" placeholder=\"例如：2011-2012全额奖学金\"/><span class=\"btn_pic_del\" style=\"float:right;\"><a class=\"edu_del\" name=\"edu_del\">删除</a></span></div>";
+	//item.clone(true).appendTo(div);
+	$(item1).appendTo(div);
+	
  })
  
- var temp_exp = $(".Exper:first");
- $("a[name=exp_del]").on('click',function(){
+  $("#Edu_info").on('click','a[name=exp_del]',function(){
   $(this).parent().parent().remove();
     })
- $(".exp_add").on('click',function(){
+ $("#Edu_info").on('click','.exp_add',function(){
 	var target1 = $(this);
  	var div1 = target1.parent().parent().parent().next().find('.del_exp');
-	var item = target1.parent().parent().parent().parent().parent().find('.Exper').first();
-    item.clone(true).appendTo(div1);
+	//var item = target1.parent().parent().parent().parent().parent().find('.Exper').first();
+	var item1 = "<div class=\"Exper\"><textarea rows=\"6\" class=\"weight620 otherAwardExp\"  name=\"EduDetail\" placeholder=\"例如：2011-2012学生会文艺部\"></textarea><span class=\"btn_pic_del\" style=\"float:right;\"><a class=\"exp_del\" name=\"exp_del\" >删除</a></span> </div>";
+	$(item1).appendTo(div1);
+    //item.clone(true).appendTo(div1);
  }) 
+
  
  var temp_addmoreedu = $(".eduEdit:first");
- $("a[name=del_this_edu]").live('click',function(){
+ $(".Edu_edit").on('click','a[name=del_this_edu]',function(){
   $(this).parent().parent().parent().parent().parent().parent().remove();
     })
- $(".moreedu_add").on('click',function(){
-	 
-  temp_addmoreedu.clone(true).appendTo($(".Edu_edit"));
+ $("#Edu_info").on('click','.moreedu_add',function(){
+	var item3 =  "<div class=\"eduEdit\" ><table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" class=\"weight780_mdf weight670\" style=\"float:left;\"><tr><td><span class=\"btn_all_del\"  ><a name=\"del_this_edu\" >删除这条教育背景</a></span></td></tr></table><table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" class=\"weight780_mdf weight670\" style=\"float:left;\"><tr><td class=\"col_name\">学&nbsp;&nbsp;&nbsp;&nbsp;校</td><td colspan=\"2\"><input class=\"School\" type=\"text\" id=\"School\" value=\"\" maxlength=\"60\" name=\"School\" placeholder=\"例如：上海财经大学\"/></td><td class=\"col_name\">院&nbsp;&nbsp;&nbsp;&nbsp;系</td><td colspan=\"2\"><input type=\"text\" class=\"College\" id=\"College\" value=\"\" maxlength=\"60\" name=\"College\" placeholder=\"例如：金融学院\"/></td></tr><tr><td class=\"col_name\">学&nbsp;&nbsp;&nbsp;&nbsp;历</td><td colspan=\"2\"><input type=\"text\"  class=\"Academic\" id=\"Academic\" value=\"\" maxlength=\"60\" name=\"Academic\" placeholder=\"例如：金融硕士\"/></td><td class=\"col_name\">在校时间</td><td colspan=\"2\"><input type=\"text\" class=\"SDuring\" id=\"SDuring\" value=\"\" maxlength=\"60\" name=\"SDuring\" placeholder=\"例如：2011.09-2013.06\"/></td></tr><tr><td colspan=\"9\" class=\"col_name\" style=\"text-align:left;\">所获学校奖励<span class=\"btn_pic_add\" style=\"float:right;\"><a class=\"edu_add\" >添加</a></span></td></tr><tr class=\"saw\"><td colspan=\"9\"><div  class=\"del_edu\"><div  class=\"SAward\"><input type=\"text\"  class=\"SAwardtext input620\" id=\"SAwardtext\" value=\"\" maxlength=\"60\" name=\"SAwardtext\" placeholder=\"例如：2011-2012全额奖学金\"/><span class=\"btn_pic_del\" style=\"float:right;\"><a class=\"edu_del\" name=\"edu_del\"  >删除</a></span></div></div></td></tr><tr><td colspan=\"9\" class=\"col_name\" style=\"text-align:left;\">其他在校经历<span class=\"btn_pic_add\" ><a class=\"exp_add\" >添加</a></span></td></tr><tr><td colspan=\"9\"><div class=\"del_exp\"><div class=\"Exper\"><textarea rows=\"6\" class=\"weight620 otherAwardExp\"  name=\"EduDetail\" placeholder=\"例如：2011-2012学生会文艺部\"></textarea><span class=\"btn_pic_del\" style=\"float:right;\"><a class=\"exp_del\" name=\"exp_del\" >删除</a></span></div></div></td></tr></table></div>";
+  $(item3).appendTo($(".Edu_edit"));
  }) 
-})*/
-
-
-$(document).ready(function(){        
-  $("a[name=work_del]").on('click',function(){
+ 
+ 
+/* 工作经历增删 */     
+  $(".Work_edit_add_del").on('click','a[name=work_del]',function(){
   $(this).parent().parent().remove();
     })
- $(".Work_add").on('click',function(){
+ $(".Work_edit_add_del").on('click','.Work_add',function(){
     var target2 = $(this);
 	var div2 = target2.parent().parent().parent().next().find('.del_work');
-	var item = target2.parent().parent().parent().parent().parent().find('.WorkExper').first();
-	item.clone(true).appendTo(div2);
+	//var item = target2.parent().parent().parent().parent().parent().find('.WorkExper').first();
+	var item1 = "<div class=\"WorkExper\"><textarea rows=\"3\" class=\"weight620 WorkDetail\" id=\"WorkDetail\"  name=\"WorkDetail\" placeholder=\"例如：负责XX项目...\"></textarea><span class=\"btn_pic_del\" ><a class=\"work_del\" name=\"work_del\" id=\"work_del\" >删除</a></span></div>";
+	$(item1).appendTo(div2);
    })
  
 
  var temp_addwork = $(".Work_add_1:first");
- $("a[name=btn_this_work]").on('click',function(){
+ $(".Work_edit_add_del").on('click','a[name=btn_this_work]',function(){
   $(this).parent().parent().parent().parent().parent().parent().remove();
     })
- $(".morework_add").on('click',function(){
-  temp_addwork.clone(true).appendTo($(".Work_edit"));
+ $(".Work_edit_add_del").on('click','.morework_add',function(){
+	 var item2 = "<div  class=\"Work_add_1\"><table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" class=\"weight780_mdf weight670\" style=\"float:left;\"><tr><td><span class=\"btn_all_del\"  ><a name=\"btn_this_work\" >删除这条工作经历</a></span></td></tr></table><table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" class=\"weight780_mdf weight670\" style=\"float:left;\"><tr><td class=\"col_name\">公&nbsp;&nbsp;&nbsp;&nbsp;司</td><td colspan=\"2\"><input type=\"text\"  class=\"CompanyNOw\" id=\"CompanyNOw\" value=\"\" maxlength=\"60\" name=\"CompanyNOw\" placeholder=\"例如：CICC\"/></td><td class=\"col_name\">部门职位</td><td colspan=\"2\"><input type=\"text\" class=\"DepartNow\" id=\"DepartNow\" value=\"\" maxlength=\"60\" name=\"DepartNow\" placeholder=\"例如：投资银行部经理\"/></td></tr><tr><td class=\"col_name\">薪&nbsp;&nbsp;&nbsp;&nbsp;酬</td><td colspan=\"2\"><select  name=\"NowPay\" class=\"NowPay\" id=\"NowPay\"><OPTION VALUE=1 Selected>5万以下</OPTION><OPTION VALUE=2>5～6万</OPTION><OPTION VALUE=3>5～8万</OPTION><OPTION VALUE=4>8～10万</OPTION><OPTION VALUE=5 >10～15万</OPTION><OPTION VALUE=6 >15～20万</OPTION><OPTION VALUE=7 >20～30万</OPTION><OPTION VALUE=8 >30～50万</OPTION></select></td><td class=\"col_name\">工作时间</td><td colspan=\"2\"><input type=\"text\" class=\"WorkTimeNow\" id=\"WorkTimeNow\" value=\"\" maxlength=\"60\" name=\"WorkTimeNow\" placeholder=\"例如：2013.01-至今\"/></td></tr><tr><td colspan=\"9\" class=\"col_name\" style=\"text-align:left;\"> 工作内容<span class=\"btn_pic_add\" style=\"float:right;margin-top:5px;\"><a class=\"Work_add\"  >添加</a></span></td></tr><tr><td colspan=\"9\"><div class=\"del_work\"><div class=\"WorkExper\"><textarea rows=\"3\" class=\"weight620 WorkDetail\" id=\"WorkDetail\"  name=\"WorkDetail\" placeholder=\"例如：负责XX项目...\"></textarea><span class=\"btn_pic_del\" ><a class=\"work_del\" name=\"work_del\" id=\"work_del\" >删除</a></span> </div></div></td></tr></table></div>";
+  $(item2).appendTo($(".Work_edit"));
  }) 
-})
 
-$(document).ready(function(){        
-  $("a[name=otherwork_del]").on('click',function(){
+
+/*其他工作和个人能力增删*/       
+  $(".OtherWork_add_1").on('click','a[name=otherwork_del]',function(){
   $(this).parent().parent().remove();
     })
- $(".OtherWork_add").on('click',function(){
+ $(".OtherWork_add_1").on('click','.OtherWork_add',function(){
 	var target3 = $(this);
 	var div3 = target3.parent().parent().parent().next().find('.del_otherwork');
-	var item = target3.parent().parent().parent().parent().parent().find('.OtherWorkExper').first();
-	item.clone(true).appendTo(div3);
+	//var item = target3.parent().parent().parent().parent().parent().find('.OtherWorkExper').first();
+	var item1 = "<div class=\"OtherWorkExper\"><textarea rows=\"3\" class=\"weight620 OtherWorkDetail\" id=\"OtherWorkDetail\"  name=\"OtherWorkDetail\" placeholder=\"例如：某NG3年以上工作经历...\"></textarea><span class=\"btn_pic_del\" ><a class=\"otherwork_del\" name=\"otherwork_del\">删除</a></span></div>";
+	$(item1).appendTo(div3);
    })
    
-$("a[name=otherability_del]").on('click',function(){
+$(".OtherWork_add_1").on('click','a[name=otherability_del]',function(){
   $(this).parent().parent().remove();
     })
- $(".OtherAbi_add").on('click',function(){
+ $(".OtherWork_add_1").on('click','.OtherAbi_add',function(){
 	var target4 = $(this);
 	var div4 = target4.parent().parent().parent().next().find('.del_otherability');
-	var item = target4.parent().parent().parent().parent().parent().find('.OtherAbility').first();
-	item.clone(true).appendTo(div4);
+	//var item = target4.parent().parent().parent().parent().parent().find('.OtherAbility').first();
+	var item2 = "<div class=\"OtherAbility\"><textarea rows=\"3\" class=\"weight620 PersonalAbi\" id=\"PersonalAbi\"  name=\"PersonalAbi\" placeholder=\"例如：精通红酒评鉴...\"></textarea><span class=\"btn_pic_del\" ><a class=\"otherability_del\" name=\"otherability_del\" >删除</a></span> </div>";
+	$(item2).appendTo(div4);
    })
-})
+});

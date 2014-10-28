@@ -225,14 +225,16 @@
 
 $(document).ready(function(){        
  //temp = $(".SAward");
- $("a[name=edu_del]").on('click',function(){
+ $(".del_edu").on('click','a[name=edu_del]',function(){
   $(this).parent().parent().remove();
     })
  $(".edu_add").on('click',function(){
    	var target = $(this);
 	var div = target.parent().parent().parent().next().find('.del_edu');
-	var item = target.parent().parent().parent().parent().parent().find('.SAward').first();
-	item.clone(true).appendTo(div);
+	//var item = target.parent().parent().parent().parent().parent().find('.SAward').first();
+	var item ="<div class=\"SAward\"><input type=\"text\"  class=\"SAwardtext input620\" id=\"SAwardtext\" value=\"\" maxlength=\"60\" name=\"SAwardtext\" placeholder=\"例如：2011-2012全额奖学金\"/><span class=\"btn_pic_del\" style=\"float:right;\"><a class=\"edu_del\" name=\"edu_del\">删除</a></span></div></div>";
+	//item.clone(true).appendTo(div);
+	$(item).appendTo(div);
  })
  
  var temp_exp = $(".Exper:first");
