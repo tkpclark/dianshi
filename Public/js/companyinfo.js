@@ -15,7 +15,7 @@ function submitCompanyInfo() {
 		 }); 
 	 }
 	var touzi_value_all = touzi_value + touzi_more_value;
-	
+	alert(touzi_value_all)
 	//提交一级
 	 var yiji_value= "";
 	 yiji_value= $('.yiji_span_selected').text();
@@ -81,7 +81,7 @@ function submitCompanyInfo() {
 	 var CompanyName_value = $("#CompanyName").val();
 	 var Offic_value = $("#Offic").val();
  	 var URL_value = $("#URL").val();
-	 var Field_value = $("#Field").val();
+	 //var Field_value = $("#Field").val();
 	 var PersonNum_value = $("#PersonNum").val();
 	 var Asset_value = $("#Asset").val();
 	 var CompanyIntro_value = $("#CompanyIntro").val();
@@ -94,7 +94,12 @@ function submitCompanyInfo() {
 	fd.append("CompanyName", CompanyName_value);
 	fd.append("Offic", Offic_value);
 	fd.append("URL", URL_value);
-	fd.append("Feild", Field_value);
+	//fd.append("Feild", Field_value);
+	fd.append("yx_touzi", yx_touzi);
+	fd.append("yx_yiji", yx_yiji);
+	fd.append("yx_erji_jg", yx_erji_jg);
+	fd.append("yx_erji_zc", yx_erji_zc);
+	fd.append("yx_quanshang", yx_quanshang);
 	fd.append("PersonNum", PersonNum_value);
 	fd.append("Asset", Asset_value);
 	fd.append("CompanyIntro", CompanyIntro_value);

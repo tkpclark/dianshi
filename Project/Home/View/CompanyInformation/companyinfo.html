@@ -1,5 +1,5 @@
 <include file='Public/header' />
-<js href='__PUBLIC__/js/jquery-1.26.js' />
+<js href='__PUBLIC__/js/jquery-1.8.2.js' />
 <js href='__PUBLIC__/js/jquery.drag.js' />
 <js href='__PUBLIC__/js/fn.js' />
 <js href='__PUBLIC__/js/all.js' />
@@ -48,69 +48,71 @@
               </td>
           </tr>
           
+
+
           <tr>
             <td colspan=""  class="col_name">领&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;域</td>
             <td colspan="5"><div id="Field" name="Field" style="display:block" >
-                <span class="btn_dir_span touzi_span">投资银行业务</span>
-                <span class="btn_dir_span yiji_span">一级市场投资分析</span>
-                <span class="btn_dir_span erji_span" style="line-height:20px;">二级市场研究、交易、投资</span>
-                <span class="btn_dir_span quanshang_span">券商销售</span>
+				<span class="btn_dir_span touzi_span <php>if( strpos($result['field'],'投资银行业务')!==false ) echo  'touzi_span_selected' ;</php>">投资银行业务</span>
+                <span class="btn_dir_span yiji_span <php>if( strpos($result['field'],'一级市场投资分析') ) echo  'yiji_span_selected' ;</php>">一级市场投资分析</span>
+                <span class="btn_dir_span erji_span <php>if( strpos($result['field'],'二级市场研究、交易、投资') ) echo  'erji_span_selected' ;</php>" style="line-height:20px;">二级市场研究、交易、投资</span>
+                <span class="btn_dir_span quanshang_span <php>if( strpos($result['field'],'券商销售') ) echo  'quanshang_span_selected' ;</php>">券商销售</span>
               </div></td>
           </tr>
           <tr>
             <td colspan="7" class="">
-            <div class="span_title touzi_div" style="display:none;"><span class="Tpispan_l" ></span>投资银行业务<span class="Tpispan_r" ></span>
+            <div class="span_title touzi_div" <php>if( strpos($result['field'],'投资银行业务')===false ) echo  'style="display:none"' ;</php>><span class="Tpispan_l" ></span>投资银行业务<span class="Tpispan_r" ></span>
             <div id="finServ" > 
-            <span class="btn_pic btn_pic_span touzi_btn_pic">股权</span> 
-            <span class="btn_pic btn_pic_span touzi_btn_pic">债券</span> 
-            <span class="btn_pic btn_pic_span touzi_btn_pic">并购</span> 
-            <span class="btn_pic btn_pic_span touzi_btn_pic">ECM</span> 
-            <span class="btn_pic btn_pic_span touzi_btn_pic">DCM</span> 
+			<span class="btn_pic btn_pic_span touzi_btn_pic <php>if( strpos($result['field'],'股权')) echo  'span_selected touzi_more_span_selected' ;</php>">股权</span> 
+			<span class="btn_pic btn_pic_span touzi_btn_pic <php>if( strpos($result['field'],'债券')) echo  'span_selected touzi_more_span_selected' ;</php>">债券</span> 
+			<span class="btn_pic btn_pic_span touzi_btn_pic <php>if( strpos($result['field'],'并购') ) echo  'span_selected touzi_more_span_selected' ;</php>">并购</span> 
+			<span class="btn_pic btn_pic_span touzi_btn_pic <php>if( strpos($result['field'],'ECM') ) echo  'span_selected touzi_more_span_selected' ;</php>">ECM</span> 
+			<span class="btn_pic btn_pic_span touzi_btn_pic <php>if( strpos($result['field'],'DCM') ) echo  'span_selected touzi_more_span_selected' ;</php>">DCM</span> 
             </div></div>
              
-             <div class="span_title yiji_div" style="display:none;"><span class="Tpispan_l" style="width:222px;"></span>一级市场投资分析<span class="Tpispan_r" style="width:217px;" ></span>
+             <div class="span_title yiji_div" <php>if( !strpos($result['field'],'一级市场投资分析') ) echo  'style="display:none"' ;</php>><span class="Tpispan_l" style="width:222px;"></span>一级市场投资分析<span class="Tpispan_r" style="width:217px;" ></span>
               <div  id="oneInvest"  >
-               <span class="btn_pic btn_pic_span yiji_btn_pic">PE</span> 
-               <span class="btn_pic btn_pic_span yiji_btn_pic">VC</span> 
-               <span class="btn_pic btn_pic_span yiji_btn_pic">信托</span> 
-               <span class="btn_pic btn_pic_span yiji_btn_pic">其他投资机构</span> 
+			   <span class="btn_pic btn_pic_span yiji_btn_pic <php>if( strpos($result['field'],'PE') ) echo  'span_selected yiji_more_span_selected' ;</php>">PE</span> 
+				<span class="btn_pic btn_pic_span yiji_btn_pic <php>if( strpos($result['field'],'VC') ) echo  'span_selected yiji_more_span_selected' ;</php>">VC</span> 
+				<span class="btn_pic btn_pic_span yiji_btn_pic <php>if( strpos($result['field'],'信托') ) echo  'span_selected yiji_more_span_selected' ;</php>">信托</span> 
+				<span class="btn_pic btn_pic_span yiji_btn_pic <php>if( strpos($result['field'],'其他投资机构') ) echo  'span_selected yiji_more_span_selected' ;</php>">其他投资机构</span> 
                </div></div>
               
-              <div class="span_title erji_div" style="display:none;"><span class="Tpispan_l" style="width:200px;"></span>二级市场研究、交易、投资<span class="Tpispan_r" style="width:185px;"></span>
+              <div class="span_title erji_div" <php>if( !strpos($result['field'],'二级市场研究、交易、投资') ) echo  'style="display:none"' ;</php>><span class="Tpispan_l" style="width:200px;"></span>二级市场研究、交易、投资<span class="Tpispan_r" style="width:185px;"></span>
                
               <table border="0" cellspacing="0" cellpadding="0">
               <tr>
               <td><span class="btn_erji_span">按机构:</span></td>
               <td><div  id="twoInvest" >
-              <span class="btn_pic btn_pic_span erji_jg_btn_pic">卖方研究</span> 
-              <span class="btn_pic btn_pic_span erji_jg_btn_pic">公募基金</span> 
-              <span class="btn_pic btn_pic_span erji_jg_btn_pic">私募基金</span> 
-              <span class="btn_pic btn_pic_span erji_jg_btn_pic">信托</span> 
-              <span class="btn_pic btn_pic_span erji_jg_btn_pic">资管</span> 
-              <span class="btn_pic btn_pic_span erji_jg_btn_pic">券商自营</span> 
-              <span class="btn_pic btn_pic_span erji_jg_btn_pic">银行金融市场</span> 
-              <span class="btn_pic btn_pic_span erji_jg_btn_pic">其他投资机构</span></div>
+			  <span class="btn_pic btn_pic_span erji_jg_btn_pic <php>if( strpos($result['field'],'卖方研究') ) echo  'span_selected erji_jg_span_selected' ;</php>">卖方研究</span> 
+				  <span class="btn_pic btn_pic_span erji_jg_btn_pic <php>if( strpos($result['field'],'公募基金') ) echo  'span_selected erji_jg_span_selected' ;</php>">公募基金</span> 
+				  <span class="btn_pic btn_pic_span erji_jg_btn_pic <php>if( strpos($result['field'],'私募基金') ) echo  'span_selected erji_jg_span_selected' ;</php>">私募基金</span> 
+				  <span class="btn_pic btn_pic_span erji_jg_btn_pic <php>if( strpos($result['field'],'信托') ) echo  'span_selected erji_jg_span_selected' ;</php>">信托</span> 
+				  <span class="btn_pic btn_pic_span erji_jg_btn_pic <php>if( strpos($result['field'],'资管') ) echo  'span_selected erji_jg_span_selected' ;</php>">资管</span> 
+				  <span class="btn_pic btn_pic_span erji_jg_btn_pic <php>if( strpos($result['field'],'券商自营') ) echo  'span_selected erji_jg_span_selected' ;</php>">券商自营</span> 
+				  <span class="btn_pic btn_pic_span erji_jg_btn_pic <php>if( strpos($result['field'],'银行金融市场') ) echo  'span_selected erji_jg_span_selected' ;</php>">银行金融市场</span> 
+				  <span class="btn_pic btn_pic_span erji_jg_btn_pic <php>if( strpos($result['field'],'其他投资机构') ) echo  'span_selected erji_jg_span_selected' ;</php>">其他投资机构</span>
               </td>
               </tr>
               <tr>
               <td><span class="btn_erji_span">按资产：</span></td>
               <td><div>
-              <span class="btn_pic btn_pic_span erji_zc_btn_pic">股票</span> 
-              <span class="btn_pic btn_pic_span erji_zc_btn_pic">债券</span> 
-              <span class="btn_pic btn_pic_span erji_zc_btn_pic">期货</span> 
-              <span class="btn_pic btn_pic_span erji_zc_btn_pic">外汇</span> 
-              <span class="btn_pic btn_pic_span erji_zc_btn_pic">量化</span> 
-              <span class="btn_pic btn_pic_span erji_zc_btn_pic">其他金融资产</span> 
+			  <span class="btn_pic btn_pic_span erji_zc_btn_pic <php>if( strpos($result['field'],'股票') ) echo  'span_selected erji_zc_span_selected' ;</php>">股票</span> 
+			  <span class="btn_pic btn_pic_span erji_zc_btn_pic <php>if( strpos($result['field'],'债券') ) echo  'span_selected erji_zc_span_selected' ;</php>">债券</span> 
+			  <span class="btn_pic btn_pic_span erji_zc_btn_pic <php>if( strpos($result['field'],'期货') ) echo  'span_selected erji_zc_span_selected' ;</php>">期货</span> 
+			  <span class="btn_pic btn_pic_span erji_zc_btn_pic <php>if( strpos($result['field'],'外汇') ) echo  'span_selected erji_zc_span_selected' ;</php>">外汇</span> 
+			  <span class="btn_pic btn_pic_span erji_zc_btn_pic <php>if( strpos($result['field'],'量化') ) echo  'span_selected erji_zc_span_selected' ;</php>">量化</span> 
+			  <span class="btn_pic btn_pic_span erji_zc_btn_pic <php>if( strpos($result['field'],'其他金融资产') ) echo  'span_selected erji_zc_span_selected' ;</php>">其他金融资产</span> 
               </div>
               <td>
                </tr>
                </table>
                </div>
               
-              <div class="span_title quanshang_div" style="display:none;"><span class="Tpispan_l" style="width:244px;"></span>券商销售<span class="Tpispan_r" style="width:244px;"></span>
+              <div class="span_title quanshang_div" <php>if( !strpos($result['field'],'券商销售') ) echo  'style="display:none"' ;</php>><span class="Tpispan_l" style="width:244px;"></span>券商销售<span class="Tpispan_r" style="width:244px;"></span>
               <div id="sales"> 
-              <span class="btn_pic btn_pic_span quanshang_btn_pic">股票</span> 
-              <span class="btn_pic btn_pic_span quanshang_btn_pic">债券</span> 
+			  <span class="btn_pic btn_pic_span quanshang_btn_pic <php>if( strpos($result['field'],'股票') ) echo  'span_selected quanshang_more_span_selected' ;</php>">股票</span> 
+				<span class="btn_pic btn_pic_span quanshang_btn_pic <php>if( strpos($result['field'],'债券') ) echo  'span_selected quanshang_more_span_selected' ;</php>">债券</span> 
               </div>
               </div>
               </td>

@@ -61,7 +61,14 @@ class CompanyInformationController extends Controller {
 			$data['name'] = I('param.CompanyName','');//公司名
 			$data['address'] = I('param.Offic','');//办公地址
 			$data['website'] = I('param.URL','');//网址
-			$data['field'] = I('param.Feild','');//领域
+		
+			$touzi = I('param.yx_touzi','');//求职方向 投资银行业务
+			$yiji = I('param.yx_yiji','');//求职方向 一级市场投资分析
+			$erji_jg = I('param.yx_erji_jg','');//求职方向 二级市场研究、交易、投资 按机构
+			$erji_zc = I('param.yx_erji_zc','');//求职方向 二级市场研究、交易、投资 按资产
+			$quanshang = I('param.yx_quanshang','');//券商销售
+			$data['field'] = $touzi.'+||+'.$yiji.'+||+'.$erji_jg.'|++|'.$erji_zc.'+||+'.$quanshang;//领域
+
 			$data['scale_people'] = I('param.PersonNum','');//公司规模人数
 			$data['scale_bankroll'] = I('param.Asset','');//公司规模资金
 			$data['introduction'] = I('param.CompanyIntro','');//公司介绍
