@@ -5,6 +5,7 @@
 <script type="text/javascript" src="/dscj/Public/js/fn.js"></script>
 <script type="text/javascript" src="/dscj/Public/js/all.js"></script>
 <script type="text/javascript" src="/dscj/Public/js/index.js"></script>
+<script type="text/javascript" src="/dscj/Public/js/validate.js"></script>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -117,7 +118,7 @@ $('#regist_com_button').click(function() {
                 <div class="inputOuter">
                   
                   <input type="text" class="inputstyle"  id="u" name="username" value="普通用户账户|邮箱"   tabindex="1"  onKeyDown="textdown(event)" onKeyUp="textup()" onfocus="if(value=='普通用户账户|邮箱'){value=''} this.style.color='#545454';" onblur="if (value ==''){value='普通用户账户|邮箱'}this.style.color='#a0a0a0';"/>
-                  <span style="color:#E00;">用户名不能为空</span>
+                  <span style="color:#E00; display:none;" class="name_null">用户名不能为空</span>
                   <span class="uin_icon"></span> <a class="uin_del" id="uin_del" href="javascript:void(0);"></a> </div>
                 <ul class="email_list" id="email_list" >
                 </ul>
