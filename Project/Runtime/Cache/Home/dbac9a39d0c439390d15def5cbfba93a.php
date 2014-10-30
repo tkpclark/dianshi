@@ -119,6 +119,7 @@ $('#regist_com_button').click(function() {
                   
                   <input type="text" class="inputstyle"  id="u" name="username" value="普通用户账户|邮箱"   tabindex="1"  onKeyDown="textdown(event)" onKeyUp="textup()" onfocus="if(value=='普通用户账户|邮箱'){value=''} this.style.color='#545454';" onblur="if (value ==''){value='普通用户账户|邮箱'}this.style.color='#a0a0a0';"/>
                   <span style="color:#E00; display:none;" class="name_null">用户名格式不正确</span>
+                  <span class="uin_icon"></span>
                  </div>
                 <ul class="email_list" id="email_list" >
                 </ul>
@@ -162,6 +163,7 @@ $('#regist_com_button').click(function() {
                 <div class="inputOuter">
                   <input type="text" class="inputstyle"  id="u" name="username" value="企业用户账户|邮箱"   tabindex="1"  onKeyDown="textdown(event)" onKeyUp="textup()" onfocus="if(value=='企业用户账户|邮箱'){value=''} this.style.color='#545454';" onblur="if (value ==''){value='企业用户账户|邮箱'}this.style.color='#a0a0a0';"/>
                   <span style="color:#E00; display:none;" class="name_null">用户名格式不正确</span>
+                  <span class="uin_icon"></span>
                   </div>
                 <ul class="email_list" id="email_list" >
                 </ul>

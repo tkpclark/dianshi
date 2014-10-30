@@ -1754,14 +1754,14 @@ body #header .m {
 .plogin .inputOuter_hover {
 	width:250px;
 	height:42px;
-	background:url(http://imgcache.qq.com/ptlogin/v4/style/20/images/c_icon_2_tiny.png) no-repeat 0 -627px;
-	_background:url(http://imgcache.qq.com/ptlogin/v4/style/20/images/c_icon_2.png) no-repeat 0 -627px
+	background:url(../images/c_icon_2_tiny.png) no-repeat 0 -627px;
+	_background:url(../images/c_icon_2.png) no-repeat 0 -627px
 }
 .plogin .inputOuter_focus {
 	width:250px;
 	height:42px;
-	background:url(http://imgcache.qq.com/ptlogin/v4/style/20/images/c_icon_2_tiny.png) no-repeat 0 -45px;
-	_background:url(http://imgcache.qq.com/ptlogin/v4/style/20/images/c_icon_2.png) no-repeat 0 -45px
+	background:url(../images/c_icon_2_tiny.png) no-repeat 0 -45px;
+	_background:url(../images/c_icon_2.png) no-repeat 0 -45px
 }
 .plogin .inputstyle {
 	width:240px;
@@ -1801,9 +1801,9 @@ body #header .m {
 .plogin .uin_icon {
 	position:absolute;
 	left:10px;
-	top:22px;
+	top:26px;
 	background:url(../images/c_icon_2_tiny.png) no-repeat -179px -160px;
-	_background:url(http://imgcache.qq.com/ptlogin/v4/style/20/images/c_icon_2.png) no-repeat -179px -160px;
+	_background:url(../images/c_icon_2.png) no-repeat -179px -160px;
 	width:16px;
 	height:18px
 }
@@ -1811,8 +1811,8 @@ body #header .m {
 	position:absolute;
 	left:10px;
 	top:12px;
-	background:url(http://imgcache.qq.com/ptlogin/v4/style/20/images/c_icon_2_tiny.png) no-repeat -201px -160px;
-	_background:url(http://imgcache.qq.com/ptlogin/v4/style/20/images/c_icon_2.png) no-repeat -201px -160px;
+	background:url(../images/c_icon_2_tiny.png) no-repeat -201px -160px;
+	_background:url(../images/c_icon_2.png) no-repeat -201px -160px;
 	width:16px;
 	height:18px
 }
@@ -1823,8 +1823,8 @@ body #header .m {
 	position:absolute;
 	right:20px;
 	top:10px;
-	background:url(http://imgcache.qq.com/ptlogin/v4/style/20/images/c_icon_2_tiny.png) no-repeat -116px -160px;
-	_background:url(http://imgcache.qq.com/ptlogin/v4/style/20/images/c_icon_2.png) no-repeat -116px -160px;
+	background:url(../images/c_icon_2_tiny.png) no-repeat -116px -160px;
+	_background:url(../images/c_icon_2.png) no-repeat -116px -160px;
 	display:none
 }
 .plogin .uin_del:hover {
@@ -1879,8 +1879,8 @@ body #header .m {
 	left:25px;
 	width:12px;
 	height:6px;
-	background:url(http://imgcache.qq.com/ptlogin/v4/style/20/images/c_icon_2_tiny.png) no-repeat -162px -168px;
-	_background:url(http://imgcache.qq.com/ptlogin/v4/style/20/images/c_icon_2.png) no-repeat -162px -168px
+	background:url(../images/c_icon_2_tiny.png) no-repeat -162px -168px;
+	_background:url(../images/c_icon_2.png) no-repeat -162px -168px
 }
 .plogin .verifyArea {
 	display:none;
