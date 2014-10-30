@@ -1792,6 +1792,7 @@ body #header .m {
 }
 .plogin .uinArea {
 	height:55px;
+	padding:15px 0;
 	position:relative;
 	z-index:10
 }
@@ -1800,7 +1801,7 @@ body #header .m {
 .plogin .uin_icon {
 	position:absolute;
 	left:10px;
-	top:12px;
+	top:22px;
 	background:url(http://imgcache.qq.com/ptlogin/v4/style/20/images/c_icon_2_tiny.png) no-repeat -179px -160px;
 	_background:url(http://imgcache.qq.com/ptlogin/v4/style/20/images/c_icon_2.png) no-repeat -179px -160px;
 	width:16px;
@@ -1857,6 +1858,7 @@ body #header .m {
 .plogin .pwdArea {
 	height:55px;
 	position:relative;
+	padding-bottom:14px;
 	z-index:3
 }
 .plogin .lock_tips {
@@ -1955,6 +1957,7 @@ body #header .m {
 }
 .other_login {
 	width:290px;
+	height:280px;
 	background-color: rgba(225,225,225,0.9);
 
 	margin-top: 20px;
