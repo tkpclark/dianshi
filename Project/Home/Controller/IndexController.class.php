@@ -76,5 +76,16 @@ class IndexController extends Controller {
 		}
 	
 	}
+	/*
+	*
+	*注销
+	*
+	*/
+	public function Logout(){
+		session(null);
+		$this->display('index');
+
+	
+	}
 	
 }
