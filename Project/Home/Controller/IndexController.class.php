@@ -32,11 +32,13 @@ class IndexController extends Controller {
 		}elseif($type==2){
 			$User = M('CompanyInformation');
 		}
+
 		if($type==1 || $type==2){
 			if($User->where("id=$id")->save($data)){
-				echo "成功";
+				$this->success('激活成功,请登陆', '/dianshi/index.php/Home/Index/Index');
+
 			}else{
-				echo "失败";
+				echo "激活失败或账号已激活";
 			}
 		}else{
 			echo '参数不正确';

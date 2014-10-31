@@ -1,3 +1,4 @@
+
 <css href="__PUBLIC__/css/core.css" />
 <css href="__PUBLIC__/css/style.css" />
 <js href='__PUBLIC__/js/jquery-1.8.2.js' />
@@ -5,6 +6,26 @@
 <js href='__PUBLIC__/js/fn.js' />
 <js href='__PUBLIC__/js/all.js' />
 <js href='__PUBLIC__/js/index.js' />
+<script>
+$(function(){
+$('#login_job_button').click(function() {
+	var path = "__ROOT__/index.php/Home/Index/Login";  
+	$('#jobform').attr("action", path)//.submit(); 
+})
+$('#login_com_button').click(function() {
+	var path = "__ROOT__/index.php/Home/Index/Login";  
+	$('#comform').attr("action", path)//.submit(); 
+})
+$('#regist_job_button').click(function() {
+	var path = "__ROOT__/index.php/Home/ApplicantUser/Registration";   
+	$('#jobform').attr("action", path)//.submit(); 
+})
+$('#regist_com_button').click(function() {
+	var path = "__ROOT__/index.php/Home/CompanyInformation/Registration";   
+	$('#comform').attr("action", path)//.submit(); 
+})
+});
+</script>
 <js href='__PUBLIC__/js/validate.js' />
 
 <include file='Public/header' />
@@ -19,26 +40,6 @@
     	//数组最后一个为样式中默认的　#indexpage
     	var homeimgbg=['/img/hbg2.jpg','/img/hbg3.jpg','/img/hbg1.jpg'];
     </script>-->
-<script>
-$(function(){
-$('#login_job_button').click(function() {
-	var path = "__ROOT__/index.php/Home/Index/Login";  
-	$('#jobform').attr("action", path).submit(); 
-})
-$('#login_com_button').click(function() {
-	var path = "__ROOT__/index.php/Home/Index/Login";  
-	$('#comform').attr("action", path).submit(); 
-})
-$('#regist_job_button').click(function() {
-	var path = "__ROOT__/index.php/Home/ApplicantUser/Registration";   
-	$('#jobform').attr("action", path).submit(); 
-})
-$('#regist_com_button').click(function() {
-	var path = "__ROOT__/index.php/Home/CompanyInformation/Registration";   
-	$('#comform').attr("action", path).submit(); 
-})
-});
-</script>
 
   <div class="banner_wrap">
     <div class="banner_bg"> <a href="#" style=" background:#fff url(__PUBLIC__/images/data/banner_1.jpg) no-repeat center 0; display:block;" class="img"></a> <a href="#" style=" background:#fff url(__PUBLIC__/images/data/banner_2.jpg) no-repeat center 0;" class="img"></a> <a href="#" style=" background:#fff url(__PUBLIC__/images/data/banner_1.jpg) no-repeat center 0;" class="img"></a> <a href="#" style=" background:#fff url(__PUBLIC__/images/data/banner_2.jpg) no-repeat center 0;" class="img"></a> </div>
