@@ -66,7 +66,9 @@
               </ul>
             </div>
           </li>
+		  <?php if(!empty($_SESSION['id'])): ?><li> <a href="/dscj/index.php/Home/Index/Logout" class="menu_item">注销</a></li><?php endif; ?>
         </ul>
+		
       </div>
     </div>
   </div>
@@ -159,19 +161,19 @@ $('#regist_com_button').click(function() {
 			<input type='hidden' name='type' value='2'>
             <div class="login_form">
               <div class="uinArea" id="uinArea" >
-                <label class="input_tips" id="uin_tips"  for="u"></label>
+                <label class="input_tips" id="uin_tips"  for="cu"></label>
                 <div class="inputOuter">
-                  <input type="text" class="inputstyle"  id="u" name="username" value="企业用户账户|邮箱"   tabindex="1"  onKeyDown="textdown(event)" onKeyUp="textup()" onfocus="if(value=='企业用户账户|邮箱'){value=''} this.style.color='#545454';" onblur="if (value ==''){value='企业用户账户|邮箱'}this.style.color='#a0a0a0';"/>
-                  <span style="color:#E00; display:none;" class="name_null">用户名格式不正确</span>
+                  <input type="text" class="inputstyle"  id="cu" name="username" value="企业用户账户|邮箱"   tabindex="1"  onKeyDown="textdown(event)" onKeyUp="textup()" onfocus="if(value=='企业用户账户|邮箱'){value=''} this.style.color='#545454';" onblur="if (value ==''){value='企业用户账户|邮箱'}this.style.color='#a0a0a0';"/>
+                  <span style="color:#E00; display:none;" class="cname_null">用户名格式不正确</span>
                   <span class="uin_icon"></span>
                   </div>
                 <ul class="email_list" id="email_list" >
                 </ul>
               </div>
               <div class="pwdArea" id="pwdArea" >
-                <label class="input_tips" id="pwd_tips"  for="p"></label>
+                <label class="input_tips" id="pwd_tips"  for="cp"></label>
                 <div class="inputOuter">
-                  <input type="password"  class="inputstyle password" id="p" name="password" value="" maxlength="16" tabindex="2"   placeholder="密码"/>                <span style="color:#E00; display:none;" class="pass_null">密码不能为空</span>
+                  <input type="password"  class="inputstyle password" id="cp" name="password" value="" maxlength="16" tabindex="2"   placeholder="密码"/>                <span style="color:#E00; display:none;" class="cpass_null">密码不能为空</span>
                   <span class="p_icon"></span> </div>
                 <div class="lock_tips" id="caps_lock_tips"> <span class="lock_tips_row"></span> <span >大写锁定已打开</span> </div>
               </div>

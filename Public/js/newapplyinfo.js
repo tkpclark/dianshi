@@ -497,32 +497,37 @@ $(this).removeClass("quanshang_more_span_selected"); });
 
 $("span.touzi_span").toggle(
 function () { 
+if($(this).hasClass("touzi_span_selected")){$(this).removeClass("touzi_span_selected");$('.touzi_div').hide();}else{
 $(this).addClass("touzi_span_selected");
-$('.touzi_div').show(); }, 
+$('.touzi_div').show(); }}, 
 function () { 
+
 $(this).removeClass("touzi_span_selected");
  $('.touzi_div').hide();});
  
  $("span.yiji_span").toggle(
 function () { 
+if($(this).hasClass("yiji_span_selected")){$(this).removeClass("yiji_span_selected");$('.yiji_div').hide();}else{
 $(this).addClass("yiji_span_selected");
-$('.yiji_div').show(); }, 
+$('.yiji_div').show();} }, 
 function () { 
 $(this).removeClass("yiji_span_selected");
  $('.yiji_div').hide();});
  
  $("span.erji_span").toggle(
 function () { 
+if($(this).hasClass("erji_span_selected")){$(this).removeClass("erji_span_selected");$('.erji_div').hide();}else{
 $(this).addClass("erji_span_selected");
-$('.erji_div').show(); }, 
+$('.erji_div').show();} }, 
 function () { 
 $(this).removeClass("erji_span_selected");
  $('.erji_div').hide();});
  
  $("span.quanshang_span").toggle(
 function () { 
+if($(this).hasClass("quanshang_span_selected")){$(this).removeClass("quanshang_span_selected");$('.quanshang_div').hide();}else{
 $(this).addClass("quanshang_span_selected");
-$('.quanshang_div').show(); }, 
+$('.quanshang_div').show(); }}, 
 function () { 
 $(this).removeClass("quanshang_span_selected");
  $('.quanshang_div').hide();});
