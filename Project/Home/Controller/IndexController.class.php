@@ -13,10 +13,22 @@ class IndexController extends Controller {
 	*发送邮件
 	*
 	*/
-	public function SendMail(){
+	public function SendMails(){
+		header("Content-type:text/html;charset=utf-8");
+		$username = I('param.username','');
 		$id = I('param.id','');
-		$url = '你好, <b>朋友</b>! <br/>这是一封来自<a href="http://'.$_SERVER['HTTP_HOST'].'/dianshi/index.php/a/'.$id.'" target="_blank">xxx网</a>的激活邮件！<br/>';
-		SendMail("$data[username]","邮件标题","$url");
+		$type = I('param.type','');
+		if($type==1){
+			$url = '你好, <b>朋友</b>! <br/>这是一封来自<a href="http://'.$_SERVER['HTTP_HOST'].'/dianshi/index.php/a/'.$id.'/1" target="_blank">xxx网</a>的激活邮件！<br/>';
+		}elseif($type==2){
+			$url = '你好, <b>朋友</b>! <br/>这是一封来自<a href="http://'.$_SERVER['HTTP_HOST'].'/dianshi/index.php/c/'.$id.'/2" target="_blank">xxx网</a>的激活邮件！<br/>';
+		}
+		if(SendMail("$username","邮件标题","$url")){
+			echo '注册成功,请到邮箱激活';	
+		}else{
+			echo '邮件发送失败，请<a href="http://'.$_SERVER['HTTP_HOST'].'/dianshi/index.php/Home/Index/SendMails/username/'.$data['username'].'/id/'.$id.'/type/'.$type.'" target="_blank">点击</a>重新获取邮件';
+		
+		}
 	}
 	/*
 	*
@@ -32,11 +44,13 @@ class IndexController extends Controller {
 		}elseif($type==2){
 			$User = M('CompanyInformation');
 		}
+
 		if($type==1 || $type==2){
 			if($User->where("id=$id")->save($data)){
-				echo "成功";
+				$this->success('激活成功,请登陆', '/dianshi/index.php/Home/Index/Index');
+
 			}else{
-				echo "失败";
+				echo "激活失败或账号已激活";
 			}
 		}else{
 			echo '参数不正确';
