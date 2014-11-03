@@ -1,10 +1,31 @@
-<?php if (!defined('THINK_PATH')) exit();?><link rel="stylesheet" type="text/css" href="/dscj/Public/css/core.css" />
+<?php if (!defined('THINK_PATH')) exit();?>
+<link rel="stylesheet" type="text/css" href="/dscj/Public/css/core.css" />
 <link rel="stylesheet" type="text/css" href="/dscj/Public/css/style.css" />
 <script type="text/javascript" src="/dscj/Public/js/jquery-1.8.2.js"></script>
 <script type="text/javascript" src="/dscj/Public/js/jquery.drag.js"></script>
 <script type="text/javascript" src="/dscj/Public/js/fn.js"></script>
 <script type="text/javascript" src="/dscj/Public/js/all.js"></script>
 <script type="text/javascript" src="/dscj/Public/js/index.js"></script>
+<script>
+$(function(){
+$('#login_job_button').click(function() {
+	var path = "/dscj/index.php/Home/Index/Login";  
+	$('#jobform').attr("action", path)//.submit(); 
+})
+$('#login_com_button').click(function() {
+	var path = "/dscj/index.php/Home/Index/Login";  
+	$('#comform').attr("action", path)//.submit(); 
+})
+$('#regist_job_button').click(function() {
+	var path = "/dscj/index.php/Home/ApplicantUser/Registration";   
+	$('#jobform').attr("action", path)//.submit(); 
+})
+$('#regist_com_button').click(function() {
+	var path = "/dscj/index.php/Home/CompanyInformation/Registration";   
+	$('#comform').attr("action", path)//.submit(); 
+})
+});
+</script>
 <script type="text/javascript" src="/dscj/Public/js/validate.js"></script>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -83,26 +104,6 @@
     	//数组最后一个为样式中默认的　#indexpage
     	var homeimgbg=['/img/hbg2.jpg','/img/hbg3.jpg','/img/hbg1.jpg'];
     </script>-->
-<script>
-$(function(){
-$('#login_job_button').click(function() {
-	var path = "/dscj/index.php/Home/Index/Login";  
-	$('#jobform').attr("action", path).submit(); 
-})
-$('#login_com_button').click(function() {
-	var path = "/dscj/index.php/Home/Index/Login";  
-	$('#comform').attr("action", path).submit(); 
-})
-$('#regist_job_button').click(function() {
-	var path = "/dscj/index.php/Home/ApplicantUser/Registration";   
-	$('#jobform').attr("action", path).submit(); 
-})
-$('#regist_com_button').click(function() {
-	var path = "/dscj/index.php/Home/CompanyInformation/Registration";   
-	$('#comform').attr("action", path).submit(); 
-})
-});
-</script>
 
   <div class="banner_wrap">
     <div class="banner_bg"> <a href="#" style=" background:#fff url(/dscj/Public/images/data/banner_1.jpg) no-repeat center 0; display:block;" class="img"></a> <a href="#" style=" background:#fff url(/dscj/Public/images/data/banner_2.jpg) no-repeat center 0;" class="img"></a> <a href="#" style=" background:#fff url(/dscj/Public/images/data/banner_1.jpg) no-repeat center 0;" class="img"></a> <a href="#" style=" background:#fff url(/dscj/Public/images/data/banner_2.jpg) no-repeat center 0;" class="img"></a> </div>

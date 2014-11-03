@@ -501,9 +501,9 @@ if($(this).hasClass("touzi_span_selected")){$(this).removeClass("touzi_span_sele
 $(this).addClass("touzi_span_selected");
 $('.touzi_div').show(); }}, 
 function () { 
-
+if(!$(this).hasClass("touzi_span_selected")){$(this).addClass("touzi_span_selected");$('.touzi_div').show();}else{
 $(this).removeClass("touzi_span_selected");
- $('.touzi_div').hide();});
+ $('.touzi_div').hide();}});
  
  $("span.yiji_span").toggle(
 function () { 
@@ -511,8 +511,9 @@ if($(this).hasClass("yiji_span_selected")){$(this).removeClass("yiji_span_select
 $(this).addClass("yiji_span_selected");
 $('.yiji_div').show();} }, 
 function () { 
+if(!$(this).hasClass("yiji_span_selected")){$(this).addClass("yiji_span_selected");$('.yiji_div').show();}else{
 $(this).removeClass("yiji_span_selected");
- $('.yiji_div').hide();});
+ $('.yiji_div').hide();}});
  
  $("span.erji_span").toggle(
 function () { 
@@ -520,8 +521,9 @@ if($(this).hasClass("erji_span_selected")){$(this).removeClass("erji_span_select
 $(this).addClass("erji_span_selected");
 $('.erji_div').show();} }, 
 function () { 
+if(!$(this).hasClass("erji_span_selected")){$(this).addClass("erji_span_selected");$('.erji_div').show();}else{
 $(this).removeClass("erji_span_selected");
- $('.erji_div').hide();});
+ $('.erji_div').hide();}});
  
  $("span.quanshang_span").toggle(
 function () { 
@@ -529,8 +531,9 @@ if($(this).hasClass("quanshang_span_selected")){$(this).removeClass("quanshang_s
 $(this).addClass("quanshang_span_selected");
 $('.quanshang_div').show(); }}, 
 function () { 
+if(!$(this).hasClass("quanshang_span_selected")){$(this).addClass("quanshang_span_selected");$('.quanshang_div').show();}else{
 $(this).removeClass("quanshang_span_selected");
- $('.quanshang_div').hide();});
+ $('.quanshang_div').hide();}});
 
 
 //教育信息增删
