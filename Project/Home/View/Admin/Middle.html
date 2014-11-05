@@ -1,0 +1,39 @@
+<js href='__PUBLIC__/js/jquery-1.8.2.js' />
+<script type="text/javascript">
+function submitCompanyInfo(){
+	//alert(self.parent.frames.ComList.qqq.innerText);
+	var com = window.parent.ComList.checkAll_com();
+	var user = window.parent.UserList.checkAll_user();
+	if(com == "" || com == null){
+		alert("请选择职位");
+		return false;
+	}
+	if(user == "" || user == null){
+		alert("请选择简历");
+		return false;
+	}
+	$.ajax({
+		  cache:"False",
+		   type:"post",
+		   url:"__URL__/Distribution/",
+		   data:{ 
+			   com:com,
+			   user:user
+			   },
+		   success : function(msg) {
+			   if (msg == "OK") {
+					alert("分配成功！");
+				   
+				}else{
+					alert("分配失败！");
+				}
+					
+			}
+	 
+	 })
+	
+}
+</script>
+<DIV align='center' style='background-color:#F1F8B4' onclick="submitCompanyInfo();">
+分&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp配
+<DIV>

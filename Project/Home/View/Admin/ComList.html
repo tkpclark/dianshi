@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh" lang="zh" dir="ltr">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Editplus4PHP" />
+    <meta name="keywords" content="Leo, HentStudio, Editplus4PHP, LeoPHP" />
+    <meta name="description" content="LeoPHP - Powered by HentStduio" />
+    <meta name="author" content="Leo" />
+    <link href='__PUBLIC__/css/admin.css' rel='stylesheet' type='text/css'>
+    <title>用户查询</title>
+</head>
+<style type="text/css"> 
+	#div1 { 
+      border:1px solid grey; 
+	  overflow:auto; 
+	  text-align:left; 
+	  background-color:#F1F8B4;   
+	  padding:6px;   
+	  position:absolute;  
+	  z-index:99; 
+	  display:none; /*使div初始化时隐藏*/ 
+   } 
+</style>
+<js href='__PUBLIC__/js/jquery-1.8.2.js' />
+<script type="text/javascript">
+<!--
+	function judge(checkid,name){
+    if(checkid.checked){
+        getAll(name);
+    }else{
+        getAllNo(name);
+    } 
+    }
+	function getAll(name){
+        var e=document.getElementsByName(name);
+       for(var i=0;i<e.length;i++)
+       {
+        e[i].checked=true;
+       }
+    }
+    function getAllNo(name){
+      var e=document.getElementsByName(name);
+      for(var i=0;i<e.length;i++)
+      {
+        e[i].checked=false;
+      }
+    }
+	function checkAll_com(){
+        var delarr = "";
+        var channelList=document.getElementsByName("part");
+        for(var i=0;i<channelList.length;i++){
+            if(channelList[i].checked){
+                delarr = delarr+channelList[i].value+',';
+            }
+        }
+        
+		return delarr;
+    }
+
+
+
+    function choiceAll() {    
+        var aa = document.getElementsByName("check[]");
+        for(var i=0;i<aa.length;i++)
+        {
+            aa[i].checked = true;
+        }        
+    }
+    function choiceNo() {    
+        var aa = document.getElementsByName("check[]");
+        for(var i=0;i<aa.length;i++)
+        {
+            aa[i].checked = false;
+        }
+        
+    }
+    function ischecked() {
+        var aa = document.getElementsByName("check[]");
+        for(var i=0;i<aa.length;i++)
+        {
+           if(aa[i].checked == true)
+           {
+               return true;
+           }
+        }
+        return false;
+    }
+
+
+	//点击checkbox事件  
+ function c(){  
+	var strList="";  
+	$('input[type="checkbox"][name="likes"]:checked').each(function(){ 
+		if(strList==""){ 
+			strList = strList+$(this).val();    
+		}else{ 
+			strList = strList+","+$(this).val();    
+		}   
+	}); 
+
+	$('#input1').val(strList);  
+  } 
+
+  function f(){ 
+	 
+	$('#input1').click(function(){ 
+		var input = $('#input1');       
+		var offset = input.offset(); 
+		$('#div1').css('left',offset.left + 'px').css('top',offset.top + input.height() + 4 + 'px').css('width',input.width() - 10 +'px').fadeIn();   
+	});  
+  } 
+
+	function l(){ 
+		//当鼠标离开td1时，div1隐藏  
+		$('#div1').hide("slow");  
+	}
+//-->
+</script>
+
+<body background='__PUBLIC__/img/allbg.gif' leftmargin='8' topmargin='8'>
+<form name='form' action='__URL__/ComListPro' method='post'>
+<table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#D1DDAA">
+<tr height="22">
+    <td colspan="8">
+    		<b>职位筛选</b>
+    </td>
+  </tr>
+  <tr bgcolor="#F9FCEF">
+		<td>
+    	  公司名：
+          <input type='text' name='name' style='width:120px' value='<{$name}>' />
+		</td>
+	   <td  width=25%>
+    	  工作地点：
+          <select name='work_addre' style='width:110px'">  
+			<option value="" >全部</option>
+			<option value="北京" <if condition='$work_addre eq 北京'> selected</if> >北京</option>
+			<option value="天津" <if condition='$work_addre eq 天津'> selected</if> >天津</option>
+			<option value="上海" <if condition='$work_addre eq 上海'> selected</if> >上海</option>
+			<option value="重庆" <if condition='$work_addre eq 重庆'> selected</if> >重庆</option>
+			<option value="河北" <if condition='$work_addre eq 河北'> selected</if> >河北</option>
+			<option value="河南" <if condition='$work_addre eq 河南'> selected</if> >河南</option>
+			<option value="云南" <if condition='$work_addre eq 云南'> selected</if> >云南</option>
+			<option value="辽宁" <if condition='$work_addre eq 辽宁'> selected</if> >辽宁</option>
+			<option value="黑龙江" <if condition='$work_addre eq 黑龙江'> selected</if> >黑龙江</option>
+			<option value="湖南" <if condition='$work_addre eq 湖南'> selected</if> >湖南</option>
+			<option value="安徽" <if condition='$work_addre eq 安徽'> selected</if> >安徽</option>
+			<option value="山东" <if condition='$work_addre eq 山东'> selected</if> >山东</option>
+			<option value="新疆" <if condition='$work_addre eq 新疆'> selected</if> >新疆</option>
+			<option value="江苏" <if condition='$work_addre eq 江苏'> selected</if> >江苏</option>
+			<option value="浙江" <if condition='$work_addre eq 浙江'> selected</if> >浙江</option>
+			<option value="江西" <if condition='$work_addre eq 江西'> selected</if> >江西</option>
+			<option value="湖北" <if condition='$work_addre eq 湖北'> selected</if> >湖北</option>
+			<option value="广西" <if condition='$work_addre eq 广西'> selected</if> >广西</option>
+			<option value="甘肃" <if condition='$work_addre eq 甘肃'> selected</if> >甘肃</option>
+			<option value="山西" <if condition='$work_addre eq 山西'> selected</if> >山西</option>
+			<option value="内蒙" <if condition='$work_addre eq 内蒙'> selected</if> >内蒙</option>
+			<option value="陕西" <if condition='$work_addre eq 陕西'> selected</if> >陕西</option>
+			<option value="福建" <if condition='$work_addre eq 福建'> selected</if> >福建</option>
+			<option value="贵州" <if condition='$work_addre eq 贵州'> selected</if> >贵州</option>
+			<option value="广东" <if condition='$work_addre eq 广东'> selected</if> >广东</option>
+			<option value="青海" <if condition='$work_addre eq 青海'> selected</if> >青海</option>
+			<option value="西藏" <if condition='$work_addre eq 西藏'> selected</if> >西藏</option>
+			<option value="四川" <if condition='$work_addre eq 四川'> selected</if> >四川</option>
+			<option value="宁夏" <if condition='$work_addre eq 宁夏'> selected</if> >宁夏</option>
+			<option value="海南" <if condition='$work_addre eq 海南'> selected</if> >海南</option>
+
+          </select>
+		</td>
+		<td  width=25% id="td1" onmouseleave="l()">
+    	  领域：
+          <input id="input1" name="field" readonly="readonly" onfocus="f()" value='<{$field}>'> 
+			<div id="div1"> 
+			 <input type="checkbox" name="likes" value="股权" onclick="c()" <assign name="gq" value="股权" /><in name='gq' value="$field">checked</in>>股权<br> 
+			 <input type="checkbox" name="likes" value="债券" onclick="c()" <assign name="zq" value="债券" /><in name='zq' value="$field">checked</in>>债券<br> 
+			 <input type="checkbox" name="likes" value="并购" onclick="c()" <assign name="bg" value="并购" /><in name='bg' value="$field">checked</in>>并购<br> 
+			 <input type="checkbox" name="likes" value="ECM" onclick="c()" <assign name="ecm" value="ECM" /><in name='ecm' value="$field">checked</in>>ECM<br> 
+			 <input type="checkbox" name="likes" value="DCM" onclick="c()" <assign name="dcm" value="DCM" /><in name='dcm' value="$field">checked</in>>DCM<br> 
+			 <input type="checkbox" name="likes" value="PE" onclick="c()" <assign name="pe" value="PE" /><in name='pe' value="$field">checked</in>>PE<br> 
+			 <input type="checkbox" name="likes" value="VC" onclick="c()" <assign name="vc" value="VC" /><in name='vc' value="$field">checked</in>>VC<br>
+			 <input type="checkbox" name="likes" value="信托" onclick="c()" <assign name="xt" value="信托" /><in name='xt' value="$field">checked</in>>信托<br>
+			 <input type="checkbox" name="likes" value="其他投资机构" onclick="c()" <assign name="qtjg" value="其他投资机构" /><in name='qtjg' value="$field">checked</in>>其他投资机构<br>
+			 <input type="checkbox" name="likes" value="卖方研究" onclick="c()" <assign name="mfyj" value="卖方研究" /><in name='mfyj' value="$field">checked</in>>卖方研究<br>
+			 <input type="checkbox" name="likes" value="公募基金" onclick="c()" <assign name="gmjj" value="公募基金" /><in name='gmjj' value="$field">checked</in>>公募基金<br>
+			 <input type="checkbox" name="likes" value="私募基金" onclick="c()" <assign name="smjj" value="私募基金" /><in name='smjj' value="$field">checked</in>>私募基金<br>
+			 <input type="checkbox" name="likes" value="信托" onclick="c()" <assign name="xt" value="信托" /><in name='xt' value="$field">checked</in>>信托<br>
+			 <input type="checkbox" name="likes" value="资管" onclick="c()" <assign name="zg" value="资管" /><in name='zg' value="$field">checked</in>>资管<br>
+			 <input type="checkbox" name="likes" value="券商自营" onclick="c()" <assign name="qszy" value="券商自营" /><in name='qszy' value="$field">checked</in>>券商自营<br>
+			 <input type="checkbox" name="likes" value="银行金融市场" onclick="c()" <assign name="yhjrsc" value="银行金融市场" /><in name='yhjrsc' value="$field">checked</in>>银行金融市场<br>
+			 <input type="checkbox" name="likes" value="其他投资机构" onclick="c()" <assign name="qttzjg" value="其他投资机构" /><in name='qttzjg' value="$field">checked</in>>其他投资机构<br>
+			 <input type="checkbox" name="likes" value="股票" onclick="c()" <assign name="gp" value="股票" /><in name='gp' value="$field">checked</in>>股票<br>
+			 <input type="checkbox" name="likes" value="期货" onclick="c()" <assign name="qh" value="期货" /><in name='qh' value="$field">checked</in>>期货<br>
+			 <input type="checkbox" name="likes" value="外汇" onclick="c()" <assign name="wh" value="外汇" /><in name='wh' value="$field">checked</in>>外汇<br>
+			 <input type="checkbox" name="likes" value="量化" onclick="c()" <assign name="lh" value="量化" /><in name='lh' value="$field">checked</in>>量化<br>
+			</div>
+		</td>
+		<td>
+    	  职位：
+          <input type='text' name='position' style='width:120px' value='<{$position}>' />
+		</td>
+		
+       <td>
+    	  <input type="submit" name="submit" value="搜索" />
+		</td>
+  </tr>
+
+</table>
+
+</form> 
+
+<form action="__URL__/del" method="post" id="vform">
+<table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#D1DDAA">
+<tr bgcolor="#F9FCEF">
+<td width=""><strong><input type="checkbox" id="all" onclick="judge(this,'part')"/>全选</strong></td>
+<th width=""><strong>公司名称</strong></th>
+<th width=""><strong>部门</strong></th>
+<th width=""><strong>职位</strong></th>
+<th width=""><strong>工作地点</strong></th>
+<th width=""><strong>领域</strong></th>
+<th width=""><strong>薪酬</strong></th>
+<th width=""><strong>工作方向</strong></th>
+<th width=""><strong>职位描述</strong></th>
+<th width=""><strong>职位要求</strong></th>
+<th width=""><strong>联系人</strong></th>
+<th width=""><strong>联系方式</strong></th>
+<th width=""><strong>预计招聘人数</strong></th>
+<th width=""><strong>接受简历数量</strong></th>
+
+
+</tr>
+<volist name="result" id="r">
+<tr bgcolor="#F9FCEF">
+	<td><input type="checkbox" id="<{$r.id}>" name="part" value="<{$r.id}>"/></td>
+	<td><{$r.name}></td>
+   <td><{$r.department}></td>
+   <td><{$r.position}></td>
+   <td><{$r.work_addre}></td>
+   <td><{$r.field}></td>
+   <td><{$r.pay}></td>
+   <td><{$r.work_direction}></td>
+   <td><{$r.description}></td>
+   <td><{$r.requirement}></td>
+   <td><{$r.contact}></td>
+   <td><{$r.contact_information}></td>
+   <td><{$r.number}></td>
+   <td><{$r.accept_number}></td>
+</tr>
+</volist>
+
+</table>
+
+</form>
+</body>
+</html>

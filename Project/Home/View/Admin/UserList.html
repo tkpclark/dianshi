@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh" lang="zh" dir="ltr">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Editplus4PHP" />
+    <meta name="keywords" content="Leo, HentStudio, Editplus4PHP, LeoPHP" />
+    <meta name="description" content="LeoPHP - Powered by HentStduio" />
+    <meta name="author" content="Leo" />
+    <link href='__PUBLIC__/css/admin.css' rel='stylesheet' type='text/css'>
+    <title>用户查询</title>
+</head>
+<script type="text/javascript">
+<!--
+	function judge(checkid,name){
+    if(checkid.checked){
+        getAll(name);
+    }else{
+        getAllNo(name);
+    } 
+    }
+	function getAll(name){
+        var e=document.getElementsByName(name);
+       for(var i=0;i<e.length;i++)
+       {
+        e[i].checked=true;
+       }
+    }
+    function getAllNo(name){
+      var e=document.getElementsByName(name);
+      for(var i=0;i<e.length;i++)
+      {
+        e[i].checked=false;
+      }
+    }
+	function checkAll_user(){
+        var delarr = "";
+        var channelList=document.getElementsByName("part");
+        for(var i=0;i<channelList.length;i++){
+            if(channelList[i].checked){
+                delarr = delarr+channelList[i].value+',';
+            }
+        }
+        
+		return delarr;
+    }
+
+
+
+    function choiceAll() {    
+        var aa = document.getElementsByName("check[]");
+        for(var i=0;i<aa.length;i++)
+        {
+            aa[i].checked = true;
+        }        
+    }
+    function choiceNo() {    
+        var aa = document.getElementsByName("check[]");
+        for(var i=0;i<aa.length;i++)
+        {
+            aa[i].checked = false;
+        }
+        
+    }
+    function ischecked() {
+        var aa = document.getElementsByName("check[]");
+        for(var i=0;i<aa.length;i++)
+        {
+           if(aa[i].checked == true)
+           {
+               return true;
+           }
+        }
+        return false;
+    }
+//-->
+</script>
+
+<body background='__PUBLIC__/img/allbg.gif' leftmargin='8' topmargin='8'>
+<form name='form' action='__URL__/UserListPro' method='post'>
+<table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#D1DDAA">
+<tr height="22">
+    <td colspan="8">
+    		<b>职位筛选</b>
+    </td>
+  </tr>
+  <tr bgcolor="#F9FCEF">
+		<td>
+    	  院校：
+          <input type='text' name='school' style='width:120px' value='<{$school}>' />
+		</td>
+	   <td  width=25%>
+    	  工作地点偏好：
+          <select name='job_area' style='width:110px'">  
+			<option value="" >全部</option>
+			<option value="北京" <if condition='$job_area eq 北京'> selected</if> >北京</option>
+			<option value="天津" <if condition='$job_area eq 天津'> selected</if> >天津</option>
+			<option value="上海" <if condition='$job_area eq 上海'> selected</if> >上海</option>
+			<option value="重庆" <if condition='$job_area eq 重庆'> selected</if> >重庆</option>
+			<option value="河北" <if condition='$job_area eq 河北'> selected</if> >河北</option>
+			<option value="河南" <if condition='$job_area eq 河南'> selected</if> >河南</option>
+			<option value="云南" <if condition='$job_area eq 云南'> selected</if> >云南</option>
+			<option value="辽宁" <if condition='$job_area eq 辽宁'> selected</if> >辽宁</option>
+			<option value="黑龙江" <if condition='$job_area eq 黑龙江'> selected</if> >黑龙江</option>
+			<option value="湖南" <if condition='$job_area eq 湖南'> selected</if> >湖南</option>
+			<option value="安徽" <if condition='$job_area eq 安徽'> selected</if> >安徽</option>
+			<option value="山东" <if condition='$job_area eq 山东'> selected</if> >山东</option>
+			<option value="新疆" <if condition='$job_area eq 新疆'> selected</if> >新疆</option>
+			<option value="江苏" <if condition='$job_area eq 江苏'> selected</if> >江苏</option>
+			<option value="浙江" <if condition='$job_area eq 浙江'> selected</if> >浙江</option>
+			<option value="江西" <if condition='$job_area eq 江西'> selected</if> >江西</option>
+			<option value="湖北" <if condition='$job_area eq 湖北'> selected</if> >湖北</option>
+			<option value="广西" <if condition='$job_area eq 广西'> selected</if> >广西</option>
+			<option value="甘肃" <if condition='$job_area eq 甘肃'> selected</if> >甘肃</option>
+			<option value="山西" <if condition='$job_area eq 山西'> selected</if> >山西</option>
+			<option value="内蒙" <if condition='$job_area eq 内蒙'> selected</if> >内蒙</option>
+			<option value="陕西" <if condition='$job_area eq 陕西'> selected</if> >陕西</option>
+			<option value="福建" <if condition='$job_area eq 福建'> selected</if> >福建</option>
+			<option value="贵州" <if condition='$job_area eq 贵州'> selected</if> >贵州</option>
+			<option value="广东" <if condition='$job_area eq 广东'> selected</if> >广东</option>
+			<option value="青海" <if condition='$job_area eq 青海'> selected</if> >青海</option>
+			<option value="西藏" <if condition='$job_area eq 西藏'> selected</if> >西藏</option>
+			<option value="四川" <if condition='$job_area eq 四川'> selected</if> >四川</option>
+			<option value="宁夏" <if condition='$job_area eq 宁夏'> selected</if> >宁夏</option>
+			<option value="海南" <if condition='$job_area eq 海南'> selected</if> >海南</option>
+
+          </select>
+		</td>
+		<td>
+    	  职位：
+          <input type='text' name='position' style='width:120px' value='<{$position}>' />
+		</td>
+		
+       <td>
+    	  <input type="submit" name="submit" value="搜索" />
+		</td>
+  </tr>
+
+</table>
+
+</form> 
+
+<form action="__URL__/del" method="post" id="vform">
+<table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#D1DDAA">
+<tr bgcolor="#F9FCEF">
+<td width=""><strong><input type="checkbox" id="all" onclick="judge(this,'part')"/>全选</strong></td>
+<th width=""><strong>姓名</strong></th>
+<th width=""><strong>性别</strong></th>
+<th width=""><strong>邮箱</strong></th>
+<th width=""><strong>手机</strong></th>
+<th width=""><strong>院校</strong></th>
+<th width=""><strong>工作年限</strong></th>
+<th width=""><strong>职位</strong></th>
+<th width=""><strong>职级</strong></th>
+<th width=""><strong>工作地点偏好</strong></th>
+<th width=""><strong>求职方向</strong></th>
+<th width=""><strong>查看简历</strong></th>
+
+
+</tr>
+<volist name="result" id="r">
+<tr bgcolor="#F9FCEF">
+	<td><input type="checkbox" id="<{$r.id}>" name="part" value="<{$r.id}>"/></td>
+	<td><{$r.name}></td>
+   <td><{$r.sex}></td>
+   <td><{$r.email}></td>
+   <td><{$r.phone}></td>
+   <td><{$r.school}></td>
+   <td><{$r.work_time}></td>
+   <td><{$r.position}></td>
+   <td><{$r.rank}></td>
+   <td><{$r.job_area}></td>
+   <td><{$r.job_intension}></td>
+   <td>查看</td>
+
+</tr>
+</volist>
+
+</table>
+
+</body>
+</html>
