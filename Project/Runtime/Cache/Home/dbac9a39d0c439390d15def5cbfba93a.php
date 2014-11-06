@@ -95,18 +95,14 @@ $('#regist_com_button').click(function() {
             <a target="_blank" href="http://www.lanrentuku.com/" ><img src="/dscj/Public/images/homepage-background-1_02.jpg" style="opacity: 1; "></a>
             <span class="shadow"><a target="_blank" href="http://ln.qq.com/a/20140625/015503.htm"></a></span>
         </div>
-        
-        <div class="fcon" style="display: none;">
-            <a target="_blank" href="http://www.lanrentuku.com/" ><img src="/dscj/Public/images/homepage-background-1_02.jpg" style="opacity: 1; "></a>
-            <span class="shadow"><a target="_blank" href="http://ln.qq.com/a/20140625/015503.htm"></a></span>
-        </div>    
+           
     </div>
     <div class="fbg">  
     <div class="D1fBt" id="D1fBt">  
-        <a href="javascript:void(0)" hidefocus="true" target="_self" class=""><i>1</i></a>  
+        <a href="javascript:void(0)" hidefocus="true" target="_self" class="current"><i>1</i></a>  
         <a href="javascript:void(0)" hidefocus="true" target="_self" class=""><i>2</i></a>  
-        <a href="javascript:void(0)" hidefocus="true" target="_self" class="current"><i>3</i></a>  
-        <a href="javascript:void(0)" hidefocus="true" target="_self" class=""><i>4</i></a>  
+        <a href="javascript:void(0)" hidefocus="true" target="_self" class=""><i>3</i></a>  
+      
     </div>  
     </div>  
     <span class="prev"></span>   

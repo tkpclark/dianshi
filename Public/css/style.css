@@ -1757,7 +1757,7 @@ body #header .m {
 }
 .plogin .inputOuter {
 	width:250px;
-	height:42px;
+	height:58px;
 	
 }
 .plogin .inputOuter_hover {
@@ -1804,7 +1804,7 @@ body #header .m {
 }
 .plogin .uinArea {
 	height:55px;
-	padding:10px 0;
+	
 	position:relative;
 	z-index:10
 }
@@ -1870,6 +1870,7 @@ body #header .m {
 	height:55px;
 	position:relative;
 	padding-bottom:14px;
+	margin-bottom:14px;
 	z-index:3
 }
 .plogin .lock_tips {
