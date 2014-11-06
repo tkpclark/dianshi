@@ -164,18 +164,7 @@ $('#regist_com_button').click(function() {
     
   </div>
   <div class="imglist">
-    <ul class="left">
-      <li class="left"><img src="/dscj/Public/images/3.jpg" /></li>
-      <li class="right"><img src="/dscj/Public/images/3.jpg" /></li>
-    </ul>
-    <ul class="left">
-      <li class="left"><img src="/dscj/Public/images/2.jpg" /></li>
-      <li class="right"><img src="/dscj/Public/images/2.jpg" /></li>
-    </ul>
-    <ul class="left">
-      <li class="left"><img src="/dscj/Public/images/1.jpg" /></li>
-      <li class="right"><img src="/dscj/Public/images/1.jpg" /></li>
-    </ul>
+    
   </div>
   
   <!--foot-->

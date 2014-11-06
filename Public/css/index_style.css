@@ -5,6 +5,11 @@
 .wrap {
 	background:#fff;
 }
+.bigback{
+	margin: auto;
+    width: 1000px;
+	
+	}
 .header_wrapindex {
 	width:100%;
 	height:90px;
