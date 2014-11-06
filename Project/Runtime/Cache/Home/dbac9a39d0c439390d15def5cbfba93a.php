@@ -1,6 +1,7 @@
 <?php if (!defined('THINK_PATH')) exit();?>
 <link rel="stylesheet" type="text/css" href="/dscj/Public/css/core.css" />
 <link rel="stylesheet" type="text/css" href="/dscj/Public/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/dscj/Public/css/index_style.css" />
 <script type="text/javascript" src="/dscj/Public/js/jquery-1.8.2.js"></script>
 <script type="text/javascript" src="/dscj/Public/js/jquery.drag.js"></script>
 <script type="text/javascript" src="/dscj/Public/js/fn.js"></script>
@@ -49,47 +50,8 @@ $('#regist_com_button').click(function() {
 <body id="index">
 <div class="wrap">
   <div class="header_wrap">
-    <div class="head">
-      <div class="logo_area">
-        <h1 class="logo"><a href="#" class="txt">金点</a></h1>
-      </div>
-      <div class="menu_area">
-        <ul class="menu_list">
-          <li class=" "><!--添加类名 current 显示隐藏子菜单--> 
-            <a href="#" class="menu_item">点石成金</a>
-            <div class="sub_menu">
-              <ul class="sub_menu_list">
-                <li><a href="#">点石成金</a></li>
-              </ul>
-            </div>
-          </li>
-          <li> <a href="#" class="menu_item">点石成金</a>
-            <div class="sub_menu">
-              <ul class="sub_menu_list">
-                <li><a href="#">点石成金</a></li>
-                <li><a href="#">点石成金</a></li>
-              </ul>
-            </div>
-          </li>
-          <li> <a href="#" class="menu_item">点石成金</a>
-            <div class="sub_menu">
-              <ul class="sub_menu_list">
-                <li><a href="#">点石成金</a></li>
-                <li><a href="#">点石成金</a></li>
-              </ul>
-            </div>
-          </li>
-          <li> <a href="#" class="menu_item">点石成金</a>
-            <div class="sub_menu">
-              <ul class="sub_menu_list">
-                <li><a href="#">Next Idea</a></li>
-              </ul>
-            </div>
-          </li>
-		  <?php if(!empty($_SESSION['id'])): ?><li> <a href="/dscj/index.php/Home/Index/Logout" class="menu_item">注销</a></li><?php endif; ?>
-        </ul>
-		
-      </div>
+    <div class="headindex">
+      
     </div>
   </div>
 
