@@ -8,6 +8,7 @@
 <script type="text/javascript" src="/dscj/Public/js/all.js"></script>
 <script type="text/javascript" src="/dscj/Public/js/index.js"></script>
 <script type="text/javascript" src="/dscj/Public/js/index_img.js"></script>
+<script type="text/javascript" src="/dscj/Public/js/terminator2.2.min.js"></script>
 
 
 <script>
