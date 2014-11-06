@@ -49,6 +49,7 @@ $('#regist_com_button').click(function() {
 </head>
 <body id="index">
 <div class="wrap">
+<div class="bigback">
   <div class="header_wrapindex">
     <div class="headindex">
      </div>
@@ -65,7 +66,11 @@ $('#regist_com_button').click(function() {
     </script>-->
 
   <div class="banner_wrap">
-    <div class="banner_bg"> <a href="#" style=" background:#fff url(/dscj/Public/images/data/banner_1.jpg) no-repeat center 0; display:block;" class="img"></a> <a href="#" style=" background:#fff url(/dscj/Public/images/data/banner_2.jpg) no-repeat center 0;" class="img"></a> <a href="#" style=" background:#fff url(/dscj/Public/images/data/banner_1.jpg) no-repeat center 0;" class="img"></a> <a href="#" style=" background:#fff url(/dscj/Public/images/data/banner_2.jpg) no-repeat center 0;" class="img"></a> </div>
+    <div class="banner_bg"> 
+    <a href="#" style=" background:#fff url(/dscj/Public/images/homepage-background-1_02.jpg) no-repeat center 0; display:block;" class="img"></a> 
+    <a href="#" style=" background:#fff url(/dscj/Public/images/homepage-background-1_02.jpg) no-repeat center 0;" class="img"></a> 
+    <a href="#" style=" background:#fff url(/dscj/Public/images/homepage-background-1_02.jpg) no-repeat center 0;" class="img"></a> 
+    </div>
     <div class="jobForm" style="position: absolute; top: 50px; z-index: 1000; left: 600px; color: rgb(255, 255, 255);">
       <div class="other_login" id="other_login">
         <div class="loginTitle" id="loginTitle" > <a class="move"><span class="jobB" >我要找工作</span></a><span>|</span> <a><span  class="comB">我是企业</span></a> </div>
@@ -162,6 +167,7 @@ $('#regist_com_button').click(function() {
     
    
     
+  </div>
   </div>
   <div class="imglist">
     
