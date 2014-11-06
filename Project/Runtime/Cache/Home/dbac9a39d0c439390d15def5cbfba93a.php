@@ -113,7 +113,7 @@ $('#regist_com_button').click(function() {
     <span class="next"></span>    
 </div>  
 <script type="text/javascript">
-	Qfast.add('widgets', { path: "js/terminator2.2.min.js", type: "js", requires: ['fx'] });  
+	Qfast.add('widgets', { path: "Public/js/terminator2.2.min.js", type: "js", requires: ['fx'] });  
 	Qfast(false, 'widgets', function () {
 		K.tabs({
 			id: 'fsD1',   //焦点图包裹id  
