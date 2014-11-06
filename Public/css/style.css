@@ -2008,14 +2008,12 @@ span.comB{
 	background-color:#ffffff;
 }
 .imglist {
-	margin-left: auto;
-	margin-right: auto;
-	clear: both;
-	height: 139px;
-	margin-bottom: 10px;
-	margin-top: 8px;
-	width: 681px;
-	position:relative;
+	background: url("/dscj/Public/images/homepage-intro.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
+    clear: both;
+    height: 1146px;
+    margin: auto;
+    position: relative;
+    width: 1280px;
 }
 .imglist ul {
 	display:block;

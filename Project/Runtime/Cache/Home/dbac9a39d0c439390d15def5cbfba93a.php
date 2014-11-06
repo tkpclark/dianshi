@@ -49,12 +49,10 @@ $('#regist_com_button').click(function() {
 </head>
 <body id="index">
 <div class="wrap">
-  <div class="header_wrap">
+  <div class="header_wrapindex">
     <div class="headindex">
-      
-    </div>
+     </div>
   </div>
-
 
 
 <link href="/favicon.ico" type="image/ico" rel="shortcut icon"/>
