@@ -73,7 +73,7 @@ $('#regist_com_button').click(function() {
     </div>
     <div class="jobForm" style="position: absolute; top: 50px; z-index: 1000; left: 750px; color: rgb(255, 255, 255);">
       <div class="other_login" id="other_login">
-        <div class="loginTitle" id="loginTitle" > <a class="move"><span class="jobB" >我要找工作</span></a><span>|</span> <a><span  class="comB">我是企业</span></a> </div>
+        <div class="loginTitle" id="loginTitle" > <a class="index_a move"><span class="jobB" >求职者</span></a><a class="index_a"><span  class="comB">企业</span></a> </div>
         <!--快速登录--> 
         <!-- 我要找工作表单-->
         <div class="plogin" style="display:block;">

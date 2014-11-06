@@ -50,6 +50,7 @@ body#index {
     font-size: 18px;
     font-weight: 400;
     text-decoration: none;
+	margin:30px;
 	}
 .menu_area {
 	float:left;
@@ -1775,11 +1776,13 @@ body #header .m {
 	width:240px;
 	position:relative;
 	top:2px;
-	left:2px;
+	
 	height:40px;
-	padding:9px 0 11px 25px;
+	
 	line-height:40px;
-	border:0;
+	border-color:#fff;
+	border-style:none none solid;
+	border-width:0 0 2px;
 	color:#a0a0a0;
 	font-family:微软雅黑;
 	font-size:14px;
@@ -1800,22 +1803,21 @@ body #header .m {
 }
 .plogin .uinArea {
 	height:55px;
-	padding:15px 0;
+	padding:10px 0;
 	position:relative;
 	z-index:10
 }
 
 /*用户名框*/
-.plogin .uin_icon {
+/*.plogin .uin_icon {
 	position:absolute;
 	left:10px;
 	top:26px;
-	background:url(../images/c_icon_2_tiny.png) no-repeat -179px -160px;
-	_background:url(../images/c_icon_2.png) no-repeat -179px -160px;
+	
 	width:16px;
 	height:18px
-}
-.plogin .p_icon {
+}*/
+/*.plogin .p_icon {
 	position:absolute;
 	left:10px;
 	top:12px;
@@ -1823,7 +1825,7 @@ body #header .m {
 	_background:url(../images/c_icon_2.png) no-repeat -201px -160px;
 	width:16px;
 	height:18px
-}
+}*/
 .plogin .uin_del {
 	width:21px;
 	height:21px;
@@ -1966,7 +1968,7 @@ body #header .m {
 .other_login {
 	width:300px;
 	height:240px;
-	background-color: rgba(0,0,0,0.5);
+	background-color: rgba(11,11,11,0.5);
 
 	margin-top: 20px;
 }
