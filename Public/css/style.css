@@ -1939,7 +1939,7 @@ width:240px;
 	line-height:35px;
 	border:0;
 	font-size:22px;
-	font-weight:bold;
+	font-weight:400;
 	color:#fff;
 	cursor:pointer;
 	background: none repeat scroll 0 0 #fbb03b;
@@ -1971,7 +1971,7 @@ width:240px;
 .other_login {
 	width:300px;
 	height:240px;
-	background-color: rgba(11,11,11,0.5);
+	background-color: rgba(11,11,11,0.7);
 
 	margin-top: 20px;
 }
@@ -2167,7 +2167,8 @@ span.comB{
 	background:none;
 	border:none;
 	border-bottom:1px solid #fff;
-	width:90px;}
+	width:90px;
+	font-size:18px;}
 		  
 /*
 */
