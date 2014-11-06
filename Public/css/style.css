@@ -1928,7 +1928,9 @@ body #header .m {
 }
 .plogin .login_button {
 	position:absolute;
-	left:10px;
+	left:0px;
+display:block;
+width:240px;
 	text-decoration: none;
 }
 .plogin .login_button .btn {
@@ -2153,10 +2155,19 @@ span.comB{
 	float:left;}
 .plogin .login_button li{
 	float:left;
+	overflow:hidden;
 	width:125px;}
 .plogin .login_button li.sec
 {
-	width:110px;}
+	width:90px;
+	overflow:hidden;
+	float:right;}
+.plogin .login_button li.sec input
+{
+	background:none;
+	border:none;
+	border-bottom:1px solid #fff;
+	width:90px;}
 		  
 /*
 */

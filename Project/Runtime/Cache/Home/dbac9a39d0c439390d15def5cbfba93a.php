@@ -113,7 +113,7 @@ $('#regist_com_button').click(function() {
                 <li style="margin-bottom:5px;">
                   <input type="button" tabindex="6"   value="立即加入"  class="btn" id="regist_job_button" />
                 </li>
-                <li>
+                <li class="sec">
                 <input type="button" tabindex="6"   value="登 录"  class="btn" id="login_job_button" />
                   
                 </li>

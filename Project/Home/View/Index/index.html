@@ -7,6 +7,9 @@
 <js href='__PUBLIC__/js/fn.js' />
 <js href='__PUBLIC__/js/all.js' />
 <js href='__PUBLIC__/js/index.js' />
+<js href='__PUBLIC__/js/index_img.js' />
+
+
 <script>
 $(function(){
 $('#login_job_button').click(function() {
@@ -41,11 +44,83 @@ $('#regist_com_button').click(function() {
     </script>-->
 
   <div class="banner_wrap">
-    <div class="banner_bg"> 
+    <!--<div class="banner_bg"> 
     <a href="#" style=" background:#fff url(/dscj/Public/images/homepage-background-1_02.jpg) no-repeat center 0; display:block;" class="img"></a> 
     <a href="#" style=" background:#fff url(/dscj/Public/images/homepage-background-1_02.jpg) no-repeat center 0;" class="img"></a> 
     <a href="#" style=" background:#fff url(/dscj/Public/images/homepage-background-1_02.jpg) no-repeat center 0;" class="img"></a> 
+    </div>-->
+    
+    
+    
+    
+    <div id="fsD1" class="focus" style="margin-left:400px">  
+    <div id="D1pic1" class="fPic">  
+        <div >
+            <a target="_blank" href="http://www.lanrentuku.com/" class="fcon" style="display: none;"><img src="/dscj/Public/images/homepage-background-1_02.jpg" style="opacity: 1; "></a>
+            <span class="shadow"><a target="_blank" href="http://ln.qq.com/a/20140625/015503.htm">红三代叶明子太庙办盛典 白色羽毛装高贵动人</a></span>
+        </div>
+        
+        <div class="fcon" style="display: none;">
+            <a target="_blank" href="http://www.lanrentuku.com/" class="fcon" style="display: none;"><img src="/dscj/Public/images/homepage-background-1_02.jpg" style="opacity: 1; "></a>
+            <span class="shadow"><a target="_blank" href="http://ln.qq.com/a/20140625/015503.htm">佟大为登封面表情搞怪 成熟男人也是天真男孩</a></span>
+        </div>
+        
+        <div class="fcon" style="display: none;">
+            <a target="_blank" href="http://www.lanrentuku.com/" class="fcon" style="display: none;"><img src="/dscj/Public/images/homepage-background-1_02.jpg" style="opacity: 1; "></a>
+            <span class="shadow"><a target="_blank" href="http://ln.qq.com/a/20140625/015503.htm">21岁出柜超模巴厘自曝搞笑全裸照</a></span>
+        </div>
+        
+        <div class="fcon" style="display: none;">
+            <a target="_blank" href="http://www.lanrentuku.com/" class="fcon" style="display: none;"><img src="/dscj/Public/images/homepage-background-1_02.jpg" style="opacity: 1; "></a>
+            <span class="shadow"><a target="_blank" href="http://ln.qq.com/a/20140625/015503.htm">金喜善出道21年 皮肤白皙越长越"嫩"！</a></span>
+        </div>    
     </div>
+    <div class="fbg">  
+    <div class="D1fBt" id="D1fBt">  
+        <a href="javascript:void(0)" hidefocus="true" target="_self" class=""><i>1</i></a>  
+        <a href="javascript:void(0)" hidefocus="true" target="_self" class=""><i>2</i></a>  
+        <a href="javascript:void(0)" hidefocus="true" target="_self" class="current"><i>3</i></a>  
+        <a href="javascript:void(0)" hidefocus="true" target="_self" class=""><i>4</i></a>  
+    </div>  
+    </div>  
+    <span class="prev"></span>   
+    <span class="next"></span>    
+</div>  
+<script type="text/javascript">
+	Qfast.add('widgets', { path: "js/terminator2.2.min.js", type: "js", requires: ['fx'] });  
+	Qfast(false, 'widgets', function () {
+		K.tabs({
+			id: 'fsD1',   //焦点图包裹id  
+			conId: "D1pic1",  //** 大图域包裹id  
+			tabId:"D1fBt",  
+			tabTn:"a",
+			conCn: '.fcon', //** 大图域配置class       
+			auto: 1,   //自动播放 1或0
+			effect: 'fade',   //效果配置
+			eType: 'click', //** 鼠标事件
+			pageBt:true,//是否有按钮切换页码
+			bns: ['.prev', '.next'],//** 前后按钮配置class                          
+			interval: 3000  //** 停顿时间  
+		}) 
+	})  
+</script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="jobForm" style="position: absolute; top: 50px; z-index: 1000; left: 750px; color: rgb(255, 255, 255);">
       <div class="other_login" id="other_login">
         <div class="loginTitle" id="loginTitle" > <a class="index_a move"><span class="jobB" >求职者</span></a><a class="index_a"><span  class="comB">企业</span></a> </div>
