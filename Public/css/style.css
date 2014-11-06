@@ -1773,6 +1773,7 @@ body #header .m {
 	_background:url(../images/c_icon_2.png) no-repeat 0 -45px
 }
 .plogin .inputstyle {
+	background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
 	width:240px;
 	position:relative;
 	top:2px;
@@ -1783,7 +1784,7 @@ body #header .m {
 	border-color:#fff;
 	border-style:none none solid;
 	border-width:0 0 2px;
-	color:#a0a0a0;
+	color:#fff;
 	font-family:微软雅黑;
 	font-size:14px;
 	ime-mode:disabled
@@ -1931,16 +1932,16 @@ body #header .m {
 	text-decoration: none;
 }
 .plogin .login_button .btn {
-	width:230px;
+	width:130px;
 	height:35px;
 	line-height:35px;
 	border:0;
-	font-size:14px;
+	font-size:22px;
 	font-weight:bold;
-	color:#000;
+	color:#fff;
 	cursor:pointer;
-	background: none repeat scroll 0 0 #f9d259;
-	border-radius: 5px;
+	background: none repeat scroll 0 0 #fbb03b;
+	
 }
 .plogin .login_button:hover .btn {
 	background-position:-97px -90px
@@ -2128,6 +2129,34 @@ span.comB{
     color: #252525;
 }
 
+.plogin .inputstyle::-webkit-input-placeholder { /* WebKit browsers */
+    color:#fff;
+}
+.plogin .inputstyle:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #fff;
+}
+.plogin .inputstyle::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:#fff;
+}
+.plogin .inputstyle:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: #fff;
+}
+.plogin .inputstyle.placeholder{
+	
+	color:#fff;}
+	
+.btn1
+{
+	float:right;}
+.btn
+{
+	float:left;}
+.plogin .login_button li{
+	float:left;
+	width:125px;}
+.plogin .login_button li.sec
+{
+	width:110px;}
 		  
 /*
 */
