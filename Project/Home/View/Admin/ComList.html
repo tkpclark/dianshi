@@ -130,10 +130,28 @@
     	  公司名：
           <input type='text' name='name' style='width:120px' value='<{$name}>' />
 		</td>
-	   <td  width=25%>
+		<td>
+    	  部门：
+          <input type='text' name='department' style='width:120px' value='<{$department}>' />
+		</td>
+		<td>
+    	  薪资待遇：
+          <select  name="pay" id="pay">
+				<option value="" >-请选择-</option>
+                <OPTION VALUE=1 <if condition='$pay eq 1'> selected</if> >5万以下</OPTION>
+                <OPTION VALUE=2 <if condition='$pay eq 2'> selected</if> >5～6万</OPTION>
+                <OPTION VALUE=3 <if condition='$pay eq 3'> selected</if> >5～8万</OPTION>
+                <OPTION VALUE=4 <if condition='$pay eq 4'> selected</if> >8～10万</OPTION>
+                <OPTION VALUE=5 <if condition='$pay eq 5'> selected</if> >10～15万</OPTION>
+                <OPTION VALUE=6 <if condition='$pay eq 6'> selected</if> >15～20万</OPTION>
+                <OPTION VALUE=7 <if condition='$pay eq 7'> selected</if> >20～30万</OPTION>
+                <OPTION VALUE=8 <if condition='$pay eq 8'> selected</if> >30～50万</OPTION>
+              </select>
+		</td>
+	   <td>
     	  工作地点：
           <select name='work_addre' style='width:110px'">  
-			<option value="" >全部</option>
+			<option value="" >-请选择-</option>
 			<option value="北京" <if condition='$work_addre eq 北京'> selected</if> >北京</option>
 			<option value="天津" <if condition='$work_addre eq 天津'> selected</if> >天津</option>
 			<option value="上海" <if condition='$work_addre eq 上海'> selected</if> >上海</option>
@@ -167,7 +185,7 @@
 
           </select>
 		</td>
-		<td  width=25% id="td1" onmouseleave="l()">
+		<td  id="td1" onmouseleave="l()">
     	  领域：
           <input id="input1" name="field" readonly="readonly" onfocus="f()" value='<{$field}>'> 
 			<div id="div1"> 
@@ -236,7 +254,17 @@
    <td><{$r.position}></td>
    <td><{$r.work_addre}></td>
    <td><{$r.field}></td>
-   <td><{$r.pay}></td>
+   <switch name="r.pay">
+	<case value="1"><td>5万以下</td></case>
+	<case value="2"><td>5～6万</td></case>
+	<case value="3"><td>5～8万</td></case>
+	<case value="4"><td>8～10万</td></case>
+	<case value="5"><td>10～15万</td></case>
+	<case value="6"><td>15～20万</td></case>
+	<case value="7"><td>20～30万</td></case>
+	<case value="8"><td>30～50万</td></case>
+	<default />
+	</switch>
    <td><{$r.work_direction}></td>
    <td><{$r.description}></td>
    <td><{$r.requirement}></td>

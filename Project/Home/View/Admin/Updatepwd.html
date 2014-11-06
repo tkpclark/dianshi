@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh" lang="zh" dir="ltr">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="Editplus4PHP" />
+    <meta name="keywords" content="Leo, HentStudio, Editplus4PHP, LeoPHP" />
+    <meta name="description" content="LeoPHP - Powered by HentStduio" />
+    <meta name="author" content="Leo" />
+    <link href='__PUBLIC__/css/admin.css' rel='stylesheet' type='text/css'>
+</head>
+<js href='__PUBLIC__/js/jquery-1.8.2.js' />
+<script type="text/javascript">
+<!--
+	function judge(checkid,name){
+    if(checkid.checked){
+        getAll(name);
+    }else{
+        getAllNo(name);
+    } 
+    }
+	function getAll(name){
+        var e=document.getElementsByName(name);
+       for(var i=0;i<e.length;i++)
+       {
+        e[i].checked=true;
+       }
+    }
+    function getAllNo(name){
+      var e=document.getElementsByName(name);
+      for(var i=0;i<e.length;i++)
+      {
+        e[i].checked=false;
+      }
+    }
+	function checkAll_user(){
+        var delarr = "";
+        var channelList=document.getElementsByName("part");
+        for(var i=0;i<channelList.length;i++){
+            if(channelList[i].checked){
+                delarr = delarr+channelList[i].value+',';
+            }
+        }
+        
+		return delarr;
+    }
+
+
+
+    function choiceAll() {    
+        var aa = document.getElementsByName("check[]");
+        for(var i=0;i<aa.length;i++)
+        {
+            aa[i].checked = true;
+        }        
+    }
+    function choiceNo() {    
+        var aa = document.getElementsByName("check[]");
+        for(var i=0;i<aa.length;i++)
+        {
+            aa[i].checked = false;
+        }
+        
+    }
+    function ischecked() {
+        var aa = document.getElementsByName("check[]");
+        for(var i=0;i<aa.length;i++)
+        {
+           if(aa[i].checked == true)
+           {
+               return true;
+           }
+        }
+        return false;
+    }
+
+//-->
+</script>
+
+<body background='__PUBLIC__/img/allbg.gif' leftmargin='8' topmargin='0'>
+<form name='form' action='__URL__/UpdatepwdPro' method='post'>
+<table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#D1DDAA">
+<tr height="22">
+    <td colspan="8">
+    		<b>密码修改</b>
+    </td>
+  </tr>
+  <tr bgcolor="#F9FCEF">
+		<td>
+    	  原始密码：
+          <input type='text' name='oldpassword' style='width:120px' value='' />
+		</td>
+		
+	</tr>
+	  <tr bgcolor="#F9FCEF">
+		
+		<td>
+    	  新密&nbsp;&nbsp;码：
+          <input type='password' name='newpassword' style='width:120px' value='' />
+		</td>
+		
+	</tr>
+	  <tr bgcolor="#F9FCEF">
+		
+		<td>
+    	  确认密码：
+          <input type='password' name='newpasswords' style='width:120px' value='' />
+		</td>
+	</tr>
+	<tr bgcolor="#F9FCEF">
+		
+		<td>
+    	  确认密码：
+          <input type='submit' name='submit' style='width:120px' value='修改' />
+		</td>
+	</tr>
+</table>
+</form> 
+
+
+</body>
+</html>
