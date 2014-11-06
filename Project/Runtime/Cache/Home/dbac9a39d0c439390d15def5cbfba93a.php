@@ -158,7 +158,7 @@ $('#regist_com_button').click(function() {
                   <input type="password"  class="inputstyle" id="p" name="password" value="" maxlength="16" tabindex="2"  placeholder="密码"/>
                   <span style="color:#fff; display:none;" class="pass_null">密码不能为空</span>
                   <span class="p_icon"></span> </div>
-                  <span style="color:#fbb03b; "  class="name_null">我已阅读并同意金点用户协议</span>
+                  <input type="radio" style="color:#fbb03b; "  class="name_null"/><a>我已阅读并同意金点用户协议</a></span>
                 <div class="lock_tips" id="caps_lock_tips"> <span class="lock_tips_row"></span> <span >大写锁定已打开</span> </div>
               </div>
               <div class="verifyArea" id="verifyArea">
