@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>joocoo</title>
+<link href="___PUBLIC__/css/admin.css" rel="stylesheet" type="text/css" />
+<script language='javascript'>
+var preFrameW = '206,*';
+var FrameHide = 0;
+var curStyle = 1;
+var totalItem = 9;
+function ChangeMenu(way){
+	var addwidth = 10;
+	var fcol = top.document.all.btFrame.cols;
+	if(way==1) addwidth = 10;
+	else if(way==-1) addwidth = -10;
+	else if(way==0){
+		if(FrameHide == 0){
+			preFrameW = top.document.all.btFrame.cols;
+			top.document.all.btFrame.cols = '0,*';
+			FrameHide = 1;
+			return;
+		}else{
+			top.document.all.btFrame.cols = preFrameW;
+			FrameHide = 0;
+			return;
+		}
+	}
+	fcols = fcol.split(',');
+	fcols[0] = parseInt(fcols[0]) + addwidth;
+	top.document.all.btFrame.cols = fcols[0]+',*';
+}
+
+
+function mv(selobj,moveout,itemnum)
+{
+   if(itemnum==curStyle) return false;
+   if(moveout=='m') selobj.className = 'itemsel';
+   if(moveout=='o') selobj.className = 'item';
+   return true;
+}
+
+function changeSel(itemnum)
+{
+  curStyle = itemnum;
+  for(i=1;i<=totalItem;i++)
+  {
+     if(document.getElementById('item'+i)) document.getElementById('item'+i).className='item';
+  }
+  document.getElementById('item'+itemnum).className='itemsel';
+}
+
+function show5(){if(!document.layers&&!document.all)
+return
+var Digital=new Date()
+var hours=Digital.getHours()
+var minutes=Digital.getMinutes()
+var seconds=Digital.getSeconds()
+var dn="AM"
+if(hours>12){dn="PM"
+hours=hours-12
+}if(hours==0)
+hours=12
+if(minutes<=9)
+minutes="0"+minutes
+if(seconds<=9)
+seconds="0"+seconds
+//change font size here to your desire
+myclock="<font size='5' face='Arial'><b><font size='1'>Current Time:</font></br>"+hours+":"+minutes+":"
++seconds+" "+dn+"</b></font>"
+if(document.layers){document.layers.liveclock.document.write(myclock)
+document.layers.liveclock.document.close()
+}else if(document.all)
+liveclock.innerHTML=myclock
+setTimeout("show5()",1000)
+}
+</script>
+<style>
+body {
+	padding: 0px;
+	margin: 0px;
+}
+
+#tpa {
+	color: #009933;
+	margin: 0px;
+	padding: 0px;
+	float: right;
+	padding-right: 10px;
+}
+
+#tpa dd {
+	margin: 0px;
+	padding: 0px;
+	float: left;
+	margin-right: 2px;
+}
+
+#tpa dd.ditem {
+	margin-right: 8px;
+}
+
+#tpa dd.img {
+	padding-top: 6px;
+}
+
+div.item {
+	text-align: center;
+	background: url(___PUBLIC__/images/admin/topitembg.gif) 0px 3px no-repeat;
+	width: 82px;
+	height: 26px;
+	line-height: 28px;
+}
+
+.itemsel {
+	width: 80px;
+	text-align: center;
+	background: #226411;
+	border-left: 1px solid #c5f097;
+	border-right: 1px solid #c5f097;
+	border-top: 1px solid #c5f097;
+	height: 26px;
+	line-height: 28px;
+}
+
+* html .itemsel {
+	height: 26px;
+	line-height: 26px;
+}
+
+a:link,a:visited {
+	text-decoration: underline;
+}
+
+.item a:link,.item a:visited {
+	font-size: 12px;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.itemsel a:hover {
+	color: #ffffff;
+	font-weight: bold;
+	border-bottom: 2px solid #E9FC65;
+}
+
+.itemsel a:link,.itemsel a:visited {
+	font-size: 12px;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.itemsel a:hover {
+	color: #ffffff;
+	border-bottom: 2px solid #E9FC65;
+}
+
+.rmain {
+	padding-left: 10px;
+	/* background:url(___PUBLIC__/images/admin/toprightbg.gif) no-repeat; */
+}
+
+#top_cui {
+	color: #F70308;
+	border-bottom: 1px solid green;
+	font-size: 14px;
+	font-weight: bold;
+}
+</style>
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+//-->
+</script>
+</head>
+<body bgColor='#ffffff' onload=show5()>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" background="__PUBLIC__/images/admin/topbg.jpg">
+	<tr>
+		<td width='20%' height="75" align="center" valign="middle">
+		
+		<font color="#FFFFFF"><b>点石管理平台 </b></font>
+		</td>
+		<td width='80%' align="right" >
+		<table width="750" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td align="left" height="30"
+					style="padding-right: 10px; line-height: 20px;">
+					<!--  <marquee align="left" behavior=slide><font size=4 color="#FFFFFF"><b>{$notice}</b></font></marquee>-->
+				<div id='top_cui'><font size='2' color='white'><marquee
+					align=top width=650 behavior=slide>
+				尊敬的<{$Think.session.username}>
+				<script
+					type="text/javascript">
+           	var now=(new Date()).getHours();
+			if(now>0&&now<=5){
+				document.write("午夜好:");
+			}else if(now>5&&now<=9){
+				document.write("早上好:");
+			}else if(now>9&&now<=11){
+				document.write("上午好:");
+			}else if(now>11&&now<=13){
+				document.write("中午好:");
+			}else if(now>13&&now<=18){
+				document.write("下午好:");
+			}else{
+				document.write("晚上好:");
+			}
+			</script>欢迎点石管理平台！</marquee></font> [<img src="__PUBLIC__/images/admin/top_7.gif"><a
+					href="__URL__/logout" target="_top"><font size='2'
+					color='red'><b>退出</b></font></a>]&nbsp;</div>
+				</td>
+			</tr>
+			
+		</table>
+		</td>
+	</tr>
+</table>
+</body>
+</html>

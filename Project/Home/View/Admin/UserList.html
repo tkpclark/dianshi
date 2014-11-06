@@ -7,8 +7,20 @@
     <meta name="description" content="LeoPHP - Powered by HentStduio" />
     <meta name="author" content="Leo" />
     <link href='__PUBLIC__/css/admin.css' rel='stylesheet' type='text/css'>
-    <title>用户查询</title>
 </head>
+<style type="text/css"> 
+	#div1 { 
+      border:1px solid grey; 
+	  overflow:auto; 
+	  text-align:left; 
+	  background-color:#F1F8B4;   
+	  padding:6px;   
+	  position:absolute;  
+	  z-index:99; 
+	  display:none; /*使div初始化时隐藏*/ 
+   } 
+</style>
+<js href='__PUBLIC__/js/jquery-1.8.2.js' />
 <script type="text/javascript">
 <!--
 	function judge(checkid,name){
@@ -72,6 +84,33 @@
         }
         return false;
     }
+	//点击checkbox事件  
+function c(){  
+	var strList="";  
+	$('input[type="checkbox"][name="likes"]:checked').each(function(){ 
+		if(strList==""){ 
+			strList = strList+$(this).val();    
+		}else{ 
+			strList = strList+","+$(this).val();    
+		}   
+	}); 
+
+	$('#input1').val(strList);  
+  } 
+
+  function f(){ 
+	 
+	$('#input1').click(function(){ 
+		var input = $('#input1');       
+		var offset = input.offset(); 
+		$('#div1').css('left',offset.left + 'px').css('top',offset.top + input.height() + 4 + 'px').css('width',input.width() - 10 +'px').fadeIn();   
+	});  
+  } 
+
+	function l(){ 
+		//当鼠标离开td1时，div1隐藏  
+		$('#div1').hide("slow");  
+	}
 //-->
 </script>
 
@@ -80,7 +119,7 @@
 <table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#D1DDAA">
 <tr height="22">
     <td colspan="8">
-    		<b>职位筛选</b>
+    		<b>简历筛选</b>
     </td>
   </tr>
   <tr bgcolor="#F9FCEF">
@@ -88,7 +127,34 @@
     	  院校：
           <input type='text' name='school' style='width:120px' value='<{$school}>' />
 		</td>
-	   <td  width=25%>
+		<td>
+    	  期望薪资：
+          <select  name="expected_salary" id="expected_salary">
+				<option value="" >-请选择-</option>
+                <OPTION VALUE=1 <if condition='$expected_salary eq 1'> selected</if> >5万以下</OPTION>
+                <OPTION VALUE=2 <if condition='$expected_salary eq 2'> selected</if> >5～6万</OPTION>
+                <OPTION VALUE=3 <if condition='$expected_salary eq 3'> selected</if> >5～8万</OPTION>
+                <OPTION VALUE=4 <if condition='$expected_salary eq 4'> selected</if> >8～10万</OPTION>
+                <OPTION VALUE=5 <if condition='$expected_salary eq 5'> selected</if> >10～15万</OPTION>
+                <OPTION VALUE=6 <if condition='$expected_salary eq 6'> selected</if> >15～20万</OPTION>
+                <OPTION VALUE=7 <if condition='$expected_salary eq 7'> selected</if> >20～30万</OPTION>
+                <OPTION VALUE=8 <if condition='$expected_salary eq 8'> selected</if> >30～50万</OPTION>
+              </select>
+		</td>
+		<td>
+    	  工作年限：
+          <select  name="Worktime" id="Worktime">
+				<option value="" >-请选择-</option>
+                <OPTION VALUE=1 <if condition='$Worktime eq 1'> selected</if> >1年以下</OPTION>
+                <OPTION VALUE=2 <if condition='$Worktime eq 2'> selected</if> >1～3年</OPTION>
+                <OPTION VALUE=3 <if condition='$Worktime eq 3'> selected</if> >3～5年</OPTION>
+                <OPTION VALUE=4 <if condition='$Worktime eq 4'> selected</if> >5～8年</OPTION>
+                <OPTION VALUE=5 <if condition='$Worktime eq 5'> selected</if> >10～15年</OPTION>
+                <OPTION VALUE=6 <if condition='$Worktime eq 6'> selected</if> >15～20年</OPTION>
+                <OPTION VALUE=7 <if condition='$Worktime eq 7'> selected</if> >20年以上</OPTION>
+              </select>
+		</td>
+	   <td>
     	  工作地点偏好：
           <select name='job_area' style='width:110px'">  
 			<option value="" >全部</option>
@@ -124,6 +190,33 @@
 			<option value="海南" <if condition='$job_area eq 海南'> selected</if> >海南</option>
 
           </select>
+		</td>
+		<td  id="td1" onmouseleave="l()">
+    	  求职意向：
+          <input id="input1" name="job_intension" readonly="readonly" onfocus="f()" value='<{$job_intension}>'> 
+			<div id="div1"> 
+			 <input type="checkbox" name="likes" value="股权" onclick="c()" <assign name="gq" value="股权" /><in name='gq' value="$job_intension">checked</in>>股权<br> 
+			 <input type="checkbox" name="likes" value="债券" onclick="c()" <assign name="zq" value="债券" /><in name='zq' value="$job_intension">checked</in>>债券<br> 
+			 <input type="checkbox" name="likes" value="并购" onclick="c()" <assign name="bg" value="并购" /><in name='bg' value="$job_intension">checked</in>>并购<br> 
+			 <input type="checkbox" name="likes" value="ECM" onclick="c()" <assign name="ecm" value="ECM" /><in name='ecm' value="$job_intension">checked</in>>ECM<br> 
+			 <input type="checkbox" name="likes" value="DCM" onclick="c()" <assign name="dcm" value="DCM" /><in name='dcm' value="$job_intension">checked</in>>DCM<br> 
+			 <input type="checkbox" name="likes" value="PE" onclick="c()" <assign name="pe" value="PE" /><in name='pe' value="$job_intension">checked</in>>PE<br> 
+			 <input type="checkbox" name="likes" value="VC" onclick="c()" <assign name="vc" value="VC" /><in name='vc' value="$job_intension">checked</in>>VC<br>
+			 <input type="checkbox" name="likes" value="信托" onclick="c()" <assign name="xt" value="信托" /><in name='xt' value="$job_intension">checked</in>>信托<br>
+			 <input type="checkbox" name="likes" value="其他投资机构" onclick="c()" <assign name="qtjg" value="其他投资机构" /><in name='qtjg' value="$job_intension">checked</in>>其他投资机构<br>
+			 <input type="checkbox" name="likes" value="卖方研究" onclick="c()" <assign name="mfyj" value="卖方研究" /><in name='mfyj' value="$job_intension">checked</in>>卖方研究<br>
+			 <input type="checkbox" name="likes" value="公募基金" onclick="c()" <assign name="gmjj" value="公募基金" /><in name='gmjj' value="$job_intension">checked</in>>公募基金<br>
+			 <input type="checkbox" name="likes" value="私募基金" onclick="c()" <assign name="smjj" value="私募基金" /><in name='smjj' value="$job_intension">checked</in>>私募基金<br>
+			 <input type="checkbox" name="likes" value="信托" onclick="c()" <assign name="xt" value="信托" /><in name='xt' value="$job_intension">checked</in>>信托<br>
+			 <input type="checkbox" name="likes" value="资管" onclick="c()" <assign name="zg" value="资管" /><in name='zg' value="$job_intension">checked</in>>资管<br>
+			 <input type="checkbox" name="likes" value="券商自营" onclick="c()" <assign name="qszy" value="券商自营" /><in name='qszy' value="$job_intension">checked</in>>券商自营<br>
+			 <input type="checkbox" name="likes" value="银行金融市场" onclick="c()" <assign name="yhjrsc" value="银行金融市场" /><in name='yhjrsc' value="$job_intension">checked</in>>银行金融市场<br>
+			 <input type="checkbox" name="likes" value="其他投资机构" onclick="c()" <assign name="qttzjg" value="其他投资机构" /><in name='qttzjg' value="$job_intension">checked</in>>其他投资机构<br>
+			 <input type="checkbox" name="likes" value="股票" onclick="c()" <assign name="gp" value="股票" /><in name='gp' value="$job_intension">checked</in>>股票<br>
+			 <input type="checkbox" name="likes" value="期货" onclick="c()" <assign name="qh" value="期货" /><in name='qh' value="$job_intension">checked</in>>期货<br>
+			 <input type="checkbox" name="likes" value="外汇" onclick="c()" <assign name="wh" value="外汇" /><in name='wh' value="$job_intension">checked</in>>外汇<br>
+			 <input type="checkbox" name="likes" value="量化" onclick="c()" <assign name="lh" value="量化" /><in name='lh' value="$job_intension">checked</in>>量化<br>
+			</div>
 		</td>
 		<td>
     	  职位：
@@ -165,12 +258,23 @@
    <td><{$r.email}></td>
    <td><{$r.phone}></td>
    <td><{$r.school}></td>
-   <td><{$r.work_time}></td>
+   <td>
+   <switch name="r.work_time">
+			  <case value="1">1年以下</case>
+			  <case value="2">1～3年</case>
+			  <case value="3">3～5年</case>
+			  <case value="4">5～8年</case>
+			  <case value="5">10～15年</case>
+			  <case value="6">15～20年</case>
+			  <case value="7">20年以上</case>
+			  <default />毕业生
+			  </switch>
+	</td>
    <td><{$r.position}></td>
    <td><{$r.rank}></td>
    <td><{$r.job_area}></td>
    <td><{$r.job_intension}></td>
-   <td>查看</td>
+   <td><a href='__APP__/Home/ApplicantUser/Preview/id/<{$r.id}>' target='_blank'>查看简历</a></td>
 
 </tr>
 </volist>
