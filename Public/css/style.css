@@ -43,6 +43,14 @@ body#index {
 	text-indent:-9999px;
 	overflow:hidden;
 }
+.index_a {
+	
+	color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 400;
+    text-decoration: none;
+	}
 .menu_area {
 	float:left;
 }
@@ -181,10 +189,10 @@ body#index {
 	color:#797979;
 }
 .banner_wrap {
-	width:1000px;
-	height:440px;
+	width:1279px;
+	height:709px;
 	position:relative;
-	margin: auto;
+	margin:0 auto;
 }
 .banner_content {
 	width:980px;
@@ -1956,9 +1964,9 @@ body #header .m {
 	margin-left:5px
 }
 .other_login {
-	width:290px;
-	height:280px;
-	background-color: rgba(225,225,225,0.9);
+	width:300px;
+	height:240px;
+	background-color: rgba(0,0,0,0.5);
 
 	margin-top: 20px;
 }
@@ -1974,16 +1982,16 @@ body #header .m {
 }
 
 .other_login .loginTitle a.move{
-	background-color:#f9d259;
-	color:#000;
+	
+	color:#fbb03b;
 	height:40px;
-	font-size:20px;
-	font-weight:bold;
+	font-size:18px;
+	font-weight:400;
 	position:relative;
 	width:290px;
 	text-align: center;
 	line-height:40px;
-	text-decoration:none;
+	text-decoration:underline;
     
 }
 span.jobB{
