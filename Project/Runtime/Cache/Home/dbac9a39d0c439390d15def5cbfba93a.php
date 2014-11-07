@@ -127,7 +127,7 @@ $('#regist_com_button').click(function() {
 	})  
 </script>
    
-    <div class="jobForm" style="position: absolute; top:200px; z-index: 1000; left: 750px; color: rgb(255, 255, 255);">
+    <div class="jobForm" style="position: absolute; top:200px; z-index: 1; left: 750px; color: rgb(255, 255, 255);">
       <div class="other_login" id="other_login">
         <div class="loginTitle" id="loginTitle" > <a class="index_a move"><span class="jobB" >求职者</span></a><a class="index_a"><span  class="comB">企业</span></a> </div>
         <!--快速登录--> 
@@ -212,10 +212,11 @@ $('#regist_com_button').click(function() {
               </div>
               <div class="submit"> <a class="login_button" hideFocus=true href="javascript:void(0);">
                 <li style="margin-bottom:5px;">
-                  <input type="button" tabindex="6"   value="登 录"  class="btn" id="login_com_button" />
+                <input type="button" tabindex="6"   value="立即加入"  class="btn" id="regist_com_button" />  
                 </li>
-                <li>
-                  <input type="button" tabindex="6"   value="注册"  class="btn" id="regist_com_button" />
+                <li class="sec">
+                <input type="button" tabindex="6"   value="登 录"  class="btn" id="login_com_button" />
+                  
                 </li>
                 </a> </div>
             </div>
@@ -247,7 +248,8 @@ $('#regist_com_button').click(function() {
         <div class="clear"></div>
       </div>
       <div class="serviceinfo">
-        <p><span><a href="#">清波科技有限公司</a></span></p>
+        <p><span><a href="#">离梦想的更近工作</a><a><input type="button" tabindex="6"   value="立即加入"  class="footer_btn" id="regist_com_button" /></a></span>
+         </p>       
       </div>
       <div class="clear"></div>
     </div>

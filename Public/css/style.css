@@ -1946,6 +1946,21 @@ width:240px;
 	background: none repeat scroll 0 0 #fbb03b;
 	
 }
+
+.serviceinfo .footer_btn{
+	margin-left:10px;
+	width:130px;
+	height:35px;
+	
+	border:0;
+	font-size:22px;
+	font-weight:400;
+	color:#fff;
+	cursor:pointer;
+	background: none repeat scroll 0 0 #fbb03b;
+	
+	
+	}
 .plogin .login_button:hover .btn {
 	background-position:-97px -90px
 }
@@ -2035,8 +2050,8 @@ span.comB{
 	margin-bottom:10px;
 }
 .footer {
-    background-color: #eee;
-    border-top: 1px solid #eee7e7;
+    background-color: #fff;
+   
     clear: both;
     width: 100%;
 }
@@ -2108,25 +2123,27 @@ span.comB{
     padding-top: 5px;
 }
 .serviceinfo {
-    border-top: 1px dashed #d5d4d4;
+    background: none repeat scroll 0 0 #000;
+    
     clear: both;
-    font-size: 12px;
-    line-height: 20px;
-    padding: 20px 0 20px 67px;
+    font-size: 36px;
+    height: 50px;
+    line-height: 50px;
 }
 .serviceinfo p {
     height: 20px;
 }
 .serviceinfo p span {
     display: block;
-    float: left;
     width: 100%;
 	text-align:center;
 }
 .serviceinfo a, .serviceinfo b {
-    color: #076ea8;
-    font-weight: normal;
-	font-size:16px;
+    color: #fbb03b;
+    font-size: 36px;
+    font-weight: bold;
+    height: 50px;
+    line-height: 50px;
 }
 .serviceinfo b {
     color: #252525;
