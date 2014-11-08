@@ -2037,7 +2037,7 @@ span.comB{
 	background-color:#ffffff;
 }
 .imglist {
-	background: url("/dscj/Public/images/homepage-intro.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
+	background: url("../images/homepage-intro.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
     clear: both;
     height: 1146px;
     margin: auto;
