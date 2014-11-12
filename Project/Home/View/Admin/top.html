@@ -4,6 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>joocoo</title>
 <link href="___PUBLIC__/css/admin.css" rel="stylesheet" type="text/css" />
+<js href='__PUBLIC__/js/jquery-1.8.2.js' />
 <script language='javascript'>
 var preFrameW = '206,*';
 var FrameHide = 0;
@@ -73,6 +74,41 @@ document.layers.liveclock.document.close()
 }else if(document.all)
 liveclock.innerHTML=myclock
 setTimeout("show5()",1000)
+}
+
+function submitCompanyInfo(){
+	alert(1);
+	//alert(self.parent.frames.ComList.qqq.innerText);
+	var com = window.parent.main.ComList.checkAll_com();
+	var user = window.parent.main.UserList.checkAll_user();
+	if(com == "" || com == null){
+		alert("请选择职位");
+		return false;
+	}
+	if(user == "" || user == null){
+		alert("请选择简历");
+		return false;
+	}
+	$.ajax({
+		  cache:"False",
+		   type:"post",
+		   url:"__URL__/Distribution/",
+		   data:{ 
+			   com:com,
+			   user:user
+			   },
+		   success : function(msg) {
+			   if (msg == "OK") {
+					alert("分配成功！");
+				   
+				}else{
+					alert("分配失败！");
+				}
+					
+			}
+	 
+	 })
+	
 }
 </script>
 <style>
@@ -188,13 +224,13 @@ MM_reloadPage(true);
 		<font color="#FFFFFF"><b>点石管理平台 </b></font>
 		</td>
 		<td width='80%' align="right" >
-		<table width="750" border="0" cellspacing="0" cellpadding="0">
+		<table width="760" border="0" cellspacing="0" cellpadding="0">
 			<tr>
 				<td align="left" height="30"
 					style="padding-right: 10px; line-height: 20px;">
 					<!--  <marquee align="left" behavior=slide><font size=4 color="#FFFFFF"><b>{$notice}</b></font></marquee>-->
 				<div id='top_cui'><font size='2' color='white'><marquee
-					align=top width=650 behavior=slide>
+					align=top width=600 behavior=slide>
 				尊敬的<{$Think.session.username}>
 				<script
 					type="text/javascript">
@@ -212,9 +248,14 @@ MM_reloadPage(true);
 			}else{
 				document.write("晚上好:");
 			}
-			</script>欢迎点石管理平台！</marquee></font> [<img src="__PUBLIC__/images/admin/top_7.gif"><a
-					href="__URL__/logout" target="_top"><font size='2'
-					color='red'><b>退出</b></font></a>]&nbsp;</div>
+			</script>欢迎点石管理平台！</marquee></font>
+			<a href="javascript:void (expression) " onclick="submitCompanyInfo();"><font size='4'
+					color='red'><b>分配</b></font></a>
+
+			<a href="__URL__/logout" target="_top"><font size='2'
+					color='red'><b>退出</b></font></a>&nbsp;<a
+					href="__URL__/Updatepwd" target="_top"><font size='2'
+					color='red'><b>修改密码</b></font></a></div>
 				</td>
 			</tr>
 			

@@ -4,7 +4,7 @@ use Think\Controller;
 class AdminController extends Controller {
 	public function __construct(){   
 		parent::__construct();
-		//C('SHOW_PAGE_TRACE','');
+		C('SHOW_PAGE_TRACE','');
 	}
 	public function Login(){
 		$this->display();
@@ -96,7 +96,7 @@ class AdminController extends Controller {
 		if($department!=''){
 			$d=" and p.department like '%".$department."%'";
 		}
-		$result = M()->table(array('company_information'=>'i','company_position'=>'p'))->field('p.id,i.name,p.department,p.position,p.work_addre,i.field,p.pay,p.work_direction,p.description,p.requirement,p.contact,p.contact_information,p.number,p.accept_number')->where("p.company_id=i.id $w $n $p $py $d")->select();
+		$result = M()->table(array('company_information'=>'i','company_position'=>'p'))->field('p.id,i.name,p.department,p.position,p.work_addre,i.field,p.pay,p.work_direction,p.description,p.requirement,p.contact,p.contact_information,p.number,p.accept_number,p.remarks')->where("p.company_id=i.id $w $n $p $py $d")->select();
 		if(!empty($field)){
 			$field_arr=explode(',',$field);
 			for($i=0;$i<count($result);$i++){
@@ -215,6 +215,27 @@ class AdminController extends Controller {
 		$Delivery->commit(); 
 		exit('OK');
     }
+		/*
+	*
+	*添加备注
+	*
+	*/
+	public function Remarks(){
+		$id = I('param.id','');
+		$type = I('param.type','');
+		$data['remarks'] = I('param.remarks','');
+		if($type==1){
+			$model = M('CompanyPosition');
+		}elseif($type==2){
+			$model = M('ApplicantUser');
+		}
+		if(isset($model)){
+			if($model->where("id=$id")->save($data)){
+				exit('OK');
+			}
+		}
+		
+	}
 
 	
 }
