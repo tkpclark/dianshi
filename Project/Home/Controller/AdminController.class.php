@@ -4,7 +4,7 @@ use Think\Controller;
 class AdminController extends Controller {
 	public function __construct(){   
 		parent::__construct();
-		C('SHOW_PAGE_TRACE','');
+		//C('SHOW_PAGE_TRACE','');
 	}
 	public function Login(){
 		$this->display();
@@ -161,7 +161,7 @@ class AdminController extends Controller {
 			$t=" and work_time = '".$Worktime."'";
 		}
 
-		$result = $User->where("1=1 $s $j $p $e $t")->select();
+		$result = $User->where("full=1 and job_status=1 $s $j $p $e $t")->select();
 
 		if(!empty($job_intension)){
 			$job_intension_arr=explode(',',$job_intension);

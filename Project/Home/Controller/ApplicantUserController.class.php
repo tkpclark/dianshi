@@ -367,6 +367,29 @@ class ApplicantUserController extends Controller {
 		}
 		
 	}
+	/*
+	*
+	*确实提交信息
+	*
+	*/
+	public function SubFull(){
+		$ApplicantUser = M('ApplicantUser');
+		$cn = I('param.cn','');
+		$id=session('id');
+		if($cn=='full'){
+			$data['full'] = 1;
+			$full = $ApplicantUser->where("id=$id")->getField('full');
+			if($full!=1){
+				if($ApplicantUser->where("id=$id")->save($data)){
+					exit('OK');
+				}
+			}else{
+				exit('OK');
+			}
+		}
+		
+		
+	}
 	
 	
 	

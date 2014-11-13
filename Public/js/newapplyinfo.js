@@ -1,4 +1,26 @@
 // JavaScript Document
+//信息补全
+function SubFull(evt){
+		var url=evt+"/SubFull/";
+	   $.ajax({
+		  cache:"False",
+		   type:"post",
+		   url:url,
+		   data:{ 
+			   cn:'full',
+			   },
+		   success : function(msg) {
+			   if (msg == "OK") {
+					alert("信息提交完成！");
+				   
+				}else{
+					alert(msg);
+				}
+					
+			}
+	 
+	 });
+}
 //预览图片
 function previewImage(file)  
 {  
