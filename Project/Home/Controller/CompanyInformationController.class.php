@@ -32,12 +32,12 @@ class CompanyInformationController extends Controller {
 		}else{
 			if($id = $User->add()){
 				header("Content-type:text/html;charset=utf-8");
-				$url = '你好, <b>朋友</b>! <br/>这是一封来自<a href="http://'.$_SERVER['HTTP_HOST'].'/index.php/a/'.$id.'/2" target="_blank">xxx网</a>的激活邮件！<br/>';
+				$url = '你好, <b>朋友</b>! <br/>这是一封来自<a href="http://'.$_SERVER['HTTP_HOST'].'/dianshi/index.php/a/'.$id.'/2" target="_blank">xxx网</a>的激活邮件！<br/>';
 				if(SendMail("$data[username]","邮件标题","$url")){
 					echo '注册成功,请到邮箱激活';
 					//$_SERVER[HTTP_HOST]/index.php/a/31	
 				}else{
-					echo '邮件发送失败，请<a href="http://'.$_SERVER['HTTP_HOST'].'/index.php/Home/Index/SendMails/username/'.$data['username'].'/id/'.$id.'/type/2" target="_blank">点击</a>重新获取邮件';
+					echo '邮件发送失败，请<a href="http://'.$_SERVER['HTTP_HOST'].'/dianshi/index.php/Home/Index/SendMails/username/'.$data['username'].'/id/'.$id.'/type/2" target="_blank">点击</a>重新获取邮件';
 				
 				}
 
